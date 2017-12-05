@@ -1,0 +1,79 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 22/06/2016 15:27
+    */
+
+    @font-face {
+        font-family: "Flaticon";
+        src: url("farming/Flaticon.eot");
+        src: url("farming/Flaticon.eot?#iefix") format("embedded-opentype"),
+             url("farming/Flaticon.woff") format("woff"),
+             url("farming/Flaticon.ttf") format("truetype"),
+             url("farming/Flaticon.svg#Flaticon") format("svg");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("farming/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-apple-tree:before { content: "\f100"; }
+    .flaticon-chicken:before { content: "\f101"; }
+    .flaticon-cow:before { content: "\f102"; }
+    .flaticon-eggs:before { content: "\f103"; }
+    .flaticon-farm:before { content: "\f104"; }
+    .flaticon-farm-products:before { content: "\f105"; }
+    .flaticon-farm-tools:before { content: "\f106"; }
+    .flaticon-farm-tractor:before { content: "\f107"; }
+    .flaticon-farmer:before { content: "\f108"; }
+    .flaticon-field:before { content: "\f109"; }
+    .flaticon-greenhouse:before { content: "\f10a"; }
+    .flaticon-growing-bed:before { content: "\f10b"; }
+    .flaticon-harvest:before { content: "\f10c"; }
+    .flaticon-hay-roll:before { content: "\f10d"; }
+    .flaticon-honey:before { content: "\f10e"; }
+    .flaticon-meat:before { content: "\f10f"; }
+    .flaticon-milk-products:before { content: "\f110"; }
+    .flaticon-pig:before { content: "\f111"; }
+    .flaticon-rye:before { content: "\f112"; }
+    .flaticon-sheep:before { content: "\f113"; }
+
+    $font-Flaticon-apple-tree: "\f100";
+    $font-Flaticon-chicken: "\f101";
+    $font-Flaticon-cow: "\f102";
+    $font-Flaticon-eggs: "\f103";
+    $font-Flaticon-farm: "\f104";
+    $font-Flaticon-farm-products: "\f105";
+    $font-Flaticon-farm-tools: "\f106";
+    $font-Flaticon-farm-tractor: "\f107";
+    $font-Flaticon-farmer: "\f108";
+    $font-Flaticon-field: "\f109";
+    $font-Flaticon-greenhouse: "\f10a";
+    $font-Flaticon-growing-bed: "\f10b";
+    $font-Flaticon-harvest: "\f10c";
+    $font-Flaticon-hay-roll: "\f10d";
+    $font-Flaticon-honey: "\f10e";
+    $font-Flaticon-meat: "\f10f";
+    $font-Flaticon-milk-products: "\f110";
+    $font-Flaticon-pig: "\f111";
+    $font-Flaticon-rye: "\f112";
+    $font-Flaticon-sheep: "\f113";

@@ -1,0 +1,43 @@
+%p#notice= notice
+
+%p
+  %b Vorname:
+  = @brotbestellung.vorname
+%p
+  %b Name:
+  = @brotbestellung.name
+%p
+  %b Telefon:
+  = @brotbestellung.telefon
+%p
+  %b Email:
+  = @brotbestellung.email
+%p
+  %b Datum:
+  = l(@brotbestellung.datum, format: "%A, %d.%m.%Y")
+
+%h3 Bestellpositionen
+
+%table.ui.table
+  %thead
+    %tr
+      %th #
+      %th Brotsorte
+      %th Menge
+      %th
+      %th
+      %th
+
+  %tbody
+    - @brotbestellung.brotbestellposi.each do |posi|
+      %tr
+        %td= posi.id
+        %td= posi.brotsorte.name
+        %td= posi.menge
+        %td= link_to 'Zeigen', posi
+        %td= link_to 'Bearbeiten', edit_brotbestellposi_path(posi)
+        %td= link_to 'Löschen', posi, method: :delete, data: { confirm: 'Sind Sie sicher?' }
+
+= link_to 'Bearbeiten', edit_brotbestellung_path(@brotbestellung)
+\|
+= link_to 'Zurück', brotbestellungs_path

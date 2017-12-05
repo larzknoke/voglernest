@@ -1,0 +1,11 @@
+%h2 Reservierungen:
+%table.ui.table
+  %thead
+    %tr
+      %th Fewo ID
+      %th Kapazität
+  %tbody
+    - @fewos.each do |fewo|
+      %tr
+        %td=fewo.id
+        %td=fewo.capacity

@@ -1,0 +1,178 @@
+
+
+  #head {
+  	position:fixed;
+  	z-index:-100;
+  	top:0;
+  	left:0;
+  	width:100%;
+  	padding: 50px 0;
+  	background-color: $color_yellow2;
+    background: url('home/header/bg1.jpg') center 65% no-repeat;
+    background-size: cover;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient(to right bottom,rgba($color_yellow,0.5),rgba($color_yellow2,1));
+        // opacity: 1.55;
+        z-index: -9999;
+      }
+  	}
+
+  .sub-logo {
+  	position: absolute;;
+  	right: 30px;
+  	top: 30px;
+  	display: inline-block;
+  	width: 60px;
+  	height: 60px;
+  	z-index: 9;
+
+    img {
+      height: 100%;
+    }
+   }
+
+  .logo {
+      width: 250px;
+      height: 250px;
+      background: rgba($color_yellow, 0.9);
+     	@include border-radius(50%);
+      background-image: url(logo.png);
+      background-position:50% 50%;
+      background-repeat:no-repeat;
+    	background-size: 75%;
+    	margin: 0 auto;
+
+
+      box-shadow: 0 19px 38px rgba(0,0,0,0.05), 0 15px 42px rgba(0,0,0,0.05);
+
+  	}
+
+    #nav  {
+      font-family: $font_serif;
+      font-size: 1.05em;
+      position:relative;
+      z-index:10;
+      width:100%;
+      top: 349px;
+      // box-shadow: 0px 0px 10px rgba(102,102,102,.3);
+
+
+      ul { background: $color_yellow; text-align:center;
+
+        li  {	display:inline-block;
+
+          a { display:block;
+            padding: 20px 30px;
+            text-decoration:none;
+            color: $color_green;
+            letter-spacing: 1px;
+            -webkit-transition:all .2s;-moz-transition:all .2s;-o-transition:all .2s;transition:all .2s;
+            position: relative;
+            }
+
+          a:hover { color: $color_orange; }
+
+          a::after {
+            position: absolute;
+            top: 100%;
+            left: 15%;
+            width: 70%;
+            height: 4px;
+            background: rgba(0,0,0,0.1);
+            content: '';
+            opacity: 0;
+            -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+            -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+            transition: opacity 0.3s, transform 0.3s;
+            -webkit-transform: translateY(0px);
+            -moz-transform: translateY(0px);
+            transform: translateY(0px);
+          }
+
+          a:hover::after,
+          a:focus::after {
+            opacity: 1;
+            -webkit-transform: translateY(-15px);
+            -moz-transform: translateY(-15px);
+            transform: translateY(-15px);
+          }
+        }
+
+      }
+    }
+
+
+    #nav.fixed {
+        position:fixed;
+        top:0;
+    }
+
+    .box-shadow:after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        margin-top: -1px;
+        display: block;
+        position: absolute;
+        z-index: -1;
+        @include shadow(10px);
+    }
+
+
+    #nav a::after {
+      position: absolute;
+      top: 100%;
+      left: 15%;
+      width: 70%;
+      height: 5px;
+      background: rgba(0,0,0,0.1);
+      content: '';
+      opacity: 0;
+      -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+      -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+      transition: opacity 0.3s, transform 0.3s;
+      -webkit-transform: translateY(0px);
+      -moz-transform: translateY(0px);
+      transform: translateY(0px);
+    }
+
+    #nav a:hover::after,
+    #nav a:focus::after {
+      opacity: 1;
+      -webkit-transform: translateY(-16px);
+      -moz-transform: translateY(-16px);
+      transform: translateY(-16px);
+    }
+
+
+    .open-at {
+      font-size:0.9em;
+      color: $color_green;
+      margin-left: 3%;
+      padding: 20px 35px 15px 35px;
+      position: absolute;
+      background-color: $color_yellow;
+      line-height: 1.6em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.14);
+      border-bottom: 2px $color_orange solid;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+
+      h3 {
+          font-family: $font_serif;
+          color: $color_orange;
+          font-weight: 400;
+      }
+
+      .open-at-important {
+        color: $color_orange;
+      }
+
+    }

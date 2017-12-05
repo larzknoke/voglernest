@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Menge:
+  = @brotbestellposi.menge
+%p
+  %b Brotsorte:
+  = @brotbestellposi.brotsorte
+%p
+  %b Brotbestellung:
+  = @brotbestellposi.brotbestellung
+
+= link_to 'Bearbeiten', edit_brotbestellposi_path(@brotbestellposi)
+\|
+= link_to 'Zurück', brotbestellposis_path

@@ -1,0 +1,10 @@
+= form_for @brotbestellschein do |f|
+  - if @brotbestellschein.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@brotbestellschein.errors.count, "error")} prohibited this brotbestellschein from being saved:"
+      %ul
+        - @brotbestellschein.errors.full_messages.each do |message|
+          %li= message
+
+  .actions
+    = f.submit 'Speichern'

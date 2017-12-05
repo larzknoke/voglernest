@@ -1,0 +1,22 @@
+= form_for @brotsorte, :html => {:class => 'ui form'} do |f|
+  - if @brotsorte.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@brotsorte.errors.count, "error")} prohibited this brotsorte from being saved:"
+      %ul
+        - @brotsorte.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    .ui.checkbox
+      = f.check_box :aktiv, :class => 'checkbox'
+      = f.label :aktiv
+  .field
+    .ui.checkbox
+      = f.check_box :ausverkauft, :class => 'checkbox'
+      = f.label :ausverkauft
+  .actions
+    = f.submit 'Speichern', :class  => 'ui button green basic'
+    = link_to 'Zurück', brotsortes_path, :class  => 'ui button red basic'

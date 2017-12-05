@@ -1,0 +1,54 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Voglernest
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .ui.fixed.menu
+      .ui.container
+        %a.header.item
+          =image_tag "logo.png", :class => 'logo'
+          Voglernest
+        .ui.simple.dropdown.item
+          Ferienwohung
+          %i.dropdown.icon
+          .menu{:style => 'width: 155px'}
+            .ui.simple.dropdown.item
+              Ferienwohungen
+              %i.dropdown.icon
+              .menu
+                = link_to 'Liste', fewos_path, class: 'item'
+                = link_to 'Neu', new_fewo_path, class: 'item'
+            .ui.simple.dropdown.item
+              Mieter
+              %i.dropdown.icon
+              .menu
+                = link_to 'Liste', mieters_path, class: 'item'
+                = link_to 'Neu', new_mieter_path, class: 'item'
+            .ui.simple.dropdown.item
+              Reservierungen
+              %i.dropdown.icon
+              .menu
+                = link_to 'Liste', bookings_path, class: 'item'
+                = link_to 'Neu', new_booking_path, class: 'item'
+        .ui.simple.dropdown.item
+          Brotbestellung
+          %i.dropdown.icon
+          .menu
+            .ui.simple.dropdown.item
+              Brotsorte
+              %i.dropdown.icon
+              .menu
+                = link_to 'Liste', brotsortes_path, class: 'item'
+                = link_to 'Neu', new_brotsorte_path, class: 'item'
+            = link_to 'Bestellscheine', brotbestellscheins_path, class: 'item'
+            = link_to 'Bestellungen', brotbestellungs_path, class: 'item'
+
+    .ui.main.container
+      - if flash[:notice]
+        .ui.message
+          = flash[:notice]
+
+      = yield

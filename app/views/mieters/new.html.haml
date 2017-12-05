@@ -1,0 +1,61 @@
+.columns.is-mobile
+  .column.is-half.is-offset-one-quarter
+
+    .box
+      %h2.title.is-4 Neuen Mieter anlegen
+      = form_for @mieter, url: {action: "create"} do |f|
+        .field.is-horizontal
+          .field-label.is-normal
+            = f.label :vorname, class: 'label'
+          .field-body
+            .field
+              .control
+                = f.text_field :vorname, class: 'input', type: 'text'
+        .field.is-horizontal
+          .field-label.is-normal
+            = f.label :name, class: 'label'
+          .field-body
+            .field
+              .control
+                = f.text_field :name, class: 'input', type: 'text'
+        .field.is-horizontal
+          .field-label.is-normal
+            = f.label :telefon, class: 'label'
+          .field-body
+            .field
+              .control
+                = f.text_field :telefon, class: 'input', type: 'tel'
+        .field.is-horizontal
+          .field-label.is-normal
+            = f.label :email, class: 'label'
+          .field-body
+            .field
+              .control
+                = f.text_field :email, class: 'input', type: 'email'
+        .field.is-horizontal
+          .field-label.is-normal
+            = f.label :strasse, class: 'label'
+          .field-body
+            .field
+              .control
+                = f.text_field :strasse, class: 'input', type: 'text'
+        .field.is-horizontal
+          .field-label.is-normal
+            = f.label :plz, class: 'label'
+          .field-body
+            .field
+              .control
+                = f.text_field :plz, class: 'input', type: 'text'
+        .field.is-horizontal
+          .field-label.is-normal
+            = f.label :ort, class: 'label'
+          .field-body
+            .field
+              .control
+                = f.text_field :ort, class: 'input', type: 'text'
+        .field.is-horizontal
+          .field-label.is-normal
+          .field-body
+            .field
+              .control
+                = f.submit 'Mieter anlegen', class: 'button is-primary', type: 'submit'

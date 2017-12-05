@@ -1,0 +1,14 @@
+%head
+  %title Voglerhof
+  = stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+  = csrf_meta_tags
+  %link{:href => "https://fonts.googleapis.com/css?family=Lato:300,300i,400,700|Arvo:400,700", :rel => "stylesheet"}
+
+  %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+  /[if lt IE 9] <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+%body
+  = render :partial => 'layouts/home/header'
+  .content-container.bg-green{:style => "margin-top: 363px;"}
+    = yield

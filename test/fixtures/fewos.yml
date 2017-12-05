@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bestaetigt: false
+  bezahlt: false
+  mieter_id: 
+
+two:
+  bestaetigt: false
+  bezahlt: false
+  mieter_id: 

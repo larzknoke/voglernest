@@ -1,0 +1,30 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h3
+      Neue Brotbestellung für den Bestellschein:
+      %strong
+        #{@bestellschein.id}
+    %p
+      %strong
+        Lieferdatum:
+      = l(@bestellschein.datum, format: "%A, %d.%m.%Y")
+    %br
+    %p
+      Folgende Positionen werden bestellt:
+
+    %table.ui.table
+      %thead
+        %tr{:style => "text-align: left"}
+          %th{:style => "width: 200px"}
+            Brotsorte
+          %th{:style => "text-align: right"}
+            Menge
+      %tbody
+        - @bestellschein.brotbestellungs.collect(&:brotbestellposi).flatten.group_by(&:brotsorte).each do |sorte, posi|
+          %tr
+            %td
+              = sorte.name
+            %td{:style => "text-align: right"}
+              = posi.collect(&:menge).sum

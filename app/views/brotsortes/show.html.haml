@@ -1,0 +1,15 @@
+-# %p#notice= notice
+
+%p
+  %b Name:
+  = @brotsorte.name
+%p
+  %b Aktiv:
+  = @brotsorte.aktiv
+%p
+  %b Ausverkauft:
+  = @brotsorte.ausverkauft
+
+= link_to 'Bearbeiten', edit_brotsorte_path(@brotsorte)
+\|
+= link_to 'Zurück', brotsortes_path

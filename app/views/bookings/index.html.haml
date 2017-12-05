@@ -1,0 +1,68 @@
+%h1 Reservierungen:
+
+.ui.grid
+
+  .ui.eight.wide.column
+    - @bookings.each do |booking|
+      %p
+        %strong
+          Booking-ID:
+        =booking.id
+      %p
+        %strong
+          Fewo:
+        =booking.bookable.id
+      %p
+        %strong
+          Mieter:
+        ="#{booking.booker.vorname} #{booking.booker.name}"
+      %p
+        %strong
+          Check-In:
+        =booking.time_start.strftime("%d.%m.%Y / %H Uhr")
+      %p
+        %strong
+          Check-Out:
+        =booking.time_end.strftime("%d.%m.%Y / %H Uhr")
+      %p
+        %strong
+          Personen:
+        =booking.amount
+      %p
+        %strong
+          Bestätigt:
+        = booking.bestaetigt ? 'Ja' : 'Nein'
+      = link_to 'Löschen', booking_path(booking), method: :delete, data: { confirm: 'Wirklich löschen?' },class: 'button ui red basic button mini'
+      = link_to 'Bestätigen', {:action => 'bestaetigen', :id => booking.id}, class: 'button ui green basic button mini'
+      -# = link_to 'Bestätigen',{}, {class: 'button ui green basic button mini'}
+
+      .ui.divider
+
+  .ui.eight.wide.column
+    = month_calendar events: @bookings, attribute: :time_start, end_attribute: :time_end do |date, meetings|
+      = date.day
+      -# - meetings.each do |meeting|
+        %div
+          = meeting.id
+
+:css
+
+  .calendar-heading { margin-bottom: 1rem;}
+  .next-month, .prev-month {
+    color: #ccc!important;
+    background-color: #eee!important;
+  }
+  .has-events {
+    background-color: #db2828!important;
+    color: white
+  }
+  .today {
+    background-color: #2185d0!important;
+    color: white
+  }
+
+:javascript
+  $('.simple-calendar .calendar-heading a').addClass('ui button compact')
+  $('.simple-calendar .calendar-heading span').css("margin","0 1rem")
+  $('.calendar-heading a').first().text('zurück')
+  $('.calendar-heading a').last().text('vor')

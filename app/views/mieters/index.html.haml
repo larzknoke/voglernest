@@ -1,0 +1,23 @@
+%h2 Mieter:
+%table.table.ui
+  %thead
+    %tr
+      %th #
+      %th Vorname
+      %th Name
+      %th Telefon
+      %th Email
+      %th Strasse
+      %th PLZ
+      %th Ort
+  %tbody
+    - @mieters.each do |mieter|
+      %tr
+        %td= mieter.id
+        %td= mieter.vorname
+        %td= mieter.name
+        %td= mieter.telefon
+        %td= mieter.email
+        %td= mieter.strasse
+        %td= mieter.plz
+        %td= mieter.ort

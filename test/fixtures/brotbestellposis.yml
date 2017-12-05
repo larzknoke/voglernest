@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  menge: 1
+  brotsorte_id: 
+  brotbestellung_id: 
+
+two:
+  menge: 1
+  brotsorte_id: 
+  brotbestellung_id: 

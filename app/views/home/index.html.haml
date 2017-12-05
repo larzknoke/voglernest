@@ -1,0 +1,194 @@
+.ui.grid{:style => "padding-bottom: 3rem"}
+  .ui.grid.container.stackable
+    .sixteen.wide.column.row.first-section.roomy-70
+      .twelve.wide.column
+        = render 'carousel'
+      .four.wide.column
+        .info-box
+          %h3 Aktuelles &amp; Angebote
+          .box-item
+            %h4
+              %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+              18. Mai 2017
+            %p
+              Lorem ipsum dolor sit amet, consectetur adipisicing
+              %elit
+          .box-item
+            %h4
+              %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+              05. Juni 2017
+            %p
+              Lorem consectetur ipsum dolor.
+              %elit
+          .box-item
+            %h4
+              %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+              03. Juli 2017
+            %p
+              Lorem ipsum  adipisicing dolor sit amet, consectetur
+              %elit
+          %a.btn.btn-small.text-center{:href => "/"}
+            %i.fa.fa-calendar{"aria-hidden" => "true"}
+            Termine
+    .seven.wide.column.text-yellow.roomy-120
+      %h1 Der Voglerhof
+      .divider-left
+      %h5
+        Der Voglerhof - gesund einkaufen, gesund urlaubmachen,
+        biologische Tierhaltung und  Energie aus natürliche Ressourcen!
+      %h5
+        Lorem ipsum dolor sit amet, consectetur adipisicing
+      %a.btn.btn-primary{:href => "/shop"}
+        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+        mehr
+    .nine.wide.column.roomy-80
+      .img-holder.hover-effect
+        .img-item.border-bottom.hover{:style => "background-image: url(#{image_path("home/content/content2.jpg") })"}
+          .overlay
+        .img-item.border-bottom{:style => "background-image: url(#{image_path("home/slider/biogas.jpg") })"}
+          .overlay
+        .img-item.border-bottom{:style => "background-image: url(#{image_path("home/content/content3.jpg")})"}
+          .overlay
+.ui.grid.bg-yellow2.roomy-90
+  .ui.grid.container
+    .ui.three.column.row.stackable
+      .column
+        %h2
+          %span.fi.flaticon-harvest.fi-big
+          Brotbestellung
+        %p
+          Lorem ipsum dolor sit amet,
+          consetetur
+          %br
+          sed diam nonumy eirmod tempor invidunt ut
+          %br
+          ipsum dolor sit amet,
+          consetetur.
+        %a.btn.btn-small{:href => "/shop"}
+          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+          zur Brotbestellung
+      .column
+        %h2
+          %span.fi.flaticon-farmer.fi-big
+          Ausbildung
+        %p
+          Lorem ipsum dolor sit amet,
+          consetetur
+          %br
+          sed diam nonumy eirm invidunt ut
+          consetetur.
+          %br
+          %br
+        %a.btn.btn-small{:href => "/shop"}
+          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+          mehr Infos
+      .column
+        %h2
+          %span.fi.flaticon-farm-products.fi-big
+          Hofladen
+        %p
+          Lorem ipsum dolor sit amet,
+          consetetur
+          %br
+          sed diam nonumy eirmod tempor invidunt
+          %br
+          ut sit amet.
+        %a.btn.btn-small{:href => "/shop"}
+          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+          zum Hofladen
+
+.ui.grid.roomy-150
+  .column.text-center.text-yellow
+    %h1 Ferienwohnung
+    .divider-center
+    .img-holder.roomy-50
+      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo1.jpg") })"}
+      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })"}
+      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo3.jpg") })"}
+      -# .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo4.jpg") })"}
+    %p Lorem ipsum dolor sit amet. Stet clita kasd gu sam et justo duo dolores et ea rebu
+    %p aliquyam erat, sed diam voluptua. Es et ea rebum. Stet clita kasd gubergren, no sea  sanctus est
+    %p am voluptua. Es et ea rebum. Stet clita kasd gubergren, no sea  sanctus est
+    %br
+    %a.btn.btn-primary{:href => "/shop"}
+      %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+      Ferienwohnung buchen
+
+.ui.grid{:style => 'margin-left: 0; margin-right: 0;'}
+  #map.border-bottom{:style => 'height:550px; width: 100%'}
+
+
+.ui.grid.bg-yellow2.roomy-90
+  .ui.grid.container
+    .ui.sixteen.column.row.stackable
+      .column.six.wide
+        %h1
+          Kontakt
+        %p
+          %strong
+            Barbara, Karl-Heinz und Sebastian Vogler
+          %br
+          Tiebrink 5
+          %br
+          37619 Kirchbrak
+          %br
+          Telefon: +49 5533 1514
+          %br
+          Telefax: +49 5533 6215
+          %br
+          E-Mail: info@voglerhof.de
+          %br
+          Internet: www.voglerhof.de
+          %br
+          %br
+          %br
+          Öko-Kontrollstelle: ÖKO DE 006
+          %br
+        .ui.sixteen.column.row
+          %a{:href => "http://www.bioland.de"}
+            = image_tag 'home/header/bioland.svg', :style => "width: 60px"
+          %a{:href => "http://www.bioland.de"}
+            = image_tag 'home/header/biosiegel.svg', :style => "width: 70px; margin-left: 15px"
+
+
+      .column.ten.wide
+        %form.ui.form
+          .field
+            %input{:name => "kontakt[name]", :placeholder => "Name", :type => "text"}/
+          .field
+            -# %label Name
+            .two.fields
+              .field
+                %input{:name => "kontakt[email]", :placeholder => "Email", :type => "text"}/
+              .field
+                %input{:name => "kontakt[telefon]", :placeholder => "Telefon", :type => "text"}/
+          .field
+            -# %label Text
+            %textarea{:name => "kontakt[text]", :placeholder => "Nachricht", :type => "text", :rows => 8}
+
+          -# %button.ui.button{:type => "submit"} Submit
+          %a.btn.btn-small.pull-right{:href => "/", :style => "width: 100%"}
+            %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+            Senden
+
+
+%script{:async => true, :defer => true, :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCVrcwL7Rt-2hn6cNLW6GpZsh1SDbkSg6Q&callback=initMap"}
+
+
+:javascript
+  /* GOOGLE MAPS */
+  function initMap() {
+
+    var myLatLng = {lat: 51.9658124, lng: 9.5735824};
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: myLatLng,
+      scrollwheel: false,
+      zoom: 15
+    });
+
+    var marker = new google.maps.Marker({
+      map: map,
+      position: myLatLng,
+    });
+  }

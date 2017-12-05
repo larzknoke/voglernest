@@ -1,0 +1,25 @@
+%h1 Brotbestellpositionen
+
+%table.ui.table
+  %thead
+    %tr
+      %th Brotsorte
+      %th Menge
+      %th Brotbestellung
+      %th
+      %th
+      %th
+
+  %tbody
+    - @brotbestellposis.each do |brotbestellposi|
+      %tr
+        %td= brotbestellposi.brotsorte.name
+        %td= brotbestellposi.menge
+        %td= link_to brotbestellposi.brotbestellung.id, brotbestellposi.brotbestellung
+        %td= link_to 'Zeigen', brotbestellposi
+        %td= link_to 'Bearbeiten', edit_brotbestellposi_path(brotbestellposi)
+        %td= link_to 'Löschen', brotbestellposi, method: :delete, data: { confirm: 'Sind Sie sicher?' }
+
+%br
+
+= link_to 'Neue Brotbestellposi', new_brotbestellposi_path, :class => 'button ui green basic'

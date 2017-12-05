@@ -1,0 +1,26 @@
+= form_for @brotbestellposi , :html => {:class => 'ui form'} do |f|
+  - if @brotbestellposi.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@brotbestellposi.errors.count, "error")} prohibited this brotbestellposi from being saved:"
+      %ul
+        - @brotbestellposi.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :menge
+    = f.number_field :menge
+  .field
+    = f.label :brotsorte_id
+    = f.number_field :brotsorte_id
+  .field
+    = f.label :brotbestellung_id
+    = f.select :brotbestellung_id, options_from_collection_for_select(Brotbestellung.all, 'id', 'id'),{}, {class: 'ui dropdown'}
+
+  .actions
+    = f.submit 'Speichern', :class => 'ui button basic  green'
+
+
+:javascript
+  $('select.dropdown')
+    .dropdown()
+  ;
