@@ -1,10 +1,17 @@
-= form_for @brotbestellschein do |f|
+= form_for @brotbestellschein, :html => {:class => 'ui form'} do |f|
   - if @brotbestellschein.errors.any?
     #error_explanation
       %h2= "#{pluralize(@brotbestellschein.errors.count, "error")} prohibited this brotbestellschein from being saved:"
       %ul
         - @brotbestellschein.errors.full_messages.each do |message|
           %li= message
-
+  .field
+    = f.label :datum
+    = f.select :datum, options_for_select(@date_result),{}, {class: 'ui dropdown'}
   .actions
-    = f.submit 'Speichern'
+    = f.submit 'Speichern', :class => 'ui button basic green'
+
+:javascript
+  $('select.dropdown')
+    .dropdown()
+  ;

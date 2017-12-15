@@ -15,7 +15,7 @@
       %th
 
   %tbody
-    - @brotbestellungs.each do |brotbestellung|
+    - @brotbestellungs.where.not(:name => 'ADMIN').each do |brotbestellung|
       %tr
         %td= brotbestellung.id
         %td= brotbestellung.vorname
@@ -25,7 +25,10 @@
         %td= l(brotbestellung.datum, format: '%a, %d.%m.%Y')
         %td
           - if brotbestellung.brotbestellschein.present?
-            = link_to brotbestellung.brotbestellschein.id, brotbestellung.brotbestellschein
+            = link_to brotbestellung.brotbestellschein do
+              = brotbestellung.brotbestellschein.id
+              - if brotbestellung.brotbestellschein.versendet.present?
+                %i.checkmark.icon
           - else
             = '-'
         %td= link_to 'Zeigen', brotbestellung
@@ -36,11 +39,11 @@
   = link_to 'Neue Brotbestellung', new_brotbestellung_path, :class => 'button ui green basic'
 
 
-%h1 Brotbestellung nach Datum
-- @brotbestellungs.order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
+%h1 Offene Brotbestellung nach Datum
+- @brotbestellungs.where(:brotbestellschein => nil).order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
   %h3{:style => 'display: inline-block;margin-right: 10px'}
     = l(datum, format: '%A, %d.%m.%Y')
-  = link_to 'Offene Bestellungen auf Brotbestellschein', brotbestellscheins_path(:datum => datum), method: :post
+  = link_to 'Offene Bestellungen auf Brotbestellschein', :controller => 'brotbestellscheins', :action => 'schein_aus_bst', :datum => datum
 
   %table.ui.table
     %thead

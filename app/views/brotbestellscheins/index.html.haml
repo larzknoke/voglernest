@@ -5,6 +5,7 @@
     %tr
       %th #
       %th Datum
+      %th Versendet
       %th
       %th
       %th
@@ -14,6 +15,7 @@
       %tr
         %td= brotbestellschein.id
         %td= l(brotbestellschein.datum, format: '%a, %d.%m.%Y')
+        %td= l(brotbestellschein.versendet, format: '%a, %d.%m.%Y') rescue '-'
         %td= link_to 'Zeigen', brotbestellschein
         %td= link_to 'Bearbeiten', edit_brotbestellschein_path(brotbestellschein)
         %td= link_to 'Löschen', brotbestellschein, method: :delete, data: { confirm: 'Are you sure?' }

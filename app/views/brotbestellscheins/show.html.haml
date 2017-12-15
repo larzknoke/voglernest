@@ -1,10 +1,48 @@
-%p#notice= notice
+-# %p#notice= notice
 
 %h3
   Datum:
   = l(@brotbestellschein.datum, format: '%A, %d.%m.%Y')
 
-= link_to 'Bestellung absenden', {:controller => 'brotbestellscheins', :action => 'bestellemail', :id => @brotbestellschein.id}, :class => 'button ui green basic button'
+- if @brotbestellschein.versendet.nil?
+  = link_to 'Bestellung absenden', {:controller => 'brotbestellscheins', :action => 'bestellemail', :id => @brotbestellschein.id}, :class => 'button ui green basic button'
+- else
+  %button.ui.disabled.button
+    %i.checkmark.icon
+    Versendet am:
+    = l(@brotbestellschein.versendet, format: '%A, %d.%m.%Y, %H:%M Uhr')
+%br
+%br
+
+.ui.grid
+  .ten.wide.column
+    %h3 Bestellpositionen
+
+    %table.ui.table
+      %thead
+        %tr
+          %th Brotsorte
+          %th Menge
+      %tbody
+        - @brotbestellschein.brotbestellungs.collect(&:brotbestellposi).flatten.group_by(&:brotsorte).each do |sorte, posi|
+          %tr
+            %td= sorte.name
+            %td= posi.collect(&:menge).sum
+
+  .six.wide.column
+    %h3 Positionen hinzufügen
+
+    = form_for @brotbestellung, :url => { :action => "bst_auf_schein" , :id => @brotbestellschein }, :html => {:class => 'ui form', :method => "put" } do |f|
+      - @brotsorten.each do |brotsorte|
+        = f.fields_for :brotbestellposi, @brotbestellung.brotbestellposi do |posi|
+          .ui.labeled.input.fluid{:style => 'margin-bottom: 1em', :class => [('disabled' if @brotbestellschein.versendet)] }
+            .ui.label{:style => 'width: 50%'}
+              = brotsorte.name
+            = posi.number_field :menge, :value => 0
+          = posi.hidden_field :brotsorte_id, value: brotsorte.id
+      .actions
+        = f.submit 'Hinzufügen', :class => [('ui button basic green'), ('disabled' if @brotbestellschein.versendet)]
+
 
 %h3 Bestellungen
 
@@ -29,18 +67,6 @@
         %td= link_to 'Löschen', brotbestellung, method: :delete, data: { confirm: 'Sind Sie sicher?' }
 
 
-%h3 Bestellpositionen
-
-%table.ui.table
-  %thead
-    %tr
-      %th Brotsorte
-      %th Menge
-  %tbody
-    - @brotbestellschein.brotbestellungs.collect(&:brotbestellposi).flatten.group_by(&:brotsorte).each do |sorte, posi|
-      %tr
-        %td= sorte.name
-        %td= posi.collect(&:menge).sum
 
 = link_to 'Bearbeiten', edit_brotbestellschein_path(@brotbestellschein)
 \|
