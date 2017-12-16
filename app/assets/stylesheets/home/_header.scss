@@ -8,7 +8,7 @@
   	width:100%;
   	padding: 50px 0;
   	background-color: $color_yellow2;
-    background: url('home/header/bg1.jpg') center 65% no-repeat;
+    background: asset-data-url('background.png') center 65% no-repeat;
     background-size: cover;
 
       &:before {
