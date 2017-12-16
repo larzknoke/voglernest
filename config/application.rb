@@ -25,7 +25,5 @@ module Voglernest
 
     config.i18n.available_locales = [:de]
     config.i18n.default_locale = :"de"
-
-    config.serve_static_assets = true
   end
 end
