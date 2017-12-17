@@ -12,7 +12,6 @@
  *
 
  *= require_self
- *= require home
  *= require simple_calendar
  *= require semantic-ui-calendar
  */
@@ -20,7 +19,7 @@
 @import "semantic-ui";
 @import "font-awesome";
 @import "slick-theme";
-// @import "home";
+@import "home";
 
 .ui.menu .item img.logo {
   margin-right: 1em;
