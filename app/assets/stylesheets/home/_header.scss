@@ -44,7 +44,7 @@
       height: 250px;
       background: rgba($color_yellow, 0.9);
      	@include border-radius(50%);
-      background-image: url(logo.png);
+      background-image: url(asset_path('logo.png'));
       background-position:50% 50%;
       background-repeat:no-repeat;
     	background-size: 75%;
