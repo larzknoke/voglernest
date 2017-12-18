@@ -127,7 +127,7 @@ class BrotbestellscheinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brotbestellschein_params
-      params.require(:brotbestellschein).permit(:datum)
+      params.permit(:datum)
     end
     def brotbestellung_params
       params.require(:brotbestellung).permit(:vorname, :name, :telefon, :email, :datum, :brotbestellposi_id,brotbestellposi_attributes: [:menge, :brotsorte_id])
