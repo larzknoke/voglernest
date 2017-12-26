@@ -12,17 +12,17 @@
   = image_tag 'home/header/biosiegel.svg'
 %header#head
   .logo
-%nav#nav.box-shadow.ui.sticky
+%nav#nav.box-shadow.ui.sticky{:style => 'top: 349px'}
   %ul
     %li
-      %a{:href => "/"} Voglerhof
+      = link_to "Voglerhof", { :action => "hof" }
     %li
-      %a{:href => "#"} Biogasanlage
+      = link_to "Biogasanlage", { :action => "biogas" }
     %li
-      %a{:href => "#"} Ausbildung
+      = link_to "Ausbildung", { :action => "ausbildung" }
     %li
       %a{:href => "/shop"} Hofladen
     %li
-      %a{:href => "/ferienwohnung"} Ferienwohnung
+      = link_to "Ferienwohnung", { :action => "fw" }
     %li
       %a{:href => "#"} Kontakt

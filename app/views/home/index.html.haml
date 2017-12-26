@@ -10,21 +10,21 @@
             %h4
               %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
               18. Mai 2017
-            %p
+            %p.text-green
               Lorem ipsum dolor sit amet, consectetur adipisicing
               %elit
           .box-item
             %h4
               %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
               05. Juni 2017
-            %p
+            %p.text-green
               Lorem consectetur ipsum dolor.
               %elit
           .box-item
             %h4
               %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
               03. Juli 2017
-            %p
+            %p.text-green
               Lorem ipsum  adipisicing dolor sit amet, consectetur
               %elit
           %a.btn.btn-small.text-center{:href => "/"}
@@ -56,7 +56,7 @@
         %h2
           %span.fi.flaticon-harvest.fi-big
           Brotbestellung
-        %p
+        %p.text-green
           Lorem ipsum dolor sit amet,
           consetetur
           %br
@@ -71,7 +71,7 @@
         %h2
           %span.fi.flaticon-farmer.fi-big
           Ausbildung
-        %p
+        %p.text-green
           Lorem ipsum dolor sit amet,
           consetetur
           %br
@@ -86,7 +86,7 @@
         %h2
           %span.fi.flaticon-farm-products.fi-big
           Hofladen
-        %p
+        %p.text-green
           Lorem ipsum dolor sit amet,
           consetetur
           %br
@@ -118,58 +118,6 @@
   #map.border-bottom{:style => 'height:550px; width: 100%'}
 
 
-.ui.grid.bg-yellow2.roomy-90
-  .ui.grid.container
-    .ui.sixteen.column.row.stackable
-      .column.six.wide
-        %h1
-          Kontakt
-        %p
-          %strong
-            Barbara, Karl-Heinz und Sebastian Vogler
-          %br
-          Tiebrink 5
-          %br
-          37619 Kirchbrak
-          %br
-          Telefon: +49 5533 1514
-          %br
-          Telefax: +49 5533 6215
-          %br
-          E-Mail: info@voglerhof.de
-          %br
-          Internet: www.voglerhof.de
-          %br
-          %br
-          %br
-          Öko-Kontrollstelle: ÖKO DE 006
-          %br
-        .ui.sixteen.column.row
-          %a{:href => "http://www.bioland.de"}
-            = image_tag 'home/header/bioland.svg', :style => "width: 60px"
-          %a{:href => "http://www.bioland.de"}
-            = image_tag 'home/header/biosiegel.svg', :style => "width: 70px; margin-left: 15px"
-
-
-      .column.ten.wide
-        %form.ui.form
-          .field
-            %input{:name => "kontakt[name]", :placeholder => "Name", :type => "text"}/
-          .field
-            -# %label Name
-            .two.fields
-              .field
-                %input{:name => "kontakt[email]", :placeholder => "Email", :type => "text"}/
-              .field
-                %input{:name => "kontakt[telefon]", :placeholder => "Telefon", :type => "text"}/
-          .field
-            -# %label Text
-            %textarea{:name => "kontakt[text]", :placeholder => "Nachricht", :type => "text", :rows => 8}
-
-          -# %button.ui.button{:type => "submit"} Submit
-          %a.btn.btn-small.pull-right{:href => "/", :style => "width: 100%"}
-            %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-            Senden
 
 
 %script{:async => true, :defer => true, :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCVrcwL7Rt-2hn6cNLW6GpZsh1SDbkSg6Q&callback=initMap"}

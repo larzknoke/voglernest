@@ -61,7 +61,7 @@
       position:relative;
       z-index:10;
       width:100%;
-      top: 349px;
+      // top: 349px;
       // box-shadow: 0px 0px 10px rgba(102,102,102,.3);
 
 
@@ -112,7 +112,7 @@
 
     #nav.fixed {
         position:fixed;
-        top:0;
+        top:0 !important;
     }
 
     .box-shadow:after {

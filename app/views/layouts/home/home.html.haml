@@ -9,6 +9,11 @@
   %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
   /[if lt IE 9] <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 %body
-  = render :partial => 'layouts/home/header'
-  .content-container.bg-green{:style => "margin-top: 363px;"}
+  - if action_name == 'index'
+    = render :partial => 'layouts/home/header'
+  - else
+    = render :partial => 'layouts/home/header_small'
+  .content-container.bg-green{:style => (action_name == 'index' ? "margin-top: 363px" : "margin-top: 62px")}
     = yield
+  .footer{:style => (action_name == 'index' || action_name == 'ausbildung' ? "margin-top: 0px" : "margin-top: 200px; z-index: 9999")}
+    = render :partial => 'layouts/home/footer'

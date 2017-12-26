@@ -61,10 +61,11 @@ h3 	{font-family: $font_serif; font-size: 1.3rem;font-weight: 400; text-transfor
 // h4 	{font-size: 1.3rem; font-family: $font_sans, sans-serif; font-weight: 300; letter-spacing:1px;}
 h5 	{font-size: 1.3rem; font-family: $font_sans, sans-serif; font-weight: 300; letter-spacing:1px;}
 
-p { font-size: 1.2rem; font-family: $font_sans, sans-serif; font-weight: 300;}
+p { font-size: 1.2rem; font-family: $font_sans, sans-serif; font-weight: 300; color: $color_yellow}
 
 .text-center { text-align: center;}
 
+.text-orange { color: $color_orange;}
 .text-green { color: $color_green;}
 .text-yellow { color: $color_yellow;}
 .text-yellow2 { color: $color_yellow2;}
@@ -84,6 +85,12 @@ p { font-size: 1.2rem; font-family: $font_sans, sans-serif; font-weight: 300;}
 }
 .border-top {
   border-top: .75rem solid $color_orange;
+}
+.border-left {
+  border-left: .75rem solid $color_orange;
+}
+.border-right {
+  border-right: .75rem solid $color_orange;
 }
 
 .fi-big {
@@ -141,6 +148,12 @@ p { font-size: 1.2rem; font-family: $font_sans, sans-serif; font-weight: 300;}
 }
 
 
+.m-top-100 {
+  margin-top: 100px !important;
+}
+.m-top-80 {
+  margin-top: 80px !important;
+}
 .m-top-50 {
   margin-top: 50px !important;
 }
@@ -162,6 +175,12 @@ p { font-size: 1.2rem; font-family: $font_sans, sans-serif; font-weight: 300;}
 }
 .divider-center {
   margin: auto;
+}
+.divider-center.text-green,.divider-left.text-green {
+  border-bottom: 0.25rem solid $color_green;
+}
+.divider-center.text-orange,.divider-left.text-orange {
+  border-bottom: 0.25rem solid $color_orange;
 }
 
 
@@ -313,6 +332,33 @@ input[type="text"], input[type="number"],textarea, .dropdown.selection  {
 .ui.labeled.input > .label {
     width: 30%;
 }
+
+
+
+.header-container {
+  .header-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+  }
+  h2 {
+    margin: 2.5rem 0 0 0;
+  }
+
+}
+
+.list-container {
+  background-color: $color_yellow2;
+  color: $color_green;
+  padding: 1.5rem;
+  margin: 3.5rem 0 ;
+}
+
+.vertical-align-center {
+
+}
+
+
 
 // .section {
 //   z-index: 100;

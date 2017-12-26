@@ -29,6 +29,10 @@ Rails.application.routes.draw do
   end
 
   get 'home/index'
+  get 'home/hof'
+  get 'home/biogas'
+  get 'home/ausbildung'
+  get 'home/fw'
 
   #
   # get 'mieter/index'
