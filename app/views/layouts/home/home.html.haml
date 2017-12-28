@@ -15,5 +15,5 @@
     = render :partial => 'layouts/home/header_small'
   .content-container.bg-green{:style => (action_name == 'index' ? "margin-top: 363px" : "margin-top: 62px")}
     = yield
-  .footer{:style => (action_name == 'index' || action_name == 'ausbildung' ? "margin-top: 0px" : "margin-top: 200px; z-index: 9999")}
+  .footer{:style => (action_name == 'index' || action_name == 'ausbildung' || action_name == 'hofladen' ? "margin-top: 0px" : "margin-top: 200px; z-index: 9999")}
     = render :partial => 'layouts/home/footer'

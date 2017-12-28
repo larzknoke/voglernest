@@ -19,4 +19,8 @@ class HomeController < ApplicationController
     render layout: 'home/home'
   end
 
+  def hofladen
+    render layout: 'home/home'
+  end
+
 end

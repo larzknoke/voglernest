@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get 'home/biogas'
   get 'home/ausbildung'
   get 'home/fw'
+  get 'home/hofladen'
 
   #
   # get 'mieter/index'
