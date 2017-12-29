@@ -1,16 +1,17 @@
 %nav#nav.box-shadow.ui.fixed
   %ul
     %li
-      = image_tag "logo.png",{:style => "  position: relative; top: 12px;margin: 0 25px; width: 45px;"}
+      = link_to(home_index_path, style: "padding: 0", class: "no-hover") do
+        = image_tag "logo.png",{:style => "  position: relative; top: 12px;margin: 0 25px; width: 45px;"}
     %li
-      = link_to "Voglerhof", { :action => "hof" }
+      = link_to "Voglerhof", {:controller => "home", :action => "hof" }
     %li
-      = link_to "Biogasanlage", { :action => "biogas" }
+      = link_to "Biogasanlage", {:controller => "home", :action => "biogas" }
     %li
-      = link_to "Ausbildung", { :action => "ausbildung" }
+      = link_to "Ausbildung", {:controller => "home", :action => "ausbildung" }
     %li
-      = link_to "Hofladen", { :action => "hofladen" }
+      = link_to "Hofladen", {:controller => "home", :action => "hofladen" }
     %li
-      = link_to "Ferienwohnung", { :action => "fw" }
+      = link_to "Ferienwohnung", {:controller => "home", :action => "fw" }
     %li
       %a{:href => "#"} Kontakt

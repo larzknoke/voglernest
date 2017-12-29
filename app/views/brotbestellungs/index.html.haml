@@ -48,7 +48,7 @@
   %table.ui.table
     %thead
       %tr
-        %th Brotsorte
+        %th{:style => "width: 30%"} Brotsorte
         %th Menge
     %tbody
       - brotbestellungs.collect(&:brotbestellposi).flatten.group_by(&:brotsorte).each do |sorte, posi|

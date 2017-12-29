@@ -34,11 +34,10 @@
       %h1 Der Voglerhof
       .divider-left
       %h5
-        Der Voglerhof - gesund einkaufen, gesund urlaubmachen,
-        biologische Tierhaltung und  Energie aus natürliche Ressourcen!
+        Aus Überzeugung bio – schon seit 1989. Erfahren Sie mehr über den Hof und unsere Arbeitsweise.
       %h5
         Lorem ipsum dolor sit amet, consectetur adipisicing
-      %a.btn.btn-primary{:href => "/shop"}
+      = link_to(home_fw_path, class: "btn btn-primary") do
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
         mehr
     .nine.wide.column.roomy-80
@@ -57,45 +56,29 @@
           %span.fi.flaticon-harvest.fi-big
           Brotbestellung
         %p.text-green
-          Lorem ipsum dolor sit amet,
-          consetetur
-          %br
-          sed diam nonumy eirmod tempor invidunt ut
-          %br
-          ipsum dolor sit amet,
-          consetetur.
-        %a.btn.btn-small{:href => "/shop"}
+          Brot und Brötchen schnell und unkompliziert vorbestellen – ganz bequem jetzt online!
+        = link_to(home_hofladen_path, class: "btn btn-small") do
           %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
           zur Brotbestellung
-      .column
-        %h2
-          %span.fi.flaticon-farmer.fi-big
-          Ausbildung
-        %p.text-green
-          Lorem ipsum dolor sit amet,
-          consetetur
-          %br
-          sed diam nonumy eirm invidunt ut
-          consetetur.
-          %br
-          %br
-        %a.btn.btn-small{:href => "/shop"}
-          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-          mehr Infos
       .column
         %h2
           %span.fi.flaticon-farm-products.fi-big
           Hofladen
         %p.text-green
-          Lorem ipsum dolor sit amet,
-          consetetur
-          %br
-          sed diam nonumy eirmod tempor invidunt
-          %br
-          ut sit amet.
-        %a.btn.btn-small{:href => "/shop"}
+          Frische Milch oder frisches regionales Gemüse – biologisch! Das und noch mehr finden Sie bei uns im Hofladen.
+        = link_to(home_hofladen_path, class: "btn btn-small") do
           %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
           zum Hofladen
+      .column
+        %h2
+          %span.fi.flaticon-farmer.fi-big
+          Ausbildung
+        %p.text-green
+          Sucht Ihr einen Ausbildungsplatz in der Landwirtschaft mit abwechslungsreichen Betriebszweigen?
+        = link_to(home_ausbildung_path, class: "btn btn-small") do
+          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+          mehr Infos
+
 
 .ui.grid.roomy-150
   .column.text-center.text-yellow
@@ -106,11 +89,11 @@
       .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })"}
       .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo3.jpg") })"}
       -# .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo4.jpg") })"}
-    %p Lorem ipsum dolor sit amet. Stet clita kasd gu sam et justo duo dolores et ea rebu
-    %p aliquyam erat, sed diam voluptua. Es et ea rebum. Stet clita kasd gubergren, no sea  sanctus est
-    %p am voluptua. Es et ea rebum. Stet clita kasd gubergren, no sea  sanctus est
-    %br
-    %a.btn.btn-primary{:href => "/shop"}
+    %p
+      In ein liebevoll restauriertes Fachwerkhaus befindet sich die Ferienwohnung mit bis zu sechs Schlafplätzen.
+      %br
+      Geräumig und gleichzeitig sehr gemütlich – Lust auf Ferien im Weserbergland?
+    = link_to(home_fw_path, class: "btn btn-primary") do
       %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
       Ferienwohnung buchen
 

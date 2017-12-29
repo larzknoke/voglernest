@@ -6,9 +6,8 @@
       %span.fi.flaticon-milk-products
       %h3 Der Hofladen
       %p
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Expedita, sint temporibus nihil asperiores?
-      %a.btn{:href => "/shop"}
+        Bioprodukte direkt vom Erzeuger und ein liebevoll zusammengestelltes Biovollsortiment möglichst aus der Regional – genau das und noch viel mehr finden Sie bei uns im Hofladen.
+      = link_to(home_hofladen_path, class: "btn") do
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
         zum Hofladen
   .slide-container
@@ -18,9 +17,8 @@
       %span.fi.flaticon-farm
       %h3 Ferien auf dem Bauernhof
       %p
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, sint temporibus nihil asperiores?
-        Perferendis, accusamus.
-      %a.btn{:href => "/shop"}
+        Sie suchen ein ruhiges und gemütliches Plätzchen zum „Pause machen“ – dann schauen Sie sich unsere Ferienwohnung.
+      = link_to(home_fw_path, class: "btn") do
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
         zur Ferienwohnung
   .slide-container
@@ -30,8 +28,7 @@
       %span.fi.flaticon-rye
       %h3 Energie aus Biogas!
       %p
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, sint temporibus nihil asperiores?
-        Perferendis, accusamus.
-      %a.btn{:href => "/shop"}
-        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+        Aus Gülle und Mist Energie machen?! Kein Problem, bei uns macht das die „dicke Berta“ – so lautet der Spitzname für unsere Biogasanlage.
+      = link_to(home_biogas_path, class: "btn") do
+        %i.fa.fa-angle-double-right
         zum Biogas
