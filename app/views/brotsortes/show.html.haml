@@ -9,6 +9,9 @@
 %p
   %b Ausverkauft:
   = @brotsorte.ausverkauft
+%p
+  %b Kategorie:
+  = @brotsorte.brottyp.name
 
 = link_to 'Bearbeiten', edit_brotsorte_path(@brotsorte)
 \|

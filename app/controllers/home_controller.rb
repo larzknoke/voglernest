@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @openhours = Openhour.all
     render layout: 'home/home'
   end
 
@@ -20,6 +21,7 @@ class HomeController < ApplicationController
   end
 
   def hofladen
+    @openhours = Openhour.all
     render layout: 'home/home'
   end
 

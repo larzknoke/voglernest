@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tag: MyString
+  start: 2017-12-30 23:20:47
+  ende: 2017-12-30 23:20:47
+  spezial: false
+  geschlossen: false
+
+two:
+  tag: MyString
+  start: 2017-12-30 23:20:47
+  ende: 2017-12-30 23:20:47
+  spezial: false
+  geschlossen: false

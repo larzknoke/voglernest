@@ -5,31 +5,28 @@
         = render 'carousel'
       .four.wide.column
         .info-box
-          %h3 Aktuelles &amp; Angebote
+          %h3 Infos &amp; Aktuelles
           .box-item
-            %h4
+            %h4{:style => "margin-bottom:0.3rem"}
               %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-              18. Mai 2017
+              Herbstbrot
             %p.text-green
-              Lorem ipsum dolor sit amet, consectetur adipisicing
-              %elit
+              Für kurze Zeit das Kartoffelbrot.
           .box-item
-            %h4
+            %h4{:style => "margin-bottom:0.3rem"}
               %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-              05. Juni 2017
+              Herbstgemüse
             %p.text-green
-              Lorem consectetur ipsum dolor.
-              %elit
+              Frische Möhren vom Voglerhof jetzt im Hofladen erhältlich.
           .box-item
-            %h4
+            %h4{:style => "margin-bottom:0.3rem"}
               %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-              03. Juli 2017
+              Herbstschlachtung
             %p.text-green
-              Lorem ipsum  adipisicing dolor sit amet, consectetur
-              %elit
-          %a.btn.btn-small.text-center{:href => "/"}
-            %i.fa.fa-calendar{"aria-hidden" => "true"}
-            Termine
+              Bio-Rind vom Voglerhof jetzt Fleischportionen vorbestellen.
+          = link_to(home_hofladen_path, class: "btn btn-small") do
+            %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+            zum Hofladen
     .seven.wide.column.text-yellow.roomy-120
       %h1 Der Voglerhof
       .divider-left
@@ -82,7 +79,7 @@
 
 .ui.grid.roomy-150
   .column.text-center.text-yellow
-    %h1 Ferienwohnung
+    %h1 Die Ferienwohnung
     .divider-center
     .img-holder.roomy-50
       .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo1.jpg") })"}

@@ -1,9 +1,6 @@
 $(document).ready( function() {
     // $( 'a' ).imageLightbox();
 
-  console.log('MOEP!')
-
-
     var navHeight = $('nav').outerHeight();
 
     $('.ui.sticky')

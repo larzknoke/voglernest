@@ -1,0 +1,13 @@
+= form_for @brottyp, :html => {:class => 'ui form'} do |f|
+  -# - if @brottyp.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@brottyp.errors.count, "error")} prohibited this brottyp from being saved:"
+      %ul
+        - @brottyp.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Speichern', :class => "ui button basic green"

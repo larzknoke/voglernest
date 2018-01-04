@@ -15,14 +15,14 @@
       %th
 
   %tbody
-    - @brotbestellungs.where.not(:name => 'ADMIN').each do |brotbestellung|
+    - @brotbestellungs.where.not(:name => "ADMIN").order(:datum, :name).each do |brotbestellung|
       %tr
         %td= brotbestellung.id
         %td= brotbestellung.vorname
         %td= brotbestellung.name
         %td= brotbestellung.telefon
         %td= brotbestellung.email
-        %td= l(brotbestellung.datum, format: '%a, %d.%m.%Y')
+        %td= l(brotbestellung.datum, format: "%a, %d.%m.%Y")
         %td
           - if brotbestellung.brotbestellschein.present?
             = link_to brotbestellung.brotbestellschein do
@@ -30,28 +30,77 @@
               - if brotbestellung.brotbestellschein.versendet.present?
                 %i.checkmark.icon
           - else
-            = '-'
-        %td= link_to 'Zeigen', brotbestellung
-        %td= link_to 'Bearbeiten', edit_brotbestellung_path(brotbestellung)
-        %td= link_to 'Löschen', brotbestellung, method: :delete, data: { confirm: 'Sind Sie sicher?' }
+            = "-"
+        %td= link_to "Zeigen", brotbestellung
+        %td= link_to "Bearbeiten", edit_brotbestellung_path(brotbestellung)
+        %td= link_to "Löschen", brotbestellung, method: :delete, data: { confirm: "Sind Sie sicher?" }
 
 %p
-  = link_to 'Neue Brotbestellung', new_brotbestellung_path, :class => 'button ui green basic'
+  = link_to "Neue Brotbestellung", new_brotbestellung_path, :class => "button ui green basic"
+
+%br
+
+.bestellmenu{:style => "padding-bottom: 5rem"}
+  .ui.secondary.pointing.menu
+    %a.item.active{"data-tab" => "alleBst"}
+      Alle Bestellungen
+    %a.item{"data-tab" => "offeneBst"}
+      Offene Bestellungen
+  .tab-content{:style => "padding-top: 1rem"}
+    %div#alleBst
+      - @brotbestellungs.order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
+        %h3{:style => "display: inline-block;margin-right: 10px"}
+          = l(datum, format: "%A, %d.%m.%Y")
+
+        %table.ui.table
+          %thead
+            %tr
+              %th{:style => "width: 30%"} Brotsorte
+              %th Menge
+          %tbody
+            - brotbestellungs.collect(&:brotbestellposi).flatten.group_by(&:brotsorte).each do |sorte, posi|
+              %tr
+                %td= sorte.name
+                %td= posi.collect(&:menge).sum
+    %div#offeneBst
+      - @brotbestellungs.where(:brotbestellschein => nil).order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
+        %h3{:style => "display: inline-block;margin-right: 10px"}
+          = l(datum, format: "%A, %d.%m.%Y")
+        = link_to "Offene Bestellungen auf Brotbestellschein", :controller => "brotbestellscheins", :action => "schein_aus_bst", :datum => datum
+
+        %table.ui.table
+          %thead
+            %tr
+              %th{:style => "width: 30%"} Brotsorte
+              %th Menge
+          %tbody
+            - brotbestellungs.collect(&:brotbestellposi).flatten.group_by(&:brotsorte).each do |sorte, posi|
+              %tr
+                %td= sorte.name
+                %td= posi.collect(&:menge).sum
 
 
-%h1 Offene Brotbestellung nach Datum
-- @brotbestellungs.where(:brotbestellschein => nil).order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
-  %h3{:style => 'display: inline-block;margin-right: 10px'}
-    = l(datum, format: '%A, %d.%m.%Y')
-  = link_to 'Offene Bestellungen auf Brotbestellschein', :controller => 'brotbestellscheins', :action => 'schein_aus_bst', :datum => datum
 
-  %table.ui.table
-    %thead
-      %tr
-        %th{:style => "width: 30%"} Brotsorte
-        %th Menge
-    %tbody
-      - brotbestellungs.collect(&:brotbestellposi).flatten.group_by(&:brotsorte).each do |sorte, posi|
-        %tr
-          %td= sorte.name
-          %td= posi.collect(&:menge).sum
+
+
+:javascript
+  $( document ).ready(function() {
+
+    $("#" + $(".bestellmenu a.active").attr("data-tab")).show().siblings().hide();
+
+    $(".bestellmenu .menu a").on("click", function(e)  {
+        var currentAttrValue = $(this).attr("data-tab");
+
+        $("#" + currentAttrValue).show().siblings().hide();
+
+        $(this)
+          .addClass("active")
+          .siblings()
+          .removeClass("active");
+
+        e.preventDefault();
+    });
+
+
+
+  });

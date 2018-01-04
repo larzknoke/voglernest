@@ -1,0 +1,29 @@
+%h1 Öffnungszeiten
+
+%table.ui.table
+  %thead
+    %tr
+      %th Tag
+      %th Start
+      %th Ende
+      %th Spezial
+      %th Geschlossen
+      %th
+      %th
+      %th
+
+  %tbody
+    - @openhours.each do |openhour|
+      %tr
+        %td= openhour.tag
+        %td= openhour.start.strftime("%H:%M")
+        %td= openhour.ende.strftime("%H:%M")
+        %td= openhour.spezial
+        %td= openhour.geschlossen
+        %td= link_to 'Zeigen', openhour
+        %td= link_to 'Bearbeiten', edit_openhour_path(openhour)
+        %td= link_to 'Löschen', openhour, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'Neue Öffnungszeit', new_openhour_path, :class => "ui button green basic"

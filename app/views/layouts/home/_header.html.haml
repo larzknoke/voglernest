@@ -1,11 +1,17 @@
-.open-at
-  %h3
-    Hofladen
-    %br/
-    Öffnungszeiten:
-  .ui.relaxed.divided.list{:style => "margin:0"}
-    .item Freitag: 9 - 11 Uhr
-    .item Samstag: 11 - 13 Uhr
+- if @openhours.present?
+  .open-at
+    %h3
+      Hofladen
+      %br/
+      Öffnungszeiten:
+    .ui.relaxed.divided.list{:style => "margin:0"}
+      - @openhours.each do |openhour|
+        - if !openhour.geschlossen
+          .item{:class => (openhour.spezial ? "open-at-important" : "")}
+            = "#{openhour.tag}: #{openhour.start.strftime("%H:%M")} - #{openhour.ende.strftime("%H:%M")}"
+        - else
+          .item{:class => (openhour.spezial ? "open-at-important" : "")}
+            = "#{openhour.tag}: geschlossen"
 %a.sub-logo{:href => "http://www.bioland.de"}
   = image_tag 'home/header/bioland.svg'
 %a.sub-logo{:href => "http://www.bioland.de", :style => "right: 130px;"}

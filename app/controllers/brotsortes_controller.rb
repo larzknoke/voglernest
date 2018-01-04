@@ -69,6 +69,6 @@ class BrotsortesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brotsorte_params
-      params.require(:brotsorte).permit(:name, :aktiv, :ausverkauft)
+      params.require(:brotsorte).permit(:name, :aktiv, :ausverkauft, :brottyp_id)
     end
 end

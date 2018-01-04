@@ -11,14 +11,19 @@
       %th
 
   %tbody
-    - @brotsortes.each do |brotsorte|
+    - @brotsortes.group_by(&:brottyp).each do |key, group|
       %tr
-        %td= brotsorte.name
-        %td= brotsorte.aktiv
-        %td= brotsorte.ausverkauft
-        %td= link_to 'Anzeigen', brotsorte
-        %td= link_to 'Bearbeiten', edit_brotsorte_path(brotsorte)
-        %td= link_to 'Löschen', brotsorte, method: :delete, data: { confirm: 'Wirklich löschen?' }
+        %td{:colspan => 6, :style => "background-color: #eee"}
+          %strong
+            = key.name
+      - group.each do |brotsorte|
+        %tr
+          %td= brotsorte.name
+          %td= brotsorte.aktiv
+          %td= brotsorte.ausverkauft
+          %td= link_to 'Anzeigen', brotsorte
+          %td= link_to 'Bearbeiten', edit_brotsorte_path(brotsorte)
+          %td= link_to 'Löschen', brotsorte, method: :delete, data: { confirm: 'Wirklich löschen?' }
 
 %br
 

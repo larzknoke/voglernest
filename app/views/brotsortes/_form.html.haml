@@ -10,6 +10,9 @@
     = f.label :name
     = f.text_field :name
   .field
+    %label Kategorie
+    = f.select :brottyp_id, options_from_collection_for_select(Brottyp.all, :id, :name), {class: 'ui dropdown'}
+  .field
     .ui.checkbox
       = f.check_box :aktiv, :class => 'checkbox'
       = f.label :aktiv
@@ -20,3 +23,10 @@
   .actions
     = f.submit 'Speichern', :class  => 'ui button green basic'
     = link_to 'Zurück', brotsortes_path, :class  => 'ui button red basic'
+
+
+:javascript
+
+  $( document ).ready(function() {
+    $('.ui.dropdown').dropdown();
+  });

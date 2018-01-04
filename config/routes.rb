@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :brottyps
+  resources :openhours
+  get 'admin' => 'brotbestellungs#index'
   get 'bestellemail' => 'brotbestellscheins#bestellemail'
   put 'bst_auf_schein' => 'brotbestellscheins#bst_auf_schein'
   get 'schein_aus_bst' => 'brotbestellscheins#schein_aus_bst'

@@ -1,0 +1,20 @@
+%p#notice= notice
+
+%p
+  %b Tag:
+  = @openhour.tag
+%p
+  %b Start:
+  = @openhour.start.strftime("%H:%M")
+%p
+  %b Ende:
+  = @openhour.ende.strftime("%H:%M")
+%p
+  %b Spezial:
+  = @openhour.spezial
+%p
+  %b Geschlossen:
+  = @openhour.geschlossen
+
+= link_to 'Bearbeiten', edit_openhour_path(@openhour), :class => "ui button basic"
+= link_to 'Zurück', openhours_path, :class => "ui button basic"

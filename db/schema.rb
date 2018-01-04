@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202232525) do
+ActiveRecord::Schema.define(version: 20171230222047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,8 +68,17 @@ ActiveRecord::Schema.define(version: 20171202232525) do
     t.string   "name"
     t.boolean  "aktiv"
     t.boolean  "ausverkauft"
+    t.integer  "brottyp_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  add_index "brotsortes", ["brottyp_id"], name: "index_brotsortes_on_brottyp_id", using: :btree
+
+  create_table "brottyps", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "fewos", force: :cascade do |t|
@@ -94,4 +103,19 @@ ActiveRecord::Schema.define(version: 20171202232525) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "openhours", force: :cascade do |t|
+    t.string   "tag"
+    t.time     "start"
+    t.time     "ende"
+    t.boolean  "spezial"
+    t.boolean  "geschlossen"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_foreign_key "brotbestellposis", "brotbestellungs"
+  add_foreign_key "brotbestellposis", "brotsortes"
+  add_foreign_key "brotbestellungs", "brotbestellscheins"
+  add_foreign_key "brotsortes", "brottyps"
+  add_foreign_key "fewos", "mieters"
 end

@@ -58,7 +58,7 @@ ul { margin: 0; padding: 0; }
 h1 	{font-family: $font_serif; font-size: 3rem; font-weight: 400}
 h2 	{font-size: 1.7rem; font-family: $font_serif, sans-serif; font-weight: 400}
 h3 	{font-family: $font_serif; font-size: 1.3rem;font-weight: 400; text-transform: uppercase; letter-spacing: 1px}
-// h4 	{font-size: 1.3rem; font-family: $font_sans, sans-serif; font-weight: 300; letter-spacing:1px;}
+h4 	{margin-bottom: 0.7rem}
 h5 	{font-size: 1.3rem; font-family: $font_sans, sans-serif; font-weight: 300; letter-spacing:1px;}
 
 p { font-size: 1.2rem; font-family: $font_sans, sans-serif; font-weight: 300; color: $color_yellow}
@@ -330,7 +330,7 @@ input[type="text"], input[type="number"],textarea, .dropdown.selection  {
 }
 
 .ui.labeled.input > .label {
-    width: 30%;
+    width: 50%;
 }
 
 

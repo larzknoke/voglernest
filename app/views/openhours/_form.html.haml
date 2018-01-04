@@ -1,0 +1,42 @@
+= form_for @openhour, :html => {:class => "ui form"} do |f|
+  - if @openhour.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@openhour.errors.count, "error")} prohibited this openhour from being saved:"
+      %ul
+        - @openhour.errors.full_messages.each do |message|
+          %li= message
+
+  .field.six.wide
+    = f.label :tag
+    = f.text_field :tag
+
+  .fields
+    .field.six.wide
+      = f.label :start
+      = f.time_select :start,{ :minute_step => 15, :default => {:hour => '08', :minutes => '00'} }, :class => "ui dropdown two wide field"
+
+  .fields
+    .field.six.wide
+      = f.label :ende
+      = f.time_select :ende,{ :minute_step => 15, :default => {:hour => '10', :minutes => '00'}}, :class => "ui dropdown two wide field"
+
+  .field
+    .ui.checkbox
+      = f.check_box :spezial, :class => 'checkbox'
+      = f.label :spezial
+
+  .field
+    .ui.checkbox
+      = f.check_box :geschlossen, :class => 'checkbox'
+      = f.label :geschlossen
+
+  .actions
+    = f.submit 'Speichern', :class => "ui button green basic"
+
+
+
+:javascript
+
+  $( document ).ready(function() {
+    $('.ui.dropdown').dropdown();
+  });

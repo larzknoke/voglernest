@@ -1,0 +1,21 @@
+%h1 Brotkategorien
+
+%table.ui.table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @brottyps.each do |brottyp|
+      %tr
+        %td= brottyp.name
+        %td= link_to 'Zeigen', brottyp
+        %td= link_to 'Bearbeiten', edit_brottyp_path(brottyp)
+        %td= link_to 'Löschen', brottyp, method: :delete, data: { confirm: 'Brotkategorie wirklich löschen?' }
+
+%br
+
+= link_to 'Neue Brotkategorie', new_brottyp_path, :class => "ui button basic green"
