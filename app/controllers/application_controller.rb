@@ -11,4 +11,7 @@ class ApplicationController < ActionController::Base
     @date_result = (start_date..end_date).to_a.select {|k| my_days.include?(k.wday)}
     @date_result = @date_result.map{ |date| l(date, format: "%a, %d.%m.%Y") }
   end
+
+
+
 end

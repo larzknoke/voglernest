@@ -18,8 +18,8 @@
         %td= openhour.tag
         %td= openhour.start.strftime("%H:%M")
         %td= openhour.ende.strftime("%H:%M")
-        %td= openhour.spezial
-        %td= openhour.geschlossen
+        %td= check(openhour.spezial)
+        %td= check(openhour.geschlossen)
         %td= link_to 'Zeigen', openhour
         %td= link_to 'Bearbeiten', edit_openhour_path(openhour)
         %td= link_to 'Löschen', openhour, method: :delete, data: { confirm: 'Are you sure?' }

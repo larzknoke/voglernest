@@ -41,3 +41,8 @@ Brotsorte.create(name: 'Weltmeisterbrötchen', aktiv: true, ausverkauft: false, 
 Brotsorte.create(name: 'Dinkelvollkornbaguette', aktiv: true, ausverkauft: false, brottyp_id: 3)
 Brotsorte.create(name: 'Weißmehlbaguette Bio', aktiv: true, ausverkauft: false, brottyp_id: 3)
 Brotsorte.create(name: 'Kirschstreußel Dinkel', aktiv: true, ausverkauft: false, brottyp_id: 3)
+
+Openhour.create(tag: 'Dienstag', start: "15:00".to_time, ende: "18:00".to_time, spezial: false, geschlossen: false)
+Openhour.create(tag: 'Freitag', start: "09:00".to_time, ende: "18:00".to_time, spezial: false, geschlossen: false)
+Openhour.create(tag: 'Samstag', start: "07:00".to_time, ende: "13:00".to_time, spezial: false, geschlossen: false)
+Openhour.create(tag: 'Silvester', start: "07:00".to_time, ende: "13:00".to_time, spezial: true  , geschlossen: true)

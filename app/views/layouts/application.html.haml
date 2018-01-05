@@ -41,12 +41,7 @@
             = link_to 'Brotkategorien', brottyps_path, class: 'item'
             = link_to 'Bestellscheine', brotbestellscheins_path, class: 'item'
             = link_to 'Bestellungen', brotbestellungs_path, class: 'item'
-        .ui.simple.dropdown.item
-          Öffnungszeiten
-          %i.dropdown.icon
-          .menu
-            = link_to 'Neu', new_openhour_path, class: 'item'
-            = link_to 'Liste', openhours_path, class: 'item'
+        = link_to 'Öffnungszeiten', openhours_path, class: 'item'
 
     .ui.main.container
       - if flash[:notice]

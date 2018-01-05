@@ -19,8 +19,8 @@
       - group.each do |brotsorte|
         %tr
           %td= brotsorte.name
-          %td= brotsorte.aktiv
-          %td= brotsorte.ausverkauft
+          %td= check(brotsorte.aktiv)
+          %td= check(brotsorte.ausverkauft)
           %td= link_to 'Anzeigen', brotsorte
           %td= link_to 'Bearbeiten', edit_brotsorte_path(brotsorte)
           %td= link_to 'Löschen', brotsorte, method: :delete, data: { confirm: 'Wirklich löschen?' }
