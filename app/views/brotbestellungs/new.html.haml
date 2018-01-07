@@ -1,4 +1,7 @@
 .ui.grid.container
   .sixteen.wide.column
     %h2.text-yellow2.m-top-50 Neue Brotbestellung
+    - if notice
+      %div.ui.segment.text-orange{:style => "background-color: #edecb0"}
+        = notice
     = render 'form'

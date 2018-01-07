@@ -32,6 +32,9 @@ class BrotbestellungsController < ApplicationController
   # POST /brotbestellungs.json
   def create
     @brotbestellung = Brotbestellung.new(brotbestellung_params)
+    if @brotbestellung.brotbestellposi.size == 0
+      return redirect_to new_brotbestellung_url, notice: 'Ihre Bestellung hat keine Bestlellpositionen.'
+    end
 
     respond_to do |format|
       if @brotbestellung.save

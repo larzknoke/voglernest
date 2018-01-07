@@ -29,6 +29,36 @@
             %td= sorte.name
             %td= posi.collect(&:menge).sum
 
+    %h3 Bestellungen
+
+    %table.ui.table
+      %thead
+        %tr
+          %th #
+          %th Vorname
+          %th Name
+          %th
+          %th
+          %th
+
+      %tbody
+        - @brotbestellschein.brotbestellungs.each do |brotbestellung|
+          %tr
+            %td= brotbestellung.id
+            %td= brotbestellung.vorname
+            %td= brotbestellung.name
+            %td= link_to 'Zeigen', brotbestellung
+            - if !@brotbestellschein.versendet
+              %td= link_to 'Bearbeiten', edit_brotbestellung_path(brotbestellung)
+              %td= link_to 'Löschen', brotbestellung, method: :delete, data: { confirm: 'Sind Sie sicher?' }
+            - else
+              %td{:style => "color: #ddd"} Bearbeiten
+              %td{:style => "color: #ddd"} Löschen
+    = link_to 'Bearbeiten', edit_brotbestellschein_path(@brotbestellschein)
+    \|
+    = link_to 'Zurück', brotbestellscheins_path
+
+
   .six.wide.column
     %h3 Positionen hinzufügen
 
@@ -42,32 +72,3 @@
           = posi.hidden_field :brotsorte_id, value: brotsorte.id
       .actions
         = f.submit 'Hinzufügen', :class => [('ui button basic green'), ('disabled' if @brotbestellschein.versendet)]
-
-
-%h3 Bestellungen
-
-%table.ui.table
-  %thead
-    %tr
-      %th #
-      %th Vorname
-      %th Name
-      %th
-      %th
-      %th
-
-  %tbody
-    - @brotbestellschein.brotbestellungs.each do |brotbestellung|
-      %tr
-        %td= brotbestellung.id
-        %td= brotbestellung.vorname
-        %td= brotbestellung.name
-        %td= link_to 'Zeigen', brotbestellung
-        %td= link_to 'Bearbeiten', edit_brotbestellung_path(brotbestellung)
-        %td= link_to 'Löschen', brotbestellung, method: :delete, data: { confirm: 'Sind Sie sicher?' }
-
-
-
-= link_to 'Bearbeiten', edit_brotbestellschein_path(@brotbestellschein)
-\|
-= link_to 'Zurück', brotbestellscheins_path

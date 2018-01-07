@@ -45,15 +45,15 @@
 
       .field
         = f.label :vorname
-        = f.text_field :vorname
+        = f.text_field :vorname, :tabindex => "1"
 
       .field
         = f.label :telefon
-        = f.text_field :telefon
+        = f.text_field :telefon, :tabindex => "3"
 
       .field
         = f.label :datum
-        = f.select :datum, options_for_select(@date_result),{}, {class: 'ui dropdown'}
+        = f.select :datum, options_for_select(@date_result),{}, {class: 'ui dropdown', :tabindex => "5"}
 
       .actions
         = link_to 'Abbrechen', brotbestellungs_path, :class => 'ui button basic red '
@@ -62,10 +62,10 @@
     .column
       .field
         = f.label :name
-        = f.text_field :name
+        = f.text_field :name, :tabindex => "2"
       .field
         = f.label :email
-        = f.text_field :email
+        = f.text_field :email, :tabindex => "4"
 
 :javascript
   $('select.dropdown')

@@ -38,7 +38,7 @@
         Brotbestellung
       %p.text-green{:style => "font-size: 16px"}
         Sie können online Ihr Brot vorbestellen und am gewünschen Tag bei uns im Hofladen abholen.
-      %a.btn.btn-small{:href => "/shop"}
+      = link_to new_brotbestellung_path, :class => "btn btn-small" do
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
         bestellen
 
