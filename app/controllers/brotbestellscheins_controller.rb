@@ -13,7 +13,7 @@ class BrotbestellscheinsController < ApplicationController
 
   def new
     @brotbestellschein = Brotbestellschein.new
-    datumsbereich
+    datumsbereich_30
   end
 
   def edit

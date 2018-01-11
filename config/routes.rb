@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get 'home/ausbildung'
   get 'home/fw'
   get 'home/hofladen'
+  get 'home/thanks'
 
   #
   # get 'mieter/index'

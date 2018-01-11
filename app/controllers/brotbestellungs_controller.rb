@@ -18,14 +18,14 @@ class BrotbestellungsController < ApplicationController
     @brotbestellung.brotbestellposi.build
     @brotsorten = Brotsorte.where(aktiv: true)
 
-    datumsbereich
+    datumsbereich_30
 
     render layout: 'home/home'
   end
 
   # GET /brotbestellungs/1/edit
   def edit
-    datumsbereich
+    datumsbereich_30
   end
 
   # POST /brotbestellungs
@@ -33,12 +33,12 @@ class BrotbestellungsController < ApplicationController
   def create
     @brotbestellung = Brotbestellung.new(brotbestellung_params)
     if @brotbestellung.brotbestellposi.size == 0
-      return redirect_to new_brotbestellung_url, notice: 'Ihre Bestellung hat keine Bestlellpositionen.'
+      return redirect_to new_brotbestellung_url, notice: 'Ihre Bestellung hat keine Bestellpositionen.'
     end
 
     respond_to do |format|
       if @brotbestellung.save
-        format.html { redirect_to @brotbestellung, notice: 'Brotbestellung was successfully created.' }
+        format.html { redirect_to home_thanks_path, notice: 'Brotbestellung was successfully created.' }
         format.json { render :show, status: :created, location: @brotbestellung }
       else
         format.html { render :new }
