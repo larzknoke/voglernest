@@ -6,6 +6,7 @@ class CreateBrotbestellungs < ActiveRecord::Migration
       t.string :telefon
       t.string :email
       t.datetime :datum
+      t.string :typ, :default => 'bestellung'
       t.references :brotbestellschein, index: true, foreign_key: true
 
 

@@ -6,6 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.find_or_create_by(
+  :name => "vogler",
+  :email => "larz.knoke@gmail.com") do |user|
+    user.password = "vogler123"
+  end
+
 Brottyp.create(name: 'Brötchen')
 Brottyp.create(name: 'Brot')
 Brottyp.create(name: 'Süße Brötchen & Kleingebäck')

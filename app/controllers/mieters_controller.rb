@@ -1,4 +1,7 @@
 class MietersController < ApplicationController
+  before_filter :authorize
+
+
   def index
     @mieters = Mieter.all
   end

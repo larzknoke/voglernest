@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171230222047) do
+ActiveRecord::Schema.define(version: 20180113211225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,9 +57,10 @@ ActiveRecord::Schema.define(version: 20171230222047) do
     t.string   "telefon"
     t.string   "email"
     t.datetime "datum"
+    t.string   "typ",                  default: "bestellung"
     t.integer  "brotbestellschein_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   add_index "brotbestellungs", ["brotbestellschein_id"], name: "index_brotbestellungs_on_brotbestellschein_id", using: :btree
@@ -111,6 +112,14 @@ ActiveRecord::Schema.define(version: 20171230222047) do
     t.boolean  "geschlossen"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_foreign_key "brotbestellposis", "brotbestellungs"

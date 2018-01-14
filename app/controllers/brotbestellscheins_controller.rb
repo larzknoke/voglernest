@@ -1,5 +1,7 @@
 class BrotbestellscheinsController < ApplicationController
   before_action :set_brotbestellschein, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
+
 
   def index
     @brotbestellscheins = Brotbestellschein.all
@@ -53,6 +55,7 @@ class BrotbestellscheinsController < ApplicationController
   end
 
   def destroy
+    @brotbestellschein.brotbestellungs.where(typ: "zusatz").destroy_all
     @brotbestellschein.brotbestellungs.each{|b| b.update_attribute(:brotbestellschein_id, nil)}
     @brotbestellschein.destroy
     respond_to do |format|
@@ -130,6 +133,6 @@ class BrotbestellscheinsController < ApplicationController
       params.permit(:datum)
     end
     def brotbestellung_params
-      params.require(:brotbestellung).permit(:vorname, :name, :telefon, :email, :datum, :brotbestellposi_id,brotbestellposi_attributes: [:menge, :brotsorte_id])
+      params.require(:brotbestellung).permit(:vorname, :name, :telefon, :email, :datum, :typ ,:brotbestellposi_id, brotbestellposi_attributes: [:menge, :brotsorte_id])
     end
 end

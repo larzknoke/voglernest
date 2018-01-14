@@ -42,6 +42,12 @@
             = link_to 'Bestellscheine', brotbestellscheins_path, class: 'item'
             = link_to 'Bestellungen', brotbestellungs_path, class: 'item'
         = link_to 'Öffnungszeiten', openhours_path, class: 'item'
+        - if current_user
+          .right.menu
+            %a.item
+              %i.user.icon
+              = current_user.name
+            =link_to "Logout", logout_path, class: "item"
 
     .ui.main.container
       - if flash[:notice]

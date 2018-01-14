@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :datumsbereich_30
+  helper_method :current_user
+
 
   def datumsbereich_30
     # hole mir alle Di, Fr und Sa für die nächsten 4 Wochen
@@ -12,6 +14,14 @@ class ApplicationController < ActionController::Base
     days = [2,5,6]
     @date_result = (start_date..end_date).to_a.select {|k| days.include?(k.wday)}
     @date_result = @date_result.map{ |date| l(date, format: "%a, %d.%m.%Y") }
+  end
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def authorize
+    redirect_to '/login' unless current_user
   end
 
 end

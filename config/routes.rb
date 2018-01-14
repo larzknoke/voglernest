@@ -1,27 +1,23 @@
 Rails.application.routes.draw do
-  resources :brottyps
-  resources :openhours
+
+  # LOGIN & SESSION
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
+  get 'register' => 'users#new'
+  post 'users' => 'users#create'
+
   get 'admin' => 'brotbestellungs#index'
   get 'bestellemail' => 'brotbestellscheins#bestellemail'
   put 'bst_auf_schein' => 'brotbestellscheins#bst_auf_schein'
   get 'schein_aus_bst' => 'brotbestellscheins#schein_aus_bst'
 
+
+  resources :brottyps
+  resources :openhours
   resources :brotbestellscheins
   resources :brotbestellposis
   resources :brotbestellungs
-  # get 'booking/index'
-  # get 'bookings' => 'booking#index'
-  # get 'booking/new'
-  #
-  # post 'booking/create'
-  #
-  # get 'booking/update'
-
-  # get 'fewo/index'
-  # get 'fewo/new'
-  # get 'fewo/create'
-  # get 'fewo/update'
-
   resources :brotsortes
   resources :mieters
   resources :fewos
@@ -38,13 +34,6 @@ Rails.application.routes.draw do
   get 'home/fw'
   get 'home/hofladen'
   get 'home/thanks'
-
-  #
-  # get 'mieter/index'
-  # get 'mieter/new'
-  # post 'mieter/create'
-  # get 'mieter/create'
-  # get 'mieter/update'
 
   get 'start/index'
   root 'home#index'

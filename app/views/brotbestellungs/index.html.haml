@@ -50,7 +50,7 @@
       Offene Bestellungen
   .tab-content{:style => "padding-top: 1rem"}
     %div#bst1woche
-      - @brotbestellungs.where(datum: (Date.current.to_time..(Date.current.to_time + 1.week))).where.not(:name => "ADMIN").order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
+      - @brotbestellungs.where(datum: (Date.current.to_time..(Date.current.to_time + 1.week)), typ: "bestellung").order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
         %h3{:style => "display: inline-block;margin-right: 10px"}
           = l(datum, format: "%A, %d.%m.%Y")
 

@@ -1,5 +1,6 @@
 class BrotbestellungsController < ApplicationController
   before_action :set_brotbestellung, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize, except: [:new, :create]
 
   # GET /brotbestellungs
   # GET /brotbestellungs.json
@@ -79,7 +80,7 @@ class BrotbestellungsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brotbestellung_params
-      params.require(:brotbestellung).permit(:vorname, :name, :telefon, :email, :datum, :brotbestellposi_id,brotbestellposi_attributes: [:menge, :brotsorte_id])
+      params.require(:brotbestellung).permit(:vorname, :name, :telefon, :email, :datum, :typ, :brotbestellposi_id,brotbestellposi_attributes: [:menge, :brotsorte_id])
     end
 
 

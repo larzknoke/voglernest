@@ -63,6 +63,7 @@
     %h3 Positionen hinzufügen
 
     = form_for @brotbestellung, :url => { :action => "bst_auf_schein" , :id => @brotbestellschein }, :html => {:class => 'ui form', :method => "put" } do |f|
+      = f.hidden_field :typ, value: 'zusatz'
       - @brotsorten.each do |brotsorte|
         = f.fields_for :brotbestellposi, @brotbestellung.brotbestellposi do |posi|
           .ui.labeled.input.fluid{:style => 'margin-bottom: 1em', :class => [('disabled' if @brotbestellschein.versendet)] }

@@ -1,5 +1,6 @@
 class BrottypsController < ApplicationController
   before_action :set_brottyp, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
 
   # GET /brottyps
   # GET /brottyps.json

@@ -1,5 +1,7 @@
 class BrotsortesController < ApplicationController
   before_action :set_brotsorte, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
+
 
   # GET /brotsortes
   # GET /brotsortes.json

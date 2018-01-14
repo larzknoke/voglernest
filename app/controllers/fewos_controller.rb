@@ -1,4 +1,7 @@
 class FewosController < ApplicationController
+  before_filter :authorize
+
+
   def index
     @fewos = Fewo.all
   end
