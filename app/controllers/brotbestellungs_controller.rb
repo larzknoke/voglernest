@@ -33,16 +33,16 @@ class BrotbestellungsController < ApplicationController
   # POST /brotbestellungs.json
   def create
     @brotbestellung = Brotbestellung.new(brotbestellung_params)
-    if @brotbestellung.brotbestellposi.size == 0
-      return redirect_to new_brotbestellung_url, notice: 'Ihre Bestellung hat keine Bestellpositionen.'
-    end
+    # if @brotbestellung.brotbestellposi.size == 0
+    #   return redirect_to new_brotbestellung_url, notice: 'Ihre Bestellung hat keine Bestellpositionen.'
+    # end
 
     respond_to do |format|
       if @brotbestellung.save
         format.html { redirect_to home_thanks_path, notice: 'Brotbestellung was successfully created.' }
         format.json { render :show, status: :created, location: @brotbestellung }
       else
-        format.html { render :new }
+        format.html { redirect_to new_brotbestellung_path, alert: @brotbestellung.errors.full_messages }
         format.json { render json: @brotbestellung.errors, status: :unprocessable_entity }
       end
     end

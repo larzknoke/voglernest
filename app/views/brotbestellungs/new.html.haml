@@ -4,4 +4,9 @@
     - if notice
       %div.ui.segment.text-orange{:style => "background-color: #edecb0"}
         = notice
+    - if alert
+      %div.ui.segment.text-orange{:style => "background-color: #edecb0"}
+        - alert.each do |m|
+          = m
+          %br
     = render 'form'

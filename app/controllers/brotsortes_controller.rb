@@ -27,9 +27,22 @@ class BrotsortesController < ApplicationController
   # POST /brotsortes.json
   def create
     @brotsorte = Brotsorte.new(brotsorte_params)
+    bild = params[:brotsorte][:bild]
+    unless bild.nil?
+      extension = File.extname(bild.original_filename)
+      if bild.content_type != "image/jpeg"
+        return redirect_to new_brotsorte_url, notice: "Es sind nur JPG's als Bild erlaubt!"
+      end
+    end
 
     respond_to do |format|
       if @brotsorte.save
+        unless bild.nil?
+          File.open(Rails.root.join('public', 'uploads', "brotsorte_#{@brotsorte.id}#{extension}"), 'wb') do |file|
+            file.write(bild.read)
+          end
+        end
+
         format.html { redirect_to @brotsorte, notice: 'Brotsorte was successfully created.' }
         format.json { render :show, status: :created, location: @brotsorte }
       else
@@ -42,8 +55,20 @@ class BrotsortesController < ApplicationController
   # PATCH/PUT /brotsortes/1
   # PATCH/PUT /brotsortes/1.json
   def update
+    bild = params[:brotsorte][:bild]
+    unless bild.nil?
+      extension = File.extname(bild.original_filename)
+      if bild.content_type != "image/jpeg"
+        return redirect_to new_brotsorte_url, notice: "Es sind nur JPG's als Bild erlaubt!"
+      end
+    end
     respond_to do |format|
       if @brotsorte.update(brotsorte_params)
+        unless bild.nil?
+          File.open(Rails.root.join('public', 'uploads', "brotsorte_#{@brotsorte.id}#{extension}"), 'wb') do |file|
+            file.write(bild.read)
+          end
+        end
         format.html { redirect_to @brotsorte, notice: 'Brotsorte was successfully updated.' }
         format.json { render :show, status: :ok, location: @brotsorte }
       else
@@ -57,6 +82,8 @@ class BrotsortesController < ApplicationController
   # DELETE /brotsortes/1.json
   def destroy
     @brotsorte.destroy
+    file = Rails.root.join('public', 'uploads', "brotsorte_#{@brotsorte.id}.jpg") #TODO nicht schön aber funktioniert erstmal
+    File.delete(file) if File.exist?(file)
     respond_to do |format|
       format.html { redirect_to brotsortes_url, notice: 'Brotsorte was successfully destroyed.' }
       format.json { head :no_content }

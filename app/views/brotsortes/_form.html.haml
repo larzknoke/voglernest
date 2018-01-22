@@ -20,6 +20,9 @@
     .ui.checkbox
       = f.check_box :ausverkauft, :class => 'checkbox'
       = f.label :ausverkauft
+  .field
+    = f.label :bild
+    = f.file_field :bild, :accept => "image/jpg"
   .actions
     = f.submit 'Speichern', :class  => 'ui button green basic'
     = link_to 'Zurück', brotsortes_path, :class  => 'ui button red basic'
