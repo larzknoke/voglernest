@@ -22,4 +22,4 @@
 #ignore all "roh" folder in any other folder
 roh/
 
-public/uploads/*
+/public/system/*

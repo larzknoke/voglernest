@@ -31,6 +31,7 @@ gem "font-awesome-rails"
 gem "simple_calendar", "~> 2.0"
 gem "jquery-slick-rails"
 gem "figaro"
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 
 gem "bundler", ">= 1.8.4"

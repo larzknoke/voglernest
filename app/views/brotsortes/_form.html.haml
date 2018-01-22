@@ -1,4 +1,4 @@
-= form_for @brotsorte, :html => {:class => 'ui form'} do |f|
+= form_for @brotsorte, :html => {:class => 'ui form', multipart: true } do |f|
   - if @brotsorte.errors.any?
     #error_explanation
       %h2= "#{pluralize(@brotsorte.errors.count, "error")} prohibited this brotsorte from being saved:"
@@ -21,8 +21,9 @@
       = f.check_box :ausverkauft, :class => 'checkbox'
       = f.label :ausverkauft
   .field
-    = f.label :bild
-    = f.file_field :bild, :accept => "image/jpg"
+    = f.label :brotbild
+    = f.file_field :brotbild
+
   .actions
     = f.submit 'Speichern', :class  => 'ui button green basic'
     = link_to 'Zurück', brotsortes_path, :class  => 'ui button red basic'

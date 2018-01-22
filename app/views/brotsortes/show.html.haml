@@ -13,9 +13,7 @@
   %b Kategorie:
   = @brotsorte.brottyp.name
 
-.ui.small.image
-  = image_tag("/uploads/brotsorte_#{@brotsorte.id}.jpg")
-
+= image_tag @brotsorte.brotbild.url(:medium)
 %br
 
 = link_to 'Bearbeiten', edit_brotsorte_path(@brotsorte)

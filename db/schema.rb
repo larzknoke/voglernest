@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180113211225) do
+ActiveRecord::Schema.define(version: 20180122200315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,8 +70,12 @@ ActiveRecord::Schema.define(version: 20180113211225) do
     t.boolean  "aktiv"
     t.boolean  "ausverkauft"
     t.integer  "brottyp_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "brotbild_file_name"
+    t.string   "brotbild_content_type"
+    t.integer  "brotbild_file_size"
+    t.datetime "brotbild_updated_at"
   end
 
   add_index "brotsortes", ["brottyp_id"], name: "index_brotsortes_on_brottyp_id", using: :btree
