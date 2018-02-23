@@ -1,4 +1,6 @@
 $(document).ready( function() {
+// $( document ).on('turbolinks:load', function() {
+
     // $( 'a' ).imageLightbox();
 
     var navHeight = $('nav').outerHeight();
@@ -16,19 +18,17 @@ $(document).ready( function() {
         },
     });
 
-    jQuery(document).on('turbolinks:load', function() {
-      return $('#carousel').slick({
-          infinite: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: false,
-          arrows: true,
-          // autoplay: true,
-          // autoplaySpeed: 4000,
-          adaptiveHeight: true,
-          prevArrow: '<button type="button" class="slick-prev"></button>',
-          nextArrow: '<button type="button" class="slick-next"></button>'
-      });
+    $('#carousel').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        // autoplay: true,
+        // autoplaySpeed: 4000,
+        adaptiveHeight: true,
+        prevArrow: '<button type="button" class="slick-prev"></button>',
+        nextArrow: '<button type="button" class="slick-next"></button>'
     });
 
 

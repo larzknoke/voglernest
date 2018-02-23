@@ -1,5 +1,6 @@
 %h1 Brotsorten
 
+= link_to 'Neue Brotsorte', new_brotsorte_path, class: 'button ui green basic'
 %table.ui.table
   %thead
     %tr
@@ -26,5 +27,3 @@
           %td= link_to 'Löschen', brotsorte, method: :delete, data: { confirm: 'Wirklich löschen?' }
 
 %br
-
-= link_to 'Neue Brotsorte', new_brotsorte_path, class: 'button ui green basic'

@@ -72,6 +72,16 @@ class BrotbestellungsController < ApplicationController
     end
   end
 
+
+  def standard
+    @brotbestellung = Brotbestellung.find_by(typ: "standard", :datum => nil)
+    if @brotbestellung == nil
+      @brotbestellung = Brotbestellung.new
+      @brotbestellung.brotbestellposi.build
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_brotbestellung
@@ -80,7 +90,8 @@ class BrotbestellungsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brotbestellung_params
-      params.require(:brotbestellung).permit(:vorname, :name, :telefon, :email, :datum, :typ, :brotbestellposi_id,brotbestellposi_attributes: [:menge, :brotsorte_id])
+      params.require(:brotbestellung).permit(:vorname, :name, :telefon, :email, :datum, :typ, :brotbestellposi_id,brotbestellposi_attributes: [:id, :menge, :brotsorte_id, :_destroy])
+      # params.require(:brotbestellung).permit!
     end
 
 

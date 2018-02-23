@@ -17,4 +17,5 @@
 //= require semantic-ui-calendar
 //= require jquery.slick
 //= require home
-//= require turbolinks
+// require turbolinks
+//= require cocoon

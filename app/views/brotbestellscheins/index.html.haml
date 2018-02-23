@@ -1,5 +1,7 @@
 %h1 Brotbestellscheine
 
+= link_to 'Neuer Brotbestellschein', new_brotbestellschein_path, :class => 'button ui green basic'
+
 %table.ui.table
   %thead
     %tr
@@ -19,7 +21,3 @@
         %td= link_to 'Zeigen', brotbestellschein
         %td= link_to 'Bearbeiten', edit_brotbestellschein_path(brotbestellschein)
         %td= link_to 'Löschen', brotbestellschein, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'Neuer Brotbestellschein', new_brotbestellschein_path, :class => 'button ui green basic'

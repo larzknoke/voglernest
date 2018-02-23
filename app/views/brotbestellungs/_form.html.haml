@@ -5,8 +5,8 @@
       %ul
         - @brotbestellung.errors.full_messages.each do |message|
           %li= message
-  .ui.three.column.grid
-    - if action_name == 'new'
+  - if action_name == 'new'
+    .ui.three.column.grid
       - @brotsorten.group_by(&:brottyp).each do |key, group|
         .column
           %h3
@@ -18,29 +18,29 @@
                   = brotsorte.name
                 = posi.number_field :menge, :value => 0, :min => 0
               = posi.hidden_field :brotsorte_id, value: brotsorte.id
-    - if action_name == 'edit'
-      %h3 Bestellpositionen:
-      %table.ui.table
-        %thead
+  - if action_name == 'edit'
+    %h3 Bestellpositionen:
+    %table.ui.table
+      %thead
+        %tr
+          %th #
+          %th Brotsorte
+          %th Menge
+          %th
+          %th
+          %th
+
+      %tbody
+        - @brotbestellung.brotbestellposi.each do |posi|
           %tr
-            %th #
-            %th Brotsorte
-            %th Menge
-            %th
-            %th
-            %th
+            %td= posi.id
+            %td= posi.brotsorte.name
+            %td= posi.menge
+            %td= link_to 'Zeigen', posi
+            %td= link_to 'Bearbeiten', edit_brotbestellposi_path(posi)
+            %td= link_to 'Löschen', posi, method: :delete, data: { confirm: 'Sind Sie sicher?' }
 
-        %tbody
-          - @brotbestellung.brotbestellposi.each do |posi|
-            %tr
-              %td= posi.id
-              %td= posi.brotsorte.name
-              %td= posi.menge
-              %td= link_to 'Zeigen', posi
-              %td= link_to 'Bearbeiten', edit_brotbestellposi_path(posi)
-              %td= link_to 'Löschen', posi, method: :delete, data: { confirm: 'Sind Sie sicher?' }
-
-  .ui.two.column.grid.segment{:style => "background-color: #edecb0"}
+  .ui.two.column.grid.segment{:style => action_name == "new" ? "background-color: #edecb0" : ""}
     .column
       - if @brotbestellung.errors.any?
         #error_explanation

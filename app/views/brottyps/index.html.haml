@@ -1,5 +1,7 @@
 %h1 Brotkategorien
 
+= link_to 'Neue Brotkategorie', new_brottyp_path, :class => "ui button basic green"
+
 %table.ui.table
   %thead
     %tr
@@ -17,5 +19,3 @@
         %td= link_to 'Löschen', brottyp, method: :delete, data: { confirm: 'Brotkategorie wirklich löschen?' }
 
 %br
-
-= link_to 'Neue Brotkategorie', new_brottyp_path, :class => "ui button basic green"

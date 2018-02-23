@@ -56,6 +56,7 @@ class BrotbestellscheinsController < ApplicationController
 
   def destroy
     @brotbestellschein.brotbestellungs.where(typ: "zusatz").destroy_all
+    @brotbestellschein.brotbestellungs.where(typ: "standard").destroy_all
     @brotbestellschein.brotbestellungs.each{|b| b.update_attribute(:brotbestellschein_id, nil)}
     @brotbestellschein.destroy
     respond_to do |format|
@@ -80,8 +81,6 @@ class BrotbestellscheinsController < ApplicationController
     @brotbestellschein = Brotbestellschein.find(params[:id])
 
     @bst = Brotbestellung.new(brotbestellung_params)
-    @bst.vorname = 'ADMIN'
-    @bst.name = 'ADMIN'
     @bst.datum = @brotbestellschein.datum
     @brotbestellschein.brotbestellungs << @bst
     @brotbestellschein.save
@@ -92,7 +91,7 @@ class BrotbestellscheinsController < ApplicationController
 
   def schein_aus_bst
     @datum = params[:datum].to_datetime
-    @bsts = Brotbestellung.where(:datum => @datum, :brotbestellschein => nil)
+    @bsts = Brotbestellung.where(:datum => @datum, :brotbestellschein => nil, :typ => "bestellung")
 
     if @bsts.size < 1
       flash[:notice] = "Keine offenen Bestellungen für diesen Zeitraum vorhanden."
@@ -105,6 +104,11 @@ class BrotbestellscheinsController < ApplicationController
     else
       @brotbestellschein = Brotbestellschein.new(brotbestellschein_params)
       @brotbestellschein.brotbestellungs << @bsts
+      @std_bst = Brotbestellung.find_by(:typ => "standard")
+      @new_std_bst = @std_bst.amoeba_dup
+      @new_std_bst.datum = @datum
+      @new_std_bst.save
+      @brotbestellschein.brotbestellungs << @new_std_bst
     end
 
     @brotbestellschein.datum = @datum

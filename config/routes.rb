@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
 
   # LOGIN & SESSION
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  get 'logout' => 'sessions#destroy'
-  get 'register' => 'users#new'
-  post 'users' => 'users#create'
+  get "login" => "sessions#new"
+  post "login" => "sessions#create"
+  get "logout" => "sessions#destroy"
+  get "register" => "users#new"
+  post "users" => "users#create"
 
-  get 'admin' => 'brotbestellungs#index'
-  get 'bestellemail' => 'brotbestellscheins#bestellemail'
-  put 'bst_auf_schein' => 'brotbestellscheins#bst_auf_schein'
-  get 'schein_aus_bst' => 'brotbestellscheins#schein_aus_bst'
-
+  get "admin" => "brotbestellungs#index"
+  get "bestellemail" => "brotbestellscheins#bestellemail"
+  put "bst_auf_schein" => "brotbestellscheins#bst_auf_schein"
+  get "schein_aus_bst" => "brotbestellscheins#schein_aus_bst"
+  get "standard" => "brotbestellungs#standard"
 
   resources :brottyps
   resources :openhours
@@ -23,32 +23,32 @@ Rails.application.routes.draw do
   resources :fewos
   resources :bookings do
     member do
-      get 'bestaetigen'
+      get "bestaetigen"
     end
   end
 
-  get 'home/index'
-  get 'home/hof'
-  get 'home/biogas'
-  get 'home/ausbildung'
-  get 'home/fw'
-  get 'home/hofladen'
-  get 'home/thanks'
+  get "home/index"
+  get "home/hof"
+  get "home/biogas"
+  get "home/ausbildung"
+  get "home/fw"
+  get "home/hofladen"
+  get "home/thanks"
 
-  get 'start/index'
-  root 'home#index'
+  get "start/index"
+  root "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # root "welcome#index"
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  #   get "products/:id" => "catalog#view"
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  #   get "products/:id/purchase" => "catalog#purchase", as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -56,12 +56,12 @@ Rails.application.routes.draw do
   # Example resource route with options:
   #   resources :products do
   #     member do
-  #       get 'short'
-  #       post 'toggle'
+  #       get "short"
+  #       post "toggle"
   #     end
   #
   #     collection do
-  #       get 'sold'
+  #       get "sold"
   #     end
   #   end
 
@@ -75,13 +75,13 @@ Rails.application.routes.draw do
   #   resources :products do
   #     resources :comments
   #     resources :sales do
-  #       get 'recent', on: :collection
+  #       get "recent", on: :collection
   #     end
   #   end
 
   # Example resource route with concerns:
   #   concern :toggleable do
-  #     post 'toggle'
+  #     post "toggle"
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable

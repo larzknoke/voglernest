@@ -1,0 +1,33 @@
+.ui.grid.container
+  .sixteen.wide.column
+    %h2.text-yellow2.m-top-50 Standard Bestellpositionen:
+    = form_for @brotbestellung, :html => {:class => 'ui form'} do |f|
+      - if @brotbestellung.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@brotbestellung.errors.count, "error")} prohibited this brotbestellung from being saved:"
+          %ul
+            - @brotbestellung.errors.full_messages.each do |message|
+              %li= message
+      #brotbestellposi
+        = f.fields_for :brotbestellposi do |posi|
+          = render 'brotbestellposi_fields', f: posi
+        .links
+          = link_to_add_association '<i class="fa fa-plus-square"></i>'.html_safe, f, :brotbestellposi, {class: 'ui green button'}
+        = f.hidden_field :name, :value => "STANDARD"
+        = f.hidden_field :typ, :value => "standard"
+        %br
+        = f.submit 'Standard speichern', name: 'standard', :class => 'ui button basic green  '
+
+
+:css
+  .ui.labeled.input > .label {
+      width: 50%;
+  }
+
+:javascript
+
+  $( document ).ready(function() {
+
+    $('.ui.dropdown').dropdown();
+
+  })

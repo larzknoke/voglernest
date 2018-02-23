@@ -1,7 +1,7 @@
 %nav#nav.box-shadow.ui.fixed
   %ul
     %li
-      = link_to(home_index_path, style: "padding: 0", class: "no-hover", "data-turbolinks" => "false") do
+      = link_to(home_index_path, style: "padding: 0", class: "no-hover") do
         = image_tag "logo.png",{:style => "  position: relative; top: 12px;margin: 0 25px; width: 45px;"}
     %li
       = link_to "Voglerhof", {:controller => "home", :action => "hof" }

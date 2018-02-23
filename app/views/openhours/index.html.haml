@@ -1,5 +1,7 @@
 %h1 Öffnungszeiten
 
+= link_to 'Neue Öffnungszeit', new_openhour_path, :class => "ui button green basic"
+
 %table.ui.table
   %thead
     %tr
@@ -25,5 +27,3 @@
         %td= link_to 'Löschen', openhour, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
-
-= link_to 'Neue Öffnungszeit', new_openhour_path, :class => "ui button green basic"

@@ -11,7 +11,7 @@
     = f.text_field :name
   .field
     %label Kategorie
-    = f.select :brottyp_id, options_from_collection_for_select(Brottyp.all, :id, :name), {class: 'ui dropdown'}
+    = f.select :brottyp_id, options_from_collection_for_select(Brottyp.all, :id, :name, f.object.brottyp_id), {class: 'ui dropdown'}
   .field
     .ui.checkbox
       = f.check_box :aktiv, :class => 'checkbox'
