@@ -25,3 +25,7 @@ roh/
 /public/system/*
 
 /.idea
+
+*.sketch
+Gemfile.lock
+**/.DS_Store
