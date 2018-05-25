@@ -4,13 +4,13 @@
       Hofladen
       %br/
       Öffnungszeiten:
-    .ui.relaxed.divided.list{:style => "margin:0"}
+    .ui.list-group.list-group-flush{:style => "margin:0"}
       - @openhours.each do |openhour|
         - if !openhour.geschlossen
-          .item{:class => (openhour.spezial ? "open-at-important" : "")}
+          .list-group-item{:class => (openhour.spezial ? "open-at-important" : "")}
             = "#{openhour.tag}: #{openhour.start.strftime("%H:%M")} - #{openhour.ende.strftime("%H:%M")}"
         - else
-          .item{:class => (openhour.spezial ? "open-at-important" : "")}
+          .list-group-item{:class => (openhour.spezial ? "open-at-important" : "")}
             = "#{openhour.tag}: geschlossen"
 %a.sub-logo{:href => "http://www.bioland.de"}
   = image_tag 'home/header/bioland.svg'

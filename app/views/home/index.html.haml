@@ -1,84 +1,82 @@
-.ui.grid{:style => "padding-bottom: 3rem"}
-  .ui.grid.container.stackable
-    .sixteen.wide.column.row.first-section.roomy-70
-      .twelve.wide.column
-        = render 'carousel'
-      .four.wide.column
-        .info-box
-          %h3 Infos &amp; Aktuelles
-          .box-item
-            %h4{:style => "margin-bottom:0.3rem"}
-              %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-              Herbstbrot
-            %p.text-green
-              Für kurze Zeit das Kartoffelbrot.
-          .box-item
-            %h4{:style => "margin-bottom:0.3rem"}
-              %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-              Herbstgemüse
-            %p.text-green
-              Frische Möhren vom Voglerhof jetzt im Hofladen erhältlich.
-          .box-item
-            %h4{:style => "margin-bottom:0.3rem"}
-              %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-              Herbstschlachtung
-            %p.text-green
-              Bio-Rind vom Voglerhof jetzt Fleischportionen vorbestellen.
-          = link_to(home_hofladen_path, class: "btn btn-small") do
-            %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-            zum Hofladen
-    .seven.wide.column.text-yellow.roomy-120
-      %h1 Der Voglerhof
-      .divider-left
-      %h5
-        Aus Überzeugung bio – schon seit 1989. Erfahren Sie mehr über den Hof und unsere Arbeitsweise.
-      %h5
-        Lorem ipsum dolor sit amet, consectetur adipisicing
-      = link_to(home_fw_path, class: "btn btn-primary") do
+.row.first-section.roomy-70.mx-5
+  -# .col.first-section.roomy-70
+  .col-9
+    = render 'carousel'
+  .col-3
+    .info-box
+      %h3 Infos &amp; Aktuelles
+      .box-item
+        %h4{:style => "margin-bottom:0.3rem"}
+          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+          Herbstbrot
+        %p.text-green
+          Für kurze Zeit das Kartoffelbrot.
+      .box-item
+        %h4{:style => "margin-bottom:0.3rem"}
+          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+          Herbstgemüse
+        %p.text-green
+          Frische Möhren vom Voglerhof jetzt im Hofladen erhältlich.
+      .box-item
+        %h4{:style => "margin-bottom:0.3rem"}
+          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+          Herbstschlachtung
+        %p.text-green
+          Bio-Rind vom Voglerhof jetzt Fleischportionen vorbestellen.
+      = link_to(home_hofladen_path, class: "btn btn-small") do
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-        mehr
-    .nine.wide.column.roomy-80
-      .img-holder.hover-effect
-        .img-item.border-bottom.hover{:style => "background-image: url(#{image_path("home/content/content2.jpg") })"}
-          .overlay
-        .img-item.border-bottom{:style => "background-image: url(#{image_path("home/content/hofladen2.jpg") })"}
-          .overlay
-        .img-item.border-bottom{:style => "background-image: url(#{image_path("home/content/trecker2.jpg")})"}
-          .overlay
-.ui.grid.bg-yellow2.roomy-90
-  .ui.grid.container
-    .ui.three.column.row.stackable
-      .column
-        %h2
-          %span.fi.flaticon-harvest.fi-big
-          Brotbestellung
-        %p.text-green
-          Brot und Brötchen schnell und unkompliziert vorbestellen – ganz bequem jetzt online!
-        = link_to(home_hofladen_path, class: "btn btn-small") do
-          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-          zur Brotbestellung
-      .column
-        %h2
-          %span.fi.flaticon-farm-products.fi-big
-          Hofladen
-        %p.text-green
-          Frische Milch oder frisches regionales Gemüse – biologisch! Das und noch mehr finden Sie bei uns im Hofladen.
-        = link_to(home_hofladen_path, class: "btn btn-small") do
-          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-          zum Hofladen
-      .column
-        %h2
-          %span.fi.flaticon-farmer.fi-big
-          Ausbildung
-        %p.text-green
-          Sucht Ihr einen Ausbildungsplatz in der Landwirtschaft mit abwechslungsreichen Betriebszweigen?
-        = link_to(home_ausbildung_path, class: "btn btn-small") do
-          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-          mehr Infos
+        zum Hofladen
+.row.mx-5
+  .col-5.text-yellow.roomy-120
+    %h1 Der Voglerhof
+    .divider-left
+    %h5
+      Aus Überzeugung bio – schon seit 1989. Erfahren Sie mehr über den Hof und unsere Arbeitsweise.
+    %h5
+      Lorem ipsum dolor sit amet, consectetur adipisicing
+    = link_to(home_fw_path, class: "btn btn-primary") do
+      %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+      mehr
+  .col-7.roomy-80
+    .img-holder.hover-effect
+      .img-item.border-bottom.hover{:style => "background-image: url(#{image_path("home/content/content2.jpg") })"}
+        .overlay
+      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/content/hofladen2.jpg") })"}
+        .overlay
+      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/content/trecker2.jpg")})"}
+        .overlay
+.row.bg-yellow2.roomy-90
+  .col.mx-5
+    %h2
+      %span.fi.flaticon-harvest.fi-big
+      Brotbestellung
+    %p.text-green
+      Brot und Brötchen schnell und unkompliziert vorbestellen – ganz bequem jetzt online!
+    = link_to(home_hofladen_path, class: "btn btn-small") do
+      %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+      zur Brotbestellung
+  .col.mx-5
+    %h2
+      %span.fi.flaticon-farm-products.fi-big
+      Hofladen
+    %p.text-green
+      Frische Milch oder frisches regionales Gemüse – biologisch! Das und noch mehr finden Sie bei uns im Hofladen.
+    = link_to(home_hofladen_path, class: "btn btn-small") do
+      %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+      zum Hofladen
+  .col.mx-5
+    %h2
+      %span.fi.flaticon-farmer.fi-big
+      Ausbildung
+    %p.text-green
+      Sucht Ihr einen Ausbildungsplatz in der Landwirtschaft mit abwechslungsreichen Betriebszweigen?
+    = link_to(home_ausbildung_path, class: "btn btn-small") do
+      %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+      mehr Infos
 
 
-.ui.grid.roomy-150
-  .column.text-center.text-yellow
+.row.roomy-150
+  .col.text-center.text-yellow.no-gutter
     %h1 Die Ferienwohnung
     .divider-center
     .img-holder.roomy-50
@@ -94,8 +92,9 @@
       %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
       Ferienwohnung buchen
 
-.ui.grid{:style => 'margin-left: 0; margin-right: 0;'}
-  #map.border-bottom{:style => 'height:550px; width: 100%'}
+.row
+  .col.no-gutter
+    #map.border-bottom{:style => 'height:550px; width: 100%'}
 
 
 

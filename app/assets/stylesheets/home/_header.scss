@@ -55,7 +55,7 @@
 
 #nav  {
   font-family: $font_serif;
-  font-size: 1.05em;
+  font-size: 1.2em;
   position:relative;
   z-index:10;
   width:100%;
@@ -68,7 +68,7 @@
     li  {	display:inline-block;
 
       a { display:block;
-        padding: 20px 30px;
+        padding: 22px 30px;
         text-decoration:none;
         color: $color_green;
         letter-spacing: 1px;
@@ -152,7 +152,7 @@
 
 
 .open-at {
-  font-size:0.9em;
+  font-size: .9rem;
   color: $color_green;
   margin-left: 3%;
   padding: 20px 35px 15px 35px;
@@ -171,7 +171,22 @@
       font-size: 1rem;
   }
 
+	.list-group-item {
+		padding: 3px 0;
+		background: transparent;
+		border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	}
+
 }
+
+.list-group-item {
+	padding: 8px 0;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 
 .open-at-important {
   color: $color_orange;

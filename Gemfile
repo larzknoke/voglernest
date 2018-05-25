@@ -4,7 +4,7 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "4.2.9"
 # Use sqlite3 as the database for Active Record
-gem "pg"
+gem 'pg', '~> 0.21'
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
 # Use Uglifier as compressor for JavaScript assets
@@ -26,6 +26,7 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "haml-rails", "~> 1.0"
 # gem "bulma-rails", "~> 0.5.3"
 gem "semantic-ui-sass", github: "doabit/semantic-ui-sass"
+gem 'bootstrap', '~> 4.1.1'
 gem "acts_as_bookable"
 gem "font-awesome-rails"
 gem "simple_calendar", "~> 2.0"

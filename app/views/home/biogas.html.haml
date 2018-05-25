@@ -1,8 +1,9 @@
-.ui.grid.relaxed
-  .sixteen.wide.column.m-top-100{:style => "padding: 0 5%"}
+.row
+  .col-12.m-top-100{:style => "padding: 0 5%"}
     %h1.text-yellow Energie aus Biogas
     .divider-left
-  .nine.wide.column{:style => "padding: 0 5%"}
+.row
+  .col-7{:style => "padding: 0 5%"}
     %p.m-top-50
       Seit 2007 betreiben wir eine Biogasanlage und produzieren Strom und Wärme. Die Anlage verbessert die Klimabilanz unseres Hofes. Sie hilft schädliche Emissionen der Kühe zu vermindern und spart sehr viel Energie für die Milchverarbeitung, das Wohnhaus, den Hofladen, die Ferienwohnung sowie die umliegenden Wohn- und Gemeindehäuser.
       Aber nicht nur wir geben unsere Reststoffe und übrige Grassilage in die Anlage, auch konventionelle Kollegen können Mist, Mais und Gras liefern und erhalten dafür eine attraktive Entlohnung und einen wertvollen Dünger zurück.
@@ -12,20 +13,20 @@
       Die Nutzung schwankt jahreszeitlich. Z. B. im ersten Jahr wurden rund 1/3 Gülle und Mist, 1/3 Maissilage und 1/3 Grassilage eingesetzt.
 
 
-  .six.wide.column
-    .list-container.border-left{:style => "padding: 6%"}
-      %strong
+  .col-5
+    .list-container.border-left{:style => "padding: 5%; width: 90%"}
+      %h4
         Die Vorteile der Biogasanlage
-      .ui.list.bulleted
-        .item CO² neutrale Stromproduktion
-        .item Verminderungen von Methanemissionen der Kühe
-        .item Energieeinsparung von ca. 30.000 Litern Heizöl
-        .item Erhalt der Kulturlandschaft durch Nutzung von Gras
-        .item Verbesserte Düngewirkung
-        .item Deutlich geringere Geruchsbelästigung
+      %ul.bullet-list{:style => "margin-bottom: 0"}
+        %li.item CO² neutrale Stromproduktion
+        %li.item Verminderungen von Methanemissionen der Kühe
+        %li.item Energieeinsparung von ca. 30.000 Litern Heizöl
+        %li.item Erhalt der Kulturlandschaft durch Nutzung von Gras
+        %li.item Verbesserte Düngewirkung
+        %li.item Deutlich geringere Geruchsbelästigung
 
-.ui.grid
-  .sixteen.wide.column
+.row
+  .col-12.no-gutter
     .img-holder
       .img-item.border-bottom{:style => "background-image: url(#{image_path("home/content/trecker.jpg") })"}
       .img-item.border-bottom{:style => "background-image: url(#{image_path("home/content/biogas3.jpg") })"}

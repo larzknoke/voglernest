@@ -1,6 +1,6 @@
-.ui.grid.relaxed
+.row
 
-  .nine.wide.column.m-top-100{:style => "padding: 0 5% 15% 5%"}
+  .col-7.m-top-100{:style => "padding: 0 5% 15% 5%"}
     %h1.text-yellow Der Hofladen
     .divider-left
     %p
@@ -17,21 +17,21 @@
 
 
 
-  .three.wide.column.bg-yellow2{:style => "padding: 0 2% ;margin-bottom: 1rem; display: flex;  align-items: center; padding-bottom: 6rem"}
-    .vertical-align-center
+  .col-2.bg-yellow2{:style => "padding: 0 2% ;margin-bottom: 1rem; display: flex;  align-items: center; padding-bottom: 6rem"}
+    .vertical-align-center{:style => "margin-top: -5%;"}
       - if @openhours.present?
         %div
           %h4
             %span.fi.flaticon-farm.fi-big
             &nbsp
             Öffnungszeiten
-          .ui.relaxed.divided.list{:style => "margin:0"}
+            .list-group.list-group-flush{:style => "margin:0"}
             - @openhours.each do |openhour|
               - if !openhour.geschlossen
-                .item{:class => (openhour.spezial ? "open-at-important" : ""), :style => "font-weight: 300"}
+                .list-group-item{:class => (openhour.spezial ? "open-at-important" : ""), :style => "font-weight: 300"}
                   = "#{openhour.tag}: #{openhour.start.strftime("%H:%M")} - #{openhour.ende.strftime("%H:%M")}"
               - else
-                .item{:class => (openhour.spezial ? "open-at-important" : ""), :style => "font-weight: 300" }
+                .list-group-item{:class => (openhour.spezial ? "open-at-important" : ""), :style => "font-weight: 300" }
                   = "#{openhour.tag}: geschlossen"
       %h4{:class => ( @openhours.present? ? "m-top-80" : "")}
         %span.fi.flaticon-harvest.fi-big
@@ -43,6 +43,6 @@
         bestellen
 
 
-  .three.wide.column{:style => "padding-top: 0"}
+  .col-3.no-gutter{:style => "padding-top: 0"}
     .img-holder{:style => "height: 58rem"}
       .img-item{:style => "background-image: url(#{image_path("home/content/hofladen.jpg") })"}

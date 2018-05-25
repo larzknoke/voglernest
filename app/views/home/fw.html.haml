@@ -1,5 +1,5 @@
-.ui.grid
-  .sixteen.wide.column.m-top-100
+.row
+  .col-12.m-top-100.no-gutter
     %h1.text-yellow.text-center Ferien auf dem Voglerhof
     .divider-center
     .img-holder.roomy-50
@@ -11,31 +11,32 @@
         Ferien mitten im Grünen und weit ab von Verkehrschaos und der alltäglichen Hektik. Gemütlich Wandern, Radfahren oder die Sehenswürdigkeiten im Weserbergland erkunden. Die Ferienwohnung ist der perfekte Ausgangspunkt.
       %p
         In dem mit Liebe restauriertes Pfarrwitwenhaus gleich am Hofeingang befindet sich die Wohnung. Das gesamte Häuschen inkl. Hofladen wurde 2007 vollkommen kernsaniert und nach Denkmalschutzvorgaben bestmöglich wieder aufgebaut. Die Wohnung verteilt sich über zwei Etagen (1. OG + Dachgeschoss). Im Erdgeschoss befindet sich der Hofladen – gesunde Verpflegung somit garantiert.
-  .eight.wide.column.bg-yellow2.m-top-80{:style => "padding: 3rem 5%;"}
+.row
+  .col-6.bg-yellow2.m-top-80{:style => "padding: 3rem 5%;"}
     %h2 Info
-    .ui.list.bulleted{:style => 'font-weight: 300;margin-bottom: 3em'}
-      .item Die Wohnung: 1. OG + ausgebauter Dachgeschoss
-      .item freundliche Wohnküche, mit großem Esstisch und gemütlicher Wohnzimmerecke (inkl. Schlafcouch für 2 Personen)
-      .item Schlafzimmer mit Doppelbett
-      .item Bad mit Badewanne und Doppelwaschbecken
-      .item Flur mit Garderobe und Stauraum für Koffer
-      .item Der gesamte Dachboden ist zu einem großen Raum ausgebaut, mit zwei einzelnen Betten und viel Platz zum Spielen.
-      .item Zur Ferienwohnung gehört ein kleiner Garten mit Sitzplatz und Unterstellplatz für Fahrräder.
+    %ul.bullet-list{:style => "margin-bottom: 0; font-weight: 300"}
+      %li.item Die Wohnung: 1. OG + ausgebauter Dachgeschoss
+      %li.item freundliche Wohnküche, mit großem Esstisch und gemütlicher Wohnzimmerecke (inkl. Schlafcouch für 2 Personen)
+      %li.item Schlafzimmer mit Doppelbett
+      %li.item Bad mit Badewanne und Doppelwaschbecken
+      %li.item Flur mit Garderobe und Stauraum für Koffer
+      %li.item Der gesamte Dachboden ist zu einem großen Raum ausgebaut, mit zwei einzelnen Betten und viel Platz zum Spielen.
+      %li.item Zur Ferienwohnung gehört ein kleiner Garten mit Sitzplatz und Unterstellplatz für Fahrräder.
 
-  .eight.wide.column.bg-yellow2.m-top-80{:style => "padding: 3rem 5%"}
+  .col-6.bg-yellow2.m-top-80{:style => "padding: 3rem 5%"}
     %h2 Kosten & Reservierung
-    .ui.list{:style => 'font-weight: 300;margin-bottom: 3em'}
-      .item Wir bitten vorab um Verständnis, dass wir die Ferienwohnung erst ab zwei Übernachtungen für Gäste zur Verfügung stellen.
-      .item Da die Ferienwohnung über zwei Etagen verteilt ist, kann auch nur das 1. OG gemietet werden.
-      .item
+    %ul{:style => 'font-weight: 300;margin-bottom: 3em; list-style-type: none'}
+      %li.item Wir bitten vorab um Verständnis, dass wir die Ferienwohnung erst ab zwei Übernachtungen für Gäste zur Verfügung stellen.
+      %li.item Da die Ferienwohnung über zwei Etagen verteilt ist, kann auch nur das 1. OG gemietet werden.
+      %li.item
         %strong 1. OG (1-2 Personen):
         %br
         49,- pro Übernachtung zzgl. Endreinigung 22,- Euro
-      .item
+      %li.item
         %strong 1. OG + Dachgeschoss (3-4 Personen):
         %br
         59,- pro Übernachtung zzgl. Endreinigung: 22,- Euro
-      .item
+      %li.item
         Jede weitere Person zzgl. 5,- pro Übernachtung nach Absprache.
     %p.text-green{:style => 'margin-top: 1em'}
       Wir freuen uns, wenn wir Ihr Interesse für die Ferienwohnung wecken konnten. Ihre Fragen bzw. Anfragen können Sie per Telefon, Fax oder E-Mail an uns richten:
@@ -43,8 +44,9 @@
 
 
 :css
-  .ui.list .item {
+  .item {
     padding: 0.5em 0;
+    font-size: 1rem;
   }
 
   .eight p, .eight strong {

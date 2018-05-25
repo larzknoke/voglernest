@@ -147,7 +147,7 @@ $slick-arrow-bg-height: $slick-arrow-bg-width !default;
 #carousel {
 	min-width: 0;
 	min-height: 0;
-	height: 40rem;
+	height: 36rem;
 }
 
 .slide-container {
@@ -180,7 +180,7 @@ $slick-arrow-bg-height: $slick-arrow-bg-width !default;
 			padding: 6% 4%;
 
 			h3 {
-				font-size: 1.5rem;
+				font-size: 1.3rem;
 				color: $color_orange;
 				margin: 1rem;
 
@@ -201,10 +201,10 @@ $slick-arrow-bg-height: $slick-arrow-bg-width !default;
 
 			p {
 				color:$color_green;
-				margin-top: 3rem;
-				margin-bottom: 2rem;
-				font-size: 1.2rem;
-				line-height: 2rem;
+				margin-top: 2rem;
+				margin-bottom: 1rem;
+				font-size: 1.1rem;
+				line-height: 1.75rem;
 				font-weight: 300;
 			}
 		}
