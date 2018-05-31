@@ -67,6 +67,18 @@ h5 	{font-size: 1.15rem; font-family: $font_sans, sans-serif; font-weight: 300; 
 
 p { font-size: 1rem; font-family: $font_sans, sans-serif; font-weight: 300; color: $color_yellow; line-height: 1.5rem;}
 
+a {
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+
+  &:hover {
+    color: $color_orange;
+  }
+}
+
 .text-center { text-align: center;}
 
 .text-orange { color: $color_orange;}
@@ -84,9 +96,9 @@ p { font-size: 1rem; font-family: $font_sans, sans-serif; font-weight: 300; colo
   margin-bottom: 1.8rem
 }
 
-[class^='col'].no-gutter {
-  padding-left: 0;
-  padding-right: 0;
+[class*='col'].no-gutter {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .border-bottom {
@@ -262,14 +274,14 @@ p { font-size: 1rem; font-family: $font_sans, sans-serif; font-weight: 300; colo
   background-color: $color_yellow2;
   padding: 2.5rem;
   color: $color_green;
-  height: 36rem;
+  height: 34rem;
   // height: 100%;
   // border-bottom: 0.75rem solid $color_orange;
 
   .box-item {
 
     text-align: left;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 
     p {
       font-weight: 300;
@@ -303,6 +315,7 @@ p { font-size: 1rem; font-family: $font_sans, sans-serif; font-weight: 300; colo
   }
 
    .img-item {
+     width: 100%;
      flex: 1 1 10rem;
      background-size: cover;
      background-position: center center;
@@ -407,9 +420,62 @@ opacity: .4 !important;
   }
 }
 
+
+
 /* iPads (landscape) ----------- */
 @media screen and (max-width: 1024px) and (-webkit-device-pixel-ratio: 2)	{
 
 	#nav ul li a {padding: 20px 20px}
+
+}
+
+@media screen and (max-width: 1200px) {
+
+  .info-box {
+    height: auto;
+  }
+
+}
+@media screen and (max-width: 992px) {
+
+  .text-center-md {
+    text-align: center;
+  }
+
+  .divider-left.center {
+    margin: auto !important;
+  }
+
+  .extra-m-bottom.fi:before {
+    margin-bottom: .8rem;
+  }
+
+  .roomy-120.roomy-md {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+  }
+
+  .roomy-80.roomy-md {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+  }
+
+  .roomy-70.roomy-md {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  [class*='roomy-'].no-roomy {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .text-center-sm {
+    text-align: center;
+  }
 
 }

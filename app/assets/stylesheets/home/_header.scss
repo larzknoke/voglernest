@@ -107,6 +107,13 @@
   }
 }
 
+.navbar {
+	padding: 0;
+}
+
+.bg-light {
+    background-color: $color_yellow !important;
+}
 
 #nav.fixed {
     position:fixed;
@@ -197,4 +204,15 @@
    #head {
       position: relative;
    }
+}
+
+@media (max-width: 680px) {
+   .sub-logo {
+			height: 40px;
+			right: 7px;
+   }
+	 .sub-logo.sub-logo-down {
+		 	top: 80px;
+			right: 10px !important;
+	 }
 }

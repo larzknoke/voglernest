@@ -1,8 +1,19 @@
 #carousel
   .slide-container
-    .slide-part.left
+    .slide-part.left.col-lg-7.col-md-6.no-gutter
+      .slide-img{:style => "background-image: url(#{image_path("home/content/kinder.jpg")})"}
+    .slide-part.right.col-lg-5.col-md-6
+      %span.fi.flaticon-farm
+      %h3 Der Voglerhof
+      %p
+        Aus Überzeugung bio – schon seit 1989. Erfahren Sie mehr über den Hof und unsere Arbeitsweise.
+      = link_to(home_hof_path, class: "btn") do
+        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+        zum Voglerhof
+  .slide-container
+    .slide-part.left.col-lg-7.col-md-6.no-gutter
       .slide-img{:style => "background-image: url(#{image_path("home/slider/hofladen.jpg")})"}
-    .slide-part.right
+    .slide-part.right.col-lg-5.col-md-6
       %span.fi.flaticon-milk-products
       %h3 Der Hofladen
       %p
@@ -11,10 +22,10 @@
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
         zum Hofladen
   .slide-container
-    .slide-part.left
+    .slide-part.left.col-lg-7.col-md-6.no-gutter
       .slide-img{:style => "background-image: url(#{image_path("home/slider/fw.jpg") })"}
-    .slide-part.right
-      %span.fi.flaticon-farm
+    .slide-part.right.col-lg-5.col-md-6
+      %span.fi.flaticon-hay-roll
       %h3 Ferien auf dem Bauernhof
       %p
         Sie suchen ein ruhiges und gemütliches Plätzchen zum „Pause machen“ – dann schauen Sie sich unsere Ferienwohnung.
@@ -22,9 +33,9 @@
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
         zur Ferienwohnung
   .slide-container
-    .slide-part.left
+    .slide-part.left.col-lg-7.col-md-6.no-gutter
       .slide-img{:style => "background-image: url(#{image_path("home/slider/biogas.jpg") })"}
-    .slide-part.right
+    .slide-part.right.col-lg-5.col-md-6
       %span.fi.flaticon-rye
       %h3 Energie aus Biogas!
       %p

@@ -1,5 +1,5 @@
 - if @openhours.present?
-  .open-at
+  .open-at.d-none.d-lg-block
     %h3
       Hofladen
       %br/
@@ -14,21 +14,24 @@
             = "#{openhour.tag}: geschlossen"
 %a.sub-logo{:href => "http://www.bioland.de"}
   = image_tag 'home/header/bioland.svg'
-%a.sub-logo{:href => "http://www.bioland.de", :style => "right: 130px;"}
+%a.sub-logo.sub-logo-down{:href => "http://www.bioland.de", :style => "right: 130px;"}
   = image_tag 'home/header/biosiegel.svg'
 %header#head
   .logo
-%nav#nav.box-shadow.ui.sticky{:style => 'top: 220px'}
-  %ul
-    %li
-      = link_to "Voglerhof", {:controller => "home", :action => "hof" }
-    %li
-      = link_to "Biogasanlage", {:controller => "home", :action => "biogas" }
-    %li
-      = link_to "Ausbildung", {:controller => "home", :action => "ausbildung" }
-    %li
-      = link_to "Hofladen", {:controller => "home", :action => "hofladen" }
-    %li
-      = link_to "Ferienwohnung", {:controller => "home", :action => "fw" }
-    %li
-      %a{:href => "#"} Kontakt
+%nav#nav.navbar.navbar-expand-lg.navbar-light.bg-light.ui.sticky{:style => 'top: 220px'}
+  %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse.justify-content-center
+    %ul.navbar-nav
+      %li.nav-item
+        = link_to "Voglerhof", {:controller => "home", :action => "hof"}, :class => "nav-link"
+      %li.nav-item
+        = link_to "Hofladen", {:controller => "home", :action => "hofladen" }, :class => "nav-link"
+      %li.nav-item
+        = link_to "Ferienwohnung", {:controller => "home", :action => "fw" }, :class => "nav-link"
+      %li.nav-item
+        = link_to "Biogasanlage", {:controller => "home", :action => "biogas" }, :class => "nav-link"
+      %li.nav-item
+        = link_to "Ausbildung", {:controller => "home", :action => "ausbildung" }, :class => "nav-link"
+      %li.nav-item
+        = link_to "Kontakt", {:controller => "home", :action => "kontakt" }, :class => "nav-link"

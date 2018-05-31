@@ -147,7 +147,7 @@ $slick-arrow-bg-height: $slick-arrow-bg-width !default;
 #carousel {
 	min-width: 0;
 	min-height: 0;
-	height: 36rem;
+	height: 34rem;
 }
 
 .slide-container {
@@ -171,11 +171,11 @@ $slick-arrow-bg-height: $slick-arrow-bg-width !default;
 		}
 
 		&.left {
-			width: 60%;
+			// width: 60%;
 		}
 
 		&.right {
-			width: 40%;
+			// width: 40%;
 			background-color: $color_yellow2;
 			padding: 6% 4%;
 

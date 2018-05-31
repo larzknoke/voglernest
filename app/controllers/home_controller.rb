@@ -25,6 +25,11 @@ class HomeController < ApplicationController
     render layout: 'home/home'
   end
 
+  def kontakt
+    @openhours = Openhour.all
+    render layout: 'home/home'
+  end
+
   def thanks
     render layout: 'home/home'
   end

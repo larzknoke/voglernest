@@ -1,17 +1,17 @@
 %nav#nav.box-shadow.ui.fixed
   %ul
-    %li
+    %li.nav-item
       = link_to(home_index_path, style: "padding: 0", class: "no-hover") do
         = image_tag "logo.png",{:style => "  position: relative;margin: 0 25px; width: 45px;"}
-    %li
+    %li.nav-item
       = link_to "Voglerhof", {:controller => "home", :action => "hof" }
-    %li
-      = link_to "Biogasanlage", {:controller => "home", :action => "biogas" }
-    %li
-      = link_to "Ausbildung", {:controller => "home", :action => "ausbildung" }
-    %li
+    %li.nav-item
       = link_to "Hofladen", {:controller => "home", :action => "hofladen" }
-    %li
+    %li.nav-item
       = link_to "Ferienwohnung", {:controller => "home", :action => "fw" }
-    %li
-      %a{:href => "#"} Kontakt
+    %li.nav-item
+      = link_to "Biogasanlage", {:controller => "home", :action => "biogas" }
+    %li.nav-item
+      = link_to "Ausbildung", {:controller => "home", :action => "ausbildung" }
+    %li.nav-item
+      = link_to "Kontakt", {:controller => "home", :action => "kontakt" }

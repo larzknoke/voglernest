@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get "home/ausbildung"
   get "home/fw"
   get "home/hofladen"
+  get "home/kontakt"
   get "home/thanks"
 
   get "start/index"

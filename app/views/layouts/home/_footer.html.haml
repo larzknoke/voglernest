@@ -1,5 +1,5 @@
 .row.bg-yellow2.roomy-90.border-top
-  .col-3.offset-1
+  .col-lg-4.offset-lg-1.mx-lg-5.mx-md-3
     %h1
       Kontakt
     %p.text-green
@@ -27,9 +27,11 @@
         = image_tag 'home/header/bioland.svg', :style => "width: 60px"
       %a{:href => "http://www.bioland.de"}
         = image_tag 'home/header/biosiegel.svg', :style => "width: 70px; margin-left: 15px"
+      %a{:href => "https://www.ml.niedersachsen.de/themen/entwicklung_laendlichen_raums/eufoerderprogramme_zur_entwicklung_im_laendlichen_raum/eu-foerderung-in-niedersachsen-147111.html"}
+        = image_tag 'eu.png', :style => "height: 50px; margin-left: 15px"
 
 
-  .col-6.offset-1
+  .col-lg-6.offset-lg-1.mx-md-3.my-md-5.my-lg-0
     %form
       .form-group
         %input.form-control{:name => "kontakt[name]", :placeholder => "Name", :type => "text"}/

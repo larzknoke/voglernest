@@ -1,8 +1,8 @@
-.row.first-section.roomy-70.mx-5
+.row.first-section.roomy-40.mx-lg-4
   -# .col.first-section.roomy-70
-  .col-9
+  .col-xl-9.col-lg-12.my-md-4
     = render 'carousel'
-  .col-3
+  .col-xl-3.col-lg-12.my-md-4
     .info-box
       %h3 Infos &amp; Aktuelles
       .box-item
@@ -26,18 +26,18 @@
       = link_to(home_hofladen_path, class: "btn btn-small") do
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
         zum Hofladen
-.row.mx-5
-  .col-5.text-yellow.roomy-120
+.row.mx-lg-5.mx-md-2
+  .col-lg-5.text-yellow.roomy-120.text-center-md.roomy-md.no-roomy
     %h1 Der Voglerhof
-    .divider-left
+    .divider-left.center
     %h5
       Aus Überzeugung bio – schon seit 1989. Erfahren Sie mehr über den Hof und unsere Arbeitsweise.
     %h5
       Lorem ipsum dolor sit amet, consectetur adipisicing
-    = link_to(home_fw_path, class: "btn btn-primary") do
+    = link_to(home_hof_path, class: "btn btn-primary") do
       %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
       mehr
-  .col-7.roomy-80
+  .col-lg-7.roomy-80.roomy-md
     .img-holder.hover-effect
       .img-item.border-bottom.hover{:style => "background-image: url(#{image_path("home/content/content2.jpg") })"}
         .overlay
@@ -46,27 +46,30 @@
       .img-item.border-bottom{:style => "background-image: url(#{image_path("home/content/trecker2.jpg")})"}
         .overlay
 .row.bg-yellow2.roomy-90
-  .col.mx-5
+  .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
     %h2
-      %span.fi.flaticon-harvest.fi-big
+      %span.fi.flaticon-harvest.fi-big.extra-m-bottom
+      %br
       Brotbestellung
     %p.text-green
       Brot und Brötchen schnell und unkompliziert vorbestellen – ganz bequem jetzt online!
     = link_to(home_hofladen_path, class: "btn btn-small") do
       %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
       zur Brotbestellung
-  .col.mx-5
+  .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
     %h2
-      %span.fi.flaticon-farm-products.fi-big
+      %span.fi.flaticon-farm-products.fi-big.extra-m-bottom
+      %br
       Hofladen
     %p.text-green
       Frische Milch oder frisches regionales Gemüse – biologisch! Das und noch mehr finden Sie bei uns im Hofladen.
     = link_to(home_hofladen_path, class: "btn btn-small") do
       %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
       zum Hofladen
-  .col.mx-5
+  .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
     %h2
-      %span.fi.flaticon-farmer.fi-big
+      %span.fi.flaticon-farmer.fi-big.extra-m-bottom
+      %br
       Ausbildung
     %p.text-green
       Sucht Ihr einen Ausbildungsplatz in der Landwirtschaft mit abwechslungsreichen Betriebszweigen?
@@ -76,7 +79,7 @@
 
 
 .row.roomy-150
-  .col.text-center.text-yellow.no-gutter
+  .col-md-12.text-center.text-yellow.no-gutter
     %h1 Die Ferienwohnung
     .divider-center
     .img-holder.roomy-50
