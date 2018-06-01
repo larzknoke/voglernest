@@ -13,10 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require momentjs
-//= require semantic-ui
-//= require semantic-ui-calendar
+// require momentjs
+// require semantic-ui-calendar
 //= require jquery.slick
 //= require home
 // require turbolinks
 //= require cocoon
+//= require ekko-lightbox
+//= require js-cookie

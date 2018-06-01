@@ -83,10 +83,14 @@
     %h1 Die Ferienwohnung
     .divider-center
     .img-holder.roomy-50
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo1.jpg") })"}
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })"}
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo3.jpg") })"}
-      -# .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo4.jpg") })"}
+      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo1.jpg") })","data-gallery" => "fw-gallery", "data-toggle" => "fw-lightbox","data-remote" => "#{image_path("home/fewo/fewo1.jpg") }"}
+      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })","data-gallery" => "fw-gallery", "data-toggle" => "fw-lightbox","data-remote" => "#{image_path("home/fewo/fewo2.jpg") }"}
+      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo3.jpg") })","data-gallery" => "fw-gallery", "data-toggle" => "fw-lightbox","data-remote" => "#{image_path("home/fewo/fewo3.jpg") }"}
+      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo5.jpg") }", "data-toggle" => "fw-lightbox"}
+      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo6.jpg") }", "data-toggle" => "fw-lightbox"}
+      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo7.jpg") }", "data-toggle" => "fw-lightbox"}
+      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo8.jpg") }", "data-toggle" => "fw-lightbox"}
+      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo9.jpg") }", "data-toggle" => "fw-lightbox"}
     %p
       In ein liebevoll restauriertes Fachwerkhaus befindet sich die Ferienwohnung mit bis zu sechs Schlafplätzen.
       %br
@@ -122,3 +126,10 @@
       position: myLatLng,
     });
   }
+
+  $(document).on('click', '[data-toggle="fw-lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox({
+        maxWidth: 800
+      });
+  });

@@ -42,6 +42,8 @@ source "https://rails-assets.org" do
   # gem "rails-assets-semantic-ui-daterangepicker"
   gem "rails-assets-semantic-ui-calendar"
   gem "rails-assets-momentjs"
+  gem "rails-assets-ekko-lightbox"
+  gem "rails-assets-js-cookie"
 end
 
 

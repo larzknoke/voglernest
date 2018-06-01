@@ -420,6 +420,38 @@ opacity: .4 !important;
   }
 }
 
+[data-toggle*=lightbox]:hover { /* contains selector */
+  cursor: pointer;
+}
+
+.cookie-notice {
+  background-color: $color_orange;
+  color:white;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1.25rem;
+
+    .btn {
+      margin: 0;
+      margin-left: 1rem;
+      padding:.5rem 3rem;
+      &:hover {
+        background-color: $color_green;
+        color: white;
+      }
+    }
+    a {
+      text-decoration: underline;
+      &:hover {
+        color:white;
+      }
+    }
+}
+
 
 
 /* iPads (landscape) ----------- */

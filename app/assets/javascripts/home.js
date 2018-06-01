@@ -3,20 +3,35 @@ $(document).ready( function() {
 
     // $( 'a' ).imageLightbox();
 
-    var navHeight = $('nav').outerHeight();
-    var vWidth    = $(window).width();
+    var vWidth        = $(window).width();
+    var nav           = $('.stick-top')
+    var navHeight     = nav.outerHeight();
+    var headerHeight  = $('#head').outerHeight();
+    var openAt        = $('.open-at');
+    var contentCont   = $('.content-container');
 
-    $('.ui.sticky')
-      .sticky({
-        context: '.content-container',
-        onStick: function() {
-          $('.open-at').attr("style", "display: none !important");
-          $('.content-container').css( "padding-top",  navHeight );
-        },
-        onUnstick: function() {
-          $('.open-at').attr("style", "display: block !important");
-          $('.content-container').css( "padding-top", 0 );
-        },
+
+    $('.agree').click(function(){
+      $('.cookie-notice').slideToggle(300,function(){$(this).remove()});
+      Cookies.set('cookieAccept', true, { expires: 7 });
+    });
+
+    if (Cookies.get('cookieAccept')) {
+      $('.cookie-notice').remove();
+    }
+
+    $(window).scroll(function(){
+        if( $(window).scrollTop() > headerHeight ) {
+            nav.css({position: 'fixed', top: '0px'});
+            openAt.attr("style", "display: none !important");
+            contentCont.css( "padding-top",  navHeight );
+            nav.addClass('box-shadow')
+        } else {
+            nav.css({position: 'relative', top: '220px'});
+            openAt.attr("style", "display: block !important");
+            contentCont.css( "padding-top", 0 );
+            nav.removeClass('box-shadow')
+        }
     });
 
     $('#carousel').slick({

@@ -3,9 +3,14 @@
     %h1.text-yellow.text-center Ferienwohnung
     .divider-center
     .img-holder.roomy-50
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo1.jpg") })"}
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })"}
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo3.jpg") })"}
+      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo1.jpg") })","data-gallery" => "fw-gallery", "data-toggle" => "fw-lightbox","data-remote" => "#{image_path("home/fewo/fewo1.jpg") }"}
+      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })","data-gallery" => "fw-gallery", "data-toggle" => "fw-lightbox","data-remote" => "#{image_path("home/fewo/fewo2.jpg") }"}
+      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo3.jpg") })","data-gallery" => "fw-gallery", "data-toggle" => "fw-lightbox","data-remote" => "#{image_path("home/fewo/fewo3.jpg") }"}
+      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo5.jpg") }", "data-toggle" => "fw-lightbox"}
+      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo6.jpg") }", "data-toggle" => "fw-lightbox"}
+      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo7.jpg") }", "data-toggle" => "fw-lightbox"}
+      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo8.jpg") }", "data-toggle" => "fw-lightbox"}
+      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo9.jpg") }", "data-toggle" => "fw-lightbox"}
     %div.text-center{:style => "padding: 0 15%"}
       %p
         Ferien mitten im Grünen und weit ab von Verkehrschaos und der alltäglichen Hektik. Gemütlich Wandern, Radfahren oder die Sehenswürdigkeiten im Weserbergland erkunden. Die Ferienwohnung ist der perfekte Ausgangspunkt.
@@ -52,3 +57,11 @@
   .eight p, .eight strong {
     font-size: 1em;
   }
+
+:javascript
+  $(document).on('click', '[data-toggle="fw-lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox({
+        maxWidth: 800
+      });
+  });
