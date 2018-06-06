@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   put "bst_auf_schein" => "brotbestellscheins#bst_auf_schein"
   get "schein_aus_bst" => "brotbestellscheins#schein_aus_bst"
   get "standard" => "brotbestellungs#standard"
+  post "contact" => "home#contactmail"
 
   resources :brottyps
   resources :openhours

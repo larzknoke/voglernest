@@ -34,4 +34,29 @@ class HomeController < ApplicationController
     render layout: 'home/home'
   end
 
+
+  def contactmail
+    @message = Message.new(message_params)
+    if @message.valid?
+      puts 'fine!'
+      ContactMailer.contact_email(@message).deliver
+      respond_to do |format|
+        format.html { redirect_to :controller => 'home', :action => 'index' }
+        format.js { render 'home/contact-form'}
+      end
+    else
+      puts "err!"
+      respond_to do |format|
+        format.html { redirect_to :controller => 'home', :action => 'index' }
+        format.js { render 'home/contact-form'}
+      end
+    end
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:name, :email, :telefon, :text)
+  end
+
 end

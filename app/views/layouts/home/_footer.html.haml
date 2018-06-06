@@ -32,19 +32,26 @@
 
 
   .col-lg-6.offset-lg-1.mx-md-3.my-md-5.my-lg-0
-    %form
+    = form_for :message, :url => contact_path, :remote => true, :html =>{:class => 'contact-form'} do |form|
       .form-group
-        %input.form-control{:name => "kontakt[name]", :placeholder => "Name", :type => "text"}/
+        = form.text_field :name, class: 'form-control', placeholder: 'Name'
       .form-row
         .form-group.col-6
-          %input.form-control{:name => "kontakt[email]", :placeholder => "Email", :type => "text"}/
+          = form.text_field :email, class: 'form-control', placeholder: 'Email'
         .form-group.col-6
-          %input.form-control{:name => "kontakt[telefon]", :placeholder => "Telefon", :type => "text"}/
+          = form.text_field :telefon, class: 'form-control', placeholder: 'Telefon'
       .form-group
-        -# %label Text
-        %textarea.form-control{:name => "kontakt[text]", :placeholder => "Nachricht", :type => "text", :rows => 8}
-
-      -# %button.ui.button{:type => "submit"} Submit
-      %a.btn.btn-small.pull-right{:href => "/", :style => "width: 100%"}
+        = form.text_area :text, class: 'form-control', rows: 8, placeholder: 'Nachricht'
+      %button.btn.btn-small.pull-right{:href => "/", :style => "width: 100%",:type => "submit"}
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
         Senden
+    .form-notice
+      
+
+#contact-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "Contact Form", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-dialog-centered{:role => "document"}
+    .modal-content.border-left
+      .modal-body
+        %p.text-green Danke, Ihre Nachricht wurde erfolgreich übermittelt.
+      .modal-footer
+        %button.btn.btn-primary.btn-small{"data-dismiss" => "modal", :type => "button"} Schliessen

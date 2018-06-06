@@ -1,0 +1,14 @@
+console.log("<%= @message.valid? %>");
+if (<%= @message.valid? %>) {
+  $('.contact-form')[0].reset();
+  $('#contact-modal').modal("show")
+} else {
+  console.log("<%= @message.errors.full_messages %>");
+  //remove old validation messages
+  $(".notice").remove();
+
+  //display new validation messages
+  <% @message.errors.full_messages.each do |message| %>
+    $(".form-notice").append("<div class='notice'><%= escape_javascript(message)%></div>");
+  <% end %>
+}
