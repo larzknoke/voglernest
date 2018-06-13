@@ -17,6 +17,19 @@ class HomeController < ApplicationController
   end
 
   def fw
+    require 'net/http'
+    begin
+      uri = URI('http://localhost:3000/calendar/14756501')
+      @req = Net::HTTP.get(uri)
+      @req = JSON.parse(@req)
+      @dates = @req.collect{|d| d["date"].to_date}
+      @calendar_events = @dates.map{ |date| Event.new(date) }
+    rescue StandardError
+      @calendar_events = []
+      false
+    end
+
+
     render layout: 'home/home'
   end
 

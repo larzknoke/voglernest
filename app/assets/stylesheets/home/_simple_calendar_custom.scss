@@ -1,0 +1,44 @@
+.simple-calendar {
+  .calendar-heading {
+    margin-bottom: 0.5rem;
+
+    .btn-small {
+      font-size: 0.6rem;
+      padding: .4rem 1rem;
+    }
+
+    .calendar-title {
+      color: $color_orange;
+      font-size: 1.2rem;
+    }
+  }
+  th {
+    background-color: $color_yellow;
+    color: $color_green;
+  }
+  td {
+    color: white;
+  }
+  td.has-events {
+    background-color: $color_orange !important;
+    color: white !important;
+    background-image: linear-gradient(
+      to top left,
+      $color_orange 49%,
+      white,
+      $color_orange 51%
+    );
+  }
+  td.today {
+    color: $color_green;
+    background-color: $color_yellow2;
+    position: relative;
+    &:after {
+      content: "Heute";
+      position: absolute;
+      bottom: 10%;
+      right: 10%;
+      font-size: 0.75rem;
+    }
+  }
+}

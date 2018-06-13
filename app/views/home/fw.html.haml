@@ -46,6 +46,11 @@
     %p.text-green{:style => 'margin-top: 1em'}
       Wir freuen uns, wenn wir Ihr Interesse für die Ferienwohnung wecken konnten. Ihre Fragen bzw. Anfragen können Sie per Telefon, Fax oder E-Mail an uns richten:
       Tel.:  05533 / 1514 | Fax: 05533 / 6215 | E-Mail: voglerhof@freenet.de
+.row.justify-content-md-center.m-top-80
+  .col-lg-8
+    %h2.text-center.text-yellow Kalender
+    = month_calendar(events: @calendar_events) do |day, events|
+      = day.day
 
 
 :css
@@ -65,3 +70,8 @@
         maxWidth: 800
       });
   });
+
+  $('.simple-calendar .calendar-heading a').addClass('btn btn-primary btn-small')
+  $('.simple-calendar .calendar-heading span').css("margin","0 1rem")
+  $('.calendar-heading a').first().text('zurück')
+  $('.calendar-heading a').last().text('vor')
