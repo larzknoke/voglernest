@@ -19,7 +19,7 @@ class HomeController < ApplicationController
   def fw
     require 'net/http'
     begin
-      uri = URI('http://localhost:3000/calendar/14756501')
+      uri = URI(ENV["AIRVOGLER_URL"])
       @req = Net::HTTP.get(uri)
       @req = JSON.parse(@req)
       @dates = @req.collect{|d| d["date"].to_date}
