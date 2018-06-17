@@ -49,8 +49,8 @@
 .row.justify-content-md-center.m-top-80
   .col-lg-8
     %h2.text-center.text-yellow Kalender
-    = month_calendar(events: @calendar_events) do |day, events|
-      = day.day
+    .calendar
+      = render partial: "calendar", locals: {events: @calendar_events}
 
 
 :css
@@ -70,8 +70,3 @@
         maxWidth: 800
       });
   });
-
-  $('.simple-calendar .calendar-heading a').addClass('btn btn-primary btn-small')
-  $('.simple-calendar .calendar-heading span').css("margin","0 1rem")
-  $('.calendar-heading a').first().text('zurück')
-  $('.calendar-heading a').last().text('vor')
