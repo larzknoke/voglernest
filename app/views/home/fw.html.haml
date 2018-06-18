@@ -49,6 +49,10 @@
 .row.justify-content-md-center.m-top-80
   .col-lg-8
     %h2.text-center.text-yellow Kalender
+    .loading{:style => "display:none"}
+      %svg.spinner{:height => "65px", :viewbox => "0 0 66 66", :width => "65px", :xmlns => "http://www.w3.org/2000/svg"}
+        %circle.path{:cx => "33", :cy => "33", :fill => "none", :r => "30", "stroke-linecap" => "round", "stroke-width" => "6"}
+
     .calendar
       = render partial: "calendar", locals: {events: @calendar_events}
 
@@ -69,4 +73,9 @@
       $(this).ekkoLightbox({
         maxWidth: 800
       });
+  });
+  $(document).on('click', '.calendar-heading a', function(event) {
+      event.preventDefault();
+      $(".loading").toggle();
+      $(".calendar").toggle();
   });
