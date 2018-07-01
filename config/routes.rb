@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "schein_aus_bst" => "brotbestellscheins#schein_aus_bst"
   get "standard" => "brotbestellungs#standard"
   post "contact" => "home#contactmail"
+  post "anfrage_form" => "anfrages#create"
+
 
   resources :brottyps
   resources :openhours
@@ -27,6 +29,10 @@ Rails.application.routes.draw do
       get "bestaetigen"
     end
   end
+  resources :anfrages do
+    get "antwort" => "anfrages#antwort"
+  end
+
 
   get "home/index"
   get "home/hof"

@@ -3,19 +3,16 @@
     %h1.text-yellow.text-center Ferienwohnung
     .divider-center
     .img-holder.roomy-50
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo1.jpg") })","data-gallery" => "fw-gallery", "data-toggle" => "fw-lightbox","data-remote" => "#{image_path("home/fewo/fewo1.jpg") }"}
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })","data-gallery" => "fw-gallery", "data-toggle" => "fw-lightbox","data-remote" => "#{image_path("home/fewo/fewo2.jpg") }"}
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo3.jpg") })","data-gallery" => "fw-gallery", "data-toggle" => "fw-lightbox","data-remote" => "#{image_path("home/fewo/fewo3.jpg") }"}
-      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo5.jpg") }", "data-toggle" => "fw-lightbox"}
-      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo6.jpg") }", "data-toggle" => "fw-lightbox"}
-      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo7.jpg") }", "data-toggle" => "fw-lightbox"}
-      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo8.jpg") }", "data-toggle" => "fw-lightbox"}
-      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo9.jpg") }", "data-toggle" => "fw-lightbox"}
+      .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo1.jpg") })"}
+      .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })"}
+      .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo3.jpg") })"}
     %div.text-center{:style => "padding: 0 15%"}
       %p
         Ferien mitten im Grünen und weit ab von Verkehrschaos und der alltäglichen Hektik. Gemütlich Wandern, Radfahren oder die Sehenswürdigkeiten im Weserbergland erkunden. Die Ferienwohnung ist der perfekte Ausgangspunkt.
       %p
         In dem mit Liebe restaurierten Pfarrwitwenhaus gleich am Hofeingang befindet sich die Wohnung. Das gesamte Häuschen inkl. Hofladen wurde 2007 vollkommen kernsaniert und nach Denkmalschutzvorgaben bestmöglich wieder aufgebaut. Die Wohnung verteilt sich über zwei Etagen (1. OG + Dachgeschoss). Im Erdgeschoss befindet sich der Hofladen – gesunde Verpflegung somit garantiert.
+      %p.btn.btn-primary.my-5.anfrage-button{:href => "/", "data-target" => "#anfrage", "data-toggle" => "modal"}
+        Ferienwohnung anfragen
 .row
   .col-6.bg-yellow2.m-top-80{:style => "padding: 3rem 5%;"}
     %h2 Info
@@ -56,6 +53,9 @@
     .calendar
       = render partial: "calendar", locals: {events: @calendar_events}
 
+.anfrage-modal-container
+  = render partial: "anfrage_modal"
+
 
 :css
   .item {
@@ -68,14 +68,57 @@
   }
 
 :javascript
-  $(document).on('click', '[data-toggle="fw-lightbox"]', function(event) {
-      event.preventDefault();
-      $(this).ekkoLightbox({
-        maxWidth: 800
-      });
-  });
   $(document).on('click', '.calendar-heading a', function(event) {
       event.preventDefault();
       $(".loading").toggle();
       $(".calendar").toggle();
+  });
+
+  $(document).on('hidden.bs.modal', '#anfrage', function () {
+    $('.anfrage-modal-container').html("#{j render(:partial => 'home/anfrage_modal')}");
+  })
+
+  $(document).on('click', '.anfrage-button', function(event) {
+    $('.daterange').daterangepicker({
+      minDate: moment(),
+      locale: {
+        "format": "DD.MM.YYYY",
+        "separator": " - ",
+        "applyLabel": "Ok",
+        "cancelLabel": "Abrechen",
+        "fromLabel": "von",
+        "toLabel": "bis",
+        "customRangeLabel": "Custom",
+        "weekLabel": "W",
+        "daysOfWeek": [
+            "Su",
+            "Mo",
+            "Tu",
+            "We",
+            "Th",
+            "Fr",
+            "Sa"
+        ],
+        "monthNames": [
+            "Januar",
+            "Februar",
+            "März",
+            "April",
+            "Mai",
+            "Juni",
+            "Juli",
+            "August",
+            "September",
+            "Oktober",
+            "November",
+            "Dezember"
+        ],
+        "firstDay": 1
+    },
+    "startDate": moment(),
+    "endDate": moment(),
+    "cancelButtonClasses": "btn-primary"
+    }, function(start, end, label) {
+      // console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    });
   });

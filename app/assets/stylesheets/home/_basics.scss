@@ -347,7 +347,7 @@ a {
    }
 }
 
-input[type="text"], input[type="number"],textarea, .dropdown.selection  {
+.contact-form input[type="text"], .contact-form input[type="number"], .contact-form textarea, .contact-form.dropdown.selection  {
   border-radius: 0 !important;
   border: 0 !important;
   background-color: $color_yellow !important;
@@ -420,7 +420,7 @@ opacity: .4 !important;
   }
 }
 
-[data-toggle*=lightbox]:hover { /* contains selector */
+[class*=-gallery-item]:hover {
   cursor: pointer;
 }
 

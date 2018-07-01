@@ -1,0 +1,32 @@
+%h1 Anfragen
+
+%table.ui.table
+
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Telefon
+      %th Pers. Anzahl
+      %th Anfrage vom
+      %th Datum
+      %th Antwort
+      %th
+      %th
+      %th
+
+  %tbody
+    - @anfrages.each do |anfrage|
+      %tr
+        %td= anfrage.name
+        %td= anfrage.email
+        %td= anfrage.telefon
+        %td= anfrage.anzahl
+        %td= anfrage.created_at.strftime("%d.%m.%Y")
+        %td= "#{anfrage.startDate.strftime('%d.%m.%Y')} - #{anfrage.endDate.strftime('%d.%m.%Y')}"
+        %td= check(anfrage.antwort)
+        %td= link_to 'Zeigen', anfrage_path(anfrage)
+        %td= link_to 'Bearbeiten', edit_anfrage_path(anfrage)
+        %td= link_to 'Löschen', anfrage, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br

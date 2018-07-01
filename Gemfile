@@ -42,8 +42,10 @@ source "https://rails-assets.org" do
   # gem "rails-assets-semantic-ui-daterangepicker"
   gem "rails-assets-semantic-ui-calendar"
   gem "rails-assets-momentjs"
-  gem "rails-assets-ekko-lightbox"
   gem "rails-assets-js-cookie"
+  gem "rails-assets-magnific-popup"
+  # gem "rails-assets-daterangepicker"
+  gem "rails-assets-bootstrap-daterangepicker"
 end
 
 
@@ -59,6 +61,7 @@ gem "bcrypt", "~> 3.1.7"
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug"
+  gem "awesome_print"
 end
 
 group :development do

@@ -42,3 +42,15 @@
     }
   }
 }
+
+
+
+/* Kalender Anfrage */
+
+.daterangepicker td.active, .daterangepicker td.active:hover {
+  background-color: $color_orange !important;
+}
+
+.daterangepicker td.in-range {
+  background-color: $color_yellow2;
+}

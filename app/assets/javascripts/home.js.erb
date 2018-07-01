@@ -1,8 +1,6 @@
 $(document).ready( function() {
 // $( document ).on('turbolinks:load', function() {
 
-    // $( 'a' ).imageLightbox();
-
     var vWidth        = $(window).width();
     var nav           = $('.stick-top')
     var navHeight     = nav.outerHeight();
@@ -10,6 +8,13 @@ $(document).ready( function() {
     var openAt        = $('.open-at');
     var contentCont   = $('.content-container');
 
+    function isMobile() {
+       if(vWidth <= 992) {
+         return true;
+       } else {
+         return false;
+       }
+    }
 
     $('.agree').click(function(){
       $('.cookie-notice').slideToggle(300,function(){$(this).remove()});
@@ -28,11 +33,13 @@ $(document).ready( function() {
             nav.addClass('box-shadow')
         } else {
             nav.css({position: 'relative', top: '220px'});
-            openAt.attr("style", "display: block !important");
+            openAt.attr(isMobile() ? ("style", "display: none !important") : ("style", "display: block !important"));
             contentCont.css( "padding-top", 0 );
             nav.removeClass('box-shadow')
         }
     });
+
+    $(window).scroll();
 
     $('#carousel').slick({
         infinite: true,
@@ -59,5 +66,42 @@ $(document).ready( function() {
       // $( ".img-item" ).first().addClass( "hover" );
     });
 
+
+
+    $('.fw-gallery-item').click( function(event){
+
+      var index = $( ".fw-gallery-item" ).index( this );
+
+      $.magnificPopup.open({
+        items: [
+          {src: '<%= image_path("home/fewo/fewo1.jpg") %>'},
+          {src: '<%= image_path("home/fewo/fewo2.jpg") %>'},
+          {src: '<%= image_path("home/fewo/fewo3.jpg") %>'},
+          {src: '<%= image_path("home/fewo/fewo4.jpg") %>'},
+          {src: '<%= image_path("home/fewo/fewo5.jpg") %>'},
+          {src: '<%= image_path("home/fewo/fewo6.jpg") %>'},
+          {src: '<%= image_path("home/fewo/fewo7.jpg") %>'},
+          {src: '<%= image_path("home/fewo/fewo8.jpg") %>'},
+          {src: '<%= image_path("home/fewo/fewo9.jpg") %>'},
+        ],
+        type: 'image',
+        // mainClass: 'mfp-zoom-in',
+        gallery:{
+          enabled: true
+        },
+        image: {
+          verticalFit: true
+        },
+        removalDelay: 300, //delay removal by X to allow out-animation
+        callbacks: {
+          beforeOpen: function() {
+            // just a hack that adds mfp-anim class to markup
+             this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+             this.st.mainClass = 'mfp-zoom-in';
+          }
+        },
+      },index)
+
+    });
 
   });

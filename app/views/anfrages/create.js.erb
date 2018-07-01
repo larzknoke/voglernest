@@ -1,0 +1,13 @@
+$(".notice").remove();
+if (<%= @data['eula'] == false %>) {
+  $(".form-notice-anfrage").append("<div class='notice'><%= escape_javascript(@data['message']) %></div>");
+} else {
+  if (<%= @anfrage.valid? %>) {
+    $('.anfrage-form')[0].reset();
+    $(".anfrage-body").html("<div class='notice'><%= escape_javascript(@data['message']) %></div>");
+  } else {
+    <% @anfrage.errors.full_messages.each do |message| %>
+      $(".form-notice-anfrage").append("<div class='notice'><%= escape_javascript(message) %></div>");
+    <% end %>
+  }
+}

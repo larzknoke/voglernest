@@ -1,0 +1,14 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h3
+      = "Ihre Anfrage vom #{@gestellt_am.strftime("%d.%m.%Y")}"
+    %p
+      = "Zeitraum: #{@startDate.strftime("%d.%m.%Y")} bis #{@endDate.strftime("%d.%m.%Y")}"
+    %p
+      = "Personen: #{@anzahl}"
+    %h4
+      Antwort:
+    %p
+      = @text

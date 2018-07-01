@@ -1,0 +1,40 @@
+#anfrage.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "Anfrage", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-lg{:role => "document"}
+    .modal-content.border-left
+      .modal-header
+        %h5.modal-title.text-green Ferienwohnung anfragen
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body.anfrage-body
+        = form_for :anfrage, :url => anfrage_form_path, :remote => true, :html =>{:class => 'anfrage-form'} do |form|
+          .form-group
+            %label{:for => "name"} Name
+            = form.text_field :name, class: 'form-control', id: "name"
+          .form-row
+            .form-group.col-6
+              %label{:for => "email"} Email
+              = form.text_field :email, class: 'form-control', id: "email"
+            .form-group.col-6
+              %label{:for => "telefon"} Telefon
+              = form.text_field :telefon, class: 'form-control', id: "telefon"
+          .form-row
+            .form-group.col-6
+              %label{:for => "anzahlPersonen"} Datum
+              = form.text_field :daterange, class: 'form-control daterange', placeholder: 'Datum'
+            .form-group.col-6
+              %label.label Anzahl Pers.
+              = form.select :anzahl, options_for_select(["1", "2", "3", "4", "5", "6"]),{}, {class: 'form-control '}
+          .form-group
+            .form-check
+              = form.check_box :datenschutz, {:class => "form-check-input"}, "1", "0"
+              %label.form-check-label{:for => "datenschutzCheck"}
+                Ich habe die
+                = link_to "Datenschutzerklärung", {:controller => "home", :action => "kontakt" }, {:style => "color: #f3953e; font-size: inherit"}
+                zur Kenntnis genommen. Ich stimme zu, dass die von mir übermittelten Daten ausschließlich zur Beantwortung meiner Anfrage verwendet werden.
+
+          %button.btn.btn-small.pull-right{:href => "/", :style => "width: 100%",:type => "submit"}
+            %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+            Anfrage absenden
+        .form-notice-anfrage
+      .modal-footer
+        %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} Schliessen

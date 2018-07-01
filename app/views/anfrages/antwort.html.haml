@@ -1,0 +1,27 @@
+%h2 Antwort
+%p
+  %b Name:
+  = @anfrage.name
+%p
+  %b Empfänger:
+  = @anfrage.email
+%p
+  %b Pers. Anzahl:
+  = @anfrage.anzahl
+%p
+  %b Datum:
+  = "#{@anfrage.startDate.strftime('%d.%m.%Y')} - #{@anfrage.endDate.strftime('%d.%m.%Y')}"
+
+= form_for @anfrage, :html => {:class => 'ui form'} do |f|
+  - if @anfrage.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@anfrage.errors.count, "error")} prohibited this anfrage from being saved:"
+      %ul
+        - @anfrage.errors.full_messages.each do |message|
+          %li= message
+  = f.hidden_field :antwort_form, value: true
+  .field
+    = f.label :antwort
+    = f.text_area :antwort, {class: 'ui dropdown', placeholder: 'Text hier...'}
+  .actions
+    = f.submit 'Abschicken', :class => 'ui button basic green'

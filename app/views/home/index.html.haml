@@ -2,7 +2,7 @@
   -# .col.first-section.roomy-70
   .col-xl-9.col-lg-12.my-md-4
     = render 'carousel'
-  .col-xl-3.col-lg-12.my-md-4
+  .col-xl-3.col-lg-12.my-md-4.my-4
     .info-box
       %h3 Infos &amp; Aktuelles
       .box-item
@@ -83,14 +83,9 @@
     %h1 Die Ferienwohnung
     .divider-center
     .img-holder.roomy-50
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo1.jpg") })","data-gallery" => "fw-gallery", "data-toggle" => "fw-lightbox","data-remote" => "#{image_path("home/fewo/fewo1.jpg") }"}
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })","data-gallery" => "fw-gallery", "data-toggle" => "fw-lightbox","data-remote" => "#{image_path("home/fewo/fewo2.jpg") }"}
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/fewo/fewo3.jpg") })","data-gallery" => "fw-gallery", "data-toggle" => "fw-lightbox","data-remote" => "#{image_path("home/fewo/fewo3.jpg") }"}
-      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo5.jpg") }", "data-toggle" => "fw-lightbox"}
-      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo6.jpg") }", "data-toggle" => "fw-lightbox"}
-      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo7.jpg") }", "data-toggle" => "fw-lightbox"}
-      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo8.jpg") }", "data-toggle" => "fw-lightbox"}
-      %div{"data-gallery" => "fw-gallery", "data-remote" => "#{image_path("home/fewo/fewo9.jpg") }", "data-toggle" => "fw-lightbox"}
+      .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo1.jpg") })"}
+      .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })"}
+      .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo3.jpg") })"}
     %p
       In ein liebevoll restauriertes Fachwerkhaus befindet sich die Ferienwohnung mit bis zu sechs Schlafplätzen.
       %br
@@ -107,7 +102,6 @@
 
 
 %script{:async => true, :defer => true, :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCVrcwL7Rt-2hn6cNLW6GpZsh1SDbkSg6Q&callback=initMap"}
-
 
 :javascript
   /* GOOGLE MAPS */
@@ -126,10 +120,3 @@
       position: myLatLng,
     });
   }
-
-  $(document).on('click', '[data-toggle="fw-lightbox"]', function(event) {
-      event.preventDefault();
-      $(this).ekkoLightbox({
-        maxWidth: 800
-      });
-  });

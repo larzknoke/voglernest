@@ -195,10 +195,31 @@
   color: $color_orange;
 }
 
+.navbar-toggler {
+	margin: auto;
+	border: 0;
+}
+
+.burger {
+	float: left;
+	margin-top: 3px;
+	span {
+		width: 10px;
+		height: 3px;
+		margin-bottom: 3px;
+		background-color: $color_orange;
+		display: block;
+	}
+}
+.menu-text {
+	color: $color_orange;
+	margin-left: 5px;
+}
+
 
 @media (max-width: 768px) {
    #head {
-      position: relative;
+      // position: relative;
    }
 }
 

@@ -1,0 +1,42 @@
+= form_for @anfrage, :html => {:class => 'ui form', multipart: true } do |f|
+  - if @anfrage.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@anfrage.errors.count, "error")} prohibited this anfrage from being saved:"
+      %ul
+        - @anfrage.errors.full_messages.each do |message|
+          %li= message
+
+  .two.fields
+    .field
+      = f.label :name
+      = f.text_field :name, id: "name"
+    .field
+      = f.label :anzahl, "Personen Anz."
+      = f.select :anzahl, options_for_select(["1", "2", "3", "4", "5", "6"]),{}, {class: 'ui dropdown '}
+  .two.fields
+    .field
+      = f.label :email
+      = f.text_field :email, id: "email"
+    .field
+      = f.label :telefon
+      = f.text_field :telefon, id: "telefon"
+  .two.fields
+    .field
+      = f.label :startDate, "Anfang"
+      = f.date_field :startDate, id: "startDate"
+    .field
+      = f.label :endDate, "Ende"
+      = f.date_field :endDate, id: "endDate"
+  .field
+    .ui.checkbox
+      = f.check_box :antwort, {:class => "checkbox"}, "[antwort gesetzt]", "0"
+      = f.label :antwort, "als beantwortet markieren"
+
+  .actions
+    = f.submit 'Speichern', :class => 'ui button basic green  '
+
+:javascript
+
+  $( document ).ready(function() {
+    $('.ui.dropdown').dropdown();
+  });

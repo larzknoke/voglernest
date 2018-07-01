@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  include ApplicationHelper
   def index
     @openhours = Openhour.all
     render layout: 'home/home'
@@ -17,19 +18,7 @@ class HomeController < ApplicationController
   end
 
   def fw
-    require 'net/http'
-    begin
-      uri = URI(ENV["AIRVOGLER_URL"])
-      @req = Net::HTTP.get(uri)
-      @req = JSON.parse(@req)
-      @dates = @req.collect{|d| d["date"].to_date}
-      @calendar_events = @dates.map{ |date| Event.new(date) }
-    rescue StandardError
-      @calendar_events = []
-      false
-    end
-
-
+    calendarDates
     render layout: 'home/home'
   end
 
@@ -51,14 +40,12 @@ class HomeController < ApplicationController
   def contactmail
     @message = Message.new(message_params)
     if @message.valid?
-      puts 'fine!'
       ContactMailer.contact_email(@message).deliver
       respond_to do |format|
         format.html { redirect_to :controller => 'home', :action => 'index' }
         format.js { render 'home/contact-form'}
       end
     else
-      puts "err!"
       respond_to do |format|
         format.html { redirect_to :controller => 'home', :action => 'index' }
         format.js { render 'home/contact-form'}

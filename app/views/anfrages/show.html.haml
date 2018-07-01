@@ -1,0 +1,30 @@
+-# %p#notice= notice
+
+%p
+  %b Name:
+  = @anfrage.name
+%p
+  %b Email:
+  = @anfrage.email
+%p
+  %b Telefon:
+  = @anfrage.telefon
+%p
+  %b Pers. Anzahl:
+  = @anfrage.anzahl
+%p
+  %b Anfrage vom:
+  = @anfrage.created_at.strftime("%d.%m.%Y")
+%p
+  %b Datum:
+  = "#{@anfrage.startDate.strftime('%d.%m.%Y')} - #{@anfrage.endDate.strftime('%d.%m.%Y')}"
+%p
+  %b Antwort:
+  - if @anfrage.antwort.nil?
+    = check(@anfrage.antwort)
+    = link_to "Antwort schreiben", anfrage_antwort_path(@anfrage), :class => "ui button basic mini", :style => "margin-left: 1rem"
+  - else
+    = @anfrage.antwort
+
+= link_to 'Bearbeiten', edit_anfrage_path(@anfrage), :class => "ui button basic"
+= link_to 'Zurück', anfrages_path, :class => "ui button basic"
