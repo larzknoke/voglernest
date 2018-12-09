@@ -50,9 +50,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: $font_sans;
-  line-height: 1.4285em;
+  line-height: 1.5em;
   color: $color_grey2;
   background-color: $color_green;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: antialiased !important;
+  font-smoothing: antialiased !important;
 }
 
 
@@ -485,6 +488,16 @@ opacity: .4 !important;
   .roomy-120.roomy-md {
     padding-top: 80px !important;
     padding-bottom: 80px !important;
+  }
+
+  .roomy-100.roomy-md {
+    padding-top: 65px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .roomy-100.roomy-md-0 {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
   }
 
   .roomy-80.roomy-md {

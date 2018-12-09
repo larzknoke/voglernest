@@ -79,10 +79,10 @@
 
 
 .row.roomy-150
-  .col-md-12.text-center.text-yellow.no-gutter
-    %h1 Die Ferienwohnung
+  .col-md-12.text-center.text-yellow
+    %h1.too-long Die Ferienwohnung
     .divider-center
-    .img-holder.roomy-50
+    .img-holder.roomy-50{:style => "margin:0 -15px"}
       .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo1.jpg") })"}
       .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })"}
       .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo3.jpg") })"}
@@ -101,7 +101,7 @@
 
 
 
-%script{:async => true, :defer => true, :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCVrcwL7Rt-2hn6cNLW6GpZsh1SDbkSg6Q&callback=initMap"}
+%script{:async => true, :defer => true, :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyC8qYDTWMyOOt9BKngSCwu_XoMGvArM0xI&callback=initMap"}
 
 :javascript
   /* GOOGLE MAPS */
@@ -119,4 +119,9 @@
       map: map,
       position: myLatLng,
     });
+  }
+
+:css
+  @media (max-width: 375px) {
+      .too-long {font-size:2.5rem}
   }
