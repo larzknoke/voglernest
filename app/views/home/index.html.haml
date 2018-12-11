@@ -31,8 +31,10 @@
     %h1 Der Voglerhof
     .divider-left.center
     %h5
-      Aus Überzeugung bio – schon seit 1989. Erfahren Sie mehr über den Hof und unsere Arbeitsweise.
-    %h5
+      Aus Überzeugung bio – schon seit 1989.
+      %br
+      Erfahren Sie mehr über den Hof und unsere Arbeitsweise.
+    -# %h5
       Lorem ipsum dolor sit amet, consectetur adipisicing
     = link_to(home_hof_path, class: "btn btn-primary") do
       %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
@@ -84,8 +86,8 @@
     .divider-center
     .img-holder.roomy-50{:style => "margin:0 -15px"}
       .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo1.jpg") })"}
+      .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo10.jpg") })"}
       .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })"}
-      .img-item.border-bottom.fw-gallery-item{:style => "background-image: url(#{image_path("home/fewo/fewo3.jpg") })"}
     %p
       In ein liebevoll restauriertes Fachwerkhaus befindet sich die Ferienwohnung mit bis zu sechs Schlafplätzen.
       %br
