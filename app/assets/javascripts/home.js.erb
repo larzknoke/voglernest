@@ -25,6 +25,14 @@ $(document).ready( function() {
       $('.cookie-notice').remove();
     }
 
+    $(".eu-button").click(function(e) {
+        e.preventDefault();
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#eu").offset().top -50
+        }, 1000);
+    });
+
+
     $(window).scroll(function(){
         if( $(window).scrollTop() > headerHeight ) {
             nav.css({position: 'fixed', top: '0px'});
@@ -33,7 +41,11 @@ $(document).ready( function() {
             nav.addClass('box-shadow')
         } else {
             nav.css({position: 'relative', top: '220px'});
-            openAt.attr(isMobile() ? ("style", "display: none !important") : ("style", "display: block !important"));
+            if (isMobile()) {
+              openAt.attr("style", "display: none !important")
+            } else {
+              openAt.attr("style", "display: block !important");
+            }
             contentCont.css( "padding-top", 0 );
             nav.removeClass('box-shadow')
         }
@@ -110,4 +122,114 @@ $(document).ready( function() {
 
     });
 
-  });
+    $('.hof-gallery-item').click( function(event){
+
+      var index = $( ".hof-gallery-item" ).index( this );
+
+      $.magnificPopup.open({
+        items: [
+          {src: '<%= image_path("home/slider/hof.jpg") %>'},
+          {src: '<%= image_path("home/hof/gallery/hof1.jpg") %>'},
+          {src: '<%= image_path("home/hof/gallery/hof2.jpg") %>'},
+          {src: '<%= image_path("home/hof/gallery/hof3.jpg") %>'},
+          {src: '<%= image_path("home/hof/gallery/hof4.jpg") %>'},
+          {src: '<%= image_path("home/hof/gallery/hof5.jpg") %>'},
+          {src: '<%= image_path("home/hof/gallery/hof6.jpg") %>'},
+          {src: '<%= image_path("home/hof/gallery/hof7.jpg") %>'},
+          // {src: '<%= image_path("home/hof/gallery/hof8.jpg") %>'}, // zu viel jonas ;)
+          {src: '<%= image_path("home/hof/gallery/hof9.jpg") %>'},
+          {src: '<%= image_path("home/hof/gallery/hof10.jpg") %>'},
+          {src: '<%= image_path("home/hof/gallery/hof11.jpg") %>'},
+          {src: '<%= image_path("home/hof/gallery/hof12.jpg") %>'},
+          {src: '<%= image_path("home/hof/gallery/hof13.jpg") %>'}
+        ],
+        type: 'image',
+        // mainClass: 'mfp-zoom-in',
+        gallery:{
+          enabled: true
+        },
+        image: {
+          verticalFit: true
+        },
+        removalDelay: 300, //delay removal by X to allow out-animation
+        callbacks: {
+          beforeOpen: function() {
+            // just a hack that adds mfp-anim class to markup
+             this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+             this.st.mainClass = 'mfp-zoom-in';
+          }
+        },
+      },index)
+
+    });
+
+    $('.hofladen-gallery-item').click( function(event){
+
+      var index = $( ".hofladen-gallery-item" ).index( this );
+
+      $.magnificPopup.open({
+        items: [
+          {src: '<%= image_path("home/hofladen/hofladen1.jpg") %>'},
+          {src: '<%= image_path("home/hofladen/hofladen2.jpg") %>'},
+          {src: '<%= image_path("home/hofladen/hofladen3.jpg") %>'},
+          {src: '<%= image_path("home/hofladen/hofladen4.jpg") %>'},
+          {src: '<%= image_path("home/hofladen/hofladen5.jpg") %>'},
+          {src: '<%= image_path("home/hofladen/hofladen6.jpg") %>'},
+          {src: '<%= image_path("home/hofladen/hofladen7.jpg") %>'},
+          {src: '<%= image_path("home/hofladen/hofladen8.jpg") %>'},
+          {src: '<%= image_path("home/hofladen/hofladen9.jpg") %>'}
+        ],
+        type: 'image',
+        // mainClass: 'mfp-zoom-in',
+        gallery:{
+          enabled: true
+        },
+        image: {
+          verticalFit: true
+        },
+        removalDelay: 300, //delay removal by X to allow out-animation
+        callbacks: {
+          beforeOpen: function() {
+            // just a hack that adds mfp-anim class to markup
+             this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+             this.st.mainClass = 'mfp-zoom-in';
+          }
+        },
+      },index)
+
+    });
+
+
+    $('.biogas-gallery-item').click( function(event){
+
+      var index = $( ".biogas-gallery-item" ).index( this );
+
+      $.magnificPopup.open({
+        items: [
+          {src: '<%= image_path("home/slider/biogas.jpg") %>'},
+          {src: '<%= image_path("home/biogas/bio.jpg") %>'},
+          {src: '<%= image_path("home/biogas/bio2.jpg") %>'},
+          {src: '<%= image_path("home/biogas/bio3.jpg") %>'},
+          {src: '<%= image_path("home/biogas/bio4.jpg") %>'}
+        ],
+        type: 'image',
+        // mainClass: 'mfp-zoom-in',
+        gallery:{
+          enabled: true
+        },
+        image: {
+          verticalFit: true
+        },
+        removalDelay: 300, //delay removal by X to allow out-animation
+        callbacks: {
+          beforeOpen: function() {
+            // just a hack that adds mfp-anim class to markup
+             this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+             this.st.mainClass = 'mfp-zoom-in';
+          }
+        },
+      },index)
+
+    });
+
+  }); // document.ready

@@ -16,10 +16,20 @@
       Hier erleben sie Wachsen und Ernten der Lebensmittel im Jahreslauf!
     .row
       .col
-        = image_tag 'home/hofladen/hofladen1.jpg', :style => "height: 160px", :class => " float-left img-fluid  my-3 border-bottom-sm "
-        = image_tag 'home/hofladen/hofladen2.jpg', :style => "height: 160px", :class => " float-left img-fluid  my-3 border-bottom-sm "
-        = image_tag 'home/hofladen/hofladen4.jpg', :style => "height: 160px", :class => " float-left img-fluid  my-3 border-bottom-sm "
-        = image_tag 'home/hofladen/hofladen3.jpg', :style => "height: 160px", :class => " float-left img-fluid  my-3 border-bottom-sm "
+        %h3.text-yellow2.mb-1.mt-4 Bildergalerie
+        .gallery2-container
+          .gallery2-item.hofladen-gallery-item
+            = image_tag 'home/hofladen/hofladen1.jpg', :class => " float-left img-fluid  mb-3"
+            .gallery2-hover
+          .gallery2-item.hofladen-gallery-item
+            = image_tag 'home/hofladen/hofladen2.jpg', :class => " float-left img-fluid  mb-3"
+            .gallery2-hover
+          .gallery2-item.hofladen-gallery-item
+            = image_tag 'home/hofladen/hofladen5.jpg', :class => " float-left img-fluid  mb-3"
+            .gallery2-hover
+          .gallery2-item.hofladen-gallery-item
+            = image_tag 'home/hofladen/hofladen3.jpg', :class => " float-left img-fluid  mb-3"
+            .gallery2-hover
 
 
 
@@ -43,7 +53,7 @@
       %h4{:class => ( @openhours.present? ? "m-top-80" : "")}
         %span.fi.flaticon-harvest.fi-big
         Brotbestellung
-      %p.text-green{:style => "font-size: 16px"}
+      %p.text-green{:style => "font-size: 1rem;line-height: 1.5rem"}
         Sie können online Ihr Brot vorbestellen und am gewünschen Tag bei uns im Hofladen abholen.
       = link_to new_brotbestellung_path, :class => "btn btn-small" do
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
@@ -51,5 +61,5 @@
 
 
   .col-3.no-gutter{:style => "padding-top: 0"}
-    .img-holder{:style => "height: 58rem"}
-      .img-item{:style => "background-image: url(#{image_path("home/content/hofladen.jpg") })"}
+    .img-holder{:style => "height: 65rem"}
+      .img-item{:style => "background-image: url(#{image_path("home/hofladen/hofladen6.jpg") })"}

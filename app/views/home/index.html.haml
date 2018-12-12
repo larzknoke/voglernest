@@ -3,7 +3,7 @@
   .col-xl-9.col-lg-12.my-md-4
     = render 'carousel'
   .col-xl-3.col-lg-12.my-md-4.my-4
-    .info-box
+    .info-box.border-bottom
       %h3 Infos &amp; Aktuelles
       .box-item
         %h4{:style => "margin-bottom:0.3rem"}
@@ -41,11 +41,11 @@
       mehr
   .col-lg-7.roomy-80.roomy-md
     .img-holder.hover-effect
-      .img-item.border-bottom.hover{:style => "background-image: url(#{image_path("home/content/content2.jpg") })"}
+      .img-item.hof-gallery-item.border-bottom.hover{:style => "background-image: url(#{image_path("home/content/content2.jpg") })"}
         .overlay
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/content/hofladen2.jpg") })"}
+      .img-item.hof-gallery-item.border-bottom{:style => "background-image: url(#{image_path("home/hofladen/hofladen7.jpg") })"}
         .overlay
-      .img-item.border-bottom{:style => "background-image: url(#{image_path("home/content/trecker2.jpg")})"}
+      .img-item.hof-gallery-item.border-bottom{:style => "background-image: url(#{image_path("home/content/trecker2.jpg")})"}
         .overlay
 .row.bg-yellow2.roomy-90
   .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
@@ -95,6 +95,24 @@
     = link_to(home_fw_path, class: "btn btn-primary") do
       %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
       Ferienwohnung buchen
+
+.row#eu
+  .col-md-12.text-center.text-yellow
+    -# %h1.too-long Förderung
+    -# .divider-center
+    .roomy-50
+      = image_tag 'home/eu_gross.png', :class => "img-fluid  mb-3 rounded ", :style => "height:400px"
+      .divider-center
+      %h3.mt-4
+        Ökologischer/biologischer Landbau
+      %p
+        Mit dieser Maßnahme werden landwirtschaftliche Betriebe bei der Einführung
+        %br
+        von ökologischer Landwirtschaft und deren Beibehaltung unterstützt
+      %p
+        %a{:href => "http://www.eler.niedersachsen.de", :style => "font-size: 1.15rem", :rel => "noopener noreferrer", :target => "_blank"}
+          www.eler.niedersachsen.de
+
 
 .row
   .col.no-gutter
