@@ -7,6 +7,7 @@ $(document).ready( function() {
     var headerHeight  = $('#head').outerHeight();
     var openAt        = $('.open-at');
     var contentCont   = $('.content-container');
+    var logoFade   = $('.logo-fade');
 
     function isMobile() {
        if(vWidth <= 992) {
@@ -39,6 +40,7 @@ $(document).ready( function() {
             openAt.attr("style", "display: none !important");
             contentCont.css( "padding-top",  navHeight );
             nav.addClass('box-shadow')
+            logoFade.attr("style", "opacity: 1");
         } else {
             nav.css({position: 'relative', top: '220px'});
             if (isMobile()) {
@@ -48,6 +50,7 @@ $(document).ready( function() {
             }
             contentCont.css( "padding-top", 0 );
             nav.removeClass('box-shadow')
+            logoFade.attr("style", "opacity: 0");
         }
     });
 

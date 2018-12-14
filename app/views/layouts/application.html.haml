@@ -3,7 +3,7 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Voglernest
     = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'backend'
     = csrf_meta_tags
   %body
     .ui.fixed.menu
@@ -44,6 +44,7 @@
             = link_to 'Bestellscheine', brotbestellscheins_path, class: 'item'
             = link_to 'Bestellungen', brotbestellungs_path, class: 'item'
         = link_to 'Öffnungszeiten', openhours_path, class: 'item'
+        = link_to 'Infos / Aktuelles', feeds_path, class: 'item'
         - if current_user
           .right.menu
             %a.item

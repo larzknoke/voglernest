@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @feed.title
+%p
+  %b Text:
+  = @feed.text
+
+
+= link_to 'Bearbeiten', edit_feed_path(@feed), :class => "ui button basic"
+= link_to 'Zurück', feeds_path, :class => "ui button basic"

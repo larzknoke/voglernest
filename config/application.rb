@@ -26,5 +26,9 @@ module Voglernest
 
     config.i18n.available_locales = [:de]
     config.i18n.default_locale = :"de"
+
+    config.assets.precompile << 'backend.js'
+
+
   end
 end

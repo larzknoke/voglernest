@@ -1,23 +1,23 @@
-.row.first-section.roomy-40.mx-lg-4
-  -# .col.first-section.roomy-70
+.row.first-section.roomy-40.max-width.mx-lg-5.mx-md-2
   .col-xl-9.col-lg-12.my-md-4
     = render 'carousel'
   .col-xl-3.col-lg-12.my-md-4.my-4
     .info-box.border-bottom
       %h3 Infos &amp; Aktuelles
-      .box-item
-        %h4{:style => "margin-bottom:0.3rem"}
-          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-          Herbstbrot
-        %p.text-green
-          Für kurze Zeit das Kartoffelbrot.
-      .box-item
+      - @feeds.each do |feed|
+        .box-item
+          %h4{:style => "margin-bottom:0.3rem"}
+            %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+            = feed.title
+          %p.text-green
+            = feed.text
+      -# .box-item
         %h4{:style => "margin-bottom:0.3rem"}
           %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
           Herbstgemüse
         %p.text-green
           Frische Möhren vom Voglerhof jetzt im Hofladen erhältlich.
-      .box-item
+      -# .box-item
         %h4{:style => "margin-bottom:0.3rem"}
           %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
           Herbstschlachtung
@@ -26,7 +26,7 @@
       = link_to(home_hofladen_path, class: "btn btn-small") do
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
         zum Hofladen
-.row.mx-lg-5.mx-md-2
+.row.max-width.mx-lg-5.mx-md-2
   .col-lg-5.text-yellow.roomy-120.text-center-md.roomy-md.no-roomy
     %h1 Der Voglerhof
     .divider-left.center

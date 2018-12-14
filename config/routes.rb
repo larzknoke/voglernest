@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :feeds
   # LOGIN & SESSION
   get "login" => "sessions#new"
   post "login" => "sessions#create"

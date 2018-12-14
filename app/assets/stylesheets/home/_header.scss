@@ -58,6 +58,14 @@
 		@include shadow(10px);
 	}
 
+	.logo-fade {
+		position: absolute;
+		margin-left: -110px;
+		opacity: 0;
+		transition: all 0.3s ease-in-out 0s;
+
+	}
+
 
   ul { background: $color_yellow; text-align:center;
 

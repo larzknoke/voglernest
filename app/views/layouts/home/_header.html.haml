@@ -30,6 +30,9 @@
       Menü
   #navbarNav.collapse.navbar-collapse.justify-content-center
     %ul.navbar-nav
+      %li.nav-item.d-none.d-lg-block.logo-fade
+        = link_to(home_index_path, style: "padding: .75rem", class: "no-hover") do
+          = image_tag "logo.png",{:style => "  position: relative;margin: 0 25px; width: 45px;", :class => "d-inline-block"}
       %li.nav-item
         = link_to "Voglerhof", {:controller => "home", :action => "hof"}, :class => "nav-link"
       %li.nav-item

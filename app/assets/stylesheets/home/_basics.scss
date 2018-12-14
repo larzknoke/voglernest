@@ -127,6 +127,17 @@ a {
     Spacing & Alignment
 ------------------------------------------*/
 
+@media screen and (min-width: 1500px) {
+
+  .max-width {
+    max-width: 1500px;
+    margin: auto !important;
+  }
+
+}
+
+
+
 .roomy-150 {
   padding-top: 150px !important;
   padding-bottom: 150px !important;
@@ -280,8 +291,7 @@ a {
   padding: 2.5rem;
   color: $color_green;
   height: 34rem;
-  // height: 100%;
-  // border-bottom: 0.75rem solid $color_orange;
+  overflow: scroll;
 
   .box-item {
 
@@ -290,6 +300,8 @@ a {
 
     p {
       font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.4rem;
     }
 
   }

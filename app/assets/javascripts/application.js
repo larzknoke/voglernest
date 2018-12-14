@@ -14,13 +14,11 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require momentjs
-//= require semantic-ui
-//= require semantic-ui-calendar
 //= require jquery.slick
 //= require home
-// require turbolinks
+//= requireOFF turbolinks
 //= require cocoon
 //= require js-cookie
 //= require magnific-popup
-// require daterangepicker
+//= requireOFF daterangepicker
 //= require bootstrap-daterangepicker

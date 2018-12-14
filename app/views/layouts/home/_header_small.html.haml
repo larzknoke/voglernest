@@ -1,21 +1,3 @@
--# %nav#nav.box-shadow.fixed
--#   %ul
--#     %li.nav-item
--#       = link_to(home_index_path, style: "padding: 0", class: "no-hover") do
--#         = image_tag "logo.png",{:style => "  position: relative;margin: 0 25px; width: 45px;"}
--#     %li.nav-item
--#       = link_to "Voglerhof", {:controller => "home", :action => "hof" }
--#     %li.nav-item
--#       = link_to "Hofladen", {:controller => "home", :action => "hofladen" }
--#     %li.nav-item
--#       = link_to "Ferienwohnung", {:controller => "home", :action => "fw" }
--#     %li.nav-item
--#       = link_to "Biogasanlage", {:controller => "home", :action => "biogas" }
--#     %li.nav-item
--#       = link_to "Ausbildung", {:controller => "home", :action => "ausbildung" }
--#     %li.nav-item
--#       = link_to "Kontakt", {:controller => "home", :action => "kontakt" }
-
 %nav#nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top.box-shadow.fixed
   = link_to(home_index_path, style: "padding: 0", class: " navbar-brand d-lg-none") do
     = image_tag "logo.png",{:style => "  position: relative;margin: 10px 25px; width: 45px;", :class => "d-inline-block"}

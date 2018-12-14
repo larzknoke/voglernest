@@ -1,0 +1,27 @@
+= form_for @feed, :html => {:class => "ui form"} do |f|
+  - if @feed.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@feed.errors.count, "error")} prohibited this feed from being saved:"
+      %ul
+        - @feed.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :text
+    = f.text_field :text
+  .field
+    = f.label :priority
+    = f.select :priority, options_for_select(1..10, 1),{}, :class => "ui dropdown"
+
+  .actions
+    = f.submit 'Speichern', :class => "ui button green basic"
+
+
+:javascript
+
+  $( document ).ready(function() {
+    $('.ui.dropdown').dropdown();
+  });

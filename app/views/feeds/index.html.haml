@@ -1,0 +1,26 @@
+%h1 Infos / Aktuelles
+
+= link_to 'Neue Info', new_feed_path, :class => "ui button green basic"
+
+
+%table.table.ui
+  %thead
+    %tr
+      %th Title
+      %th Text
+      %th Priorität
+      %th
+      %th
+      %th
+
+  %tbody
+    - @feeds.each do |feed|
+      %tr
+        %td= feed.title
+        %td= feed.text
+        %td= feed.priority
+        %td= link_to 'Zeigen', feed
+        %td= link_to 'Bearbeiten', edit_feed_path(feed)
+        %td= link_to 'Löschen', feed, method: :delete, data: { confirm: 'Sind Sie sicher?' }
+
+%br
