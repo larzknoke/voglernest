@@ -1,7 +1,7 @@
 .tooltip-container{:style => "display:none"}
   Hier ist der Tooltip!
 .row
-  .col-md-6.text-center-md.roomy-100.roomy-md{:style => "padding: 0 5%"}
+  .col-md-6.roomy-100.roomy-md{:style => "padding: 0 5%"}
     %h1.text-yellow Der Voglerhof
     .divider-left.center
     %p.m-top-50
@@ -499,38 +499,26 @@
       Die vielen nicht befahrbaren Hanglagen gewähren unserem Jungvieh und den trockenstehenden Kühen eine herrliche Weidezeit. Die wüchsigeren, ebenen Stücke werden zur Silagegewinnung gemäht.
 
 .row
-  .col-md-6.m-top-100.bg-yellow2.text-green{:style => "padding: 0 1% 6rem 3%"}
+  .col-md-6.bg-yellow2.text-green.m-top-100.px-4
     .header-container
       .header-image{:style => "background-image: url(#{image_path("home/hof/getreide.jpg") })"}
-      %h2.text-center Bio-Kontrolle
-      .divider-center.text-green
-    .text-container{:style => "padding: 0 8%"}
-      %p.text-green.m-top-50
+    .text-container.text-center-sm{:style => "padding: 8% 5%"}
+      %h2 Bio-Kontrolle
+      .divider-left.center.text-green
+      %p.text-green
         Die Bioland-Regularien, nach denen wir mit Überzeugung arbeiten, heben sich von EU-Bio-Richtlinien durch höhere Ansprüche und klarere Grenzen ab: ein Mehraufwand, der höchste Qualität und Sicherheit erzeugt.
       %p.text-green
         Der landwirtschaftliche Betrieb und der Hofladen werden von der ABCert AG (Ökokontrollstelle 006) überprüft.
-  .col-md-6.m-top-100.bg-yellow2.text-green{:style => "padding: 0 3% 6rem 1%"}
+  .col-md-6.bg-yellow2.text-green.m-top-100.px-4
     .header-container
       .header-image{:style => "background-image: url(#{image_path("home/hof/kuehe2.jpg") })"}
-      %h2.text-center Tierhaltung
-      .divider-center.text-green
-    .text-container{:style => "padding: 0 8%"}
-    %p.text-green.m-top-50
-      Für unsere Kühe, Rinder und Kälber haben wir in den denkmalgeschützen Gebäuden von 1890 einen artgerechten Boxenlaufstall mit Außenfuttertisch und Laufhof sowie einen Tretmiststall eingebaut – alles nach den Vorgaben von Bioland. Sie können die Zufriedenheit der Tiere beobachten!
-    %p.text-green
-      Denn den Sommer verbringen die Rinder auf den schönen Hangweiden zwischen Kirchbrak und Linse. Die Kühe genießen den Weidengang auf den Flächen rund um dem Hof.
-  -# .column.m-top-100.bg-yellow2.text-green.roomy-80
-    .header-container
-      .header-image{:style => "background-image: url(#{image_path("home/header/bg1.jpg") })"}
-      %h2.text-center Wirtschaftsweise vom Hof
-      .divider-center.text-green
-    .text-container{:style => "padding: 0 8%"}
-      %p.text-green.m-top-50
-        Die biologische Bewirtschaftung der Felder funktioniert nicht einfach durch Weglassen von chemischen Dünge- und Spritzmitteln:
+    .text-container.text-center-sm{:style => "padding: 8% 5%"}
+      %h2 Tierhaltung
+      .divider-left.center.text-green
       %p.text-green
-        Um Krankheits- und Schädlingsbefall sowie Unkraut vorzubeugen haben wir eine vielfältige Fruchtfolge mit Ackerfutter, Weizen, Triticale, Möhren, Busch- und Ackerbohnen.
+        Für unsere Kühe, Rinder und Kälber haben wir in den denkmalgeschützen Gebäuden von 1890 einen artgerechten Boxenlaufstall mit Außenfuttertisch und Laufhof sowie einen Tretmiststall eingebaut – alles nach den Vorgaben von Bioland. Sie können die Zufriedenheit der Tiere beobachten!
       %p.text-green
-        Dem Unkraut versuchen wir mit dem Striegel oder der Maschinenhacke zu regulieren. Die Möhren werden von Hand gejätet. Statt des Risikos chemischer Rückstände schafft dieses Arbeit in unserer Region.
+        Denn den Sommer verbringen die Rinder auf den schönen Hangweiden zwischen Kirchbrak und Linse. Die Kühe genießen den Weidengang auf den Flächen rund um dem Hof.
 :css
   .tooltip-container {
     position: absolute;
