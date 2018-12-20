@@ -151,20 +151,18 @@ $slick-arrow-bg-height: $slick-arrow-bg-width !default;
 }
 
 .slide-container {
-	display: flex !important;
+	// display: flex !important;
 	height: 100%;
-	// border: 3rem white solid;
 	margin: 0;
 	text-align: center;
 
 
 	.slide-part {
-		// width: 50%;
 		min-height: 100%;
-		border-bottom: .75rem solid $color_orange;
+		// border-bottom: .75rem solid $color_orange;
 
 		.slide-img {
-			border-bottom: .75rem solid $color_orange;
+			// border-bottom: .75rem solid $color_orange;
 			height: 100%;
 			background-size: cover;
 			background-position: 50% 50%
@@ -175,9 +173,9 @@ $slick-arrow-bg-height: $slick-arrow-bg-width !default;
 		}
 
 		&.right {
-			// width: 40%;
 			background-color: $color_yellow2;
 			padding: 6% 4%;
+			height: 100%;
 
 			h3 {
 				font-size: 1.3rem;

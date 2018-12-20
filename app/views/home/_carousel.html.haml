@@ -1,45 +1,49 @@
 #carousel
-  .slide-container
-    .slide-part.left.col-lg-7.col-md-6.no-gutter
-      .slide-img{:style => "background-image: url(#{image_path("home/slider/hof.jpg")})"}
-    .slide-part.right.col-lg-5.col-md-6
-      %span.fi.flaticon-farm
-      %h3 Der Voglerhof
-      %p
-        Aus Überzeugung bio – schon seit 1989. Erfahren Sie mehr über den Hof und unsere Arbeitsweise.
-      = link_to(home_hof_path, class: "btn") do
-        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-        zum Voglerhof
-  .slide-container
-    .slide-part.left.col-lg-7.col-md-6.no-gutter
-      .slide-img{:style => "background-image: url(#{image_path("home/slider/hofladen.jpg")})"}
-    .slide-part.right.col-lg-5.col-md-6
-      %span.fi.flaticon-milk-products
-      %h3 Der Hofladen
-      %p
-        Bioprodukte direkt vom Erzeuger und ein liebevoll zusammengestelltes Biovollsortiment möglichst aus der Region – genau das finden Sie bei uns im Hofladen.
-      = link_to(home_hofladen_path, class: "btn") do
-        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-        zum Hofladen
-  .slide-container
-    .slide-part.left.col-lg-7.col-md-6.no-gutter
-      .slide-img{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })"}
-    .slide-part.right.col-lg-5.col-md-6
-      %span.fi.flaticon-hay-roll
-      %h3 Ferien auf dem Bauernhof
-      %p
-        Sie suchen ein ruhiges und gemütliches Plätzchen zum „Pause machen“ – dann schauen Sie sich unsere Ferienwohnung.
-      = link_to(home_fw_path, class: "btn") do
-        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-        zur Ferienwohnung
-  .slide-container
-    .slide-part.left.col-lg-7.col-md-6.no-gutter
-      .slide-img{:style => "background-image: url(#{image_path("home/slider/biogas.jpg") })"}
-    .slide-part.right.col-lg-5.col-md-6
-      %span.fi.flaticon-rye
-      %h3 Energie aus Biogas!
-      %p
-        Aus Gülle und Mist Energie machen?! Kein Problem, bei uns macht das die „dicke Berta“ – so lautet der Spitzname für unsere Biogasanlage.
-      = link_to(home_biogas_path, class: "btn") do
-        %i.fa.fa-angle-double-right
-        zum Biogas
+  .slide-container.container-fluid.border-bottom
+    .row
+      .slide-part.left.col-lg-7.col-md-6.no-gutter.d-none.d-md-block.d-none.d-md-block
+        .slide-img{:style => "background-image: url(#{image_path("home/slider/hof.jpg")})"}
+      .slide-part.right.col-lg-5.col-md-6
+        %span.fi.flaticon-farm
+        %h3 Der Voglerhof
+        %p
+          Aus Überzeugung bio – schon seit 1989. Erfahren Sie mehr über den Hof und unsere Arbeitsweise.
+        = link_to(home_hof_path, class: "btn") do
+          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+          zum Voglerhof
+  .slide-container.container-fluid.border-bottom
+    .row
+      .slide-part.left.col-lg-7.col-md-6.no-gutter.d-none.d-md-block
+        .slide-img{:style => "background-image: url(#{image_path("home/slider/hofladen.jpg")})"}
+      .slide-part.right.col-lg-5.col-md-6
+        %span.fi.flaticon-milk-products
+        %h3 Der Hofladen
+        %p
+          Bioprodukte direkt vom Erzeuger und ein liebevoll zusammengestelltes Biovollsortiment möglichst aus der Region – genau das finden Sie bei uns im Hofladen.
+        = link_to(home_hofladen_path, class: "btn") do
+          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+          zum Hofladen
+  .slide-container.container-fluid.border-bottom
+    .row
+      .slide-part.left.col-lg-7.col-md-6.no-gutter.d-none.d-md-block
+        .slide-img{:style => "background-image: url(#{image_path("home/fewo/fewo2.jpg") })"}
+      .slide-part.right.col-lg-5.col-md-6
+        %span.fi.flaticon-hay-roll
+        %h3 Ferien auf dem Bauernhof
+        %p
+          Sie suchen ein ruhiges und gemütliches Plätzchen zum „Pause machen“ – dann schauen Sie sich unsere Ferienwohnung.
+        = link_to(home_fw_path, class: "btn") do
+          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+          zur Ferienwohnung
+  .slide-container.container-fluid.border-bottom
+    .row
+      .slide-part.left.col-lg-7.col-md-6.no-gutter.d-none.d-md-block
+        .slide-img{:style => "background-image: url(#{image_path("home/slider/biogas.jpg") })"}
+      .slide-part.right.col-lg-5.col-md-6
+        %span.fi.flaticon-rye
+        %h3 Energie aus Biogas!
+        %p
+          Aus Gülle und Mist Energie machen?! Kein Problem, bei uns macht das die „dicke Berta“ – so lautet der Spitzname für unsere Biogasanlage.
+        = link_to(home_biogas_path, class: "btn") do
+          %i.fa.fa-angle-double-right
+          zum Biogas
