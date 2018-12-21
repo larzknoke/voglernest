@@ -43,6 +43,8 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
+  config.action_mailer.default_url_options = { host: ENV["HOST_DOMAIN"]}
+
 
   config.action_mailer.smtp_settings = {
     :address        => 'send.one.com',
@@ -50,6 +52,6 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => ENV["ONE_USERNAME"],
     :password       => ENV["ONE_PASSWORD"],
-    :domain         => 'localhost:3000'
+    :domain         => ENV["HOST_DOMAIN"]
   }
 end

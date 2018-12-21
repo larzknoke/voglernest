@@ -79,4 +79,22 @@ Rails.application.configure do
 
   config.serve_static_files = true
 
+
+  config.action_mailer.default_url_options = { host: ENV["HOST_DOMAIN"]}
+
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :address        => 'send.one.com',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV["ONE_USERNAME"],
+    :password       => ENV["ONE_PASSWORD"],
+    :domain         => ENV["HOST_DOMAIN"]
+  }
+
+
 end

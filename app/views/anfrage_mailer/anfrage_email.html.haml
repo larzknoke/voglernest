@@ -1,0 +1,18 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h3
+      = "Neue Ferienwohnung Anfrage"
+
+    %p
+      = "Name: #{@name}"
+    %p
+      = "email: #{@email}"
+    %p
+      = "Zeitraum: #{@startDate.strftime("%d.%m.%Y")} bis #{@endDate.strftime("%d.%m.%Y")}"
+    %p
+      = "Personen: #{@anzahl}"
+
+    %strong
+      = link_to "Anfrage einsehen", anfrage_url(@anfrage)

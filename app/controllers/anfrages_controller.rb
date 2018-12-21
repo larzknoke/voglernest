@@ -47,6 +47,8 @@ class AnfragesController < ApplicationController
     respond_to do |format|
       if @anfrage.save
         @data["message"]= "Anfrage erfolgreich versendet!"
+        AnfrageMailer.anfrage_email(@anfrage).deliver
+
         format.html { redirect_to @anfrage, notice: 'Anfrage was successfully created.' }
         format.js {}
       else
