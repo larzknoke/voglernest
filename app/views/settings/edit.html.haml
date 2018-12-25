@@ -1,0 +1,4 @@
+= form_for(@setting, url: setting_path(@setting.var), method: 'patch') do |f|
+  %label= @setting.var
+  = f.text_area :value, rows: 10
+  = f.submit

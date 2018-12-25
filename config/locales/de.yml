@@ -5,3 +5,15 @@ de:
   errors:
     messages:
       blank: "muss ausgefüllt sein!"
+
+
+  settings:
+    attributes:
+      airvogler_url:
+        name: "AirVogler URL"
+      mail_to_default:
+        name: "Standard Email Empfänger"
+      mail_to_fewo:
+        name: "Fewo Email Empfänger"
+      mail_to_bst:
+        name: "Brotbestellung Email Empfänger"

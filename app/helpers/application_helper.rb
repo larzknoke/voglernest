@@ -10,12 +10,19 @@ module ApplicationHelper
   def calendarDates
     require 'net/http'
     begin
-      uri = URI(ENV["AIRVOGLER_URL"])
+      uri = URI(Setting['airvogler_url'])
       @req = Net::HTTP.get(uri)
       @req = JSON.parse(@req)
       @dates = @req.collect{|d| d["date"].to_date}
       @calendar_events = @dates.map{ |date| Event.new(date) }
-    rescue StandardError
+    rescue StandardError => error
+      puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+      puts "+++++++++++++++++++++   ERROR   +++++++++++++++++++++++++++++++"
+      puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+      puts error
+      puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+      puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+      puts "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
       @calendar_events = []
       false
     end

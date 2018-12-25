@@ -1,0 +1,18 @@
+# config/app.yml for rails-settings-cached
+defaults: &defaults
+  airvogler_url: "https://us-central1-voglerhof.cloudfunctions.net/airvogler/calendar/14756501"
+
+development:
+  <<: *defaults
+  mail_to_default: "larz.knoke@gmail.com"
+  mail_to_fewo: "larz.knoke@gmail.com"
+  mail_to_bst: "larz.knoke@gmail.com"
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  mail_to_default: "info@voglerhof.de"
+  mail_to_fewo: "fewo@voglerhof.de"
+  mail_to_bst: "larz.knoke@gmail.com"

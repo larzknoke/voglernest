@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsSettingsUi::Engine, at: 'settings'
   resources :feeds
   # LOGIN & SESSION
   get "login" => "sessions#new"
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
   resources :anfrages do
     get "antwort" => "anfrages#antwort"
   end
-
+  resources :settings
 
   get "home/index"
   get "home/hof"

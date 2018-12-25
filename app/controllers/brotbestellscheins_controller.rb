@@ -104,11 +104,13 @@ class BrotbestellscheinsController < ApplicationController
     else
       @brotbestellschein = Brotbestellschein.new(brotbestellschein_params)
       @brotbestellschein.brotbestellungs << @bsts
-      @std_bst = Brotbestellung.find_by(:typ => "standard")
-      @new_std_bst = @std_bst.amoeba_dup
-      @new_std_bst.datum = @datum
-      @new_std_bst.save
-      @brotbestellschein.brotbestellungs << @new_std_bst
+      if Brotbestellung.find_by(:typ => "standard")
+        @std_bst = Brotbestellung.find_by(:typ => "standard")
+        @new_std_bst = @std_bst.amoeba_dup
+        @new_std_bst.datum = @datum
+        @new_std_bst.save
+        @brotbestellschein.brotbestellungs << @new_std_bst
+      end
     end
 
     @brotbestellschein.datum = @datum

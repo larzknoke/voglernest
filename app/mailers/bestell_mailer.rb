@@ -1,6 +1,7 @@
 class BestellMailer < ApplicationMailer
   def bestell_email(bestellschein)
     @bestellschein = bestellschein
-    mail(to: ENV["MAILTO"], subject: "Brotbestellung für #{l(@bestellschein.datum, format: "%A, %d.%m.%Y")}")
+    @mailTo = Setting['mail_to_bst']
+    mail(to: @mailTo, subject: "Brotbestellung für #{l(@bestellschein.datum, format: "%A, %d.%m.%Y")}")
   end
 end

@@ -84,6 +84,33 @@ GEM
     concurrent-ruby (1.0.5)
     crass (1.0.4)
     debug_inspector (0.0.3)
+    dry-configurable (0.7.0)
+      concurrent-ruby (~> 1.0)
+    dry-container (0.6.0)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 0.1, >= 0.1.3)
+    dry-core (0.4.7)
+      concurrent-ruby (~> 1.0)
+    dry-equalizer (0.2.1)
+    dry-inflector (0.1.2)
+    dry-logic (0.4.2)
+      dry-container (~> 0.2, >= 0.2.6)
+      dry-core (~> 0.2)
+      dry-equalizer (~> 0.2)
+    dry-types (0.13.4)
+      concurrent-ruby (~> 1.0)
+      dry-container (~> 0.3)
+      dry-core (~> 0.4, >= 0.4.4)
+      dry-equalizer (~> 0.2)
+      dry-inflector (~> 0.1, >= 0.1.2)
+      dry-logic (~> 0.4, >= 0.4.2)
+    dry-validation (0.12.2)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 0.1, >= 0.1.3)
+      dry-core (~> 0.2, >= 0.2.1)
+      dry-equalizer (~> 0.2)
+      dry-logic (~> 0.4, >= 0.4.0)
+      dry-types (~> 0.13.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.23)
@@ -169,6 +196,13 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails-settings-cached (0.7.2)
+      rails (>= 4.2.0)
+    rails-settings-ui (1.3.4)
+      dry-types
+      dry-validation (>= 0.12.0)
+      i18n
+      rails (>= 3.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -255,6 +289,8 @@ DEPENDENCIES
   rails-assets-magnific-popup!
   rails-assets-momentjs!
   rails-assets-semantic-ui-calendar!
+  rails-settings-cached
+  rails-settings-ui
   rails_12factor
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
@@ -265,4 +301,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.2

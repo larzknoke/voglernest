@@ -7,7 +7,7 @@
           %li= message
   .field
     = f.label :datum
-    = f.select :datum, options_for_select(@date_result),{}, {class: 'ui dropdown'}
+    -# = f.select :datum, options_for_select(@date_result),{}, {class: 'ui dropdown'}
   .actions
     = f.submit 'Speichern', :class => 'ui button basic green'
 
