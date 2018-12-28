@@ -17,3 +17,5 @@ de:
         name: "Fewo Email Empfänger"
       mail_to_bst:
         name: "Brotbestellung Email Empfänger"
+      bst_inactive:
+        name: "Brotbestellung deaktivieren"

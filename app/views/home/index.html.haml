@@ -38,17 +38,29 @@
         .overlay
 .row.bg-yellow2.roomy-90
   .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
-    %h2
-      %span.fi.flaticon-harvest.fi-big.extra-m-bottom
-      %br
-      Brotbestellung
-    %p.text-green
-      Brot und Brötchen schnell und unkompliziert vorbestellen – ganz bequem jetzt online!
-    = link_to(home_hofladen_path, class: "btn btn-small") do
-      %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-      zur Brotbestellung
+    - if Setting["bst_inactive"] == false
+      %h2{:style => "line-height: 1.5"}
+        %span.fi.flaticon-harvest.fi-big.extra-m-bottom
+        %br
+        Brotbestellung
+      %p.text-green
+        Brot und Brötchen schnell und unkompliziert vorbestellen – ganz bequem jetzt online!
+      = link_to(home_hofladen_path, class: "btn btn-small") do
+        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+        zur Brotbestellung
+    - else
+      %h2{:style => "line-height: 1.5"}
+        %span.fi.flaticon-farm.fi-big.extra-m-bottom
+        %br
+        Ferienwohnung
+      %p.text-green
+        Sie suchen ein ruhiges und gemütliches Plätzchen zum „Pause machen“ – dann schauen Sie sich unsere Ferienwohnung.
+      = link_to(home_fw_path, class: "btn btn-small") do
+        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+        zur Ferienwohnung
+
   .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
-    %h2
+    %h2{:style => "line-height: 1.5"}
       %span.fi.flaticon-farm-products.fi-big.extra-m-bottom
       %br
       Hofladen
@@ -58,7 +70,7 @@
       %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
       zum Hofladen
   .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
-    %h2
+    %h2{:style => "line-height: 1.5"}
       %span.fi.flaticon-farmer.fi-big.extra-m-bottom
       %br
       Ausbildung

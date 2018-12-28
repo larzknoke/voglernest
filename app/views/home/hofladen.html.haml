@@ -50,14 +50,16 @@
               - else
                 .list-group-item{:class => (openhour.spezial ? "open-at-important" : ""), :style => "font-weight: 300" }
                   = "#{openhour.tag}: geschlossen"
-      %h4{:class => ( @openhours.present? ? "m-top-80" : "")}
-        %span.fi.flaticon-harvest.fi-big
-        Brotbestellung
-      %p.text-green{:style => "font-size: 1rem;line-height: 1.5rem"}
-        Sie können online Ihr Brot vorbestellen und am gewünschen Tag bei uns im Hofladen abholen.
-      = link_to new_brotbestellung_path, :class => "btn btn-small" do
-        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-        bestellen
+      - if Setting["bst_inactive"] == false
+        %h4{:class => ( @openhours.present? ? "m-top-80" : "")}
+          %span.fi.flaticon-harvest.fi-big
+          Brotbestellung
+        %p.text-green{:style => "font-size: 1rem;line-height: 1.5rem"}
+          Sie können online Ihr Brot vorbestellen und am gewünschen Tag bei uns im Hofladen abholen.
+        %div.not-allowed
+          = link_to new_brotbestellung_path, :class => "btn btn-small disabled" do
+            %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+            bestellen
 
 
   .col-md-3.no-gutter{:style => "padding-top: 0"}
