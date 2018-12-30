@@ -19,3 +19,5 @@ de:
         name: "Brotbestellung Email Empfänger"
       bst_inactive:
         name: "Brotbestellung deaktivieren"
+    index:
+        save_all: "Alle Speichern"
