@@ -14,7 +14,7 @@
     = f.number_field :brotsorte_id
   .field
     = f.label :brotbestellung_id
-    = f.select :brotbestellung_id, options_from_collection_for_select(Brotbestellung.all, 'id', 'id'),{}, {class: 'ui dropdown'}
+    = f.select :brotbestellung_id, options_from_collection_for_select(Brotbestellung.all, 'id', 'id', @brotbestellposi.brotbestellung.id),{}, {class: 'ui dropdown'}
 
   .actions
     = f.submit 'Speichern', :class => 'ui button basic  green'

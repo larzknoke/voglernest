@@ -37,6 +37,8 @@ gem "cocoon"
 gem "amoeba"
 gem "rails-settings-cached"
 gem 'rails-settings-ui'
+gem 'meta-tags'
+
 
 
 

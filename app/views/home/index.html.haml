@@ -36,49 +36,51 @@
         .overlay
       .img-item.hof-gallery-item.border-bottom{:style => "background-image: url(#{image_path("home/content/trecker2.jpg")})"}
         .overlay
-.row.bg-yellow2.roomy-90
-  .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
-    - if Setting["bst_inactive"] == false
-      %h2{:style => "line-height: 1.5"}
-        %span.fi.flaticon-harvest.fi-big.extra-m-bottom
-        %br
-        Brotbestellung
-      %p.text-green
-        Brot und Brötchen schnell und unkompliziert vorbestellen – ganz bequem jetzt online!
-      = link_to(home_hofladen_path, class: "btn btn-small") do
-        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-        zur Brotbestellung
-    - else
-      %h2{:style => "line-height: 1.5"}
-        %span.fi.flaticon-farm.fi-big.extra-m-bottom
-        %br
-        Ferienwohnung
-      %p.text-green
-        Sie suchen ein ruhiges und gemütliches Plätzchen zum „Pause machen“ – dann schauen Sie sich unsere Ferienwohnung.
-      = link_to(home_fw_path, class: "btn btn-small") do
-        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-        zur Ferienwohnung
+.row.bg-yellow2.roomy-90.justify-content-center
+  .col-md-11
+    .row
+      .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
+        - if Setting["bst_inactive"] == false
+          %h2{:style => "line-height: 1.5"}
+            %span.fi.flaticon-harvest.fi-big.extra-m-bottom
+            %br
+            Brotbestellung
+          %p.text-green
+            Brot und Brötchen schnell und unkompliziert vorbestellen – ganz bequem jetzt online!
+          = link_to(home_hofladen_path, class: "btn btn-small") do
+            %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+            zur Brotbestellung
+        - else
+          %h2{:style => "line-height: 1.5"}
+            %span.fi.flaticon-farm.fi-big.extra-m-bottom
+            %br
+            Ferienwohnung
+          %p.text-green
+            Sie suchen ein ruhiges und gemütliches Plätzchen zum „Pause machen“ – dann schauen Sie sich unsere Ferienwohnung.
+          = link_to(home_fw_path, class: "btn btn-small") do
+            %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+            zur Ferienwohnung
 
-  .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
-    %h2{:style => "line-height: 1.5"}
-      %span.fi.flaticon-farm-products.fi-big.extra-m-bottom
-      %br
-      Hofladen
-    %p.text-green
-      Frische Milch oder frisches regionales Gemüse – biologisch! Das und noch mehr finden Sie bei uns im Hofladen.
-    = link_to(home_hofladen_path, class: "btn btn-small") do
-      %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-      zum Hofladen
-  .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
-    %h2{:style => "line-height: 1.5"}
-      %span.fi.flaticon-farmer.fi-big.extra-m-bottom
-      %br
-      Ausbildung
-    %p.text-green
-      Sucht Ihr einen Ausbildungsplatz in der Landwirtschaft mit abwechslungsreichen Betriebszweigen?
-    = link_to(home_ausbildung_path, class: "btn btn-small") do
-      %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-      mehr Infos
+      .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
+        %h2{:style => "line-height: 1.5"}
+          %span.fi.flaticon-farm-products.fi-big.extra-m-bottom
+          %br
+          Hofladen
+        %p.text-green
+          Frische Milch oder frisches regionales Gemüse – biologisch! Das und noch mehr finden Sie bei uns im Hofladen.
+        = link_to(home_hofladen_path, class: "btn btn-small") do
+          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+          zum Hofladen
+      .col-lg-4.col-md-12.text-center-sm.my-md-3.px-md-5
+        %h2{:style => "line-height: 1.5"}
+          %span.fi.flaticon-farmer.fi-big.extra-m-bottom
+          %br
+          Ausbildung
+        %p.text-green
+          Sucht Ihr einen Ausbildungsplatz in der Landwirtschaft mit abwechslungsreichen Betriebszweigen?
+        = link_to(home_ausbildung_path, class: "btn btn-small") do
+          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+          mehr Infos
 
 
 .row.roomy-150
@@ -97,21 +99,34 @@
       %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
       Ferienwohnung buchen
 
-.row#eu
+.row#eu.mb-5
   .col-md-12.text-center.text-yellow.pb-4
     .row.justify-content-center
       .col-md-4
         = image_tag 'home/eu_gross.png', :class => "img-fluid  mb-3 rounded ", :style => ""
-    .divider-center
-    %h3.mt-4
-      Ökologischer/biologischer Landbau
-    %p
-      Mit dieser Maßnahme werden landwirtschaftliche Betriebe bei der Einführung
-      %br
-      von ökologischer Landwirtschaft und deren Beibehaltung unterstützt
-    %p
-      %a{:href => "http://www.eler.niedersachsen.de", :style => "font-size: 1.15rem", :rel => "noopener noreferrer", :target => "_blank"}
-        www.eler.niedersachsen.de
+      .col-md-5.text-left.ml-md-4
+        %h3.mt-4
+          Ökologischer/biologischer Landbau
+        %p
+          Mit dieser Maßnahme werden landwirtschaftliche Betriebe bei der Einführung
+          von ökologischer Landwirtschaft und deren Beibehaltung unterstützt
+        %h3.mt-4
+          „Agrarumwelt- und Klimaschutzmaßnahmen"
+        %p
+          Mit diesen Maßnahmen werden landwirtschaftliche Betriebe bei der Erhaltung
+          und Verbesserung der Umweltsituation unterstützt. Ziel ist eine nachhaltige
+          und ressourcenschonende Bewirtschaftung in Bezug auf Artenvielfalt, Boden,
+          Wasser und den Schutz des Klimas.
+        %h3.mt-4
+          Ausgleichszulage
+        %p
+          Mit dieser Maßnahme werden landwirtschaftliche Betriebe in Gebieten
+          unterstützt, die aus erheblichen naturbedingten Gründen benachteiligt sind.
+          Ziel ist die dauerhafte Nutzung durch die Landwirtschaft und der Erhalt von
+          nachhaltigen Bewirtschaftungsformen.
+        %h3.mt-5
+          %a{:href => "http://www.eler.niedersachsen.de", :style => "font-size: 1.15rem", :rel => "noopener noreferrer", :target => "_blank"}
+            www.eler.niedersachsen.de
 
 
 .row

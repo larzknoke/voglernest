@@ -98,8 +98,8 @@ class BrotbestellscheinsController < ApplicationController
       return redirect_to brotbestellungs_path
     end
 
-    if Brotbestellschein.find_by(datum: @datum)
-      @brotbestellschein = Brotbestellschein.find_by(datum: @datum)
+    if Brotbestellschein.find_by_datum_and_versendet(@datum, nil)
+      @brotbestellschein = Brotbestellschein.find_by_datum_and_versendet(@datum, nil)
       @brotbestellschein.brotbestellungs << @bsts
     else
       @brotbestellschein = Brotbestellschein.new(brotbestellschein_params)
@@ -108,6 +108,7 @@ class BrotbestellscheinsController < ApplicationController
         @std_bst = Brotbestellung.find_by(:typ => "standard")
         @new_std_bst = @std_bst.amoeba_dup
         @new_std_bst.datum = @datum
+        @new_std_bst.typ = "standard_auf_schein"
         @new_std_bst.save
         @brotbestellschein.brotbestellungs << @new_std_bst
       end

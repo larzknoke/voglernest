@@ -152,7 +152,7 @@
       - @brotbestellungs.where(:brotbestellschein => nil).where(:typ => "bestellung").where.not(:datum => nil).order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
         %h3{:style => "display: inline-block;margin-right: 10px"}
           = l(datum, format: "%A, %d.%m.%Y")
-        = link_to "Offene Bestellungen auf Brotbestellschein", :controller => "brotbestellscheins", :action => "schein_aus_bst", :datum => datum
+        = link_to "Alle offenen Bestellungen auf Brotbestellschein verteilen", {:controller => "brotbestellscheins", :action => "schein_aus_bst", :datum => datum}, :class => "ui button green"
 
         %table.ui.table
           %thead
