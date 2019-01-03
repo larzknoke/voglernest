@@ -19,8 +19,15 @@ class HomeController < ApplicationController
   end
 
   def fw
-    calendarDates
     render layout: 'home/home'
+  end
+
+  def getcalendardates
+    calendarDates
+    respond_to do |format|
+      format.html { }
+      format.js { render 'home/getcalendardates'}
+    end
   end
 
   def hofladen
