@@ -22,7 +22,8 @@
   %b Antwort:
   - if @anfrage.antwort.nil?
     = check(@anfrage.antwort)
-    = link_to "Antwort schreiben", anfrage_antwort_path(@anfrage), :class => "ui button basic mini", :style => "margin-left: 1rem"
+    - if @anfrage.email.present?
+      = link_to "Antwort schreiben", anfrage_antwort_path(@anfrage), :class => "ui button basic mini", :style => "margin-left: 1rem"
   - else
     = @anfrage.antwort
 

@@ -47,12 +47,14 @@
       Bestellungen 1 Woche
     %a.item{"data-tab" => "bst1monat"}
       Bestellungen 1 Monat
+    %a.item{"data-tab" => "bstAlle"}
+      Alle Bestellungen
     %a.item{"data-tab" => "offeneBst"}
       Offene Bestellungen
   .tab-content{:style => "padding-top: 1rem"}
     %div#bst1woche
       - @brotbestellungs.where(datum: (Date.current.to_time..(Date.current.to_time + 1.week)), typ: "bestellung").order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
-        %h3{:style => "display: inline-block;margin-right: 10px"}
+        %h3{:style => "display: inline-block;margin-right: 10px; margin-bottom: 0"}
           = l(datum, format: "%A, %d.%m.%Y")
 
         %table.ui.table
@@ -101,7 +103,56 @@
                 %td= link_to "Löschen", brotbestellung, method: :delete, data: { confirm: "Sind Sie sicher?" }
     %div#bst1monat
       - @brotbestellungs.where(datum: (Date.current.to_time..(Date.current.to_time + 1.month))).where(:typ => "bestellung").order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
-        %h3{:style => "display: inline-block;margin-right: 10px"}
+        %h3{:style => "display: inline-block;margin-right: 10px; margin-bottom: 0"}
+          = l(datum, format: "%A, %d.%m.%Y")
+
+        %table.ui.table
+          %thead
+            %tr
+              %th{:style => "width: 30%"} Brotsorte
+              %th Menge
+          %tbody
+            - brotbestellungs.collect(&:brotbestellposi).flatten.group_by(&:brotsorte).each do |sorte, posi|
+              %tr
+                %td= sorte.name
+                %td= posi.collect(&:menge).sum
+        %table.ui.table
+          %thead
+            %tr
+              %th #
+              %th Vorname
+              %th Name
+              %th Telefon
+              %th Email
+              %th Datum
+              %th Bestellschein
+              %th
+              %th
+              %th
+
+          %tbody
+            - brotbestellungs.sort_by(&:name).each do |brotbestellung|
+              %tr
+                %td= brotbestellung.id
+                %td= brotbestellung.vorname
+                %td= brotbestellung.name
+                %td= brotbestellung.telefon
+                %td= brotbestellung.email
+                %td= l(brotbestellung.datum, format: "%a, %d.%m.%Y")
+                %td
+                  - if brotbestellung.brotbestellschein.present?
+                    = link_to brotbestellung.brotbestellschein do
+                      = brotbestellung.brotbestellschein.id
+                      - if brotbestellung.brotbestellschein.versendet.present?
+                        %i.checkmark.icon
+                  - else
+                    = "-"
+                %td= link_to "Zeigen", brotbestellung
+                %td= link_to "Bearbeiten", edit_brotbestellung_path(brotbestellung)
+                %td= link_to "Löschen", brotbestellung, method: :delete, data: { confirm: "Sind Sie sicher?" }
+    %div#bstAlle
+      - @brotbestellungs.where(:typ => "bestellung").order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
+        %h3{:style => "display: inline-block;margin-right: 10px; margin-bottom: 0"}
           = l(datum, format: "%A, %d.%m.%Y")
 
         %table.ui.table
@@ -150,7 +201,7 @@
                 %td= link_to "Löschen", brotbestellung, method: :delete, data: { confirm: "Sind Sie sicher?" }
     %div#offeneBst
       - @brotbestellungs.where(:brotbestellschein => nil).where(:typ => "bestellung").where.not(:datum => nil).order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
-        %h3{:style => "display: inline-block;margin-right: 10px"}
+        %h3{:style => "display: inline-block;margin-right: 10px; margin-bottom: 0"}
           = l(datum, format: "%A, %d.%m.%Y")
         = link_to "Alle offenen Bestellungen auf Brotbestellschein verteilen", {:controller => "brotbestellscheins", :action => "schein_aus_bst", :datum => datum}, :class => "ui button green"
 

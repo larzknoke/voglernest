@@ -1,0 +1,17 @@
+%h1 Packzettel
+
+- Brotbestellung.all.find_all(&:versendet).flatten.group_by(&:datum).each do |datum, brotbestellungs|
+  %h3{:style => "display: inline-block;margin-right: 10px; margin-bottom: 0;"}
+    = l(datum, format: "%A, %d.%m.%Y")
+  = link_to "Packzettel", {:controller => "brotbestellscheins", :action => "packzettel_show", :datum => datum}, :class => "ui button "
+
+  %table.ui.table
+    %thead
+      %tr
+        %th{:style => "width: 30%"} Brotsorte
+        %th Menge
+    %tbody
+      - brotbestellungs.collect(&:brotbestellposi).flatten.group_by(&:brotsorte).each do |sorte, posi|
+        %tr
+          %td= sorte.name
+          %td= posi.collect(&:menge).sum

@@ -11,7 +11,9 @@
     = f.number_field :menge
   .field
     = f.label :brotsorte_id
-    = f.number_field :brotsorte_id
+    -# = f.number_field :brotsorte_id
+    = f.select :brotsorte_id, options_from_collection_for_select(Brotsorte.all, :id, :name, f.object.brotsorte_id),{}, {class: 'ui dropdown'}
+
   .field
     = f.label :brotbestellung_id
     = f.select :brotbestellung_id, options_from_collection_for_select(Brotbestellung.all, 'id', 'id', @brotbestellposi.brotbestellung.id),{}, {class: 'ui dropdown'}
@@ -21,6 +23,7 @@
 
 
 :javascript
-  $('select.dropdown')
-    .dropdown()
-  ;
+
+  $( document ).ready(function() {
+    $('.ui.dropdown').dropdown();
+  });

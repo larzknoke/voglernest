@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get "standard" => "brotbestellungs#standard"
   post "contact" => "home#contactmail"
   post "anfrage_form" => "anfrages#create"
+  get "packzettel" => "brotbestellscheins#packzettel"
+  get "packzettel_show/:datum" => "brotbestellscheins#packzettel_show"
 
 
   resources :brottyps

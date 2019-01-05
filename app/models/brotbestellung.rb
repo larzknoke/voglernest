@@ -9,4 +9,9 @@ class Brotbestellung < ActiveRecord::Base
   amoeba do
     enable
   end
+
+  def versendet
+   self.brotbestellschein.present? && self.brotbestellschein.versendet.present?
+  end
+
 end

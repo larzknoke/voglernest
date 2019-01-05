@@ -1,0 +1,32 @@
+%h1
+  Packzettel für
+  = l(@datum, format: "%A, %d.%m.%Y")
+
+%table.ui.table
+  %thead
+    %tr
+      %th{:style => "width: 30%"} Brotsorte
+      %th Menge
+  %tbody
+    - @brotbestellungs.collect(&:brotbestellposi).flatten.group_by(&:brotsorte).each do |sorte, posi|
+      %tr
+        %td= sorte.name
+        %td= posi.collect(&:menge).sum
+
+- @brotbestellungs.each do |brotbestellung|
+  %h3
+    - if brotbestellung.vorname
+      = brotbestellung.vorname
+    - if brotbestellung.name
+      = brotbestellung.name
+  %table.ui.table
+    %thead
+      %tr
+        %th Brotsorte
+        %th Menge
+
+    %tbody
+      - brotbestellung.brotbestellposi.each do |posi|
+        %tr
+          %td{:style => "width: 30%"}= posi.brotsorte.name
+          %td= posi.menge

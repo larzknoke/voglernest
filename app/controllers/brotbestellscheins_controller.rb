@@ -127,7 +127,10 @@ class BrotbestellscheinsController < ApplicationController
     end
   end
 
-
+  def packzettel_show
+    @datum = params[:datum].to_date
+    @brotbestellungs = Brotbestellung.all.find_all{|b| b.versendet && b.datum == params[:datum] && b.typ == "bestellung"}
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
