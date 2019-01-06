@@ -6,7 +6,8 @@
     = javascript_include_tag 'backend'
     = csrf_meta_tags
     = favicon_link_tag asset_path('favicon.ico')
-
+    - if Rails.env.production?
+      = render :partial => "layouts/analytics"
   %body
     .ui.fixed.menu
       .ui.container
