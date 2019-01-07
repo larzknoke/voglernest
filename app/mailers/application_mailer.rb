@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "voglernest@knokenetz.de"
+  default from: "info@voglerhof.de"
   layout 'mailer'
 end
