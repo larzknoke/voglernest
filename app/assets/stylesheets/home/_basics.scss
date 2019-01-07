@@ -592,3 +592,8 @@ opacity: .4 !important;
 @media (max-width: 375px) {
     .too-long {font-size:2.5rem}
 }
+  @media (max-width: 320px) {
+    .too-long-sm {font-size:80%}
+    .too-long {font-size:2rem}
+    .btn-small {font-size:.8rem}
+}
