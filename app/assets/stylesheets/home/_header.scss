@@ -224,12 +224,13 @@
 	margin-left: 5px;
 }
 
+@media screen and (max-width: 1120px) {
 
-@media (max-width: 768px) {
-   #head {
-      // position: relative;
-   }
+  #nav ul li a {
+    padding: 22px 22px;
+  }
 }
+
 
 @media (max-width: 680px) {
    .sub-logo {
