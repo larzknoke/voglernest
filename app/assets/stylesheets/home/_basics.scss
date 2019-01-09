@@ -84,6 +84,12 @@ a {
   }
 }
 
+a[href^=tel], a[href^=mailto] {
+  text-decoration:inherit;
+  color: inherit;
+  font-size: inherit;
+}
+
 .text-center { text-align: center;}
 
 .text-orange { color: $color_orange;}

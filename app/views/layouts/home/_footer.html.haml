@@ -14,7 +14,8 @@
       %br
       Telefax: +49 5533 6215
       %br
-      E-Mail: info@voglerhof.de
+      %a{:href => "mailto:info@voglerhof.de"}
+        E-Mail: info@voglerhof.de
       %br
       Internet: www.voglerhof.de
       %br
@@ -36,7 +37,7 @@
         = form.text_field :name, class: 'form-control', placeholder: 'Name'
       .form-row
         .form-group.col-6
-          = form.text_field :email, class: 'form-control', placeholder: 'Email'
+          = form.text_field :email, class: 'form-control', placeholder: 'E-Mail'
         .form-group.col-6
           = form.text_field :telefon, class: 'form-control', placeholder: 'Telefon'
       .form-group

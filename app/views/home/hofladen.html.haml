@@ -1,6 +1,6 @@
 .row
 
-  .col-md-7.roomy-100.roomy-md{:style => "padding: 0 5% 15% 5%"}
+  .col-lg-7.roomy-100.roomy-md{:style => "padding: 0 5% 15% 5%"}
     %h1.text-yellow.text-center-sm Der Hofladen
     .divider-left.center
     %p
@@ -34,8 +34,8 @@
 
 
 
-  .col-md-2.bg-yellow2.hofladen-info-block
-    .vertical-align-center{:style => "margin-top: -5%;"}
+  .col-lg-2.bg-yellow2.hofladen-info-block
+    .vertical-align-center{:style => "margin: -5% auto 0;"}
       - if @openhours.present?
         %div
           %h4
@@ -50,17 +50,20 @@
               - else
                 .list-group-item{:class => (openhour.spezial ? "open-at-important" : ""), :style => "font-weight: 300" }
                   = "#{openhour.tag}: geschlossen"
-      %h4{:class => ( @openhours.present? ? "m-top-80" : "")}
-        %span.fi.flaticon-harvest.fi-big
-        Brotbestellung
-      %p.text-green{:style => "font-size: 1rem;line-height: 1.5rem"}
-        Sie können online Ihr Brot vorbestellen und am gewünschen Tag bei uns im Hofladen abholen.
-      %div.not-allowed
-        = link_to new_brotbestellung_path, { class:[ ("btn btn-small"), (:disabled if Setting["bst_inactive"] == true) ] } do
-          %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-          bestellen
+      -if Setting["bst_inactive"] == false
+        %h4{:class => ( @openhours.present? ? "m-top-80" : "")}
+          %span.fi.flaticon-harvest.fi-big
+          Brotbestellung
+        %p.text-green{:style => "font-size: 1rem;line-height: 1.5rem"}
+          Sie können online Ihr Brot vorbestellen und am gewünschen Tag bei uns im Hofladen abholen.
+        %div.not-allowed
+          = link_to new_brotbestellung_path, { class:[ ("btn btn-small"), (:disabled if Setting["bst_inactive"] == true) ] } do
+            %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+            bestellen
+      - else
+        %div.d-none.d-lg-block{:style => "height: 15rem;"}
 
 
-  .col-md-3.no-gutter{:style => "padding-top: 0"}
+  .col-lg-3.no-gutter{:style => "padding-top: 0"}
     .img-holder{:style => "height: 65rem"}
       .img-item{:style => "background-image: url(#{image_path("home/hofladen/hofladen6.jpg") })"}
