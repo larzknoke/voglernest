@@ -43,7 +43,7 @@
 
       %tbody
         - @brotbestellschein.brotbestellungs.each do |brotbestellung|
-          %tr{class: [('warning' if brotbestellung.typ == "standard_auf_schein"), ('warning' if brotbestellung.typ == "zusatz")]}
+          %tr{class: [('warning' if brotbestellung.typ.starts_with?("standard") ), ('warning' if brotbestellung.typ == "zusatz")]}
             %td= brotbestellung.id
             %td= brotbestellung.vorname
             %td= brotbestellung.name

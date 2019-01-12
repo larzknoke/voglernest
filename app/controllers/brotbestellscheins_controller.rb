@@ -56,7 +56,7 @@ class BrotbestellscheinsController < ApplicationController
 
   def destroy
     @brotbestellschein.brotbestellungs.where(typ: "zusatz").destroy_all
-    @brotbestellschein.brotbestellungs.where(typ: "standard").destroy_all
+    @brotbestellschein.brotbestellungs.where("typ like ?", "%standard%").destroy_all
     @brotbestellschein.brotbestellungs.each{|b| b.update_attribute(:brotbestellschein_id, nil)}
     @brotbestellschein.destroy
     respond_to do |format|
@@ -91,6 +91,7 @@ class BrotbestellscheinsController < ApplicationController
 
   def schein_aus_bst
     @datum = params[:datum].to_datetime
+    @datum_tag = params[:datum].to_datetime.wday
     @bsts = Brotbestellung.where(:datum => @datum, :brotbestellschein => nil, :typ => "bestellung")
 
     if @bsts.size < 1
@@ -104,14 +105,30 @@ class BrotbestellscheinsController < ApplicationController
     else
       @brotbestellschein = Brotbestellschein.new(brotbestellschein_params)
       @brotbestellschein.brotbestellungs << @bsts
-      if Brotbestellung.find_by(:typ => "standard")
-        @std_bst = Brotbestellung.find_by(:typ => "standard")
-        @new_std_bst = @std_bst.amoeba_dup
-        @new_std_bst.datum = @datum
-        @new_std_bst.typ = "standard_auf_schein"
-        @new_std_bst.save
-        @brotbestellschein.brotbestellungs << @new_std_bst
-      end
+        case @datum_tag
+        when 2
+          @std_bst = Brotbestellung.find_by(:typ => "standard_di")
+        when 5
+          @std_bst = Brotbestellung.find_by(:typ => "standard_fr")
+        when 6
+          @std_bst = Brotbestellung.find_by(:typ => "standard_sa")
+        end
+
+        if @std_bst
+          # dupliziere Standard
+          @new_std_bst = @std_bst.amoeba_dup
+          @new_std_bst.datum = @datum
+          case @datum_tag
+          when 2
+            @new_std_bst.typ = "standard_di_auf_schein"
+          when 5
+            @new_std_bst.typ = "standard_fr_auf_schein"
+          when 6
+            @new_std_bst.typ = "standard_sa_auf_schein"
+          end
+          @new_std_bst.save
+          @brotbestellschein.brotbestellungs << @new_std_bst
+        end
     end
 
     @brotbestellschein.datum = @datum

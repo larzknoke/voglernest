@@ -1,6 +1,64 @@
-.ui.grid.container
-  .sixteen.wide.column
-    %h2.text-yellow2.m-top-50 Standard Bestellpositionen:
+.ui.grid.three.column
+  .column
+    %h1 Standard Bestellpositionen
+
+.ui.grid.three.column
+  .column
+    %h2.text-yellow2.m-top-50 Dienstag:
+    = form_for @bst_std_di, :html => {:class => 'ui form'} do |f|
+      - if @bst_std_di.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@bst_std_di.errors.count, "error")} prohibited this brotbestellung from being saved:"
+          %ul
+            - @bst_std_di.errors.full_messages.each do |message|
+              %li= message
+      #brotbestellposi
+        = f.fields_for :brotbestellposi do |posi|
+          = render 'brotbestellposi_fields', f: posi
+        .links
+          = link_to_add_association '<i class="fa fa-plus-square"></i>'.html_safe, f, :brotbestellposi, {class: 'ui green button'}
+        = f.hidden_field :name, :value => "STANDARD_DI"
+        = f.hidden_field :typ, :value => "standard_di"
+        %br
+        = f.submit 'Dienstag speichern', name: 'standard', :class => 'ui button basic green  '
+  .column
+    %h2.text-yellow2.m-top-50 Freitag:
+    = form_for @bst_std_fr, :html => {:class => 'ui form'} do |f|
+      - if @bst_std_fr.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@bst_std_fr.errors.count, "error")} prohibited this brotbestellung from being saved:"
+          %ul
+            - @bst_std_fr.errors.full_messages.each do |message|
+              %li= message
+      #brotbestellposi
+        = f.fields_for :brotbestellposi do |posi|
+          = render 'brotbestellposi_fields', f: posi
+        .links
+          = link_to_add_association '<i class="fa fa-plus-square"></i>'.html_safe, f, :brotbestellposi, {class: 'ui green button'}
+        = f.hidden_field :name, :value => "STANDARD_FR"
+        = f.hidden_field :typ, :value => "standard_fr"
+        %br
+        = f.submit 'Freitag speichern', name: 'standard', :class => 'ui button basic green  '
+  .column
+    %h2.text-yellow2.m-top-50 Samstag:
+    = form_for @bst_std_sa, :html => {:class => 'ui form'} do |f|
+      - if @bst_std_sa.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@bst_std_sa.errors.count, "error")} prohibited this brotbestellung from being saved:"
+          %ul
+            - @bst_std_sa.errors.full_messages.each do |message|
+              %li= message
+      #brotbestellposi
+        = f.fields_for :brotbestellposi do |posi|
+          = render 'brotbestellposi_fields', f: posi
+        .links
+          = link_to_add_association '<i class="fa fa-plus-square"></i>'.html_safe, f, :brotbestellposi, {class: 'ui green button'}
+        = f.hidden_field :name, :value => "STANDARD_SA"
+        = f.hidden_field :typ, :value => "standard_sa"
+        %br
+        = f.submit 'Samstag speichern', name: 'standard', :class => 'ui button basic green  '
+  -# .column
+    %h2.text-yellow2.m-top-50 Freitag:
     = form_for @brotbestellung, :html => {:class => 'ui form'} do |f|
       - if @brotbestellung.errors.any?
         #error_explanation
@@ -16,7 +74,25 @@
         = f.hidden_field :name, :value => "STANDARD"
         = f.hidden_field :typ, :value => "standard"
         %br
-        = f.submit 'Standard speichern', name: 'standard', :class => 'ui button basic green  '
+        = f.submit 'Freitag speichern', name: 'standard', :class => 'ui button basic green  '
+  -# .column
+    %h2.text-yellow2.m-top-50 Samstag:
+    = form_for @brotbestellung, :html => {:class => 'ui form'} do |f|
+      - if @brotbestellung.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@brotbestellung.errors.count, "error")} prohibited this brotbestellung from being saved:"
+          %ul
+            - @brotbestellung.errors.full_messages.each do |message|
+              %li= message
+      #brotbestellposi
+        = f.fields_for :brotbestellposi do |posi|
+          = render 'brotbestellposi_fields', f: posi
+        .links
+          = link_to_add_association '<i class="fa fa-plus-square"></i>'.html_safe, f, :brotbestellposi, {class: 'ui green button'}
+        = f.hidden_field :name, :value => "STANDARD"
+        = f.hidden_field :typ, :value => "standard"
+        %br
+        = f.submit 'Samstag speichern', name: 'standard', :class => 'ui button basic green  '
 
 
 :css

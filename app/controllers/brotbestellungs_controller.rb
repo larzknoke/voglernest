@@ -74,10 +74,20 @@ class BrotbestellungsController < ApplicationController
 
 
   def standard
-    @brotbestellung = Brotbestellung.find_by(typ: "standard", :datum => nil)
-    if @brotbestellung == nil
-      @brotbestellung = Brotbestellung.new
-      @brotbestellung.brotbestellposi.build
+    @bst_std_di = Brotbestellung.find_by(typ: "standard_di", :datum => nil)
+    if @bst_std_di == nil
+      @bst_std_di = Brotbestellung.new
+      @bst_std_di.brotbestellposi.build
+    end
+    @bst_std_fr = Brotbestellung.find_by(typ: "standard_fr", :datum => nil)
+    if @bst_std_fr == nil
+      @bst_std_fr = Brotbestellung.new
+      @bst_std_fr.brotbestellposi.build
+    end
+    @bst_std_sa = Brotbestellung.find_by(typ: "standard_sa", :datum => nil)
+    if @bst_std_sa == nil
+      @bst_std_sa = Brotbestellung.new
+      @bst_std_sa.brotbestellposi.build
     end
   end
 
