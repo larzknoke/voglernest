@@ -22,5 +22,11 @@ test:
   database: db/test
 
 production:
-  <<: *default
-  database: db/voglernest_production
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: "postgres"
+  password: "sLt64mfCMJ6Oveh5"
+  database: "voglerhof"
+  host:   "/cloudsql/voglerhof:europe-west3:voglerhof"

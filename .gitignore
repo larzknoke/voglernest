@@ -29,3 +29,6 @@ roh/
 *.sketch
 Gemfile.lock
 **/.DS_Store
+
+/app.yaml
+/public/assets/*
