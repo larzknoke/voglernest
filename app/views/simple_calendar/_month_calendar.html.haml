@@ -1,10 +1,10 @@
 .simple-calendar
   .calendar-heading
-    = link_to "Zurück", url_for(params.merge(start_date: date_range.first - 1.day)), remote: true, :class => "btn btn-primary btn-small"
+    = link_to "Zurück", url_for(start_date: date_range.first - 1.day), remote: true, :class => "btn btn-primary btn-small"
     %span.calendar-title{:style => "margin: 0 1rem;"}
       = I18n.t("date.month_names")[start_date.month]
       = start_date.year
-    = link_to "Vor", url_for(params.merge(start_date: date_range.last + 1.day)), remote: true, :class => "btn btn-primary btn-small"
+    = link_to "Vor", url_for(start_date: date_range.last + 1.day), remote: true, :class => "btn btn-primary btn-small"
 
   %table.table.table-striped
     %thead

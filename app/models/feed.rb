@@ -1,2 +1,2 @@
-class Feed < ActiveRecord::Base
+class Feed < ApplicationRecord
 end

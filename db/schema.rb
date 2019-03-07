@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -28,10 +27,9 @@ ActiveRecord::Schema.define(version: 20181224210323) do
     t.datetime "time"
     t.boolean  "bestaetigt"
     t.datetime "created_at"
+    t.index ["bookable_type", "bookable_id"], name: "index_acts_as_bookable_bookings_bookable", using: :btree
+    t.index ["booker_type", "booker_id"], name: "index_acts_as_bookable_bookings_booker", using: :btree
   end
-
-  add_index "acts_as_bookable_bookings", ["bookable_type", "bookable_id"], name: "index_acts_as_bookable_bookings_bookable", using: :btree
-  add_index "acts_as_bookable_bookings", ["booker_type", "booker_id"], name: "index_acts_as_bookable_bookings_booker", using: :btree
 
   create_table "anfrages", force: :cascade do |t|
     t.string   "name"
@@ -51,10 +49,9 @@ ActiveRecord::Schema.define(version: 20181224210323) do
     t.integer  "brotbestellung_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["brotbestellung_id"], name: "index_brotbestellposis_on_brotbestellung_id", using: :btree
+    t.index ["brotsorte_id"], name: "index_brotbestellposis_on_brotsorte_id", using: :btree
   end
-
-  add_index "brotbestellposis", ["brotbestellung_id"], name: "index_brotbestellposis_on_brotbestellung_id", using: :btree
-  add_index "brotbestellposis", ["brotsorte_id"], name: "index_brotbestellposis_on_brotsorte_id", using: :btree
 
   create_table "brotbestellscheins", force: :cascade do |t|
     t.datetime "datum"
@@ -73,9 +70,8 @@ ActiveRecord::Schema.define(version: 20181224210323) do
     t.integer  "brotbestellschein_id"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+    t.index ["brotbestellschein_id"], name: "index_brotbestellungs_on_brotbestellschein_id", using: :btree
   end
-
-  add_index "brotbestellungs", ["brotbestellschein_id"], name: "index_brotbestellungs_on_brotbestellschein_id", using: :btree
 
   create_table "brotsortes", force: :cascade do |t|
     t.string   "name"
@@ -88,9 +84,8 @@ ActiveRecord::Schema.define(version: 20181224210323) do
     t.string   "brotbild_content_type"
     t.integer  "brotbild_file_size"
     t.datetime "brotbild_updated_at"
+    t.index ["brottyp_id"], name: "index_brotsortes_on_brottyp_id", using: :btree
   end
-
-  add_index "brotsortes", ["brottyp_id"], name: "index_brotsortes_on_brottyp_id", using: :btree
 
   create_table "brottyps", force: :cascade do |t|
     t.string   "name"
@@ -112,9 +107,8 @@ ActiveRecord::Schema.define(version: 20181224210323) do
     t.integer  "mieter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["mieter_id"], name: "index_fewos_on_mieter_id", using: :btree
   end
-
-  add_index "fewos", ["mieter_id"], name: "index_fewos_on_mieter_id", using: :btree
 
   create_table "mieters", force: :cascade do |t|
     t.string   "name"
@@ -145,9 +139,8 @@ ActiveRecord::Schema.define(version: 20181224210323) do
     t.string   "thing_type", limit: 30
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
   end
-
-  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
