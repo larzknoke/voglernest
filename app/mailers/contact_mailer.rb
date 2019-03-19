@@ -4,7 +4,8 @@ class ContactMailer < ApplicationMailer
     @email = message.email
     @telefon = message.telefon
     @text = message.text
-    @mailTo = Setting['mail_to_default']
+    # @mailTo = Setting['mail_to_default']
+    @mailTo = "info@voglerhof.de"
     mail(to: @mailTo, subject: "Neue Nachricht Kontaktformular Voglerhof.de")
   end
 end

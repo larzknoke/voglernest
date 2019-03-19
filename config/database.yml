@@ -26,7 +26,6 @@ production:
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: "postgres"
-  password: "sLt64mfCMJ6Oveh5"
+  username: "rails"
+  password: "4c85a260d38996b4fcc13d085d6b7c33"
   database: "voglerhof"
-  host:   "/cloudsql/voglerhof:europe-west3:voglerhof"

@@ -1,6 +1,6 @@
 .row.justify-content-center
   .col-md-8.roomy-100
-    - if Setting["bst_inactive"] == false
+    - if false #Setting["bst_inactive"] == false
       %h2.text-yellow2.m-top-50 Neue Brotbestellung
       - if notice
         %div.ui.segment.text-orange{:style => "background-color: #edecb0"}

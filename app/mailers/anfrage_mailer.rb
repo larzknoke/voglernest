@@ -7,7 +7,8 @@ class AnfrageMailer < ApplicationMailer
     @anzahl = anfrage.anzahl
     @startDate = anfrage.startDate
     @endDate = anfrage.endDate
-    @mailTo = Setting['mail_to_fewo']
+    # @mailTo = Setting['mail_to_fewo']
+    @mailTo = "fewo@voglerhof.de"
     mail(to: @mailTo, subject: "Neue Anfrage für die Ferienwohnung - Voglerhof.de")
   end
 end
