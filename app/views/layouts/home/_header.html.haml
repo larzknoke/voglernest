@@ -12,12 +12,15 @@
         - else
           .list-group-item{:class => (openhour.spezial ? "open-at-important" : "")}
             = "#{openhour.tag}: geschlossen"
-%a.sub-logo{:href => "http://www.bioland.de"}
-  = image_tag 'home/header/bioland.svg'
-%a.sub-logo.bio-siegel{:href => "http://www.bioland.de", :style => "right: 130px;"}
-  = image_tag 'home/header/biosiegel.svg'
-%a.sub-logo.sub-logo-down.eu-button{:href => "http://www.bioland.de", :style => "right: 220px;"}
-  = image_tag 'home/header/eu_logo_start.png'
+.sub-logo-container
+  %a.sub-logo.sub-logo-down.eu-button{:href => "http://www.bioland.de"}
+    = image_tag 'home/header/eu_logo_start.png'
+  %a.sub-logo{:href => "http://www.bioland.de"}
+    = image_tag 'home/header/bioland.svg'
+  %a.sub-logo.bio-siegel{:href => "http://www.bioland.de"}
+    = image_tag 'home/header/biosiegel.svg'
+  %a.sub-logo{:href => "#"}
+    = image_tag 'home/header/eu_bio_logo.svg'
 %header#head
   .logo
 %nav#nav.navbar.navbar-expand-lg.navbar-light.bg-light.stick-top{:style => 'top: 220px'}

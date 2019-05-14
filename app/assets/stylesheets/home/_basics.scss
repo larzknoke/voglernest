@@ -503,6 +503,31 @@ opacity: .4 !important;
 }
 
 
+.sub-logo-container-footer {
+  display: flex;
+  flex-wrap: wrap;
+  a {
+    height: 50px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    img {
+      height: 100%;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+	.sub-logo-container-footer {
+		a {
+			height: 35px;
+			margin-right: 10px;
+		}
+	}
+}
+
 
 /* iPads (landscape) ----------- */
 @media screen and (max-width: 1024px) and (-webkit-device-pixel-ratio: 2)	{

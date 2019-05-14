@@ -23,19 +23,45 @@
     }
 }
 
-.sub-logo {
-	position: absolute;;
-	right: 30px;
-	top: 30px;
-	display: inline-block;
-	width: 60px;
-	height: 60px;
-	z-index: 9;
 
-  img {
-    height: 100%;
-  }
- }
+.sub-logo-container {
+	display: flex;
+	position: absolute;
+	top: 30px;
+	right: 20px;
+	// z-index: -1;
+	a {
+		height: 50px;
+		margin-right: 20px;
+		img {
+			height: 100%;
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+
+@media (max-width: 992px) {
+	.sub-logo-container {
+		a {
+			height: 35px;
+			margin-right: 10px;
+		}
+	}
+}
+@media (max-width: 680px) {
+	.sub-logo-container {
+		flex-direction: column;
+		a {
+			height: 30px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 5px;
+		}
+	}
+}
 
 .logo {
     width: 220px;
@@ -229,20 +255,4 @@
   #nav ul li a {
     padding: 22px 22px;
   }
-}
-
-
-@media (max-width: 680px) {
-   .sub-logo {
-			height: 40px;
-			right: 7px;
-   }
-	 .sub-logo.bio-siegel {
-		 	top: 80px;
-			right: 10px !important;
-	 }
-	 .sub-logo.eu-button {
-		 	top: 130px;
-			right: 8px !important;
-	 }
 }
