@@ -519,6 +519,10 @@ opacity: .4 !important;
   }
 }
 
+.gmap {
+  display: flex
+}
+
 @media (max-width: 520px) {
 	.sub-logo-container-footer {
 		a {
@@ -616,6 +620,10 @@ opacity: .4 !important;
 
   .text-center-sm {
     text-align: center;
+  }
+
+  .gmap {
+    height: 200px;
   }
 
 }
