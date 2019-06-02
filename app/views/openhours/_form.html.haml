@@ -20,6 +20,10 @@
       = f.label :ende
       = f.time_select :ende,{ :minute_step => 15, :default => {:hour => '10', :minutes => '00'}}, :class => "ui dropdown two wide field"
 
+  .field.six.wide
+    = f.label :reihenfolge
+    = f.text_field :reihenfolge
+
   .field
     .ui.checkbox
       = f.check_box :spezial, :class => 'checkbox'

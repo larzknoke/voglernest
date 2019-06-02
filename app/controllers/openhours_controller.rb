@@ -30,7 +30,7 @@ class OpenhoursController < ApplicationController
 
     respond_to do |format|
       if @openhour.save
-        format.html { redirect_to @openhour, notice: 'Openhour was successfully created.' }
+        format.html { redirect_to openhours_url, notice: 'Openhour was successfully created.' }
         format.json { render :show, status: :created, location: @openhour }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class OpenhoursController < ApplicationController
   def update
     respond_to do |format|
       if @openhour.update(openhour_params)
-        format.html { redirect_to @openhour, notice: 'Openhour was successfully updated.' }
+        format.html { redirect_to openhours_url, notice: 'Openhour was successfully updated.' }
         format.json { render :show, status: :ok, location: @openhour }
       else
         format.html { render :edit }
@@ -71,6 +71,6 @@ class OpenhoursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def openhour_params
-      params.require(:openhour).permit(:tag, :start, :ende, :spezial, :geschlossen)
+      params.require(:openhour).permit(:tag, :start, :ende, :spezial, :geschlossen, :reihenfolge)
     end
 end

@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   include ApplicationHelper
   def index
-    @openhours = Openhour.all
+    @openhours = Openhour.all.sort_by(&:reihenfolge)
     @feeds = Feed.all.sort_by(&:priority).reverse
     render layout: 'home/home'
   end

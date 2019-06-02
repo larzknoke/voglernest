@@ -10,6 +10,7 @@
       %th Ende
       %th Spezial
       %th Geschlossen
+      %th Reihenfolge
       %th
       %th
       %th
@@ -22,6 +23,7 @@
         %td= openhour.ende.strftime("%H:%M")
         %td= check(openhour.spezial)
         %td= check(openhour.geschlossen)
+        %td= openhour.reihenfolge
         %td= link_to 'Zeigen', openhour
         %td= link_to 'Bearbeiten', edit_openhour_path(openhour)
         %td= link_to 'Löschen', openhour, method: :delete, data: { confirm: 'Are you sure?' }
