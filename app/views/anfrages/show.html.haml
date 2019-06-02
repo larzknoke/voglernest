@@ -19,6 +19,9 @@
   %b Datum:
   = "#{@anfrage.startDate.strftime('%d.%m.%Y')} - #{@anfrage.endDate.strftime('%d.%m.%Y')}"
 %p
+  %b Nachricht:
+  = @anfrage.nachricht.present? ? @anfrage.nachricht : "-"
+%p
   %b Antwort:
   - if @anfrage.antwort.nil?
     = check(@anfrage.antwort)

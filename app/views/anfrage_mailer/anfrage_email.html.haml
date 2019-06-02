@@ -13,6 +13,8 @@
       = "Zeitraum: #{@startDate.strftime("%d.%m.%Y")} bis #{@endDate.strftime("%d.%m.%Y")}"
     %p
       = "Personen: #{@anzahl}"
+    %p
+      = "Nachricht: #{@nachricht}"
 
     %strong
       = link_to "Anfrage einsehen", anfrage_url(@anfrage)

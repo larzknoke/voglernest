@@ -100,6 +100,6 @@ class AnfragesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def anfrage_params
-      params.require(:anfrage).permit(:name, :email, :telefon, :anzahl, :antwort, :startDate, :endDate)
+      params.require(:anfrage).permit(:name, :email, :telefon, :anzahl, :antwort, :startDate, :endDate, :nachricht)
     end
 end

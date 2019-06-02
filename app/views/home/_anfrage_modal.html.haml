@@ -25,6 +25,9 @@
               %label.label Anzahl Pers.
               = form.select :anzahl, options_for_select(["1", "2", "3", "4", "5", "6"]),{}, {class: 'form-control '}
           .form-group
+            %label{:for => "name"} Nachricht
+            = form.text_area :nachricht, class: 'form-control', id: "nachricht"
+          .form-group
             .form-check
               = form.check_box :datenschutz, {:class => "form-check-input"}, "1", "0"
               %label.form-check-label{:for => "datenschutzCheck"}

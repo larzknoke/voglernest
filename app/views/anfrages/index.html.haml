@@ -10,6 +10,7 @@
       %th Pers. Anzahl
       %th Anfrage vom
       %th Datum
+      %th Nachricht
       %th Antwort
       %th
       %th
@@ -22,8 +23,9 @@
         %td= anfrage.email
         %td= anfrage.telefon
         %td= anfrage.anzahl
-        %td= anfrage.created_at.strftime("%d.%m.%Y")
-        %td= "#{anfrage.startDate.strftime('%d.%m.%Y')} - #{anfrage.endDate.strftime('%d.%m.%Y')}"
+        %td= anfrage.created_at.strftime("%d.%m.%y")
+        %td= "#{anfrage.startDate.strftime('%d.%m.%y')} - #{anfrage.endDate.strftime('%d.%m.%y')}"
+        %td= anfrage.nachricht.present? ? anfrage.nachricht&.truncate(10) : "-"
         %td= check(anfrage.antwort)
         %td= link_to 'Zeigen', anfrage_path(anfrage)
         %td= link_to 'Bearbeiten', edit_anfrage_path(anfrage)
