@@ -93,7 +93,7 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => ENV["ONE_USERNAME"],
     :password       => ENV["ONE_PASSWORD"],
-    :domain         => ENV["HOST_DOMAIN"]
+    :domain         => ENV["EMAIL_DOMAIN"]
   }
 
 
