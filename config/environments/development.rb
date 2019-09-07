@@ -47,11 +47,11 @@ Rails.application.configure do
 
 
   config.action_mailer.smtp_settings = {
-    :address        => 'send.one.com',
+    :address        => ENV["SMTP"],
     :port           => '587',
     :authentication => :plain,
     :user_name      => ENV["ONE_USERNAME"],
     :password       => ENV["ONE_PASSWORD"],
-    :domain         => ENV["HOST_DOMAIN"]
+    :domain         => ENV["EMAIL_DOMAIN"]
   }
 end

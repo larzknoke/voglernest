@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "info@voglerhof.de"
+  default from: ENV["INFO_EMAIL"]
   layout 'mailer'
 end

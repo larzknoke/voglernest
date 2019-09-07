@@ -16,7 +16,7 @@
       %tr
         %td{:colspan => 6, :style => "background-color: #eee"}
           %strong
-            = key.name
+            = key.name rescue "-"
       - group.each do |brotsorte|
         %tr
           %td= brotsorte.name

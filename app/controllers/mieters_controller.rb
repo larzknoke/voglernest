@@ -17,9 +17,18 @@ class MietersController < ApplicationController
   def create
     @mieter = Mieter.new(mieter_params)
     if @mieter.save
-      redirect_to @mieter
+      redirect_to mieters_url
     else
       render 'new'
+    end
+  end
+
+  def destroy
+    @mieter = Mieter.find(params[:id])
+    @mieter.destroy
+    respond_to do |format|
+      format.html { redirect_to mieters_url, notice: 'Mieter gelöscht!' }
+      format.json { head :no_content }
     end
   end
 
