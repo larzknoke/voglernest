@@ -10,6 +10,7 @@
       %th Strasse
       %th PLZ
       %th Ort
+      %th
   %tbody
     - @mieters.each do |mieter|
       %tr
@@ -21,3 +22,4 @@
         %td= mieter.strasse
         %td= mieter.plz
         %td= mieter.ort
+        %td= link_to 'Löschen', mieter, method: :delete, data: { confirm: 'Wirklich löschen?' }
