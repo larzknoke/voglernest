@@ -36,7 +36,7 @@
         %td= link_to "Löschen", brotbestellung, method: :delete, data: { confirm: "Sind Sie sicher?" }
 
 %p
-  = link_to "Neue Brotbestellung", new_brotbestellung_path, :class => "button ui green basic"
+  = link_to "Neue Brotbestellung", admin_order_brotbestellungs_path, :class => "button ui green basic"
   = link_to "Standard", standard_path, :class => "button ui yellow basic"
 
 %br
@@ -49,13 +49,16 @@
       Bestellungen 1 Monat
     %a.item{"data-tab" => "bstAlle"}
       Alle Bestellungen
-    %a.item{"data-tab" => "offeneBst"}
-      Offene Bestellungen
+    - if @brotbestellungs.where(:brotbestellschein => nil).where(:typ => "bestellung").where.not(:datum => nil).size > 0
+      %a.item{"data-tab" => "offeneBst"}
+        Offene Bestellungen
   .tab-content{:style => "padding-top: 1rem"}
     %div#bst1woche
       - @brotbestellungs.where(datum: (Date.current.to_time..(Date.current.to_time + 1.week)), typ: "bestellung").order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
         %h3{:style => "display: inline-block;margin-right: 10px; margin-bottom: 0"}
           = l(datum, format: "%A, %d.%m.%Y")
+        - if Brotbestellschein.where(datum: datum, versendet: nil).size > 0
+          = link_to "Bestellen", Brotbestellschein.where(datum: datum, versendet: nil).first, :class => "ui button green mini"
 
         %table.ui.table
           %thead
@@ -83,7 +86,7 @@
 
           %tbody
             - brotbestellungs.sort_by(&:name).each do |brotbestellung|
-              %tr
+              %tr{:class => (brotbestellung.brotbestellschein.versendet.present? ? "positive" : "")}
                 %td= brotbestellung.id
                 %td= brotbestellung.vorname
                 %td= brotbestellung.name
@@ -99,12 +102,19 @@
                   - else
                     = "-"
                 %td= link_to "Zeigen", brotbestellung
-                %td= link_to "Bearbeiten", edit_brotbestellung_path(brotbestellung)
-                %td= link_to "Löschen", brotbestellung, method: :delete, data: { confirm: "Sind Sie sicher?" }
+                - if brotbestellung.brotbestellschein.versendet.present?
+                  %td.disabled= "Bearbeiten"
+                  %td.disabled= "Löschen"
+                - else
+                  %td= link_to "Bearbeiten", edit_brotbestellung_path(brotbestellung)
+                  %td= link_to "Löschen", brotbestellung, method: :delete, data: { confirm: "Sind Sie sicher?" }
+        .ui.hidden.divider
     %div#bst1monat
       - @brotbestellungs.where(datum: (Date.current.to_time..(Date.current.to_time + 1.month))).where(:typ => "bestellung").order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
         %h3{:style => "display: inline-block;margin-right: 10px; margin-bottom: 0"}
           = l(datum, format: "%A, %d.%m.%Y")
+        - if Brotbestellschein.where(datum: datum, versendet: nil).size > 0
+          = link_to "Bestellen", Brotbestellschein.where(datum: datum, versendet: nil).first, :class => "ui button green mini"
 
         %table.ui.table
           %thead
@@ -132,7 +142,7 @@
 
           %tbody
             - brotbestellungs.sort_by(&:name).each do |brotbestellung|
-              %tr
+              %tr{:class => (brotbestellung.brotbestellschein.versendet.present? ? "positive" : "")}
                 %td= brotbestellung.id
                 %td= brotbestellung.vorname
                 %td= brotbestellung.name
@@ -148,12 +158,19 @@
                   - else
                     = "-"
                 %td= link_to "Zeigen", brotbestellung
-                %td= link_to "Bearbeiten", edit_brotbestellung_path(brotbestellung)
-                %td= link_to "Löschen", brotbestellung, method: :delete, data: { confirm: "Sind Sie sicher?" }
+                - if brotbestellung.brotbestellschein.versendet.present?
+                  %td.disabled= "Bearbeiten"
+                  %td.disabled= "Löschen"
+                - else
+                  %td= link_to "Bearbeiten", edit_brotbestellung_path(brotbestellung)
+                  %td= link_to "Löschen", brotbestellung, method: :delete, data: { confirm: "Sind Sie sicher?" }
+        .ui.hidden.divider
     %div#bstAlle
       - @brotbestellungs.where(:typ => "bestellung").order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
         %h3{:style => "display: inline-block;margin-right: 10px; margin-bottom: 0"}
           = l(datum, format: "%A, %d.%m.%Y")
+        - if Brotbestellschein.where(datum: datum, versendet: nil).size > 0
+          = link_to "Bestellen", Brotbestellschein.where(datum: datum, versendet: nil).first, :class => "ui button green mini"
 
         %table.ui.table
           %thead
@@ -181,7 +198,7 @@
 
           %tbody
             - brotbestellungs.sort_by(&:name).each do |brotbestellung|
-              %tr
+              %tr{:class => (brotbestellung.brotbestellschein.versendet.present? ? "positive" : "")}
                 %td= brotbestellung.id
                 %td= brotbestellung.vorname
                 %td= brotbestellung.name
@@ -197,13 +214,18 @@
                   - else
                     = "-"
                 %td= link_to "Zeigen", brotbestellung
-                %td= link_to "Bearbeiten", edit_brotbestellung_path(brotbestellung)
-                %td= link_to "Löschen", brotbestellung, method: :delete, data: { confirm: "Sind Sie sicher?" }
+                - if brotbestellung.brotbestellschein.versendet.present?
+                  %td.disabled= "Bearbeiten"
+                  %td.disabled= "Löschen"
+                - else
+                  %td= link_to "Bearbeiten", edit_brotbestellung_path(brotbestellung)
+                  %td= link_to "Löschen", brotbestellung, method: :delete, data: { confirm: "Sind Sie sicher?" }
+        .ui.hidden.divider
     %div#offeneBst
       - @brotbestellungs.where(:brotbestellschein => nil).where(:typ => "bestellung").where.not(:datum => nil).order(:datum).group_by(&:datum).each do |datum, brotbestellungs|
         %h3{:style => "display: inline-block;margin-right: 10px; margin-bottom: 0"}
           = l(datum, format: "%A, %d.%m.%Y")
-        = link_to "Alle offenen Bestellungen auf Brotbestellschein verteilen", {:controller => "brotbestellscheins", :action => "schein_aus_bst", :datum => datum}, :class => "ui button green"
+        = link_to "Alle offenen Bestellungen auf Brotbestellschein verteilen", {:controller => "brotbestellscheins", :action => "schein_aus_bst", :datum => datum}, :class => "ui button green mini"
 
         %table.ui.table
           %thead
