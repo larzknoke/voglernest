@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   resources :openhours
   resources :brotbestellscheins
   resources :brotbestellposis
-  resources :brotbestellungs
+  resources :brotbestellungs do
+    collection { get 'admin_order' } 
+  end
   resources :brotsortes
   resources :mieters
   resources :fewos

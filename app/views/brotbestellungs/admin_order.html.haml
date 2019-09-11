@@ -1,0 +1,61 @@
+.ui.grid.three.column
+  .column
+    %h1 Neue Brotbestellung
+
+= form_for @brotbestellung, :html => {:class => 'ui form'} do |f|
+  - if @brotbestellung.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@brotbestellung.errors.count, "error")} prohibited this brotbestellung from being saved:"
+      %ul
+        - @brotbestellung.errors.full_messages.each do |message|
+          %li= message
+  .ui.three.column.grid
+    - @brotsorten.group_by(&:brottyp).each do |gruppe, brotsorten|
+      .column
+        %h3
+          = gruppe.name
+        - brotsorten.sort_by(&:name).each do |brotsorte|
+          = f.fields_for :brotbestellposi, @brotbestellung.brotbestellposi do |posi|
+            .ui.labeled.input.fluid{:style => 'margin-bottom: 1em'}
+              .ui.label{:style => 'width: 50%'}
+                = brotsorte.name
+              = posi.number_field :menge, :value => 0, :min => 0
+            = posi.hidden_field :brotsorte_id, value: brotsorte.id
+
+  .ui.two.column.grid.segment{:style => action_name == "new" ? "background-color: #edecb0" : ""}
+    .column
+      - if @brotbestellung.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@brotbestellung.errors.count, "error")} prohibited this brotbestellung from being saved:"
+          %ul
+            - @brotbestellung.errors.full_messages.each do |message|
+              %li= message
+
+      .field
+        = f.label :vorname
+        = f.text_field :vorname, :tabindex => "1"
+
+      .field
+        = f.label :telefon
+        = f.text_field :telefon, :tabindex => "3"
+
+      .field
+        = f.label :datum
+        = f.select :datum, options_for_select(@date_result),{}, {class: 'ui dropdown', :tabindex => "5"}
+
+      .actions
+        = link_to 'Abbrechen', brotbestellungs_path, :class => 'ui button basic red '
+        = f.submit 'Bestellung speichern', :class => 'ui button basic green  '
+
+    .column
+      .field
+        = f.label :name
+        = f.text_field :name, :tabindex => "2"
+      .field
+        = f.label :email
+        = f.text_field :email, :tabindex => "4"
+
+:javascript
+  $('select.dropdown')
+    .dropdown()
+  ;

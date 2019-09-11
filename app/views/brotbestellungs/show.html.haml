@@ -38,9 +38,14 @@
         %td= posi.brotsorte.name
         %td= posi.menge
         %td= link_to 'Zeigen', posi
-        %td= link_to 'Bearbeiten', edit_brotbestellposi_path(posi)
-        %td= link_to 'Löschen', posi, method: :delete, data: { confirm: 'Sind Sie sicher?' }
+        - if  @brotbestellung.brotbestellschein.versendet.present?
+          %td.disabled= 'Bearbeiten'
+          %td.disabled= 'Löschen'
+        - else
+          %td= link_to 'Bearbeiten', edit_brotbestellposi_path(posi)
+          %td= link_to 'Löschen', posi, method: :delete, data: { confirm: 'Sind Sie sicher?' }
 
-= link_to 'Bearbeiten', edit_brotbestellung_path(@brotbestellung)
-\|
+- unless @brotbestellung.brotbestellschein.versendet.present?
+  = link_to 'Bearbeiten', edit_brotbestellung_path(@brotbestellung)
+  \|
 = link_to 'Zurück', brotbestellungs_path
