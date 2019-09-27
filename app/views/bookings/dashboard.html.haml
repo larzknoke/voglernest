@@ -1,0 +1,206 @@
+%h1{:style => "display: inline-block"} Buchungen
+%button.ui.icon.button.green.tiny.basic.addBooking{:style => "position: absolute; margin-left: 1rem; margin-top: .3rem"}
+  %i.plus.icon
+.ui.grid
+
+  .ui.eight.wide.column#context
+    .bookingmenu{:style => "padding-bottom: 1rem"}
+      .ui.secondary.pointing.menu
+        %a.item.active{"data-tab" => "tab1"}
+          = I18n.l(Time.current, format: "%B")
+        %a.item{"data-tab" => "tab2"}
+          = I18n.l(Time.current + 1.month, format: "%B")
+        %a.item{"data-tab" => "tab3"}
+          = I18n.l(Time.current + 2.month, format: "%B")
+        %a.item{"data-tab" => "tabAll"}
+          Alle Buchungen
+      .tab-content{:style => "padding-top: 1rem"}
+        %div#tab1
+          - @bookings.reject{|b| b.typ == "block"}.find_all{|b| (b.time_end > Time.current.beginning_of_month && b.time_start < Time.current.end_of_month)}.sort_by(&:time_start).each do |booking|
+            .ui.card.fluid.mieter
+              .content
+                - case booking.typ
+                - when "std"
+                  %i.right.floated.fa.fa-home
+                - when "airbnb"
+                  %span.right.floated.iconify{"data-icon" => "fa-brands:airbnb", "data-inline" => "false"}
+                - when "block"
+                  %i.right.floated.fa.fa-ban
+                .header
+                  = "#{booking.booker.vorname} #{booking.booker.name}"
+                .description
+                  %p
+                    %strong
+                      Personen:
+                    =booking.amount
+                  %p
+                    %strong
+                      Datum:
+                    =booking.time_start.strftime("%d.%m.%Y")
+                    = "-"
+                    =booking.time_end.strftime("%d.%m.%Y")
+              .extra.content
+                = link_to edit_booking_path(booking), :id => booking.id do
+                  %i.edit.outline.icon
+                  %small
+                    Bearbeiten
+                = link_to  booking_path(booking), method: :delete, data: { confirm: 'Wirklich löschen?' }, style: "margin-left: 5px" do
+                  %i.trash.alternate.outline.icon
+                  %small
+                    Löschen
+        %div#tab2
+          - @bookings.reject{|b| b.typ == "block"}.find_all{|b| (b.time_end > (Time.current + 1.month).beginning_of_month && b.time_start < (Time.current + 1.month).end_of_month)}.sort_by(&:time_start).each do |booking|
+            .ui.card.fluid.mieter
+              .content
+                - case booking.typ
+                - when "std"
+                  %i.right.floated.fa.fa-home
+                - when "airbnb"
+                  %span.right.floated.iconify{"data-icon" => "fa-brands:airbnb", "data-inline" => "false"}
+                - when "block"
+                  %i.right.floated.fa.fa-ban
+                .header
+                  = "#{booking.booker.vorname} #{booking.booker.name}"
+                .description
+                  %p
+                    %strong
+                      Personen:
+                    =booking.amount
+                  %p
+                    %strong
+                      Datum:
+                    =booking.time_start.strftime("%d.%m.%Y")
+                    = "-"
+                    =booking.time_end.strftime("%d.%m.%Y")
+              .extra.content
+                = link_to edit_booking_path(booking), :id => booking.id do
+                  %i.edit.outline.icon
+                  %small
+                    Bearbeiten
+                = link_to  booking_path(booking), method: :delete, data: { confirm: 'Wirklich löschen?' }, style: "margin-left: 5px" do
+                  %i.trash.alternate.outline.icon
+                  %small
+                    Löschen
+        %div#tab3
+          - @bookings.reject{|b| b.typ == "block"}.find_all{|b| (b.time_end > (Time.current + 2.month).beginning_of_month && b.time_start < (Time.current + 2.month).end_of_month)}.sort_by(&:time_start).each do |booking|
+            .ui.card.fluid.mieter
+              .content
+                - case booking.typ
+                - when "std"
+                  %i.right.floated.fa.fa-home
+                - when "airbnb"
+                  %span.right.floated.iconify{"data-icon" => "fa-brands:airbnb", "data-inline" => "false"}
+                - when "block"
+                  %i.right.floated.fa.fa-ban
+                .header
+                  = "#{booking.booker.vorname} #{booking.booker.name}"
+                .description
+                  %p
+                    %strong
+                      Personen:
+                    =booking.amount
+                  %p
+                    %strong
+                      Datum:
+                    =booking.time_start.strftime("%d.%m.%Y")
+                    = "-"
+                    =booking.time_end.strftime("%d.%m.%Y")
+              .extra.content
+                = link_to edit_booking_path(booking), :id => booking.id do
+                  %i.edit.outline.icon
+                  %small
+                    Bearbeiten
+                = link_to  booking_path(booking), method: :delete, data: { confirm: 'Wirklich löschen?' }, style: "margin-left: 5px" do
+                  %i.trash.alternate.outline.icon
+                  %small
+                    Löschen
+        %div#tabAll
+          - @bookings.reject{|b| b.typ == "block"}.sort_by(&:time_start).each do |booking|
+            .ui.card.fluid.mieter
+              .content
+                - case booking.typ
+                - when "std"
+                  %i.right.floated.fa.fa-home
+                - when "airbnb"
+                  %span.right.floated.iconify{"data-icon" => "fa-brands:airbnb", "data-inline" => "false"}
+                - when "block"
+                  %i.right.floated.fa.fa-ban
+                .header
+                  = "#{booking.booker.vorname} #{booking.booker.name}"
+                .description
+                  %p
+                    %strong
+                      Personen:
+                    =booking.amount
+                  %p
+                    %strong
+                      Datum:
+                    =booking.time_start.strftime("%d.%m.%Y")
+                    = "-"
+                    =booking.time_end.strftime("%d.%m.%Y")
+              .extra.content
+                = link_to edit_booking_path(booking), :id => booking.id do
+                  %i.edit.outline.icon
+                  %small
+                    Bearbeiten
+                = link_to  booking_path(booking), method: :delete, data: { confirm: 'Wirklich löschen?' }, style: "margin-left: 5px" do
+                  %i.trash.alternate.outline.icon
+                  %small
+                    Löschen
+
+
+  .ui.seven.wide.column.right.floated
+    .ui.sticky.calendar
+      = render partial: "calendar", locals: {events: @bookings}
+
+
+.ui.modal.modal-booking.large
+  %i.close.icon
+  .header
+    Buchung hinzufügen
+  .content
+    = render :partial => "bookingform"
+  -# .actions
+    .ui.button Abbrechen
+    .ui.button.green OK
+
+
+
+:css
+  #mieter_id-selectized {
+    width: 100% !important;
+  }
+
+
+:javascript
+  $( document ).ready(function() {
+
+
+    // $('.simple-calendar .calendar-heading a').addClass('ui button compact')
+    $('.simple-calendar .calendar-heading span').css("margin","0 1rem")
+    $('.calendar-heading a').first().text('zurück')
+    $('.calendar-heading a').last().text('vor')
+
+    $('.ui.sticky')
+      .sticky({
+        offset : 70,
+        context: '#context'
+      });
+
+    $("#" + $(".bookingmenu a.active").attr("data-tab")).show().siblings().hide();
+
+    $(".bookingmenu .menu a").on("click", function(e)  {
+        var currentAttrValue = $(this).attr("data-tab");
+
+        $("#" + currentAttrValue).show().siblings().hide();
+
+        $(this)
+          .addClass("active")
+          .siblings()
+          .removeClass("active");
+
+        e.preventDefault();
+    });
+
+
+  });

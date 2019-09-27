@@ -1,2 +1,2 @@
-= month_calendar events: @calendar_events do |day, events|
-  = day.day
+= month_calendar events: @calendar_events, attribute: :time_start, end_attribute: :time_end do |date, meetings|
+  = date.day

@@ -1,0 +1,61 @@
+= form_tag({controller: "bookings", action: "create"}, method: "post", class: "ui form") do
+  = hidden_field_tag :fewo_id, Fewo.all.last.id
+  = hidden_field_tag :typ, "std"
+  .field
+    .ui.buttons.typ.three
+      %button.ui.button.active{:"data-typ" => "std"} Standard
+      %button.ui.button{:"data-typ" => "airbnb"} Airbnb
+      %button.ui.button{:"data-typ" => "block"} Blocker
+
+  .field.field-mieter
+    %label.label Mieter
+    = select_tag :mieter_id, options_from_collection_for_select(Mieter.all, :id, :name_with_initial), {class: 'ui selectize-mieter ', :prompt => 'Mieter auswählen oder erstellen' }
+  -# .field
+    = fields_for :form_fields do |ff|
+      = ff.text_field :my_text_field
+      -# = ff.select :my_select_tag
+
+  .ui.card.fluid.card.mieter-form{style: "display:none"}
+    .content
+      .content
+        = fields_for Mieter.new do |g|
+          .two.fields
+            .field
+              = g.text_field :vorname , :placeholder => "Vorname"
+            .field
+              = g.text_field :name , :placeholder => "Name"
+          .two.fields
+            .field
+              = g.text_field :email , :placeholder => "Email"
+            .field
+              = g.text_field :telefon , :placeholder => "Telefon"
+
+        %button.ui.button.green.basic.fluid.addMieter Mieter erstellen
+
+  .field.field-anzahl
+    %label.label Anzahl Pers.
+    = select_tag :capacity, options_for_select([["Auswählen...", ""], "1", "2", "3", "4", "5", "6"]), {class: 'ui dropdown'}
+  -# .field.field-typ
+    %label.label Typ
+    = select_tag :typ, options_for_select([["Auswählen...", ""], ["Standard", "std"], ["Airbnb", "airbnb"], ["Blocker","block"]]), {class: 'ui dropdown'}
+  .field
+    %label
+    .two.fields
+      .field
+        %label.label Check-In:
+        .control
+          .ui.calendar.check_in
+            .ui.input.left.icon
+              %i.calendar.icon
+              = text_field_tag :check_in,'',class: 'input', :autocomplete => "off"
+
+      .field
+        %label.label Check-Out:
+        .control
+          .ui.calendar.check_out
+            .ui.input.left.icon
+              %i.calendar.icon
+              = text_field_tag :check_out,'',class: 'input', :autocomplete => "off"
+    .field
+      .control
+        = submit_tag 'Buchungen anlegen', class: 'button ui green'

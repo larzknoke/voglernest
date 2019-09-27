@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "register" => "users#new"
   post "users" => "users#create"
 
-  get "admin" => "brotbestellungs#index"
+  get "admin" => "bookings#dashboard"
   get "bestellemail" => "brotbestellscheins#bestellemail"
   put "bst_auf_schein" => "brotbestellscheins#bst_auf_schein"
   get "schein_aus_bst" => "brotbestellscheins#schein_aus_bst"
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :brotbestellscheins
   resources :brotbestellposis
   resources :brotbestellungs do
-    collection { get 'admin_order' } 
+    collection { get 'admin_order' }
   end
   resources :brotsortes
   resources :mieters
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     member do
       get "bestaetigen"
     end
+    collection { get 'dashboard' }
   end
   resources :anfrages do
     get "antwort" => "anfrages#antwort"

@@ -1,0 +1,27 @@
+
+.calendar-heading { margin-bottom: 1rem;}
+.next-month, .prev-month {
+  color: #ccc!important;
+  background-color: #eee!important;
+}
+.has-events {
+  background-color: #e46363!important;
+  color: white
+}
+.today {
+  background-color: #2185d0!important;
+  color: white
+}
+
+td.day {
+  position: relative;
+  div {
+    i, svg {
+      font-size: 3rem;
+      position: absolute;
+      opacity: .4;
+      right: -8%;
+      bottom: -8%;
+    }
+  }
+}

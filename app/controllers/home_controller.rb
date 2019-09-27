@@ -19,6 +19,7 @@ class HomeController < ApplicationController
   end
 
   def fw
+    @calendar_events = Fewo.all.collect(&:bookings).flatten.compact
     render layout: 'home/home'
   end
 

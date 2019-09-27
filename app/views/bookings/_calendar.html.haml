@@ -1,0 +1,11 @@
+= month_calendar events: @bookings, attribute: :time_start, end_attribute: :time_end do |date, meetings|
+  = date.day
+  - meetings.each do |meeting|
+    %div
+      - case meeting.typ
+      - when "std"
+        %i.fa.fa-home
+      - when "airbnb"
+        %span.iconify{"data-icon" => "fa-brands:airbnb", "data-inline" => "false"}
+      - when "block"
+        %i.fa.fa-ban
