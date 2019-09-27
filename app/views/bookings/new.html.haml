@@ -10,6 +10,9 @@
     %label.label Anzahl Pers.
     = select_tag :capacity, options_for_select([["Auswählen...", ""], "1", "2", "3", "4", "5", "6"]), {class: 'ui dropdown'}
   .field
+    %label.label Typ
+    = select_tag :typ, options_for_select([["Auswählen...", ""], ["Standard", "std"], ["Airbnb", "airbnb"], ["Blocker","block"]]), {class: 'ui dropdown'}
+  .field
     %label
     .two.fields
       .field
@@ -18,7 +21,7 @@
           .ui.calendar.check_in
             .ui.input.left.icon
               %i.calendar.icon
-              = text_field_tag :check_in,'',class: 'input'
+              = text_field_tag :check_in,'',class: 'input', :autocomplete => "off"
 
       .field
         %label.label Check-Out:
@@ -26,45 +29,7 @@
           .ui.calendar.check_out
             .ui.input.left.icon
               %i.calendar.icon
-              = text_field_tag :check_out,'',class: 'input'
+              = text_field_tag :check_out,'',class: 'input', :autocomplete => "off"
     .field
       .control
-        = submit_tag 'Reservierungen anlegen', class: 'button ui blue'
-
-:javascript
-
-  $( document ).ready(function() {
-
-    $('.ui.dropdown').dropdown();
-
-    // UI calendar
-    var text = {
-        days: ['S', 'M', 'D', 'M', 'D', 'F', 'S'],
-        months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-        monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-        today: 'Heute',
-        now: 'Jetzt'
-      }
-    var formatter = {
-        date: function (date, settings) {
-          let momentDate = new moment(date)
-          return momentDate.format('DD.MM.YYYY')
-        }
-    }
-    $('.check_in').calendar({
-      type: 'date',
-      formatter: formatter,
-      firstDayOfWeek: 1,
-      endCalendar: $('.check_out'),
-      text: text
-    });
-    $('.check_out').calendar({
-      type: 'date',
-      formatter: formatter,
-      firstDayOfWeek: 1,
-      startCalendar: $('.check_in'),
-      text: text
-    });
-
-
-  });
+        = submit_tag 'Buchungen anlegen', class: 'button ui green'

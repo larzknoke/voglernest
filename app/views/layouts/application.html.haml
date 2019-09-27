@@ -18,6 +18,7 @@
           Ferienwohung
           %i.dropdown.icon
           .menu{:style => 'width: 155px'}
+            = link_to 'Übersicht', dashboard_bookings_path, class: 'item'
             .ui.simple.dropdown.item
               Ferienwohungen
               %i.dropdown.icon
@@ -31,7 +32,7 @@
                 = link_to 'Liste', mieters_path, class: 'item'
                 = link_to 'Neu', new_mieter_path, class: 'item'
             .ui.simple.dropdown.item
-              Reservierungen
+              Buchungen
               %i.dropdown.icon
               .menu
                 = link_to 'Liste', bookings_path, class: 'item'
@@ -63,3 +64,4 @@
           = flash[:notice]
 
       = yield
+    %script{:src => "https://code.iconify.design/1/1.0.3/iconify.min.js"}

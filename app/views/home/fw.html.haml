@@ -50,91 +50,90 @@
 .row.justify-content-md-center.m-top-80
   .col-lg-8
     %h2.text-center.text-yellow Kalender
-    -# .loading{:style => "display:none"}
+    .loading{:style => "display:none"}
       %svg.spinner{:height => "65px", :viewbox => "0 0 66 66", :width => "65px", :xmlns => "http://www.w3.org/2000/svg"}
         %circle.path{:cx => "33", :cy => "33", :fill => "none", :r => "30", "stroke-linecap" => "round", "stroke-width" => "6"}
 
-    -# .calendar
-      -# = render partial: "calendar", locals: {events: @calendar_events}
-    %h3.text-center.text-yellow der Kalender ist momentan offline
+    .calendar
+      = render partial: "calendar", locals: {events: @calendar_events}
 
 .anfrage-modal-container
   = render partial: "anfrage_modal"
 
 
 
--#  :javascript
-  // $(document).ready( function() {
-  //   $(".loading").toggle();
-  //   $(".calendar").toggle();
-  //
-  //   $.ajax({
-  //     type: 'GET',
-  //     url: "/home/getcalendardates",
-  //     dataType: 'script',
-  //     success: function(data) {
-  //       console.log("AirVogler loaded!");
-  //     },
-  //     error: function(data) {
-  //       console.log("AirVogler Error!!");
-  //     }
-  //   });
-  //
-  //
-  //   $(document).on('click', '.calendar-heading a', function(event) {
-  //       event.preventDefault();
-  //       $(".loading").toggle();
-  //       $(".calendar").toggle();
-  //   });
-  //
-  //   $(document).on('hidden.bs.modal', '#anfrage', function () {
-  //     $('.anfrage-modal-container').html("#{j render(:partial => 'home/anfrage_modal')}");
-  //   })
-  //
-  //   $(document).on('click', '.anfrage-button', function(event) {
-  //     $('.daterange').daterangepicker({
-  //       minDate: moment(),
-  //       locale: {
-  //         "format": "DD.MM.YYYY",
-  //         "separator": " - ",
-  //         "applyLabel": "Ok",
-  //         "cancelLabel": "Abrechen",
-  //         "fromLabel": "von",
-  //         "toLabel": "bis",
-  //         "customRangeLabel": "Custom",
-  //         "weekLabel": "W",
-  //         "daysOfWeek": [
-  //             "Su",
-  //             "Mo",
-  //             "Tu",
-  //             "We",
-  //             "Th",
-  //             "Fr",
-  //             "Sa"
-  //         ],
-  //         "monthNames": [
-  //             "Januar",
-  //             "Februar",
-  //             "März",
-  //             "April",
-  //             "Mai",
-  //             "Juni",
-  //             "Juli",
-  //             "August",
-  //             "September",
-  //             "Oktober",
-  //             "November",
-  //             "Dezember"
-  //         ],
-  //         "firstDay": 1
-  //     },
-  //     "startDate": moment(),
-  //     "endDate": moment(),
-  //     "cancelButtonClasses": "btn-primary"
-  //     }, function(start, end, label) {
-  //       // console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-  //     });
-  //   });
-  //
-  //
-  // });
+:javascript
+  $(document).ready( function() {
+    // $(".loading").toggle();
+    // $(".calendar").toggle();
+    //
+    // $.ajax({
+    //   type: 'GET',
+    //   url: "/home/getcalendardates",
+    //   dataType: 'script',
+    //   success: function(data) {
+    //     console.log("AirVogler loaded!");
+    //   },
+    //   error: function(data) {
+    //     console.log("AirVogler Error!!");
+    //   }
+    // });
+    //
+    //
+    // $(document).on('click', '.calendar-heading a', function(event) {
+    //     event.preventDefault();
+    //     $(".loading").toggle();
+    //     $(".calendar").toggle();
+    // });
+
+    $(document).on('hidden.bs.modal', '#anfrage', function () {
+      $('.anfrage-modal-container').html("#{j render(:partial => 'home/anfrage_modal')}");
+    })
+
+    $(document).on('click', '.anfrage-button', function(event) {
+      $('.daterange').daterangepicker({
+        minDate: moment(),
+        locale: {
+          "format": "DD.MM.YYYY",
+          "separator": " - ",
+          "applyLabel": "Ok",
+          "cancelLabel": "Abrechen",
+          "fromLabel": "von",
+          "toLabel": "bis",
+          "customRangeLabel": "Custom",
+          "weekLabel": "W",
+          "daysOfWeek": [
+              "Su",
+              "Mo",
+              "Tu",
+              "We",
+              "Th",
+              "Fr",
+              "Sa"
+          ],
+          "monthNames": [
+              "Januar",
+              "Februar",
+              "März",
+              "April",
+              "Mai",
+              "Juni",
+              "Juli",
+              "August",
+              "September",
+              "Oktober",
+              "November",
+              "Dezember"
+          ],
+          "firstDay": 1
+      },
+      "startDate": moment(),
+      "endDate": moment(),
+      "cancelButtonClasses": "btn-primary"
+      }, function(start, end, label) {
+        // console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+      });
+    });
+
+
+  });

@@ -3,13 +3,13 @@
 
     .box
       %h2.title.is-4 Neue Fewo anlegen
-      = form_for @fewo, url: {action: "create"} do |f|
+      = form_for @fewo, url: {action: "create"},:html => {:class => 'ui form'} do |f|
         .field
           %label.label Kapazität
           .control
             .select.is-fullwidth
-              = f.select :capacity, options_for_select([["Auswählen...", ""], "1", "2", "3", "4", "5", "6"])
+              = f.select :capacity, options_for_select([["Auswählen...", ""], "1", "2", "3", "4", "5", "6"]),{}, {class: 'ui dropdown'}
 
         .field
           .control
-            = f.submit 'Fewo anlegen', class: 'button is-primary', type: 'submit'
+            = f.submit 'Fewo anlegen', class: 'button ui green is-primary', type: 'submit'

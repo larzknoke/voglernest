@@ -7,7 +7,7 @@ gem "rails", "4.2.9"
 gem 'pg', '~> 0.21'
 
 #Google AppEngine SQL Connector
-gem "appengine", "~> 0.4.6"
+# gem "appengine", "~> 0.4.6"
 
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
@@ -42,6 +42,8 @@ gem "amoeba"
 gem "rails-settings-cached"
 gem 'rails-settings-ui'
 gem 'meta-tags'
+gem "selectize-rails"
+
 
 
 

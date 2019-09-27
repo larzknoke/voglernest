@@ -1,5 +1,5 @@
-%h2.title.is-4 Neuen Mieter anlegen
-= form_for @mieter, url: {action: "create"}, :html => {:class => 'ui form'} do |f|
+%h2.title.is-4 Mieter bearbeiten
+= form_for @mieter, url: {action: "update"}, :html => {:class => 'ui form'} do |f|
   .two.fields
     .field
       = f.label :vorname, class: 'label'
