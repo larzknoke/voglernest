@@ -21,10 +21,12 @@
         = fields_for Mieter.new do |g|
           .two.fields
             .field
-              = g.text_field :vorname , :placeholder => "Vorname"
+              %label.label Vorname
+              = g.text_field :vorname
             .field
-              = g.text_field :name , :placeholder => "Name"
-          .two.fields
+              %label.label Name
+              = g.text_field :name
+          -# .two.fields
             .field
               = g.text_field :email , :placeholder => "Email"
             .field
@@ -35,9 +37,9 @@
   .field.field-anzahl
     %label.label Anzahl Pers.
     = select_tag :capacity, options_for_select([["Auswählen...", ""], "1", "2", "3", "4", "5", "6"]), {class: 'ui dropdown'}
-  -# .field.field-typ
-    %label.label Typ
-    = select_tag :typ, options_for_select([["Auswählen...", ""], ["Standard", "std"], ["Airbnb", "airbnb"], ["Blocker","block"]]), {class: 'ui dropdown'}
+  .field
+    %label.label Notiz
+    = text_area_tag :notiz,nil, rows: 2
   .field
     %label
     .two.fields

@@ -19,6 +19,9 @@
     %label.label Typ
     = select_tag :typ, options_for_select([["Auswählen...", ""], ["Standard", "std"], ["Airbnb", "airbnb"], ["Blocker","block"]], @booking.typ), {class: 'ui dropdown'}
   .field
+    %label.label Notiz
+    = text_area_tag :notiz, @booking.notiz, rows: 2
+  .field
     %label
     .two.fields
       .field

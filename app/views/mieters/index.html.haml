@@ -23,5 +23,9 @@
         %td= mieter.strasse
         %td= mieter.plz
         %td= mieter.ort
-        %td= link_to 'Bearbeiten', edit_mieter_path(mieter)
-        %td= link_to 'Löschen', mieter, method: :delete, data: { confirm: 'Wirklich löschen?' }
+        %td
+          = link_to edit_mieter_path(mieter), :class => "popup",:"data-content" => "Bearbeiten" do
+            %i.edit.outline.icon
+        %td
+          = link_to  mieter, method: :delete, :class => "popup", data: { confirm: 'Wirklich löschen?', content: "Löschen" }, style: "margin-left: 5px" do
+            %i.trash.alternate.outline.icon

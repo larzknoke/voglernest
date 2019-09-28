@@ -7,6 +7,7 @@
       %th Name
       %th Pers. Anzahl
       %th Zeitraum
+      %th Notiz
       %th Typ
       %th
       %th
@@ -22,6 +23,8 @@
           =booking.time_start.strftime("%d.%m.%Y")
           = "-"
           =booking.time_end.strftime("%d.%m.%Y")
+        %td
+          = booking.notiz.truncate(30)
         %td
           - case booking.typ
           - when "std"

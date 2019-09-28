@@ -25,9 +25,10 @@ class BookingsController < ApplicationController
     @check_in = Time.zone.parse(params[:check_in]).change(hour: 15)
     @check_out = Time.zone.parse(params[:check_out]).change(hour: 11)
     @typ = params[:typ]
+    @notiz = params[:notiz]
 
     begin
-      @mieter.book! @fewo, time_start: @check_in, time_end: @check_out, amount: @anzahl, typ: @typ
+      @mieter.book! @fewo, time_start: @check_in, time_end: @check_out, amount: @anzahl, typ: @typ, notiz: @notiz
     rescue ActsAsBookable::AvailabilityError
       flash[:notice] = "Reservierung in diesem Zeitraum nicht möglich!"
       redirect_to dashboard_bookings_path
@@ -53,6 +54,7 @@ class BookingsController < ApplicationController
     @booking = booking(id)
     @booking.amount = params[:capacity]
     @booking.typ = params[:typ]
+    @booking.notiz = params[:notiz]
     @booking.bookable = fewo
     @booking.booker = mieter
     @booking.time_start = params[:check_in]

@@ -39,6 +39,11 @@
                     =booking.time_start.strftime("%d.%m.%Y")
                     = "-"
                     =booking.time_end.strftime("%d.%m.%Y")
+                  -if booking.notiz.present?
+                    %p
+                      %strong
+                        Notiz:
+                      =booking.notiz
               .extra.content
                 = link_to edit_booking_path(booking), :id => booking.id do
                   %i.edit.outline.icon
@@ -72,6 +77,11 @@
                     =booking.time_start.strftime("%d.%m.%Y")
                     = "-"
                     =booking.time_end.strftime("%d.%m.%Y")
+                  -if booking.notiz.present?
+                    %p
+                      %strong
+                        Notiz:
+                      =booking.notiz
               .extra.content
                 = link_to edit_booking_path(booking), :id => booking.id do
                   %i.edit.outline.icon
@@ -105,6 +115,11 @@
                     =booking.time_start.strftime("%d.%m.%Y")
                     = "-"
                     =booking.time_end.strftime("%d.%m.%Y")
+                  -if booking.notiz.present?
+                    %p
+                      %strong
+                        Notiz:
+                      =booking.notiz
               .extra.content
                 = link_to edit_booking_path(booking), :id => booking.id do
                   %i.edit.outline.icon
@@ -138,6 +153,11 @@
                     =booking.time_start.strftime("%d.%m.%Y")
                     = "-"
                     =booking.time_end.strftime("%d.%m.%Y")
+                  -if booking.notiz.present?
+                    %p
+                      %strong
+                        Notiz:
+                      =booking.notiz
               .extra.content
                 = link_to edit_booking_path(booking), :id => booking.id do
                   %i.edit.outline.icon
