@@ -11,7 +11,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false 
+  config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
@@ -93,6 +93,14 @@ Rails.application.configure do
     :user_name      => ENV["ONE_USERNAME"],
     :password       => ENV["ONE_PASSWORD"],
     :domain         => "voglerhof.de"
+  }
+
+
+  config.middleware.use ExceptionNotification::Rack,
+  email: {
+    email_prefix: '[ERROR] ',
+    sender_address: %{"Voglerhof Notifier" <info@voglerhof.de>},
+    exception_recipients: %w{larz.knoke@gmail.com}
   }
 
 

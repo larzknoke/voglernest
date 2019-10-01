@@ -43,6 +43,8 @@ gem "rails-settings-cached"
 gem 'rails-settings-ui'
 gem 'meta-tags'
 gem "selectize-rails"
+gem 'exception_notification'
+
 
 
 
