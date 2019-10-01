@@ -165,10 +165,13 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    nio4r (2.5.2)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     pg (0.21.0)
     popper_js (1.12.9)
+    puma (4.2.0)
+      nio4r (~> 2.0)
     rack (1.6.10)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -291,6 +294,7 @@ DEPENDENCIES
   meta-tags
   paperclip!
   pg (~> 0.21)
+  puma
   rails (= 4.2.9)
   rails-assets-bootstrap-daterangepicker!
   rails-assets-js-cookie!
