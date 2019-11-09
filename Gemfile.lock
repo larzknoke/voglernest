@@ -82,7 +82,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.4)
-    crass (1.0.4)
+    crass (1.0.5)
     debug_inspector (0.0.3)
     dry-configurable (0.7.0)
       concurrent-ruby (~> 1.0)
@@ -150,7 +150,7 @@ GEM
     jquery-slick-rails (1.9.0)
       railties (>= 3.1)
     json (1.8.6)
-    loofah (2.2.2)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
