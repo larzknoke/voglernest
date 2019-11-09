@@ -116,7 +116,7 @@ GEM
       actionmailer (>= 4.0, < 7)
       activesupport (>= 4.0, < 7)
     execjs (2.7.0)
-    ffi (1.9.23)
+    ffi (1.11.1)
     figaro (1.1.1)
       thor (~> 0.14)
     font-awesome-rails (4.7.0.4)
