@@ -48,7 +48,10 @@
             - @openhours.each do |openhour|
               - if !openhour.geschlossen
                 .list-group-item{:class => (openhour.spezial ? "open-at-important" : ""), :style => "font-weight: 300"}
-                  = "#{openhour.tag}: #{openhour.start.strftime("%H:%M")} - #{openhour.ende.strftime("%H:%M")}"
+                  - if openhour.without_time
+                    = "#{openhour.tag}"
+                  - else
+                    = "#{openhour.tag}: #{openhour.start.strftime("%H:%M")} - #{openhour.ende.strftime("%H:%M")}"
               - else
                 .list-group-item{:class => (openhour.spezial ? "open-at-important" : ""), :style => "font-weight: 300" }
                   = "#{openhour.tag}: geschlossen"
