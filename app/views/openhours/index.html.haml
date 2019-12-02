@@ -10,6 +10,7 @@
       %th Ende
       %th Spezial
       %th Geschlossen
+      %th ohne Uhrzeit
       %th Reihenfolge
       %th
       %th
@@ -23,6 +24,7 @@
         %td= openhour.ende.strftime("%H:%M")
         %td= check(openhour.spezial)
         %td= check(openhour.geschlossen)
+        %td= check(openhour.without_time)
         %td= openhour.reihenfolge
         %td= link_to 'Zeigen', openhour
         %td= link_to 'Bearbeiten', edit_openhour_path(openhour)

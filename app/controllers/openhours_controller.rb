@@ -71,6 +71,6 @@ class OpenhoursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def openhour_params
-      params.require(:openhour).permit(:tag, :start, :ende, :spezial, :geschlossen, :reihenfolge)
+      params.require(:openhour).permit(:tag, :start, :ende, :spezial, :geschlossen, :reihenfolge, :without_time)
     end
 end

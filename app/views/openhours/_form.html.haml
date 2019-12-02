@@ -34,6 +34,11 @@
       = f.check_box :geschlossen, :class => 'checkbox'
       = f.label :geschlossen
 
+  .field
+    .ui.checkbox
+      = f.check_box :without_time, :class => 'checkbox'
+      = f.label :without_time, "ohne Uhrzeit"
+
   .actions
     = f.submit 'Speichern', :class => "ui button green basic"
 
