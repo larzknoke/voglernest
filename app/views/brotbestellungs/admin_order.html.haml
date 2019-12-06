@@ -30,10 +30,11 @@
           %ul
             - @brotbestellung.errors.full_messages.each do |message|
               %li= message
+      .ui.error.message
 
       .field
-        = f.label :vorname
-        = f.text_field :vorname, :tabindex => "1"
+        = f.label :name
+        = f.text_field :name, :tabindex => "1"
 
       .field
         = f.label :telefon
@@ -49,13 +50,27 @@
 
     .column
       .field
-        = f.label :name
-        = f.text_field :name, :tabindex => "2"
+        = f.label :vorname
+        = f.text_field :vorname, :tabindex => "2"
       .field
         = f.label :email
         = f.text_field :email, :tabindex => "4"
 
 :javascript
-  $('select.dropdown')
-    .dropdown()
+  $('select.dropdown').dropdown();
+
+  $('.ui.form')
+    .form({
+      fields: {
+        name: {
+          identifier: 'brotbestellung[name]',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Bitte einen Namen eintragen'
+            }
+          ]
+        }
+      }
+    })
   ;

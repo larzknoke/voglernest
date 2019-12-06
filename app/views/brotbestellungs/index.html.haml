@@ -37,7 +37,6 @@
 
 %p
   = link_to "Neue Brotbestellung", admin_order_brotbestellungs_path, :class => "button ui green basic"
-  = link_to "Standard", standard_path, :class => "button ui yellow basic"
 
 %br
 
@@ -101,7 +100,7 @@
                         %i.checkmark.icon
                   - else
                     = "-"
-                %td= link_to "Zeigen", brotbestellung
+                -# %td= link_to "Zeigen", brotbestellung
                 - if brotbestellung.brotbestellschein.versendet.present?
                   %td.disabled= "Bearbeiten"
                   %td.disabled= "Löschen"
@@ -157,7 +156,7 @@
                         %i.checkmark.icon
                   - else
                     = "-"
-                %td= link_to "Zeigen", brotbestellung
+                -# %td= link_to "Zeigen", brotbestellung
                 - if brotbestellung.brotbestellschein.versendet.present?
                   %td.disabled= "Bearbeiten"
                   %td.disabled= "Löschen"
@@ -213,7 +212,7 @@
                         %i.checkmark.icon
                   - else
                     = "-"
-                %td= link_to "Zeigen", brotbestellung
+                -# %td= link_to "Zeigen", brotbestellung
                 - if brotbestellung.brotbestellschein.versendet.present?
                   %td.disabled= "Bearbeiten"
                   %td.disabled= "Löschen"

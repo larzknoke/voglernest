@@ -6,7 +6,7 @@
     %tr
       %th Name
       %th Aktiv
-      %th Ausverkauft
+      -# %th Ausverkauft
       %th
       %th
       %th
@@ -21,7 +21,7 @@
         %tr
           %td= brotsorte.name
           %td= check(brotsorte.aktiv)
-          %td= check(brotsorte.ausverkauft)
+          -# %td= check(brotsorte.ausverkauft)
           %td= link_to 'Anzeigen', brotsorte
           %td= link_to 'Bearbeiten', edit_brotsorte_path(brotsorte)
           %td= link_to 'Löschen', brotsorte, method: :delete, data: { confirm: 'Wirklich löschen?' }

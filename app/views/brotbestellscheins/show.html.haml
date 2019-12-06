@@ -1,6 +1,6 @@
 -# %p#notice= notice
 
-%h3
+%h2
   Datum:
   = l(@brotbestellschein.datum, format: '%A, %d.%m.%Y')
 
@@ -29,9 +29,59 @@
             %td= sorte.name
             %td= posi.collect(&:menge).sum
 
-    %h3 Bestellungen
+    .ui.accordion
+      .title
+        %i.dropdown.icon
+        %h3{style: "display: inline-block"} Bestellungen
+      .content
+        .accordion
+          .ui.segments
+            - @brotbestellschein.brotbestellungs.sort_by(&:typ).each do |brotbestellung|
+              .ui.segment{class: ("yellow" if brotbestellung.typ != "bestellung")}
+                .title.drop
+                  %i.dropdown.icon
+                  = brotbestellung.vorname
+                  = brotbestellung.name
+                .content{style: "padding: 1em;"}
+                  .ui.row
+                    %ol.ui.list
+                      - brotbestellung.brotbestellposi.each do |posi|
+                        %li{style: "font-weight: bold",:value => "-"}= "#{posi.menge}x #{posi.brotsorte.name}"
+                  .ui.row
+                    .ui.horizontal.list{style: "padding-top: 25px"}
+                      .item
+                        = link_to 'Zeigen', brotbestellung
+                      - if !@brotbestellschein.versendet
+                        .item= link_to 'Bearbeiten', edit_brotbestellung_path(brotbestellung)
+                        .item= link_to 'Löschen', brotbestellung, method: :delete, data: { confirm: 'Sind Sie sicher?' }
+                      - else
+                        .item{:style => "color: #ddd"} Bearbeiten
+                        .item{:style => "color: #ddd"} Löschen
 
-    %table.ui.table
+
+    .ui.accordion
+      .title
+        %i.dropdown.icon
+        %h3{style: "display: inline-block"} Positionen hinzufgen
+      .content
+        = form_for @brotbestellung, :url => { :action => "bst_auf_schein" , :id => @brotbestellschein }, :html => {:class => 'ui form', :method => "put" } do |f|
+          = f.hidden_field :typ, value: 'zusatz'
+          = f.hidden_field :name, value: 'ZUSATZ'
+          - @brotsorten.each do |brotsorte|
+            = f.fields_for :brotbestellposi, @brotbestellung.brotbestellposi do |posi|
+              .ui.labeled.input.fluid{:style => 'margin-bottom: 1em', :class => [('disabled' if @brotbestellschein.versendet)] }
+                .ui.label{:style => 'width: 50%'}
+                  = brotsorte.name
+                = posi.number_field :menge, :value => 0
+              = posi.hidden_field :brotsorte_id, value: brotsorte.id
+          .actions
+            = f.submit 'Hinzufügen', :class => [('ui button basic green'), ('disabled' if @brotbestellschein.versendet)]
+
+
+
+    -# %h3 Bestellungen
+    -#
+    -# %table.ui.table
       %thead
         %tr
           %th #
@@ -55,10 +105,10 @@
               %td{:style => "color: #ddd"} Bearbeiten
               %td{:style => "color: #ddd"} Löschen
     -# = link_to 'Bearbeiten', edit_brotbestellschein_path(@brotbestellschein)
-    = link_to 'Zurück', brotbestellungs_path
+    -# = link_to 'Zurück', brotbestellungs_path
 
 
-  .six.wide.column
+  -# .six.wide.column
     %h3 Positionen hinzufügen
 
     = form_for @brotbestellung, :url => { :action => "bst_auf_schein" , :id => @brotbestellschein }, :html => {:class => 'ui form', :method => "put" } do |f|
@@ -73,3 +123,16 @@
           = posi.hidden_field :brotsorte_id, value: brotsorte.id
       .actions
         = f.submit 'Hinzufügen', :class => [('ui button basic green'), ('disabled' if @brotbestellschein.versendet)]
+
+
+:javascript
+  $('.ui.accordion').accordion();
+
+:css
+  .segments .segment {padding: .5em}
+  .ui.accordion .accordion {margin-top: 0}
+
+  .ui.horizontal.list a {
+    padding-right: 5px;
+    display: inline-block;
+  }
