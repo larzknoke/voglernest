@@ -55,6 +55,13 @@
               - else
                 .list-group-item{:class => (openhour.spezial ? "open-at-important" : ""), :style => "font-weight: 300" }
                   = "#{openhour.tag}: geschlossen"
+      %h4
+        .span{:style => "margin-top: 1.5rem"} Einkaufs(wunsch)zettel
+        .span{:style => "font-weight: 300; line-height: 1.4rem;margin-top: 0.5rem"}
+          Wir möchten Ihnen anbieten, Ihren Einkauf so stressfrei wie möglich zu gestalten! Senden Sie uns Ihren Einkaufs(wunsch)zettel bis zum Vortag 14.00 Uhr an
+          %a{:href => "mailto:barbara@voglerhof.de", :style => "color: #f3953e !important"}barbara@voglerhof.de,
+          wir packen es in ein Kistchen. Dann können Sie sich noch dazu holen, was Ihnen gefällt und alles ist fertig...
+
       -if false #Setting["bst_inactive"] == false
         %h4{:class => ( @openhours.present? ? "m-top-80" : "")}
           %span.fi.flaticon-harvest.fi-big
