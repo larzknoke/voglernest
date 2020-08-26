@@ -138,7 +138,7 @@
 
 
 
-%script{:async => true, :defer => true, :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyC8qYDTWMyOOt9BKngSCwu_XoMGvArM0xI&callback=initMap"}
+%script{:async => true, :defer => true, :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV["GMAP_API"]}&callback=initMap"}
 
 :javascript
   /* GOOGLE MAPS */
