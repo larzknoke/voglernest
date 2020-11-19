@@ -12,6 +12,9 @@
   .field
     = f.label :text
     = f.text_field :text
+    .ui.message.blue
+      .fa.fa-info-circle{:style=>"margin-right: 5px"}
+      = 'HTML möglich z.b. <a href="#">Link</a>'
   .field
     = f.label :priority
     = f.select :priority, options_for_select(1..10, 1),{}, :class => "ui dropdown"

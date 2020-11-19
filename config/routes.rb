@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get "home/index"
   get "home/hof"
   get "home/biogas"
+  get "home/info"
   get "home/ausbildung"
   get '/home/ferienwohnung', to: 'home#fw', as: "home_fw"
   get "home/getcalendardates"

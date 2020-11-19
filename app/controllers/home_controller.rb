@@ -10,6 +10,10 @@ class HomeController < ApplicationController
     render layout: 'home/home'
   end
 
+  def info
+    render layout: 'home/home'
+  end
+
   def biogas
     render layout: 'home/home'
   end

@@ -10,7 +10,7 @@
             %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
             = feed.title
           %p.text-green
-            = feed.text
+            = feed.text.html_safe
 
       -# = link_to(home_hofladen_path, class: "btn btn-small") do
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
