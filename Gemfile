@@ -33,7 +33,7 @@ gem "semantic-ui-sass", github: "doabit/semantic-ui-sass"
 gem 'bootstrap', '~> 4.3.1'
 gem "acts_as_bookable"
 gem "font-awesome-rails"
-gem "simple_calendar", "~> 2.0"
+gem "simple_calendar", "~> 2.4.1"
 gem "jquery-slick-rails"
 gem "figaro"
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
