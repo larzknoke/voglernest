@@ -1,4 +1,4 @@
-class BrotbestellscheinsController < ApplicationController
+teaclass BrotbestellscheinsController < ApplicationController
   before_action :set_brotbestellschein, only: [:show, :edit, :update, :destroy]
   before_filter :authorize
 

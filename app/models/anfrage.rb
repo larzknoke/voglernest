@@ -1,4 +1,4 @@
-class Anfrage < ActiveRecord::Base
+class Anfrage < ApplicationRecord
   validates :name, :presence => true
 
 end

@@ -1,2 +1,2 @@
-class Openhour < ActiveRecord::Base
+class Openhour < ApplicationRecord
 end
