@@ -6,8 +6,10 @@ $(document).ready( function() {
     var navHeight     = nav.outerHeight();
     var headerHeight  = $('#head').outerHeight();
     var openAt        = $('.open-at');
+    var noticeHofladen= $('.notice-hofladen');
     var contentCont   = $('.content-container');
-    var logoFade   = $('.logo-fade');
+    var logoFade      = $('.logo-fade');
+    var boxWrapper    = $('.box-wrapper')[0];
 
     function isMobile() {
        if(vWidth <= 992) {
@@ -15,6 +17,14 @@ $(document).ready( function() {
        } else {
          return false;
        }
+    }
+
+    if (isMobile()) {
+      $('body').addClass('mobile');
+    }
+
+    if (boxWrapper.scrollHeight > boxWrapper.clientHeight) {
+      $('.info-box').addClass('overflown');
     }
 
     $('.agree').click(function(){

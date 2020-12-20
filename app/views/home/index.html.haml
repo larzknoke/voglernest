@@ -4,17 +4,27 @@
   .col-xl-3.col-lg-12.my-md-4.my-4
     .info-box.border-bottom
       %h3 Infos &amp; Aktuelles
-      - @feeds.each do |feed|
-        .box-item
-          %h4{:style => "margin-bottom:0.3rem"}
-            %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-            = feed.title
-          %p.text-green
-            = feed.text.html_safe
+      .box-wrapper
+        - @feeds.each do |feed|
+          .box-item
+            %h4{:style => "margin-bottom:0.3rem"}
+              %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+              = feed.title
+            %p.text-green
+              = feed.text.html_safe
+              - if feed.title_details.present?
+                = link_to (details_feed_path(feed)) do
+                  mehr
+                  %i.fa.fa-angle-double-right
 
       -# = link_to(home_hofladen_path, class: "btn btn-small") do
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
         zum Hofladen
+      #scroll-down-animation
+        %span.mouse
+          %span.move
+        -# %h2 Scroll down
+
 .row.max-width.mx-lg-5.mx-md-2
   .col-lg-5.text-yellow.roomy-120.text-center-md.roomy-md.no-roomy
     %h1 Der Voglerhof

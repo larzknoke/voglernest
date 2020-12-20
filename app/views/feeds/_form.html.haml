@@ -17,7 +17,7 @@
       = 'HTML möglich z.b. <a href="#">Link</a>'
   .field
     = f.label :priority
-    = f.select :priority, options_for_select(1..10, 1),{}, :class => "ui dropdown"
+    = f.select :priority, options_for_select(1..10, @feed.priority),{}, {:class => "ui dropdown"}
 
   .actions
     = f.submit 'Speichern', :class => "ui button green basic"
