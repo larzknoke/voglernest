@@ -39,8 +39,6 @@ gem "figaro"
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem "cocoon"
 gem "amoeba"
-gem "rails-settings-cached"
-gem 'rails-settings-ui'
 gem 'meta-tags'
 gem "selectize-rails"
 gem 'exception_notification'
