@@ -1,6 +1,6 @@
 class BrotsortesController < ApplicationController
   before_action :set_brotsorte, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_action :authorize
 
 
   # GET /brotsortes

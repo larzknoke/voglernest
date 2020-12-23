@@ -1,6 +1,6 @@
 class BrotbestellposisController < ApplicationController
   before_action :set_brotbestellposi, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_action :authorize
 
 
   # GET /brotbestellposis

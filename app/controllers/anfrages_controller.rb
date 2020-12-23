@@ -1,6 +1,6 @@
 class AnfragesController < ApplicationController
   before_action :set_anfrage, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, except: [:create]
+  before_action :authorize, except: [:create]
 
 
   # GET /anfrages

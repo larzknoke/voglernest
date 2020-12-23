@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  before_filter :authorize
+  before_action :authorize
 
   def index
     # @bookings = Fewo.all.collect(&:bookings).flatten

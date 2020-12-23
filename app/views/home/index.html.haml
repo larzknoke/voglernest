@@ -12,10 +12,7 @@
               = feed.title
             %p.text-green
               = feed.text.html_safe
-              - if feed.title_details.present?
-                = link_to (details_feed_path(feed)) do
-                  mehr
-                  %i.fa.fa-angle-double-right
+
 
       -# = link_to(home_hofladen_path, class: "btn btn-small") do
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}

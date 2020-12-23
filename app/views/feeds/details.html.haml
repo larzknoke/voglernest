@@ -1,0 +1,13 @@
+- content_for :title, "Info & Aktuelles | Voglerhof"
+
+.row
+  .col-12.m-top-100{:style => "padding: 0 5%"}
+    %h1.text-yellow.text-center-sm= @feed.title_details
+    .divider-left.center
+.row
+  .col-lg-7.col-md-12{:style => "padding: 0 5%"}
+
+:css
+  .table.infos-table td {
+    border-top: 1px solid #dee2e640;
+  }

@@ -23,7 +23,7 @@ $(document).ready( function() {
       $('body').addClass('mobile');
     }
 
-    if (boxWrapper.scrollHeight > boxWrapper.clientHeight) {
+    if ((typeof boxWrapper != 'undefined') && boxWrapper.scrollHeight > boxWrapper.clientHeight) {
       $('.info-box').addClass('overflown');
     }
 
