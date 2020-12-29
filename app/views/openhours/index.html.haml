@@ -20,8 +20,8 @@
     - @openhours.each do |openhour|
       %tr
         %td= openhour.tag
-        %td= openhour.start.strftime("%H:%M")
-        %td= openhour.ende.strftime("%H:%M")
+        %td{class: [('text grey' if openhour.geschlossen)]}= openhour.start.strftime("%H:%M")
+        %td{class: [('text grey' if openhour.geschlossen)]}= openhour.ende.strftime("%H:%M")
         %td= check(openhour.spezial)
         %td= check(openhour.geschlossen)
         %td= check(openhour.without_time)

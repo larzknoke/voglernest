@@ -16,9 +16,9 @@
   %tbody
     - @feeds.each do |feed|
       %tr
-        %td= feed.title
-        %td= feed.text
-        %td= feed.priority
+        %td{class: [('text grey' if feed.deaktiviert)]}= feed.title
+        %td{class: [('text grey' if feed.deaktiviert)]}= feed.text
+        %td{class: [('text grey' if feed.deaktiviert)]}= feed.priority
         %td= link_to 'Zeigen', feed
         %td= link_to 'Bearbeiten', edit_feed_path(feed)
         %td= link_to 'Löschen', feed, method: :delete, data: { confirm: 'Sind Sie sicher?' }

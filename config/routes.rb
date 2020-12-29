@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :feeds
+  resources :feeds do 
+    member do
+      delete :delete_image_attachment
+    end
+    get 'details', to: 'feeds#details'
+  end
+  
   # LOGIN & SESSION
   get "login" => "sessions#new"
   post "login" => "sessions#create"

@@ -20,41 +20,48 @@
 @import "font-awesome";
 @import "slick-theme";
 @import "simple-calendar";
-@import 'selectize';
-@import 'selectize.bootstrap3';
+@import "selectize";
+@import "selectize.bootstrap3";
 
 .ui.menu .item img.logo {
   margin-right: 1em;
 }
 .main.container {
-    margin-top: 7em;
+  margin-top: 7em;
 }
-
 
 .mieter {
   .content {
-      position: relative;
+    position: relative;
+    overflow: hidden;
+    > i,
+    svg {
+      font-size: 8rem;
+      position: absolute;
+      right: -6px;
       overflow: hidden;
-      > i, svg {
-        font-size: 8rem;
-        position: absolute;
-        right: -6px;
-        overflow: hidden;
-        bottom: -22px;
-        opacity: .03;
-      }
-      i.icon {
-        margin-right: 0;
-      }
+      bottom: -22px;
+      opacity: 0.03;
+    }
+    i.icon {
+      margin-right: 0;
+    }
   }
 }
-
 
 .ui.modal {
   // position: absolute;
 }
 
 .selectize-dropdown .create {
-  color: #21BA45 !important;
+  color: #21ba45 !important;
   padding: 1rem;
+}
+
+$text-colors: blue, green, orange, pink, purple, red, teal, yellow, black, grey,
+  white;
+@each $tc in $text-colors {
+  .text.#{$tc} {
+    color: #{$tc};
+  }
 }

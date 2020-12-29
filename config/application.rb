@@ -15,6 +15,8 @@ module Voglernest
     config.i18n.available_locales = [:de]
     config.i18n.default_locale = :"de"
 
+    config.active_storage.replace_on_assign_to_many = false
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

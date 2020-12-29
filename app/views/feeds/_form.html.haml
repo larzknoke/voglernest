@@ -5,19 +5,67 @@
       %ul
         - @feed.errors.full_messages.each do |message|
           %li= message
-
   .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :text
-    = f.text_field :text
-    .ui.message.blue
-      .fa.fa-info-circle{:style=>"margin-right: 5px"}
-      = 'HTML möglich z.b. <a href="#">Link</a>'
-  .field
-    = f.label :priority
+    = f.label :priority, "Priorität"
     = f.select :priority, options_for_select(1..10, @feed.priority),{}, {:class => "ui dropdown"}
+  .field
+    .ui.two.column.grid
+      .column.six.wide
+        .field
+          .ui.top.attached.segment
+            .ui.top.attached.label
+              Vorschau
+            .ui
+              .field
+                = f.label :title, "Vorschau-Titel"
+                = f.text_field :title
+              .field
+                = f.label :text, "Vorschau-Text,  HTML möglich z.b. <a href='#'>Link</a>"
+                = f.text_area :text, rows: 15
+      .column.ten.wide
+        .field
+          .ui.top.attached.segment
+            .ui.top.attached.label
+              Details
+            .ui
+              .field
+                = f.label :title, "Titel"
+                = f.text_field :title_details
+              .field
+                = f.label :text, "Text"
+                = f.text_area :text_details, rows: 15
+  .field
+    .ui.top.attached.segment
+      .ui.top.attached.label
+        Bilder
+      .field
+        %div
+          - f.object.feedbilder.each do |bild|
+            .feedbild{style: "position:relative; display: inline-block"}
+              = image_tag(bild, height: 200)
+              - if action_name == "edit"
+                = link_to delete_image_attachment_feed_url(bild.id, feed: @feed.id), method: :delete, data: { confirm: 'Bild löschen?' }, class: "ui icon button red mini", style: "position: absolute; right: 5%; top: 5%" do
+                  %i.trash.alternate.outline.icon
+        = f.label :feedbilder, class:"button green ui basic", style: "display: inline-block; color: white; margin-top: 10px" do
+          %i.icon.plus
+          Bilder hinzufügen
+        = f.file_field :feedbilder, multiple: true, class:"image-input", style:"opacity: 0; position: absolute"
+        #img-previews{style: "display:none"}
+          %h5 Bild-Upload:
 
+  .field
+    .ui.checkbox
+      = f.check_box :deaktiviert, :class => 'checkbox'
+      = f.label :deaktiviert
+  .field
+    .ui.checkbox
+      = f.check_box :vorschaubild, :class => 'checkbox'
+      = f.label :vorschaubild, "Vorschaubild anzeigen"
   .actions
     = f.submit 'Speichern', :class => "ui button green basic"
+
+:css
+  #img-previews {margin-top: 15px}
+  #img-previews img {
+    height: 100px;
+  }   

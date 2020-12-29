@@ -32,3 +32,6 @@ Gemfile.lock
 
 /app.yaml
 /public/assets/*
+
+/storage/*
+!/storage/.keep

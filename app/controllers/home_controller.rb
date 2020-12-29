@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   include ApplicationHelper
   def index
-    @openhours = Openhour.all.sort_by(&:reihenfolge)
-    @feeds = Feed.all.sort_by(&:priority).reverse
+    @openhours = Openhour.all
+    @feeds = Feed.all.where.not(deaktiviert: true).sort_by(&:priority).reverse
     render layout: 'home/home'
   end
 

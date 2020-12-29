@@ -13,7 +13,7 @@
   %b Kategorie:
   = @brotsorte.brottyp.name
 
-= image_tag @brotsorte.brotbild.url(:medium)
+= image_tag @brotsorte.brotbild, {:width => '300'}
 %br
 
 = link_to 'Bearbeiten', edit_brotsorte_path(@brotsorte)

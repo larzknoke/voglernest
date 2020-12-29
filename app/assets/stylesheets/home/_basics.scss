@@ -344,14 +344,45 @@ a[href^="mailto"] {
   }
 }
 
+.first-section > div {
+  transition: all 200ms ease-in-out;
+}
+
+.expanded-news {
+  > div:first-child {
+    max-width: 0 !important;
+    opacity: 0;
+  }
+  > div:last-child {
+    max-width: 100% !important;
+    flex-grow: 1;
+  }
+  .box-wrapper {
+    display: flex;
+    flex-direction: row !important;
+    .box-item {
+      width: 25%;
+      margin: 0 1rem;
+    }
+  }
+  #scroll-down-animation {
+    display: none;
+  }
+  .info-box {
+    height: 100%;
+  }
+}
+
 .info-box {
   background-color: $color_yellow2;
-  padding: 2rem;
+  padding: 1.7rem;
   color: $color_green;
   height: 34rem;
   overflow: hidden;
 
   .box-wrapper {
+    display: flex;
+    flex-direction: column;
     overflow: auto;
     height: 100%;
 
@@ -364,6 +395,7 @@ a[href^="mailto"] {
   }
 
   .box-item {
+    width: 100%;
     text-align: left;
     margin-bottom: 1.5rem;
 
@@ -371,6 +403,19 @@ a[href^="mailto"] {
       font-weight: 300;
       font-size: 0.9rem;
       line-height: 1.25rem;
+    }
+
+    img:hover {
+      cursor: pointer;
+    }
+
+    .all-img-link {
+      color: $color_orange;
+      font-size: 90%;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
@@ -383,7 +428,7 @@ a[href^="mailto"] {
   }
 
   h3 {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 
     &:after {
       content: "";
@@ -395,20 +440,24 @@ a[href^="mailto"] {
     }
   }
 
-  &:not(.overflown) #scroll-down-animation {
+  .info-control {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 10px;
+
+    > h4:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  &:not(.overflown) #info-control {
     display: none;
   }
 
-  #scroll-down-animation {
-    display: block;
-    position: absolute;
-    bottom: 2%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
   &.overflown {
-    padding-bottom: 140px;
+    padding-bottom: 125px;
   }
 
   h2 {
@@ -764,5 +813,30 @@ textarea:-ms-input-placeholder {
   }
   .btn-small {
     font-size: 0.8rem;
+  }
+}
+
+.image-wrapper {
+  .image-hover {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-image: url(asset_path("zoom.svg"));
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 35%;
+    transition: all 0.3s ease-in-out 0s;
+    background-color: $color_orange;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover .image-hover {
+    opacity: 0.75;
+    background-size: 20%;
   }
 }

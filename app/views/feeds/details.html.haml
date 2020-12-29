@@ -5,9 +5,30 @@
     %h1.text-yellow.text-center-sm= @feed.title_details
     .divider-left.center
 .row
-  .col-lg-7.col-md-12{:style => "padding: 0 5%"}
+  .col-lg-6.col-md-12{:style => "padding: 0 5%"}
+    .details_text
+      = @feed.text_details.html_safe
+    = link_to home_index_path, class:"text-orange mt-3 d-block" do
+      %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+      zurück zur Startseite
+  .col-lg-5.col-md-12.mx-md-5.mx-lg-0
+    - if @feed.feedbilder.size > 1 
+      .box-item
+        - @feed.feedbilder.each do |bild|
+          .image-wrapper{style: "position:relative; margin-bottom: 20px"}
+            = image_tag(bild, width: "100%")
+            .image-hover
 
 :css
   .table.infos-table td {
     border-top: 1px solid #dee2e640;
+  }
+
+  .details_text {
+    font-size: 1.15rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    color: #FFFEF2;
+    line-height: 1.6rem;
+    letter-spacing: 0.02rem;
   }

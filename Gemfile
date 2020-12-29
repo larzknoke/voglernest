@@ -36,7 +36,6 @@ gem "font-awesome-rails"
 gem "simple_calendar", "~> 2.4.1"
 gem "jquery-slick-rails"
 gem "figaro"
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem "cocoon"
 gem "amoeba"
 gem 'meta-tags'

@@ -4,7 +4,7 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @feeds = Feed.all.sort_by(&:priority).reverse
+    @feeds = Feed.all
   end
 
   # GET /feeds/1
@@ -61,6 +61,18 @@ class FeedsController < ApplicationController
     end
   end
 
+  def delete_image_attachment
+    feed = Feed.find(params[:feed])
+    @image = ActiveStorage::Attachment.find(params[:id])
+    @image.purge
+    redirect_back(fallback_location: edit_feed_path(feed))
+  end
+
+  def details
+    @feed = Feed.find(params[:feed_id])
+    render layout: 'home/home'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_feed
@@ -69,6 +81,6 @@ class FeedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feed_params
-      params.require(:feed).permit(:title, :text, :priority)
+      params.require(:feed).permit(:title, :text, :priority, :text_details, :title_details, :deaktiviert, :vorschaubild, feedbilder: [])
     end
 end

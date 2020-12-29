@@ -5,22 +5,33 @@
     .info-box.border-bottom
       %h3 Infos &amp; Aktuelles
       .box-wrapper
-        - @feeds.each do |feed|
-          .box-item
-            %h4{:style => "margin-bottom:0.3rem"}
-              %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-              = feed.title
-            %p.text-green
-              = feed.text.html_safe
+        - if @feeds.size > 0
+          - @feeds.each do |feed|
+            .box-item
+              %h4{:style => "margin-bottom:0.3rem"}
+                %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+                = feed.title
+              %p.text-green{style:"margin-bottom: 0.3rem"}
+                = feed.text.html_safe
+              - if feed.text_details.present? && feed.title_details.present?
+                = link_to "mehr lesen...", feed_details_path(feed), {class: "text-orange",style:"font-weight: 400;margin-bottom: 0.5rem"}
+              - if feed.feedbilder.size > 0 && feed.vorschaubild
+                .image-wrapper{style: "position:relative"}
+                  = image_tag(feed.feedbilder.first, width: "100%", class: "")
+                  .image-hover
+                - if feed.feedbilder.size > 1 
+                  - feed.feedbilder[1..-1].each do |bild|
+                    = image_tag(bild, width: "100%", style: "display:none")
+        - else
+          %h4.text-orange keine aktuellen News
 
-
-      -# = link_to(home_hofladen_path, class: "btn btn-small") do
-        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-        zum Hofladen
-      #scroll-down-animation
-        %span.mouse
-          %span.move
-        -# %h2 Scroll down
+      .info-control
+        %h4.text-orange#expand-news
+          %i.fa.fa-angle-double-right
+          Übersicht
+        #scroll-down-animation
+          %span.mouse
+            %span.move
 
 .row.max-width.mx-lg-5.mx-md-2
   .col-lg-5.text-yellow.roomy-120.text-center-md.roomy-md.no-roomy
