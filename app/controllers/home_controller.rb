@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   include ApplicationHelper
+  protect_from_forgery except: :fw
+
   def index
     @openhours = Openhour.all
     @feeds = Feed.all.where.not(deaktiviert: true).sort_by(&:priority).reverse
