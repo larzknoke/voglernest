@@ -58,10 +58,10 @@ Rails.application.routes.draw do
   get "start/index"
   root "home#index"
 
-  unless Rails.application.config.consider_all_requests_local
-    # having created corresponding controller and action
-    get '*path', to: 'errors#error_404', via: :all
-  end
+  #unless Rails.application.config.consider_all_requests_local
+  #  # having created corresponding controller and action
+  #  get '*path', to: 'errors#error_404', via: :all
+  #end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
