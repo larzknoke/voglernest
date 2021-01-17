@@ -9,7 +9,7 @@
     - if Rails.env.production?
       = render :partial => "layouts/analytics"
   %body
-    .ui.fixed.menu
+    .ui.fixed.menu.no-print
       .ui.container
         %a.header.item{:href => "/admin"}
           =image_tag "logo.png", :class => 'logo'

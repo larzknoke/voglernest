@@ -73,11 +73,8 @@
           %thead
             %tr
               %th #
-              %th Vorname
               %th Name
-              %th Telefon
-              %th E-Mail
-              %th Datum
+              -# %th Datum
               %th Bestellschein
               %th
               %th
@@ -87,11 +84,8 @@
             - brotbestellungs.sort_by(&:name).each do |brotbestellung|
               %tr{:class => (brotbestellung.brotbestellschein.versendet.present? ? "positive" : "")}
                 %td= brotbestellung.id
-                %td= brotbestellung.vorname
-                %td= brotbestellung.name
-                %td= brotbestellung.telefon
-                %td= brotbestellung.email
-                %td= l(brotbestellung.datum, format: "%a, %d.%m.%Y")
+                %td= brotbestellung.vollname
+                -# %td= l(brotbestellung.datum, format: "%a, %d.%m.%Y")
                 %td
                   - if brotbestellung.brotbestellschein.present?
                     = link_to brotbestellung.brotbestellschein do
@@ -129,11 +123,8 @@
           %thead
             %tr
               %th #
-              %th Vorname
               %th Name
-              %th Telefon
-              %th E-Mail
-              %th Datum
+              -# %th Datum
               %th Bestellschein
               %th
               %th
@@ -143,11 +134,8 @@
             - brotbestellungs.sort_by(&:name).each do |brotbestellung|
               %tr{:class => (brotbestellung.brotbestellschein.versendet.present? ? "positive" : "")}
                 %td= brotbestellung.id
-                %td= brotbestellung.vorname
-                %td= brotbestellung.name
-                %td= brotbestellung.telefon
-                %td= brotbestellung.email
-                %td= l(brotbestellung.datum, format: "%a, %d.%m.%Y")
+                %td= brotbestellung.vollname
+                -# %td= l(brotbestellung.datum, format: "%a, %d.%m.%Y")
                 %td
                   - if brotbestellung.brotbestellschein.present?
                     = link_to brotbestellung.brotbestellschein do
@@ -185,11 +173,8 @@
           %thead
             %tr
               %th #
-              %th Vorname
               %th Name
-              %th Telefon
-              %th E-Mail
-              %th Datum
+              -# %th Datum
               %th Bestellschein
               %th
               %th
@@ -199,11 +184,8 @@
             - brotbestellungs.sort_by(&:name).each do |brotbestellung|
               %tr{:class => (brotbestellung.brotbestellschein.versendet.present? ? "positive" : "")}
                 %td= brotbestellung.id
-                %td= brotbestellung.vorname
-                %td= brotbestellung.name
-                %td= brotbestellung.telefon
-                %td= brotbestellung.email
-                %td= l(brotbestellung.datum, format: "%a, %d.%m.%Y")
+                %td= brotbestellung.vollname
+                -# %td= l(brotbestellung.datum, format: "%a, %d.%m.%Y")
                 %td
                   - if brotbestellung.brotbestellschein.present?
                     = link_to brotbestellung.brotbestellschein do
@@ -240,11 +222,8 @@
           %thead
             %tr
               %th #
-              %th Vorname
               %th Name
-              %th Telefon
-              %th E-Mail
-              %th Datum
+              -# %th Datum
               %th Bestellschein
               %th
               %th
@@ -254,11 +233,8 @@
             - brotbestellungs.sort_by(&:name).each do |brotbestellung|
               %tr
                 %td= brotbestellung.id
-                %td= brotbestellung.vorname
-                %td= brotbestellung.name
-                %td= brotbestellung.telefon
-                %td= brotbestellung.email
-                %td= l(brotbestellung.datum, format: "%a, %d.%m.%Y")
+                %td= brotbestellung.vollname
+                -# %td= l(brotbestellung.datum, format: "%a, %d.%m.%Y")
                 %td
                   - if brotbestellung.brotbestellschein.present?
                     = link_to brotbestellung.brotbestellschein do

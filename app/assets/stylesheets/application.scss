@@ -65,3 +65,10 @@ $text-colors: blue, green, orange, pink, purple, red, teal, yellow, black, grey,
     color: #{$tc};
   }
 }
+
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+}

@@ -86,7 +86,7 @@ class BrotbestellungsController < ApplicationController
         @brotbestellschein.datum = @datum
         @brotbestellschein.save
 
-        format.html { redirect_to (current_user ? brotbestellungs_path : home_thanks_path), notice: 'Brotbestellung was successfully created.' }
+        format.html { redirect_to (current_user ? brotbestellungs_path : home_thanks_path), notice: 'Brotbestellung erfolgreich erstellt.' }
         format.json { render :show, status: :created, location: @brotbestellung }
       else
         format.html { redirect_to new_brotbestellung_path, alert: @brotbestellung.errors.full_messages }
@@ -100,7 +100,7 @@ class BrotbestellungsController < ApplicationController
   def update
     respond_to do |format|
       if @brotbestellung.update(brotbestellung_params)
-        format.html { redirect_to @brotbestellung, notice: 'Brotbestellung was successfully updated.' }
+        format.html { redirect_to @brotbestellung, notice: 'Brotbestellung aktualisiert.' }
         format.json { render :show, status: :ok, location: @brotbestellung }
       else
         format.html { render :edit }
@@ -114,7 +114,7 @@ class BrotbestellungsController < ApplicationController
   def destroy
     @brotbestellung.destroy
     respond_to do |format|
-      format.html { redirect_to brotbestellungs_url, notice: 'Brotbestellung was successfully destroyed.' }
+      format.html { redirect_to brotbestellungs_url, notice: 'Brotbestellung gelöscht.' }
       format.json { head :no_content }
     end
   end

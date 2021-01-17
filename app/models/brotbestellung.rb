@@ -14,4 +14,8 @@ class Brotbestellung < ApplicationRecord
    self.brotbestellschein.present? && self.brotbestellschein.versendet.present?
   end
 
+  def vollname
+    (self.vorname.present? ? "#{self.vorname} " : "") + (self.name.present? ? self.name : "") 
+  end
+
 end
