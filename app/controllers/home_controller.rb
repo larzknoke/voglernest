@@ -47,19 +47,19 @@ class HomeController < ApplicationController
     render layout: 'home/home'
   end
 
-
   def contactmail
     @message = Message.new(message_params)
-    if @message.valid?
+    @recaptcha_valid = verify_recaptcha(model: @message, action: 'contact')
+    if @recaptcha_valid && @message.valid?
       ContactMailer.contact_email(@message).deliver
       respond_to do |format|
-        format.html { redirect_to :controller => 'home', :action => 'index' }
-        format.js { render 'home/contact-form'}
+        format.html { redirect_to controller: 'home', action: 'index' }
+        format.js { render 'home/contact-form' }
       end
     else
       respond_to do |format|
-        format.html { redirect_to :controller => 'home', :action => 'index' }
-        format.js { render 'home/contact-form'}
+        format.html { redirect_to controller: 'home', action: 'index' }
+        format.js { render 'home/contact-form' }
       end
     end
   end
@@ -69,5 +69,4 @@ class HomeController < ApplicationController
   def message_params
     params.require(:message).permit(:name, :email, :telefon, :text)
   end
-
 end

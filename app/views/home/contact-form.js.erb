@@ -1,11 +1,12 @@
 console.log("<%= @message.valid? %>");
-if (<%= @message.valid? %>) {
+if (<%= @recaptcha_valid && @message.valid? %>) {
   $('.contact-form')[0].reset();
   $('#contact-modal').modal("show")
 } else {
   console.log("<%= @message.errors.full_messages %>");
   //remove old validation messages
   $(".notice").remove();
+  $(".form-notice").append("<div class='notice'>Ein Fehler ist aufgetreten. Bitte probieren Sie es erneut!</div>");
 
   //display new validation messages
   <% @message.errors.full_messages.each do |message| %>

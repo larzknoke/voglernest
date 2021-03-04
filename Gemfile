@@ -45,6 +45,7 @@ gem 'exception_notification'
 
 gem 'next_rails'
 
+gem "recaptcha"
 
 
 gem "bundler", ">= 1.8.4"
