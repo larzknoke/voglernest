@@ -1,6 +1,5 @@
 $(document).ready( function() {
 // $( document ).on('turbolinks:load', function() {
-
     var vWidth        = $(window).width();
     var nav           = $('.stick-top')
     var navHeight     = nav.outerHeight();
@@ -10,6 +9,9 @@ $(document).ready( function() {
     var contentCont   = $('.content-container');
     var logoFade      = $('.logo-fade');
     var boxWrapper    = $('.box-wrapper')[0];
+
+    $('[data-toggle="tooltip"]').tooltip({offset: '0px, 10px'});
+
 
     function isMobile() {
        if(vWidth <= 992) {

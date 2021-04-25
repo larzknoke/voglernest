@@ -1,0 +1,74 @@
+.row.max-width.mx-lg-5.mx-md-2
+  .col-md-12.mt-5.mb-3
+    %h2.text-orange Kasse
+.row.first-section.max-width.mx-lg-5.mx-md-2 
+  .col-md-8
+    .card.mb-4.warenkorb
+      .card-body.px-4
+        %h4.card-title.mb-4.text-muted.py-3.pl-2.sub-header Besteller
+        %form{:action => ""}
+          .row
+            .form-group.col-sm-6
+              %label Vorname
+              %input.form-control{:placeholder => "", :type => "text"}/
+            .form-group.col-sm-6
+              %label Nachname
+              %input.form-control{:placeholder => "", :type => "text"}/
+            .form-group.col-sm-6
+              %label Telefon
+              %input.form-control{:type => "text", :value => ""}/
+            .form-group.col-sm-6
+              %label Email
+              %input.form-control{:placeholder => "", :type => "email"}/
+    .card.mb-4.warenkorb
+      .card-body.px-4
+        %h4.card-title.mb-4.text-muted.py-3.pl-2.sub-header Abholdatum
+        .row
+          .form-group.col-sm-6
+            %input.form-control{:placeholder => "10.05.2021", :type => "text"}/
+    .card.warenkorb
+      .card-body.px-4
+        %h4.card-title.mb-4.text-muted.py-3.pl-2.sub-header Bezahlung
+        .form-check.mb-2
+          %input#exampleRadios1.form-check-input{:checked => "checked", :name => "exampleRadios", :type => "radio", :value => "option1"}/
+          %label.form-check-label{:for => "11"}
+            Barzahlung vor Ort
+        .form-check.mb-2
+          %input#exampleRadios2.form-check-input{:name => "exampleRadios", :type => "radio", :value => "option2"}/
+          %label.form-check-label{:for => "exampleRadios2"}
+            PayPal
+        .form-check.mb-2
+          %input#exampleRadios2.form-check-input{:name => "exampleRadios", :type => "radio", :value => "option3"}/
+          %label.form-check-label{:for => "exampleRadios"}
+            Vorabüberweisung
+
+  
+  .col-md-4
+    .card.warenkorb
+      .card-body
+        %table.table.table-borderless.table-shopping-cart.mb-0
+          %thead.text-muted
+            %tr.small.text-uppercase{style: "border-bottom: 1px solid rgba(0, 0, 0, 0.1);"}
+              %th.py-3.font-weight-normal{:scope => "col", style: "font-size: .85rem"} Gesamt
+              %th 
+          %tbody
+            %tr
+              %td
+                %p Summe
+              %td.text-right.py-0
+                %p 10,55 €
+            %tr
+              %td.py-0
+                %small.text-muted MwSt. 19%
+              %td.text-right.py-0
+                %small.text-muted 2,55 €
+            %tr
+              %td
+                %p.font-weight-bold Gesamt
+              %td.text-right
+                %p.font-weight-bold 12,55 €
+        .form-group.mt-3
+          %a.btn.btn-success.btn-small.btn-block.text-white.no-hover.my-0{:type => "submit"} Bestellen
+        .form-group.mt-3.px-3.text-center.mb-0
+          %small.text-muted.mt-4
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur modi officiis voluptatem natus.

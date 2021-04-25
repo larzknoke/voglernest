@@ -58,6 +58,21 @@ Rails.application.routes.draw do
   get "start/index"
   root "home#index"
 
+
+  ############
+  ### Shop
+  ############
+  get "shop" => "shop#index", as: :shop
+  get "shop/produktliste" => "shop#produktliste"
+  get "shop/produkt" => "shop#produkt"
+  get "shop/warenkorb" => "shop#warenkorb"
+  get "shop/kasse" => "shop#kasse"
+
+
+
+
+
+  
   #unless Rails.application.config.consider_all_requests_local
   #  # having created corresponding controller and action
   #  get '*path', to: 'errors#error_404', via: :all

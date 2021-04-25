@@ -1,0 +1,27 @@
+%head
+  %title= content_for?(:title) ? yield(:title) : "Voglerhof | Kirchbrak"
+
+  = stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track' => true
+  = stylesheet_link_tag 'shop', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = favicon_link_tag asset_path('favicon.ico')
+  = display_meta_tags site: 'Voglerhof | Kirchbrak', description: "Aus Überzeugung bio – schon seit 1989. Erfahren Sie mehr über den Voglerhof und unsere Arbeitsweise.", keywords: "Voglerhof, Bio, Bioland, Kirchbrak, Ferienwohnung, Biogas, Ausbildung, Hofladen"
+  = csrf_meta_tags
+  %link{:href => "https://fonts.googleapis.com/css?family=Lato:300,300i,400,700|Arvo:400,700", :rel => "stylesheet"}
+
+  %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+  /[if lt IE 9] <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  - if Rails.env.production?
+    = render :partial => "layouts/analytics"
+%body
+  = render :partial => 'layouts/shop/header'
+  .content-container.bg-green.container-fluid{:style => "margin-top: 221px"}
+    = yield
+    .footer{:style => (action_name == 'index' || action_name == 'ausbildung' || action_name == 'hofladen' || action_name == 'kontakt' ? "margin-top: 0px" : "margin-top: 200px; z-index: 9999")}
+      = render :partial => 'layouts/shop/footer'
+  .cookie-notice.fixed-bottom
+    %span
+      Um unsere Webseite für Sie optimal zu gestalten und fortlaufend verbessern zu können, verwenden wir Cookies. Durch die weitere Nutzung der Webseite stimmen Sie der Verwendung von Cookies zu.
+      Weitere Informationen zu Cookies erhalten Sie in unserer
+      = link_to "Datenschutzerklärung", {:controller => "home", :action => "kontakt" }
+    %span.btn.btn-small.btn-primary.float-right.agree OK

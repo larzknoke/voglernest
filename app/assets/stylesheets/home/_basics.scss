@@ -131,27 +131,29 @@ a[href^="mailto"] {
 }
 
 .text-orange {
-  color: $color_orange;
+  color: $color_orange !important;
 }
 .text-green {
-  color: $color_green;
+  color: $color_green !important;
 }
 .text-yellow {
-  color: $color_yellow;
+  color: $color_yellow !important;
 }
 .text-yellow2 {
-  color: $color_yellow2;
+  color: $color_yellow2 !important;
 }
-
+.text-serif {
+  font-family: 'Arvo' !important;
+}
 .bg-green {
-  background-color: $color_green;
+  background-color: $color_green !important;
 }
 .bg-yellow {
-  background-color: $color_yellow;
+  background-color: $color_yellow !important;
 }
 .bg-yellow2 {
-  background-color: $color_yellow2;
-  color: $color_green;
+  background-color: $color_yellow2 !important;
+  color: $color_green !important;
 }
 
 .col > h2 {
@@ -318,6 +320,16 @@ a[href^="mailto"] {
     &:hover {
       background-color: $color_green;
       color: white;
+    }
+  }
+  &.btn-success {
+    background-color: $color_green;
+    color: white;
+    border-color: $color_green;
+    &:hover {
+      background-color: $color_orange;
+      color: white;
+      border-color: $color_orange;
     }
   }
 }
@@ -840,3 +852,4 @@ textarea:-ms-input-placeholder {
     background-size: 20%;
   }
 }
+

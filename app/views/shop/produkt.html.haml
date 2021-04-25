@@ -1,0 +1,25 @@
+.row.max-width.mx-lg-5.mx-md-2
+  .col-md-12.mt-5.mb-3
+    %h2.text-orange Weizenbrötchen
+.row.first-section.max-width.mx-lg-5.mx-md-2 
+
+
+
+  
+  .col-md-8
+    .sub-header.text-uppercase.text-yellow2.py-3.pl-2 Informationen
+
+
+  .col-md-4
+    .card.warenkorb
+      .card-body
+        %img.w-100{:src => image_path("shop/broetchen2.png")}
+        .form-group
+          %label Menge
+          %select.form-control
+            %option 1
+            %option 2
+            %option 3
+            %option 4
+        .form-group.mb-0
+          %a.btn.btn-success.btn-small.btn-block.text-white.no-hover.my-0{:type => "submit"} zum Warenkorb

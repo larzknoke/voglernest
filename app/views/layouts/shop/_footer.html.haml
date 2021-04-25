@@ -1,0 +1,61 @@
+.row.bg-yellow2.roomy-90.border-top
+  .col-lg-4.offset-lg-1.mx-lg-5.mx-md-3
+    %h1
+      Kontakt
+    %p.text-green
+      %strong
+        Barbara, Karl-Heinz und Sebastian Vogler
+      %br
+      Tiebrink 5
+      %br
+      37619 Kirchbrak
+      %br
+      Telefon: +49 5533 1514
+      %br
+      Telefax: +49 5533 6215
+      %br
+      %a{:href => "mailto:info@voglerhof.de"}
+        E-Mail: info@voglerhof.de
+      %br
+      Internet: www.voglerhof.de
+      %br
+      %br
+      %br
+      Öko-Kontrollstelle: ÖKO DE 006
+      %br
+      .sub-logo-container-footer
+        %a{:href => "http://www.bioland.de"}
+          = image_tag 'home/header/bioland.svg'
+        %a{:href => "http://www.bioland.de"}
+          = image_tag 'home/header/biosiegel.svg'
+        %a{:href => "#"}
+          = image_tag 'home/header/eu_bio_logo.svg'
+        %a{:href => "https://www.ml.niedersachsen.de/themen/entwicklung_laendlichen_raums/eufoerderprogramme_zur_entwicklung_im_laendlichen_raum/eu-foerderung-in-niedersachsen-147111.html"}
+          = image_tag 'eu.png'
+
+
+
+  .col-lg-6.offset-lg-1.mx-md-3.my-md-5.my-lg-0
+    = form_for :message, :url => contact_path, :remote => true, :html =>{:class => 'contact-form'} do |form|
+      .form-group
+        = form.text_field :name, class: 'form-control', placeholder: 'Name'
+      .form-row
+        .form-group.col-6
+          = form.text_field :email, class: 'form-control', placeholder: 'E-Mail'
+        .form-group.col-6
+          = form.text_field :telefon, class: 'form-control', placeholder: 'Telefon'
+      .form-group
+        = form.text_area :text, class: 'form-control', rows: 8, placeholder: 'Nachricht'
+      %button.btn.btn-small.pull-right{:href => "/", :style => "width: 100%",:type => "submit"}
+        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+        Senden
+    .form-notice
+
+
+#contact-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "Contact Form", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-dialog-centered{:role => "document"}
+    .modal-content.border-left
+      .modal-body
+        %p.text-green Danke, Ihre Nachricht wurde erfolgreich übermittelt.
+      .modal-footer
+        %button.btn.btn-primary.btn-small{"data-dismiss" => "modal", :type => "button"} Schliessen

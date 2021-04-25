@@ -1,0 +1,34 @@
+%nav#nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top.box-shadow.fixed
+  = link_to(home_index_path, style: "padding: 0", class: " navbar-brand d-lg-none") do
+    = image_tag "logo.png",{:style => "  position: relative;margin: 10px 25px; width: 45px;", :class => "d-inline-block"}
+  %div.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse"}
+    .burger
+      %span
+      %span
+      %span
+    %span.menu-text
+      Menü
+  #navbarNav.collapse.navbar-collapse.justify-content-center
+    %ul.navbar-nav
+      %li.nav-item.d-none.d-lg-block
+        = link_to(home_index_path, style: "padding: .75rem", class: "no-hover") do
+          = image_tag "logo.png",{:style => "  position: relative;margin: 0 25px; width: 45px;", :class => "d-inline-block"}
+      %li.nav-item
+        = link_to "Voglerhof", {:controller => "home", :action => "hof"}, :class => "nav-link"
+      %li.nav-item
+        = link_to "Hofladen", {:controller => "home", :action => "hofladen" }, :class => "nav-link"
+      %li.nav-item.d-block.d-sm-none
+        = link_to "Öffnungszeiten", {:controller => "home", :action => "hofladen", :anchor => "openhour" }, :class => "nav-link"
+      %li.nav-item
+        = link_to "Ferienwohnung", {:controller => "home", :action => "fw" }, :class => "nav-link"
+      %li.nav-item
+        = link_to "Biogasanlage", {:controller => "home", :action => "biogas" }, :class => "nav-link"
+      %li.nav-item
+        = link_to "Ausbildung", {:controller => "home", :action => "ausbildung" }, :class => "nav-link"
+      %li.nav-item
+        = link_to "Kontakt", {:controller => "home", :action => "kontakt" }, :class => "nav-link"
+
+:css
+  .navbar-toggler {
+  	margin: 0 1rem 0 0 ;
+  }

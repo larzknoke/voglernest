@@ -107,7 +107,7 @@
     li {
       display: inline-block;
 
-      a {
+      > a {
         display: block;
         padding: 22px 30px;
         text-decoration: none;
@@ -120,11 +120,11 @@
         position: relative;
       }
 
-      a:hover {
+      > a:hover {
         color: $color_orange;
       }
 
-      a::after {
+      > a::after {
         position: absolute;
         top: 100%;
         left: 15%;

@@ -1,0 +1,128 @@
+.row.max-width.mx-lg-5.mx-md-2
+  .col-md-12.mt-5.mb-3
+    %h2.text-orange Mein Warenkorb
+.row.first-section.max-width.mx-lg-5.mx-md-2 
+  .col-md-8
+    .card.warenkorb
+      .card-body
+        %table.table.table-borderless.table-shopping-cart
+          %thead.text-muted{style: "border-bottom: 1px solid rgba(0, 0, 0, 0.1);"}
+            %tr.small.text-uppercase
+              %th.py-3.font-weight-normal Produkt
+              %th.py-3.font-weight-normal.text-right.w-15 Menge
+              %th.py-3.font-weight-normal.text-right.w-15 Preis
+              %th.py-3.font-weight-normal.text-right.w-15 Summe
+              %th.py-3.font-weight-normal.text-right
+          %tbody
+            %tr
+              %td.pt-3
+                %a.title{:href => "#"} Weizenbrötchen
+              %td.pt-3.text-right
+                %p 5x
+              %td.pt-3.text-right
+                %p 0,55 €
+              %td.pt-3.text-right
+                %p 2,25 €
+              %td.pt-3{style: "width: 10px"}
+                %a.text-muted{:href => "", style: "font-size: 0.9rem", "data-placement" => "top", "data-toggle" => "tooltip", :title => "Position löschen"} 
+                  %i.fa.fa-times
+            %tr
+              %td
+                %a.title{:href => "#"} Sesambrötchen
+              %td.text-right
+                %p 3x
+              %td.text-right
+                %p 0,65 €
+              %td.text-right
+                %p 3,25 €
+              %td{style: "width: 10px"}
+                %a.text-muted{:href => "", style: "font-size: 0.9rem", "data-placement" => "top", "data-toggle" => "tooltip", :title => "Position löschen"}  
+                  %i.fa.fa-times
+            %tr
+              %td
+                %a.title{:href => "#"} Schokobrötchen
+              %td.text-right
+                %p 2x
+              %td.text-right
+                %p 0,65 €
+              %td.text-right
+                %p 2,85 €
+              %td{style: "width: 10px"}
+                %a.text-muted{:href => "", style: "font-size: 0.9rem", "data-placement" => "top", "data-toggle" => "tooltip", :title => "Position löschen"}  
+                  %i.fa.fa-times
+            %tr
+              %td
+                %a.title{:href => "#"} Weizenbrötchen
+              %td.text-right
+                %p 5x
+              %td.text-right
+                %p 0,55 €
+              %td.text-right
+                %p 2,25 €
+              %td{style: "width: 10px"}
+                %a.text-muted{:href => "", style: "font-size: 0.9rem", "data-placement" => "top", "data-toggle" => "tooltip", :title => "Position löschen"}  
+                  %i.fa.fa-times
+            %tr
+              %td
+                %a.title{:href => "#"} Weizenbrötchen
+              %td.text-right
+                %p 5x
+              %td.text-right
+                %p 0,55 €
+              %td.text-right
+                %p 2,25 €
+              %td{style: "width: 10px"}
+                %a.text-muted{:href => "", style: "font-size: 0.9rem", "data-placement" => "top", "data-toggle" => "tooltip", :title => "Position löschen"}  
+                  %i.fa.fa-times
+            %tr
+              %td
+                %a.title{:href => "#"} Weizenbrötchen
+              %td.text-right
+                %p 5x
+              %td.text-right
+                %p 0,55 €
+              %td.text-right
+                %p 2,25 €
+              %td{style: "width: 10px"}
+                %a.text-muted{:href => "", style: "font-size: 0.9rem", "data-placement" => "top", "data-toggle" => "tooltip", :title => "Position löschen"}  
+                  %i.fa.fa-times
+
+
+  
+  .col-md-4
+    .card.warenkorb
+      .card-body
+        %table.table.table-borderless.table-shopping-cart.mb-0
+          %thead.text-muted
+            %tr.small.text-uppercase{style: "border-bottom: 1px solid rgba(0, 0, 0, 0.1);"}
+              %th.py-3.font-weight-normal{:scope => "col"} Gesamt
+              %th 
+          %tbody
+            %tr
+              %td
+                %p Summe
+              %td.text-right.py-0
+                %p 10,55 €
+            %tr
+              %td.py-0
+                %small.text-muted MwSt. 19%
+              %td.text-right.py-0
+                %small.text-muted 2,55 €
+            %tr
+              %td
+                %p.font-weight-bold Gesamt
+              %td.text-right
+                %p.font-weight-bold 12,55 €
+        .form-group.mt-3
+          %a.btn.btn-success.btn-small.btn-block.text-white.no-hover.my-0{:type => "submit"} zur Kasse
+        .form-group.mt-3.mb-0.text-center
+          %a.text-orange.text-serif{:href => "#"} Warenkorb speichern
+    .card.mt-4.warenkorb
+      .card-body
+        %form.mb-0
+          .form-group.mb-0
+            %label.text-green Gutschein vorhanden?
+            .input-group
+              %input.form-control{:name => "", :placeholder => "Gutschein Code", :type => "text"}/
+              %span.input-group-append
+                %button.btn.btn-success.btn-small.my-0.py-1.border-0 Einlösen

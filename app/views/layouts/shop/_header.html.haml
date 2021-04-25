@@ -1,0 +1,86 @@
+- if @openhours.present?
+  .open-at.d-none.d-lg-block
+    %h3
+      Hofladen
+      %br/
+      Öffnungszeiten:
+    .ui.list-group.list-group-flush{:style => "margin:0"}
+      - @openhours.each do |openhour|
+        - if !openhour.geschlossen
+          .list-group-item
+            - if openhour.without_time
+              = "#{openhour.tag}"
+            - else
+              = "#{openhour.tag}: #{openhour.start.strftime("%H:%M")} - #{openhour.ende.strftime("%H:%M")}"
+        - else
+          .list-group-item
+            = "#{openhour.tag}: geschlossen"
+.sub-logo-container
+  %a.sub-logo{:href => "http://www.bioland.de"}
+    = image_tag 'home/header/bioland.svg'
+  %a.sub-logo.bio-siegel{:href => "http://www.bioland.de"}
+    = image_tag 'home/header/biosiegel.svg'
+  %a.sub-logo{:href => "#"}
+    = image_tag 'home/header/eu_bio_logo.svg'
+  %a.sub-logo.sub-logo-down.eu-button{:href => "http://www.bioland.de"}
+    = image_tag 'home/header/eu_logo_start.png'
+%header#head
+  .logo
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light.stick-top#nav{:style => "top: 220px"}
+  .navbar-toggler
+    .burger
+      %span
+      %span
+      %span
+    %span.menu-text
+      Menü
+  .collapse.navbar-collapse.justify-content-center#navbarNav
+    %ul.navbar-nav
+      %li.nav-item.d-none.d-lg-block.logo-fade
+        = link_to(home_index_path, style: "padding: .75rem", class: "no-hover") do
+          = image_tag "logo.png",{:style => "  position: relative;margin: 0 25px; width: 45px;", :class => "d-inline-block"}
+      %li.nav-item
+        = link_to "Hofladen", {:controller => "home", :action => "hof"}, :class => "nav-link"
+      %li.nav-item
+        = link_to "Backwaren", {:controller => "home", :action => "hofladen" }, :class => "nav-link"
+        .sub-nav
+          .sub-nav-container.d-flex
+            %div{:style => "background-image: url(#{image_path("shop/broetchen.jpg") })"} 
+              %h2 Brötchen
+            %div{:style => "background-image: url(#{image_path("shop/brot.jpg") });"} 
+              %h2 Brot
+            %div{:style => "background-image: url(#{image_path("shop/kleingebaeck.jpg") });"} 
+              %h2 Süße Brötchen & Kleingebäck
+      %li.nav-item.d-block.d-sm-none
+        = link_to "Öffnungszeiten", {:controller => "home", :action => "hofladen", :anchor => "openhour" }, :class => "nav-link"
+      %li.nav-item
+        = link_to "Obst/Gemüse", {:controller => "home", :action => "fw" }, :class => "nav-link"
+      %li.nav-item
+        = link_to "Fleisch/Wurst", {:controller => "home", :action => "biogas" }, :class => "nav-link"
+      %li.nav-item
+        = link_to "Milchprodukte", {:controller => "home", :action => "ausbildung" }, :class => "nav-link"
+      %li.nav-item
+        = link_to "Sonstiges", {:controller => "home", :action => "kontakt" }, :class => "nav-link"
+      %li.nav-item
+        %a.no-hover.tooltip2(href="#"){:style => "font-size: 2rem;padding: 15px;"}
+          %span.fi.flaticon-farm-products 
+        = render :partial => "layouts/shop/cartbox"
+
+      %li.nav-item
+        %a.no-hover(href="#"){:style => "font-size: 2rem;padding: 15px;"}
+          %span.fi.flaticon-farmer 
+        .user-box
+          .card
+            .card-body
+              %h3.card-title.mt-3.mb-4.text-orange Mein Konto
+              %form.mb-0
+                .form-group
+                  .input-group
+                    %input.form-control.p-4{:name => "", :placeholder => "Email", :type => "text"}/
+                .form-group
+                  .input-group
+                    %input.form-control.p-4{:name => "", :placeholder => "Passwort", :type => "password"}/
+                .form-group
+                  %button.btn.btn-success.btn-block.my-0{:type => "submit"} Login
+                .form-group.mb-0
+                  %a.no-hover.text-orange{:href => "#"} Passwort vergessen
