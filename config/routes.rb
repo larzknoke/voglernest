@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :kategories
+  resources :produkts
+  resources :warenkorbpositions
+  resources :warenkorbs
+  resources :bestellpositions
+  resources :bestellungs
   resources :feeds do 
     member do
       delete :delete_image_attachment

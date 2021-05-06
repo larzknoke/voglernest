@@ -1,0 +1,34 @@
+= form_for @bestellung do |f|
+  - if @bestellung.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@bestellung.errors.count, "error")} prohibited this bestellung from being saved:"
+      %ul
+        - @bestellung.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :status
+    = f.text_field :status
+  .field
+    = f.label :abholdatum
+    = f.datetime_select :abholdatum
+  .field
+    = f.label :zahlungsmethode
+    = f.text_field :zahlungsmethode
+  .field
+    = f.label :bezahlt
+    = f.check_box :bezahlt
+  .field
+    = f.label :abgeholt
+    = f.check_box :abgeholt
+  .field
+    = f.label :noitz
+    = f.text_area :noitz
+  .field
+    = f.label :total
+    = f.text_field :total
+  .field
+    = f.label :user
+    = f.text_field :user
+  .actions
+    = f.submit 'Save'

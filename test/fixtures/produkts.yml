@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  aktiv: false
+  ausverkauft: false
+  preis: 1.5
+  warenkorbposition: one
+  bestellposition: one
+
+two:
+  name: MyString
+  aktiv: false
+  ausverkauft: false
+  preis: 1.5
+  warenkorbposition: two
+  bestellposition: two

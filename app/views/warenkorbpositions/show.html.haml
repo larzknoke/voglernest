@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Menge:
+  = @warenkorbposition.menge
+%p
+  %b Warenkorb:
+  = @warenkorbposition.warenkorb
+
+= link_to 'Edit', edit_warenkorbposition_path(@warenkorbposition)
+\|
+= link_to 'Back', warenkorbpositions_path

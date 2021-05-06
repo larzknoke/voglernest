@@ -1,0 +1,23 @@
+%h1 Listing warenkorbpositions
+
+%table
+  %thead
+    %tr
+      %th Menge
+      %th Warenkorb
+      %th
+      %th
+      %th
+
+  %tbody
+    - @warenkorbpositions.each do |warenkorbposition|
+      %tr
+        %td= warenkorbposition.menge
+        %td= warenkorbposition.warenkorb
+        %td= link_to 'Show', warenkorbposition
+        %td= link_to 'Edit', edit_warenkorbposition_path(warenkorbposition)
+        %td= link_to 'Destroy', warenkorbposition, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Warenkorbposition', new_warenkorbposition_path

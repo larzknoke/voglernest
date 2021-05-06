@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :bestellungs
+  has_many :warenkorbs
+
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: {case_sensitive: false},

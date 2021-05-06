@@ -1,0 +1,31 @@
+%h1 Produkte
+
+= link_to 'Neues Produkt', new_produkt_path, class: 'button ui green basic'
+%table.ui.table
+  %thead
+    %tr
+      %th Name
+      %th Aktiv
+      %th Ausverkauft
+      %th Preis
+      %th
+      %th
+      %th
+
+  %tbody
+    - @produkts.group_by(&:kategorie).each do |key, group|
+      %tr
+        %td{:colspan => 7, :style => "background-color: #eee"}
+          %strong
+            = key.name rescue "-"
+      - group.each do |produkt|
+        %tr
+          %td= produkt.name
+          %td= check(produkt.aktiv)
+          %td= check(produkt.ausverkauft)
+          %td= number_to_currency(produkt.preis)
+          %td= link_to 'Anzeigen', produkt
+          %td= link_to 'Bearbeiten', edit_produkt_path(produkt)
+          %td= link_to 'Löschen', produkt, method: :delete, data: { confirm: 'Wirklich löschen?' }
+
+%br

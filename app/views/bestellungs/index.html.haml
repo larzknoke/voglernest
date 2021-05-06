@@ -1,0 +1,35 @@
+%h1 Listing bestellungs
+
+%table
+  %thead
+    %tr
+      %th Status
+      %th Abholdatum
+      %th Zahlungsmethode
+      %th Bezahlt
+      %th Abgeholt
+      %th Noitz
+      %th Total
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @bestellungs.each do |bestellung|
+      %tr
+        %td= bestellung.status
+        %td= bestellung.abholdatum
+        %td= bestellung.zahlungsmethode
+        %td= bestellung.bezahlt
+        %td= bestellung.abgeholt
+        %td= bestellung.noitz
+        %td= bestellung.total
+        %td= bestellung.user
+        %td= link_to 'Show', bestellung
+        %td= link_to 'Edit', edit_bestellung_path(bestellung)
+        %td= link_to 'Destroy', bestellung, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Bestellung', new_bestellung_path

@@ -40,6 +40,21 @@
             = link_to 'Anfragen', anfrages_path, class: 'item'
 
         .ui.simple.dropdown.item
+          Shop
+          %i.dropdown.icon
+          .menu
+            = link_to 'Übersicht', brotbestellungs_path, class: 'item'
+            = link_to 'Bestellscheine', brotbestellscheins_path, class: 'item'
+            = link_to 'Packzettel', packzettel_path, class: 'item'
+            .ui.simple.dropdown.item.flex
+              Einstellungen
+              %i.dropdown.icon
+              .menu
+                = link_to 'Produkte', produkts_path, class: 'item'
+                = link_to 'Brotkategorien', brottyps_path, class: 'item'
+                = link_to "Standards", standard_path, :class => "item"
+
+        .ui.simple.dropdown.item
           Brotbestellung
           %i.dropdown.icon
           .menu
@@ -60,7 +75,7 @@
           .right.menu
             %a.item
               %i.user.icon
-              = current_user.name
+              = current_user.email
             =link_to "Logout", logout_path, class: "item"
 
     .ui.main.container

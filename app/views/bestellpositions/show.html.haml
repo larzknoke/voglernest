@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Menge:
+  = @bestellposition.menge
+%p
+  %b Preis:
+  = @bestellposition.preis
+%p
+  %b Bestellung:
+  = @bestellposition.bestellung
+
+= link_to 'Edit', edit_bestellposition_path(@bestellposition)
+\|
+= link_to 'Back', bestellpositions_path

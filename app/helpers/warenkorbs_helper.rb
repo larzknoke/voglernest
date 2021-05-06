@@ -1,0 +1,2 @@
+module WarenkorbsHelper
+end

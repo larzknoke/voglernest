@@ -46,7 +46,7 @@
           = form.text_field :telefon, class: 'form-control', placeholder: 'Telefon'
       .form-group
         = form.text_area :text, class: 'form-control', rows: 8, placeholder: 'Nachricht'
-      = recaptcha_v3(action: 'contact')
+      -# = recaptcha_v3(action: 'contact')
 
       %button.btn.btn-small.pull-right{:href => "/", :style => "width: 100%",:type => "submit"}
         %i.fa.fa-angle-double-right{"aria-hidden" => "true"}

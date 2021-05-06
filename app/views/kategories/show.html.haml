@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @kategory.name
+%p
+  %b Aktiv:
+  = @kategory.aktiv
+%p
+  %b Brotbestellung:
+  = @kategory.brotbestellung
+%p
+  %b Produkt:
+  = @kategory.produkt
+
+= link_to 'Edit', edit_kategory_path(@kategory)
+\|
+= link_to 'Back', kategories_path

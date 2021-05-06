@@ -1,0 +1,16 @@
+= form_for @warenkorbposition do |f|
+  - if @warenkorbposition.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@warenkorbposition.errors.count, "error")} prohibited this warenkorbposition from being saved:"
+      %ul
+        - @warenkorbposition.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :menge
+    = f.number_field :menge
+  .field
+    = f.label :warenkorb
+    = f.text_field :warenkorb
+  .actions
+    = f.submit 'Save'

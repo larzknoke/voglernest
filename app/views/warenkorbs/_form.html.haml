@@ -1,0 +1,25 @@
+= form_for @warenkorb do |f|
+  - if @warenkorb.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@warenkorb.errors.count, "error")} prohibited this warenkorb from being saved:"
+      %ul
+        - @warenkorb.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :gutschein
+    = f.text_field :gutschein
+  .field
+    = f.label :abholdatum
+    = f.datetime_select :abholdatum
+  .field
+    = f.label :gast
+    = f.check_box :gast
+  .field
+    = f.label :notiz
+    = f.text_area :notiz
+  .field
+    = f.label :user
+    = f.text_field :user
+  .actions
+    = f.submit 'Save'

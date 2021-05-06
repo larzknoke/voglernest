@@ -14,6 +14,7 @@
  *= require_self
  *= require simple_calendar
  *= require semantic-ui-calendar
+
  */
 
 @import "semantic-ui";
@@ -71,4 +72,8 @@ $text-colors: blue, green, orange, pink, purple, red, teal, yellow, black, grey,
   .no-print * {
     display: none !important;
   }
+}
+
+.flex {
+  display: flex !important;
 }

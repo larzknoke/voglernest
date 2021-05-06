@@ -1,0 +1,29 @@
+%h1 Listing warenkorbs
+
+%table
+  %thead
+    %tr
+      %th Gutschein
+      %th Abholdatum
+      %th Gast
+      %th Notiz
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @warenkorbs.each do |warenkorb|
+      %tr
+        %td= warenkorb.gutschein
+        %td= warenkorb.abholdatum
+        %td= warenkorb.gast
+        %td= warenkorb.notiz
+        %td= warenkorb.user
+        %td= link_to 'Show', warenkorb
+        %td= link_to 'Edit', edit_warenkorb_path(warenkorb)
+        %td= link_to 'Destroy', warenkorb, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Warenkorb', new_warenkorb_path

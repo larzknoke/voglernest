@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gutschein: MyString
+  abholdatum: 2021-04-30 21:47:48
+  gast: false
+  notiz: MyText
+  user: one
+
+two:
+  gutschein: MyString
+  abholdatum: 2021-04-30 21:47:48
+  gast: false
+  notiz: MyText
+  user: two

@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Status:
+  = @bestellung.status
+%p
+  %b Abholdatum:
+  = @bestellung.abholdatum
+%p
+  %b Zahlungsmethode:
+  = @bestellung.zahlungsmethode
+%p
+  %b Bezahlt:
+  = @bestellung.bezahlt
+%p
+  %b Abgeholt:
+  = @bestellung.abgeholt
+%p
+  %b Noitz:
+  = @bestellung.noitz
+%p
+  %b Total:
+  = @bestellung.total
+%p
+  %b User:
+  = @bestellung.user
+
+= link_to 'Edit', edit_bestellung_path(@bestellung)
+\|
+= link_to 'Back', bestellungs_path

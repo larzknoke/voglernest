@@ -1,0 +1,20 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @produkt.name
+%p
+  %b Aktiv:
+  = @produkt.aktiv
+%p
+  %b Ausverkauft:
+  = @produkt.ausverkauft
+%p
+  %b Preis:
+  = @produkt.preis
+= image_tag(@produkt.produktbild, width: "100%", class: "")
+
+
+= link_to 'Edit', edit_produkt_path(@produkt)
+\|
+= link_to 'Back', produkts_path

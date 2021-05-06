@@ -1,0 +1,19 @@
+= form_for @bestellposition do |f|
+  - if @bestellposition.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@bestellposition.errors.count, "error")} prohibited this bestellposition from being saved:"
+      %ul
+        - @bestellposition.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :menge
+    = f.number_field :menge
+  .field
+    = f.label :preis
+    = f.text_field :preis
+  .field
+    = f.label :bestellung
+    = f.text_field :bestellung
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,25 @@
+%h1 Listing bestellpositions
+
+%table
+  %thead
+    %tr
+      %th Menge
+      %th Preis
+      %th Bestellung
+      %th
+      %th
+      %th
+
+  %tbody
+    - @bestellpositions.each do |bestellposition|
+      %tr
+        %td= bestellposition.menge
+        %td= bestellposition.preis
+        %td= bestellposition.bestellung
+        %td= link_to 'Show', bestellposition
+        %td= link_to 'Edit', edit_bestellposition_path(bestellposition)
+        %td= link_to 'Destroy', bestellposition, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Bestellposition', new_bestellposition_path

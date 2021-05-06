@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Gutschein:
+  = @warenkorb.gutschein
+%p
+  %b Abholdatum:
+  = @warenkorb.abholdatum
+%p
+  %b Gast:
+  = @warenkorb.gast
+%p
+  %b Notiz:
+  = @warenkorb.notiz
+%p
+  %b User:
+  = @warenkorb.user
+
+= link_to 'Edit', edit_warenkorb_path(@warenkorb)
+\|
+= link_to 'Back', warenkorbs_path

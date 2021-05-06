@@ -1,0 +1,27 @@
+%h1 Listing kategories
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Aktiv
+      %th Brotbestellung
+      %th Produkt
+      %th
+      %th
+      %th
+
+  %tbody
+    - @kategories.each do |kategory|
+      %tr
+        %td= kategory.name
+        %td= kategory.aktiv
+        %td= kategory.brotbestellung
+        %td= kategory.produkt
+        %td= link_to 'Show', kategory
+        %td= link_to 'Edit', edit_kategory_path(kategory)
+        %td= link_to 'Destroy', kategory, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Kategorie', new_kategory_path

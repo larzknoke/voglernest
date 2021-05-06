@@ -289,7 +289,7 @@ a[href^="mailto"] {
   color: $color_yellow;
   text-transform: uppercase;
   display: inline-block;
-  transition: all 200ms ease-in-out 100ms;
+  transition: all 200ms ease-in-out 0ms;
   text-align: left;
 
   i {
