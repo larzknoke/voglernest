@@ -64,6 +64,6 @@ class KategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def kategory_params
-      params.require(:kategory).permit(:name, :aktiv, :brotbestellung, :produkt_id)
+      params.require(:kategorie).permit(:name, :aktiv)
     end
 end

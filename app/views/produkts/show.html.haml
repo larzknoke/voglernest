@@ -1,20 +1,24 @@
-%p#notice= notice
+.ui.two.column.grid
+  .column.six.wide
+    %p
+      %b Name:
+      = @produkt.name
+    %p
+      %b Aktiv:
+      = check(@produkt.aktiv)
+    %p
+      %b Ausverkauft:
+      = check(@produkt.ausverkauft)
+    %p
+      %b Preis:
+      = number_to_currency(@produkt.preis)
+  .column.six.wide
+    - if @produkt.produktbild.present?
+      = image_tag(@produkt.produktbild, width: "100%", class: "")
+    - else
+      %p 
+        %b kein Bild vorhanden
 
-%p
-  %b Name:
-  = @produkt.name
-%p
-  %b Aktiv:
-  = @produkt.aktiv
-%p
-  %b Ausverkauft:
-  = @produkt.ausverkauft
-%p
-  %b Preis:
-  = @produkt.preis
-= image_tag(@produkt.produktbild, width: "100%", class: "")
 
-
-= link_to 'Edit', edit_produkt_path(@produkt)
-\|
-= link_to 'Back', produkts_path
+= link_to 'Zurück', produkts_path, :class  => 'ui button red basic'
+= link_to 'Bearbeiten', edit_produkt_path(@produkt), :class  => 'ui button green basic'

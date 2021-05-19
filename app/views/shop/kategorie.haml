@@ -1,0 +1,37 @@
+.row.max-width.mx-lg-5.mx-md-2
+  .col-md-12.my-4
+    .brotkrumen
+      %ul 
+        %li 
+          = @kategorie.name
+.row.first-section.max-width.mx-lg-5.mx-md-2 
+  - @produkts.each do |produkt|
+    .col-md-4
+      %figure.card.card-product-grid.card-lg.mb-5
+        = link_to produkt, {class: "img-wrap"} do
+          - if produkt.produktbild.present?
+            = image_tag(produkt.produktbild, width: "100%", class: "")
+          - else
+            .pt-5.text-orange
+              kein Bild vorhanden  
+        %figcaption.info-wrap.align-items-center
+          %h3.text-orange.mb-0
+            = produkt.name
+        .bottom-wrap.d-flex.align-items-center
+          .mr-3
+            %h3.mb-0.text-green{:style => "font-size: 1rem"}
+              = number_to_currency(produkt.preis, {unit: 'Euro'})
+          .ml-auto.form-inline
+            %select.form-control.mr-2
+              %option 1
+              %option 2
+              %option 3
+              %option 4
+              %option 5
+              %option 6
+              %option 7
+              %option 8
+              %option 9
+            %a.my-0.px-3.add-to-cart{:href => "#", "data-placement" => "top", "data-toggle" => "tooltip", :title => "zum Warenkorb hinzufügen"}
+              -# %i.fa.fa-shopping-cart
+              %i.fi.flaticon-farm-products 

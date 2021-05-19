@@ -74,6 +74,8 @@ Rails.application.routes.draw do
   get "shop/warenkorb" => "shop#warenkorb"
   get "shop/kasse" => "shop#kasse"
 
+  get "shop/kategorie/:id" => "shop#kategorie"
+
 
 
 

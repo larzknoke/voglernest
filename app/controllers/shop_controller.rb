@@ -9,6 +9,11 @@ class ShopController < ApplicationController
   def produktliste
   end
 
+  def kategorie
+    @kategorie = Kategorie.find(params[:id])
+    @produkts = Produkt.where(kategorie: @kategorie)
+  end
+
   def warenkorb
   end
 

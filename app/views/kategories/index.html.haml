@@ -1,12 +1,12 @@
-%h1 Listing kategories
+%h1 Kategorien
+= link_to 'Neue Kategorie', new_kategory_path, class: 'button ui green basic'
 
-%table
+%table.table.ui
   %thead
     %tr
       %th Name
       %th Aktiv
       %th Brotbestellung
-      %th Produkt
       %th
       %th
       %th
@@ -15,13 +15,11 @@
     - @kategories.each do |kategory|
       %tr
         %td= kategory.name
-        %td= kategory.aktiv
-        %td= kategory.brotbestellung
-        %td= kategory.produkt
-        %td= link_to 'Show', kategory
-        %td= link_to 'Edit', edit_kategory_path(kategory)
-        %td= link_to 'Destroy', kategory, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= check(kategory.aktiv)
+        %td= check(kategory.brotbestellung)
+        %td= link_to 'Zeigen', kategory
+        %td= link_to 'Bearbeiten', edit_kategory_path(kategory)
+        %td= link_to 'Löschen', kategory, method: :delete, data: { confirm: 'Kategorie wirklich löschen?' }
 
 %br
 
-= link_to 'New Kategorie', new_kategory_path

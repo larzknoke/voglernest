@@ -33,7 +33,7 @@
       margin: auto;
       overflow: hidden;
 
-      div {
+      a {
         padding: 2rem;
         min-height: 350px;
         flex: 1;
@@ -44,7 +44,7 @@
 
         &:hover {
           background-size: 102%;
-          cursor: pointer; /* TODO: entfernen wenn Link */
+          text-decoration: none;
         }
 
         h2 {

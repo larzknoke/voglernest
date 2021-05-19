@@ -45,11 +45,11 @@
         = link_to "Backwaren", {:controller => "home", :action => "hofladen" }, :class => "nav-link"
         .sub-nav
           .sub-nav-container.d-flex
-            %div{:style => "background-image: url(#{image_path("shop/broetchen.jpg") })"} 
+            = link_to "/shop/kategorie/1", {:style => "background-image: url(#{image_path("shop/broetchen.jpg") })"} do
               %h2 Brötchen
-            %div{:style => "background-image: url(#{image_path("shop/brot.jpg") });"} 
+            = link_to "/shop/kategorie/2", {:style => "background-image: url(#{image_path("shop/brot.jpg") })"} do
               %h2 Brot
-            %div{:style => "background-image: url(#{image_path("shop/kleingebaeck.jpg") });"} 
+            = link_to "/shop/kategorie/3", {:style => "background-image: url(#{image_path("shop/kleingebaeck.jpg") })"} do
               %h2 Süße Brötchen & Kleingebäck
       %li.nav-item.d-block.d-sm-none
         = link_to "Öffnungszeiten", {:controller => "home", :action => "hofladen", :anchor => "openhour" }, :class => "nav-link"

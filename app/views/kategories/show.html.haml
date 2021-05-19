@@ -5,14 +5,7 @@
   = @kategory.name
 %p
   %b Aktiv:
-  = @kategory.aktiv
-%p
-  %b Brotbestellung:
-  = @kategory.brotbestellung
-%p
-  %b Produkt:
-  = @kategory.produkt
+  = check(@kategory.aktiv)
 
-= link_to 'Edit', edit_kategory_path(@kategory)
-\|
-= link_to 'Back', kategories_path
+= link_to 'Zurück', kategories_path, class:'ui button red basic'
+= link_to 'Bearbeiten', edit_kategory_path(@kategory), class:'ui button green basic'
