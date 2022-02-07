@@ -13,7 +13,7 @@
       %th
 
   %tbody
-    - @bookings.sort_by(&:time_start).each do |booking|
+    - @bookings.sort_by(&:time_start).reverse.each do |booking|
       %tr{:class => ("disabled" if booking.time_end < Time.now)}
         %td
           = "#{booking.booker.vorname} #{booking.booker.name}"
@@ -47,6 +47,7 @@
       columnDefs: [
         {bSortable: false, targets: [5,6]} 
       ],
+      aaSorting: []
       /*"order": [[ 2, "asc" ]]*/
     });
 
