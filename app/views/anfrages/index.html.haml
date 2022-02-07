@@ -17,7 +17,7 @@
       %th
 
   %tbody
-    - @anfrages.each do |anfrage|
+    - @anfrages.sort_by(&:created_at).reverse.each do |anfrage|
       %tr
         %td= anfrage.name
         %td= anfrage.email
@@ -39,7 +39,8 @@
       columnDefs: [
         {bSortable: false, targets: [8,9,10]} 
       ],
-      "order": [[ 4, "asc" ]]
+      /*"order": [[ 4, "asc" ]]*/
+      aaSorting: []
     });
 
     mieterTable.buttons().container().appendTo( $('div.nine.column:eq(0)', mieterTable.table().container()) );
