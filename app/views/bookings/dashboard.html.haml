@@ -27,7 +27,7 @@
                 - when "block"
                   %i.right.floated.fa.fa-ban
                 .header
-                  = "#{booking.booker.vorname} #{booking.booker.name}"
+                  = link_to "#{booking.booker.vorname} #{booking.booker.name}", edit_mieter_path(booking.booker), :class => "popup",:"data-content" => "Mieter bearbeiten"
                 .description
                   %p
                     %strong
@@ -45,7 +45,7 @@
                         Notiz:
                       =booking.notiz
               .extra.content
-                = link_to edit_booking_path(booking), :id => booking.id do
+                = link_to edit_booking_path(booking), :id => booking.id, :class => "popup",:"data-content" => "Buchung bearbeiten" do
                   %i.edit.outline.icon
                   %small
                     Bearbeiten
@@ -65,7 +65,7 @@
                 - when "block"
                   %i.right.floated.fa.fa-ban
                 .header
-                  = "#{booking.booker.vorname} #{booking.booker.name}"
+                  = link_to "#{booking.booker.vorname} #{booking.booker.name}", edit_mieter_path(booking.booker), :class => "popup",:"data-content" => "Mieter bearbeiten"
                 .description
                   %p
                     %strong
@@ -83,7 +83,7 @@
                         Notiz:
                       =booking.notiz
               .extra.content
-                = link_to edit_booking_path(booking), :id => booking.id do
+                = link_to edit_booking_path(booking), :id => booking.id, :class => "popup",:"data-content" => "Buchung bearbeiten" do
                   %i.edit.outline.icon
                   %small
                     Bearbeiten
@@ -103,7 +103,7 @@
                 - when "block"
                   %i.right.floated.fa.fa-ban
                 .header
-                  = "#{booking.booker.vorname} #{booking.booker.name}"
+                  = link_to "#{booking.booker.vorname} #{booking.booker.name}", edit_mieter_path(booking.booker), :class => "popup",:"data-content" => "Mieter bearbeiten"
                 .description
                   %p
                     %strong
@@ -121,7 +121,7 @@
                         Notiz:
                       =booking.notiz
               .extra.content
-                = link_to edit_booking_path(booking), :id => booking.id do
+                = link_to edit_booking_path(booking), :id => booking.id, :class => "popup",:"data-content" => "Buchung bearbeiten" do
                   %i.edit.outline.icon
                   %small
                     Bearbeiten
@@ -141,7 +141,7 @@
                 - when "block"
                   %i.right.floated.fa.fa-ban
                 .header
-                  = "#{booking.booker.vorname} #{booking.booker.name}"
+                  = link_to "#{booking.booker.vorname} #{booking.booker.name}", edit_mieter_path(booking.booker), :class => "popup",:"data-content" => "Mieter bearbeiten"
                 .description
                   %p
                     %strong
@@ -159,7 +159,7 @@
                         Notiz:
                       =booking.notiz
               .extra.content
-                = link_to edit_booking_path(booking), :id => booking.id do
+                = link_to edit_booking_path(booking), :id => booking.id, :class => "popup",:"data-content" => "Buchung bearbeiten" do
                   %i.edit.outline.icon
                   %small
                     Bearbeiten

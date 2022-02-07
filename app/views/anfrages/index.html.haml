@@ -1,6 +1,6 @@
 %h1 Anfragen
 
-%table.ui.table
+%table.ui.table.anfrageTable
 
   %thead
     %tr
@@ -32,3 +32,17 @@
         %td= link_to 'Löschen', anfrage, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
+
+:javascript
+  $(document).ready(function () {
+    var mieterTable = $('.anfrageTable').DataTable({
+      columnDefs: [
+        {bSortable: false, targets: [8,9,10]} 
+      ],
+      "order": [[ 4, "asc" ]]
+    });
+
+    mieterTable.buttons().container().appendTo( $('div.nine.column:eq(0)', mieterTable.table().container()) );
+    
+    $('.ui.button', mieterTable.buttons().container()).addClass('basic')
+  });

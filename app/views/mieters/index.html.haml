@@ -1,5 +1,5 @@
-%h2 Mieter:
-%table.table.ui
+%h2 Mieter
+%table.table.ui.mieterTable
   %thead
     %tr
       %th #
@@ -10,6 +10,7 @@
       %th Strasse
       %th PLZ
       %th Ort
+      %th Notiz
       %th
       %th
   %tbody
@@ -23,9 +24,24 @@
         %td= mieter.strasse
         %td= mieter.plz
         %td= mieter.ort
+        %td= mieter.notiz.truncate(30)
         %td
           = link_to edit_mieter_path(mieter), :class => "popup",:"data-content" => "Bearbeiten" do
             %i.edit.outline.icon
         %td
           = link_to  mieter, method: :delete, :class => "popup", data: { confirm: 'Wirklich löschen?', content: "Löschen" }, style: "margin-left: 5px" do
             %i.trash.alternate.outline.icon
+
+:javascript
+  $(document).ready(function () {
+    var mieterTable = $('.mieterTable').DataTable({
+      columnDefs: [
+        {bSortable: false, targets: [9,10]} 
+      ],
+      "order": [[ 2, "asc" ], [ 1, "asc" ]]
+    });
+
+    mieterTable.buttons().container().appendTo( $('div.nine.column:eq(0)', mieterTable.table().container()) );
+    
+    $('.ui.button', mieterTable.buttons().container()).addClass('basic')
+  });
