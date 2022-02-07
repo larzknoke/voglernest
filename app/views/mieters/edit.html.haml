@@ -21,8 +21,59 @@
     .field
       = f.label :plz, class: 'label'
       = f.text_field :plz, class: 'input', type: 'text'
-  .field
-    = f.label :ort, class: 'label'
-    = f.text_field :ort, class: 'input', type: 'text'
+  .two.fields
+    .field
+      = f.label :ort, class: 'label'
+      = f.text_field :ort, class: 'input', type: 'text'
+    .field
+      = f.label :notiz, class: 'label'
+      = f.text_field :notiz, class: 'input', type: 'text'
   .actions
     = f.submit 'Mieter anlegen', class: 'button ui green is-primary', type: 'submit'
+%br/
+.ui.divider
+%h3 Buchungen
+- if @mieter.bookings.size > 0
+  %table.ui.table
+
+    %thead
+      %tr
+        %th Name
+        %th Pers. Anzahl
+        %th Zeitraum
+        %th Notiz
+        %th Typ
+        %th
+        %th
+
+    %tbody
+      - @mieter.bookings.sort_by(&:time_start).reverse.each do |booking|
+        %tr
+          %td
+            = "#{booking.booker.vorname} #{booking.booker.name}"
+          %td
+            = booking.amount
+          %td
+            =booking.time_start.strftime("%d.%m.%Y")
+            = "-"
+            =booking.time_end.strftime("%d.%m.%Y")
+          %td
+            = booking.notiz.truncate(30)
+          %td
+            - case booking.typ
+            - when "std"
+              = "Normal"
+            - when "airbnb"
+              = "Airbnb"
+            - when "block"
+              = "Blocker"
+          %td
+            = link_to edit_booking_path(booking), :id => booking.id, :class => "popup",:"data-content" => "Bearbeiten" do
+              %i.edit.outline.icon
+          %td
+            = link_to  booking_path(booking), method: :delete, :class => "popup", data: { confirm: 'Wirklich löschen?', content: "Löschen" }, style: "margin-left: 5px" do
+              %i.trash.alternate.outline.icon
+    
+- else
+  .ui.message
+    keine Buchungen von diesen Mieter 

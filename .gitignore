@@ -35,3 +35,5 @@ Gemfile.lock
 
 /storage/*
 !/storage/.keep
+
+/db/schema.rb
