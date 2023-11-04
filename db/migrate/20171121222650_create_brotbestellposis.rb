@@ -1,4 +1,4 @@
-class CreateBrotbestellposis < ActiveRecord::Migration
+class CreateBrotbestellposis < ActiveRecord::Migration[6.0]
   def change
     create_table :brotbestellposis do |t|
       t.integer :menge

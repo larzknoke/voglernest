@@ -1,4 +1,4 @@
-class CreateOpenhours < ActiveRecord::Migration
+class CreateOpenhours < ActiveRecord::Migration[6.0]
   def change
     create_table :openhours do |t|
       t.string :tag

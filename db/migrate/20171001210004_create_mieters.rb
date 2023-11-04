@@ -1,4 +1,4 @@
-class CreateMieters < ActiveRecord::Migration
+class CreateMieters < ActiveRecord::Migration[6.0]
   def change
     create_table :mieters do |t|
       t.string :name

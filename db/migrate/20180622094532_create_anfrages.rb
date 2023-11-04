@@ -1,4 +1,4 @@
-class CreateAnfrages < ActiveRecord::Migration
+class CreateAnfrages < ActiveRecord::Migration[6.0]
   def change
     create_table :anfrages do |t|
       t.string :name

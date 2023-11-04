@@ -1,4 +1,4 @@
-class CreateBrottyps < ActiveRecord::Migration
+class CreateBrottyps < ActiveRecord::Migration[6.0]
   def change
     create_table :brottyps do |t|
       t.string :name

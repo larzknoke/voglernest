@@ -1,4 +1,4 @@
-class CreateBrotsortes < ActiveRecord::Migration
+class CreateBrotsortes < ActiveRecord::Migration[6.0]
   def change
     create_table :brotsortes do |t|
       t.string :name
