@@ -30,9 +30,11 @@ class AnfragesController < ApplicationController
     @anfrage = Anfrage.new(anfrage_params)
 
     # Datum String für DB teilen
-    daterange = params[:anfrage][:daterange]
-    @anfrage.startDate = daterange.split("-")[0].strip!
-    @anfrage.endDate = daterange.split("-")[1].strip!
+    start_date, end_date = params[:anfrage][:daterange].to_s.split("-").map(&:strip)
+    return head :unprocessable_entity if start_date.blank? || end_date.blank?
+
+    @anfrage.startDate = start_date
+    @anfrage.endDate = end_date
 
     # Datenschutz Check
     if (params[:anfrage][:datenschutz].to_f != 1)
