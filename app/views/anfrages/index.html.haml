@@ -17,19 +17,25 @@
       %th
 
   %tbody
-    - @anfrages.sort_by(&:created_at).reverse.each do |anfrage|
+    - @anfrages.sort_by { |a| a.created_at || Time.at(0) }.reverse.each do |anfrage|
       %tr
         %td= anfrage.name
         %td= anfrage.email
         %td= anfrage.telefon
         %td= anfrage.anzahl
-        %td= anfrage.created_at.strftime("%d.%m.%y")
-        %td= "#{anfrage.startDate.strftime('%d.%m.%y')} - #{anfrage.endDate.strftime('%d.%m.%y')}"
+        %td= anfrage.created_at&.strftime("%d.%m.%y") || "-"
+        %td= "#{anfrage.startDate&.strftime('%d.%m.%y') || '-'} - #{anfrage.endDate&.strftime('%d.%m.%y') || '-'}"
         %td= anfrage.nachricht.present? ? anfrage.nachricht&.truncate(10) : "-"
         %td= check(anfrage.antwort)
-        %td= link_to 'Zeigen', anfrage_path(anfrage)
-        %td= link_to 'Bearbeiten', edit_anfrage_path(anfrage)
-        %td= link_to 'Löschen', anfrage, method: :delete, data: { confirm: 'Are you sure?' }
+        %td
+          = link_to anfrage_path(anfrage), :class => "popup", :"data-content" => "Zeigen" do
+            %i.eye.icon
+        %td
+          = link_to edit_anfrage_path(anfrage), :class => "popup", :"data-content" => "Bearbeiten" do
+            %i.edit.outline.icon
+        %td
+          = link_to anfrage, method: :delete, :class => "popup", data: { confirm: 'Wirklich löschen?', content: "Löschen" }, style: "margin-left: 5px" do
+            %i.trash.alternate.outline.icon
 
 %br
 
