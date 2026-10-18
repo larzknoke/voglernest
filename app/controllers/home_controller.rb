@@ -5,7 +5,10 @@ class HomeController < ApplicationController
   def index
     @openhours = Openhour.all
     @feeds = Feed.all.where.not(deaktiviert: true).sort_by(&:priority).reverse
-    render layout: 'home/home'
+    respond_to do |format|
+      format.html { render layout: 'home/home' }
+      format.any { head :not_acceptable }
+    end
   end
 
   def hof
