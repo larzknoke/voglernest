@@ -35,22 +35,22 @@
 
 
 
-  .col-lg-6.offset-lg-1.mx-md-3.my-md-5.my-lg-0
-    = form_for :message, :url => contact_path, :remote => true, :html =>{:class => 'contact-form'} do |form|
-      .form-group
-        = form.text_field :name, class: 'form-control', placeholder: 'Name'
-      .form-row
-        .form-group.col-6
-          = form.text_field :email, class: 'form-control', placeholder: 'E-Mail'
-        .form-group.col-6
-          = form.text_field :telefon, class: 'form-control', placeholder: 'Telefon'
-      .form-group
-        = form.text_area :text, class: 'form-control', rows: 8, placeholder: 'Nachricht'
+  -# .col-lg-6.offset-lg-1.mx-md-3.my-md-5.my-lg-0
+  -#   = form_for :message, :url => contact_path, :remote => true, :html =>{:class => 'contact-form'} do |form|
+  -#     .form-group
+  -#       = form.text_field :name, class: 'form-control', placeholder: 'Name'
+  -#     .form-row
+  -#       .form-group.col-6
+  -#         = form.text_field :email, class: 'form-control', placeholder: 'E-Mail'
+  -#       .form-group.col-6
+  -#         = form.text_field :telefon, class: 'form-control', placeholder: 'Telefon'
+  -#     .form-group
+  -#       = form.text_area :text, class: 'form-control', rows: 8, placeholder: 'Nachricht'
 
-      %button.btn.btn-small.pull-right{:href => "/", :style => "width: 100%",:type => "submit"}
-        %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
-        Senden
-    .form-notice
+  -#     %button.btn.btn-small.pull-right{:href => "/", :style => "width: 100%",:type => "submit"}
+  -#       %i.fa.fa-angle-double-right{"aria-hidden" => "true"}
+  -#       Senden
+  -#   .form-notice
 
 
 #contact-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "Contact Form", :role => "dialog", :tabindex => "-1"}
