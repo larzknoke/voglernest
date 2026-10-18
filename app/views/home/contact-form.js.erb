@@ -1,5 +1,6 @@
 console.log("<%= @message.valid? %>");
-if (<%= @recaptcha_valid && @message.valid? %>) {
+//if (<%= @recaptcha_valid && @message.valid? %>) {
+if (<%= @message.valid? %>) {
   $('.contact-form')[0].reset();
   $('#contact-modal').modal("show")
 } else {

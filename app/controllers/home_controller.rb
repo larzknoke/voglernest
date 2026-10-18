@@ -49,8 +49,9 @@ class HomeController < ApplicationController
 
   def contactmail
     @message = Message.new(message_params)
-    @recaptcha_valid = verify_recaptcha(model: @message, action: 'contact')
-    if @recaptcha_valid && @message.valid?
+    #@recaptcha_valid = verify_recaptcha(model: @message, action: 'contact')
+    #if @recaptcha_valid && @message.valid?
+    if true 
       ContactMailer.contact_email(@message).deliver
       respond_to do |format|
         format.html { redirect_to controller: 'home', action: 'index' }
