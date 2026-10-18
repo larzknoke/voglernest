@@ -116,7 +116,8 @@ Rails.application.configure do
     exception_recipients: %w{larz.knoke@gmail.com}
   }
 
-
+  config.hosts << "voglerhof.de"
+  config.hosts << "www.voglerhof.de"
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
