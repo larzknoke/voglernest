@@ -49,7 +49,7 @@ gem "recaptcha"
 
 
 gem "bundler", ">= 1.8.4"
-source "https://rails-assets.org" do
+source "http://insecure.rails-assets.org" do
   # gem "rails-assets-semantic-ui-daterangepicker"
   gem "rails-assets-semantic-ui-calendar"
   gem "rails-assets-momentjs"
