@@ -24,6 +24,13 @@ class HomeController < ApplicationController
   end
 
   def fw
+    if params[:start_date].present?
+      begin
+        Date.parse(params[:start_date].to_s)
+      rescue ArgumentError, TypeError
+        params.delete(:start_date)
+      end
+    end
     @calendar_events = Fewo.all.collect(&:bookings).flatten.compact
     render layout: 'home/home'
   end
