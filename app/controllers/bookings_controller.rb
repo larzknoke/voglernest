@@ -22,8 +22,15 @@ class BookingsController < ApplicationController
     @mieter = Mieter.find(params[:mieter_id])
     @anzahl = params[:capacity].to_i
     @fewo = Fewo.find(params[:fewo_id])
-    @check_in = Time.zone.parse(params[:check_in]).change(hour: 15)
-    @check_out = Time.zone.parse(params[:check_out]).change(hour: 11)
+    check_in = params[:check_in].present? ? Time.zone.parse(params[:check_in]) : nil
+    check_out = params[:check_out].present? ? Time.zone.parse(params[:check_out]) : nil
+    if check_in.nil? || check_out.nil?
+      flash[:notice] = "Bitte An- und Abreisedatum angeben!"
+      redirect_to dashboard_bookings_path
+      return
+    end
+    @check_in = check_in.change(hour: 15)
+    @check_out = check_out.change(hour: 11)
     @typ = params[:typ]
     @notiz = params[:notiz]
 

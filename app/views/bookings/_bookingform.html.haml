@@ -1,4 +1,4 @@
-= form_tag({controller: "bookings", action: "create"}, method: "post", class: "ui form") do
+= form_tag({controller: "bookings", action: "create"}, method: "post", class: "ui form", id: "booking-create-form") do
   = hidden_field_tag :fewo_id, Fewo.all.last.id
   = hidden_field_tag :typ, "std"
   .field
@@ -61,3 +61,17 @@
     .field
       .control
         = submit_tag 'Buchungen anlegen', class: 'button ui green'
+
+:javascript
+  $(function() {
+    $('#booking-create-form').form({
+      inline: true,
+      on: 'submit',
+      fields: {
+        mieter_id: { identifier: 'mieter_id', rules: [{ type: 'empty', prompt: 'Bitte Mieter auswählen' }] },
+        capacity: { identifier: 'capacity', rules: [{ type: 'empty', prompt: 'Bitte Anzahl Personen auswählen' }] },
+        check_in: { identifier: 'check_in', rules: [{ type: 'empty', prompt: 'Bitte Check-In angeben' }] },
+        check_out: { identifier: 'check_out', rules: [{ type: 'empty', prompt: 'Bitte Check-Out angeben' }] }
+      }
+    });
+  });
